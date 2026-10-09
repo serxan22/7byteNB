@@ -120,10 +120,34 @@ export default function Sources() {
         </details>
       </section>
 
+      <section className="mt-10">
+        <h2 className="text-xl font-extrabold">Tətbiq edilə bilərlik: məlumat və xərc</h2>
+        <div className="mt-3 overflow-x-auto rounded-xl border border-sand-3 bg-sand-2">
+          <table className="w-full min-w-[640px] text-left text-sm">
+            <thead className="border-b border-sand-3 text-xs text-ink-3"><tr><th className="px-3 py-2">Məlumat</th><th className="px-3 py-2">İndi</th><th className="px-3 py-2">İstehsal üçün lazımdır</th></tr></thead>
+            <tbody>
+              {[
+                ["Sərhədlər, POI, metro, dayanacaq, yollar", "real (OSM)", "aylıq avtomatik yeniləmə + data-sanity testləri"],
+                ["Əhali, sıxlıq", "rəsmi (DSK, 01.01.2026)", "illik yeniləmə"],
+                ["Qiymətlər", "54 elan medianı + 7 dərc olunmuş rəqəm; 40 demo", "elan portalı / bank / Qiymətləndiricilər Palatası ilə tərəfdaşlıq (API)"],
+                ["Metro siyahısı", "27 işləyən stansiya ilə yoxlanılıb", "rəsmi GTFS / Metropoliten API"],
+                ["Hüquqi mətnlər", "yoxdur — AI maddə nömrəsi çəkmir", "hüquqşünas tərəfindən yoxlanmış korpus"],
+                ["Tıxac / real səyahət vaxtı", "yoxdur (düz xətt × 1.4)", "Waze for Cities / Yandex tərəfdaşlığı"],
+              ].map((r) => <tr key={r[0]} className="border-b border-sand-3/60 last:border-0">{r.map((c, i) => <td key={i} className={`px-3 py-2 ${i ? "text-ink-2" : "font-semibold"}`}>{c}</td>)}</tr>)}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-3 max-w-[75ch] text-sm leading-relaxed text-ink-2">
+          Xərc: bir AI çağırışı orta hesabla ~2 000 giriş + ~400 çıxış token istifadə edir (ölçülüb). Bir sessiya (~4 çağırış) gemini-3.7-flash ilə ≈ $0.006, ehtiyatlı qiymətlə ≈ $0.03; 1000 istifadəçi ≈ $6–26. Pulsuz Gemini limiti demo üçün kifayətdir, keş təkrar sualları pulsuz edir; hostinq pulsuzdur (statik məlumat). Ətraflı: <Link href="/keyfiyyet" className="underline">Keyfiyyət və testlər</Link>. Növbəti addım: bir rieltorla 4 həftəlik pilot, qiymət məlumatı tərəfdaşlığı, aylıq OSM yeniləməsi.
+        </p>
+      </section>
+
       <section className="mt-10 grid gap-8 md:grid-cols-2">
         <div>
           <h2 className="text-xl font-extrabold">Metodologiya</h2>
           <ul className="mt-3 space-y-3 text-sm leading-relaxed text-ink-2">
+            <li><b className="text-ink">Məhəllələr.</b> H3 (rezolyusiya 8, ~0.7 km²) altıbucaqlar: Bakı, Sumqayıt, Gəncə — 1 737 məhəllə; ən yaxın metro (27 işləyən stansiya ilə yoxlanılıb), dayanacaq, məktəb, bağça, park məsafəsi; ad OSM yaşayış məntəqəsindən. Qiymət məhəllədə ≥5 elan varsa median, yoxdursa rayon ortası.</li>
+            <li><b className="text-ink">Qərar mühərriki.</b> AI sorğunu strukturlaşdırır və izah edir; uyğun əraziləri kod süzür və sıralayır; etibarlılıq balını kod hesablayır (əhatə 40%, sorğunun tamlığı 25%, 1-ci və 2-ci arasında fərq 20%, şərtlərə uyğunluq 15%).</li>
             <li><b className="text-ink">Ərazilər.</b> OSM inzibati sərhədləri: 75 rayon/şəhər və Bakının 12 rayonu. Dəniz sahəsi Xəzər sahil xətti ilə kəsilib (adalar saxlanılıb). Əhali və sıxlıq — DSK, 01.01.2026.</li>
             <li><b className="text-ink">Xidmətlər.</b> OSM obyektləri (aptek, ərzaq, məktəb, bağça, xəstəxana, poliklinika, bank, kafe, idman, park və s.) poliqonun içinə düşməsinə görə sayılır və 10 min sakinə bölünür.</li>
             <li><b className="text-ink">Nəqliyyat.</b> Metro və dəmiryol stansiyaları (ada görə unikal), avtobus dayanacaqları, OSM-də xəritələnən avtobus/mikroavtobus marşrutları; Bakı rayonları üçün mərkəzdən ən yaxın metroya düz xətt məsafəsi.</li>
@@ -144,7 +168,7 @@ export default function Sources() {
           </ul>
           <h2 className="mt-8 text-xl font-extrabold">Məhdudiyyətlər</h2>
           <ul className="mt-3 list-inside list-disc space-y-1.5 text-sm leading-relaxed text-ink-2">
-            <li>Qiymətlərin çoxu demo dəyərdir; rayonlar üzrə rəsmi qiymət statistikası yoxdur.</li>
+            <li>Qiymətlər: 17 ərazidə bina.az elan medianı (2024, istifadəçinin verdiyi dataset; scraping etmirik, yalnız aqreqat saxlanılır), 7 dərc olunmuş rəqəm, qalanları demo. Rayonların çoxunda qiymət yoxdur.</li>
             <li>OSM regionlarda natamamdır: az obyekt “yoxdur” yox, “xəritələnməyib” deməkdir. Hər ərazidə əhatə səviyyəsi göstərilir.</li>
             <li>Marşrut sayı yalnız OSM-də xəritələnən xətləri əks etdirir; regionlarda bu rəqəm çox aşağıdır.</li>
             <li>PM2.5 ölçmə deyil, model təxminidir; iqlim ərazinin mərkəz nöqtəsi üçündür.</li>

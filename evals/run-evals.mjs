@@ -5,6 +5,7 @@ import { generateJSON } from "../src/lib/ai.ts";
 import { IntentSchema, LegalSchema } from "../src/lib/schemas.ts";
 import { INTENT_SYSTEM, LEGAL_SYSTEM, regionForAI } from "../src/lib/prompts.ts";
 import { keywordIntent, locationCatalog, retrieve } from "../src/lib/decide.ts";
+const ST = JSON.parse(fs.readFileSync("public/data/settlements.json", "utf8"));
 import { legalDetect } from "../src/lib/fallbacks.ts";
 
 try { process.loadEnvFile(".env.local"); } catch {}
@@ -117,7 +118,7 @@ function evalRetrieval() {
     intent.locations_mentioned = c.locs;
     intent.hard_constraints = { metro_within_m: null, school_within_m: null, kindergarten_within_m: null, park_within_m: null, max_price_m2: null, outside_baku: false, mountain: false, coastal: false, ...c.cons };
     intent.budget_azn = null;
-    const r = retrieve(intent, regions, hx, catalog);
+    const r = retrieve(intent, regions, hx, catalog, ST);
     const ok = r.candidates.filter((x) => x.fits_constraints).length;
     return { name: c.name, returned: r.candidates.length, satisfying: ok, relaxed: r.relaxed, pass: r.candidates.length > 0 && ok === r.candidates.length && !r.relaxed.length, sample: r.candidates.slice(0, 2).map((x) => x.label) };
   });

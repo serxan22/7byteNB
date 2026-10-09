@@ -11,6 +11,8 @@ export type Hex = {
   pm?: number; pn?: number;
 };
 export type HexData = { res: number; cats: string[]; hexes: Hex[] };
+export type Settlement = { id: string; n: string; t: 0 | 1; c: [number, number]; r: string; p: number[]; s: number | null };
+export type SettlementData = { cats: string[]; radius_m: number; settlements: Settlement[] };
 export type LocationRef = { id: string; name: string; kind: "region" | "metro" | "place" };
 
 const norm = (s: string) =>
@@ -85,7 +87,7 @@ export function keywordIntent(text: string, catalog: LocationRef[]): Intent {
 // ---------- retrieval ----------
 export type Candidate = {
   rank: number;
-  kind: "hex" | "region";
+  kind: "hex" | "region" | "settlement";
   area_id: string;
   label: string;
   region_id: string;
@@ -102,7 +104,7 @@ const clamp = (x: number) => Math.max(0, Math.min(1, x));
 const distM = (a: [number, number], b: [number, number]) => Math.hypot((a[0] - b[0]) * 111320 * Math.cos((a[1] * Math.PI) / 180), (a[1] - b[1]) * 110570);
 const BIZ_CAT: Record<string, string[]> = { cafe: ["food"], pharmacy: ["pharmacy"], grocery: ["grocery"], clinic: ["clinic", "hospital"], kindergarten: ["kindergarten"], sport: ["sport"], other: ["grocery", "food"] };
 
-export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog: LocationRef[]): Retrieval {
+export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog: LocationRef[], st?: SettlementData): Retrieval {
   const byId = new Map(regions.map((r) => [r.id, r]));
   const ci = (c: string) => hx.cats.indexOf(c);
   const locs = intent.locations_mentioned
@@ -224,6 +226,47 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
     }
   }
   picks.sort((a, b) => b.s - a.s);
+  // C2: outside the hex cities, turn the best rayons into concrete towns/villages (stats within 1.5 km)
+  if (mode === "region" && st && !biz) {
+    const top = scored.slice(0, 6);
+    const sc = (c: string, x: Settlement) => x.p[st.cats.indexOf(c)] ?? 0;
+    const local = (x: Settlement) => {
+      const f: Record<IndexKey, number> = {
+        rahatliq: clamp((sc("grocery", x) + sc("food", x) + sc("pharmacy", x) + sc("bank_atm", x)) / 12),
+        tehsil: clamp((sc("school", x) + sc("kindergarten", x)) / 4),
+        sehiyye: clamp((sc("hospital", x) + sc("clinic", x) + sc("pharmacy", x)) / 3),
+        neqliyyat: x.s == null ? 0 : clamp(1 - (x.s - 300) / 1700),
+        tebiet: 0.5 + 0.5 * clamp(sc("park", x) / 3),
+        infrastruktur: 0.5,
+        elcatanliq: 0.5,
+      };
+      let num = 0, den = 0;
+      for (const k of Object.keys(f) as IndexKey[]) { num += (w[k] ?? 0) * f[k]; den += w[k] ?? 0; }
+      return den ? (100 * num) / den : 50;
+    };
+    const setts = top.flatMap(({ x, s: rs }) => st.settlements.filter((z) => z.r === (x as Region).id).map((z) => ({ z, reg: x as Region, s: 0.55 * rs + 0.45 * local(z) })));
+    if (setts.length >= 3) {
+      setts.sort((a, b) => b.s - a.s);
+      const per: Record<string, number> = {};
+      const seenName = new Set<string>();
+      const chosen = setts.filter((c) => !seenName.has(c.z.n + c.reg.id) && (seenName.add(c.z.n + c.reg.id), (per[c.reg.id] = (per[c.reg.id] ?? 0) + 1) <= 2)).slice(0, 5);
+      const cands: Candidate[] = chosen.map(({ z, reg, s: sc2 }, i) => {
+        const violations = rules.filter((r) => !r.test(reg)).map((r) => r.label);
+        const pp = reg.prices[intent.property_type] ?? reg.prices.menzil_kohne;
+        const n = (c: string) => z.p[st.cats.indexOf(c)] ?? 0;
+        return {
+          rank: i + 1, kind: "settlement", area_id: z.id, label: `${reg.name} · ${z.n}`, region_id: reg.id, region_name: reg.name, centroid: z.c, score: Math.round(sc2), fits_constraints: !violations.length, violations,
+          metrics: {
+            settlement_type: z.t ? "şəhər/qəsəbə" : "kənd", radius_m: st.radius_m, grocery: n("grocery"), food: n("food"), pharmacy: n("pharmacy"), school: n("school"), kindergarten: n("kindergarten"), clinic: n("clinic") + n("hospital"), bus_stop_m: z.s,
+            rayon_terrain: reg.nature.terrain, rayon_elevation_m: reg.nature.elev_mean, rayon_july_max_c: reg.climate.july_max_c, rayon_pm25: reg.air.pm25, rayon_coastal: reg.nature.coastal ? "bəli" : "xeyr",
+            price_m2: pp?.value ?? null, price_confidence: pp?.confidence ?? null, osm_coverage: reg.coverage.osm,
+          },
+        };
+      });
+      return { mode, pool: filtered.length, candidates: cands, relaxed, scope: `${scope} · kənd və qəsəbələr` };
+    }
+  }
+
   const candidates: Candidate[] = picks.map(({ x, s }, i) => {
     const violations = rules.filter((r) => !r.test(x)).map((r) => r.label);
     if (isHex(x)) {

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import type { Map as MLMap, GeoJSONSource, Marker } from "maplibre-gl";
 import type { Level, Region } from "@/lib/types";
 
-export type Highlight = { rank: number; centroid: [number, number]; area_id: string; kind: "hex" | "region" };
+export type Highlight = { rank: number; centroid: [number, number]; area_id: string; kind: "hex" | "region" | "settlement"; region_id?: string };
 type Props = {
   level: Level;
   regions: Region[];
@@ -260,7 +260,7 @@ export default function MapView({ level, regions, colors, hexColors, selectedId,
     pins.current.forEach((p) => p.remove());
     pins.current = [];
     const hexIds = hl.filter((h) => h.kind === "hex").map((h) => h.area_id);
-    const regIds = hl.filter((h) => h.kind === "region").map((h) => h.area_id);
+    const regIds = hl.filter((h) => h.kind !== "hex").map((h) => (h.kind === "region" ? h.area_id : h.region_id ?? ""));
     m.setFilter("hex-hl", ["in", ["get", "id"], ["literal", hexIds]]);
     for (const src of ["az", "baku"]) m.setFilter(`${src}-hl`, ["in", ["get", "id"], ["literal", regIds]]);
     if (!hl.length) return;
@@ -272,12 +272,12 @@ export default function MapView({ level, regions, colors, hexColors, selectedId,
       el.onclick = (ev) => {
         ev.stopPropagation();
         if (h.kind === "hex") cb.current.onSelectHex(h.area_id);
-        else cb.current.onSelect(h.area_id);
+        else cb.current.onSelect(h.kind === "region" ? h.area_id : h.region_id ?? h.area_id);
       };
       pins.current.push(new ml.Marker({ element: el }).setLngLat(h.centroid).addTo(m));
     }
     const xs = hl.map((h) => h.centroid[0]), ys = hl.map((h) => h.centroid[1]);
-    m.fitBounds([Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)], { padding: 80, maxZoom: hl[0].kind === "hex" ? 13.2 : 8.2, duration: 1400, essential: true });
+    m.fitBounds([Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)], { padding: 80, maxZoom: hl[0].kind === "hex" ? 12.4 : hl[0].kind === "settlement" ? 9.2 : 8.2, duration: 1400, essential: true });
   }
 
   useEffect(() => {

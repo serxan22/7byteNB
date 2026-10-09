@@ -30,7 +30,7 @@ function hexValue(h: Hex, metric: MetricKey, cats: string[], parent: Region | un
     case "price": return parent?.prices.menzil_kohne?.value ?? null;
     case "density": return parent?.density.v ?? null;
     case "air": return parent?.air.pm25 ?? null;
-    case "fit": return fit?.[h.r] ?? null;
+    case "fit": return null; // fit is a region-level score; keep hexes clear so the recommendation pins stand out
   }
 }
 
@@ -127,7 +127,7 @@ export default function Explorer() {
       setSelectedId(c[0].region_id);
       setSelectedHex(c[0].kind === "hex" ? c[0].area_id : null);
     }
-    setHighlights(c.map((x) => ({ rank: x.rank, centroid: x.centroid, area_id: x.area_id, kind: x.kind })));
+    setHighlights(c.map((x) => ({ rank: x.rank, centroid: x.centroid, area_id: x.area_id, kind: x.kind, region_id: x.region_id })));
   }
   function onPick(c: Candidate) {
     setSelectedId(c.region_id);

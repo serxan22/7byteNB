@@ -1,145 +1,129 @@
 # Məskən — harada yaşamalı, rəqəmlərlə
 
-**Məskən** is a 2D data map of Azerbaijan for people buying a flat, a courtyard house, commercial property or land. Every rayon/city (75) and every Baku district (12) is a coloured region. Click one to see prices, services, transport, roads, nature and density as charts. An AI analyst explains the area. Describe your life in one sentence and the whole map recolours by how well each area fits *you*.
+**Məskən** helps a home buyer in Azerbaijan pick an *area*, not just a flat. You write one sentence ("Nərimanovda metroya yaxın ev lazımdır"). An AI decision engine turns it into constraints. Deterministic code then ranks 87 regions and **1,737 micro-areas** (H3 hexes) against them, and AI explains each recommendation with real numbers. A confidence score, computed by code rather than the model, says how much to trust the answer.
 
-**Live demo:** _<Vercel URL>_ · **UI language:** Azerbaijani · **AI:** Google Gemini (flash models, free tier)
+**Live demo:** https://meskan-seven.vercel.app (app: [/xerite](https://meskan-seven.vercel.app/xerite), tests: [/keyfiyyet](https://meskan-seven.vercel.app/keyfiyyet)) · **UI language:** Azerbaijani · **AI:** Google Gemini (flash models, free tier) · **Tests:** [`/keyfiyyet`](#3-quality-testing)
+
+| Landing: one sentence in | Decision engine: 5 micro-areas, confidence, map pins | Quality tests on `/keyfiyyet` |
+|---|---|---|
+| ![Landing](docs/screenshots/landing.jpg) | ![Decision engine](docs/screenshots/decide.jpg) | ![Quality](docs/screenshots/quality.jpg) |
 
 ---
 
-## 1. Problem
+## 1. Value for the user
 
-> *Ev alan insan 3 şeyi bilmir: hansı ərazi ona uyğundur, evin real qiyməti nədir, alışda hüquqi risk nədir.*
-> (A home buyer doesn't know three things: which area suits them, what the real price is, and what the legal risk is.)
+**Who:** a first-time buyer family in Baku (two adults and a child, budget ~150–200k ₼, one parent commuting).
+**Outcome:** a shortlist of 5 concrete micro-areas in about 2 minutes, each with metro walking distance, the nearest school and kindergarten, a price and its source, plus a legal-risk check of the listing they are about to call.
 
-- **Which area fits me?** Listing sites show flats, not neighbourhoods. Within Baku, the price per m² differs **more than 2.8×** between districts: Səbail averages 4,132 ₼/m² and Pirallahı 1,452 ₼/m² ([Caliber.az, 30.09.2026](https://caliber.az/en/post/a-metre-at-a-premium-why-are-property-prices-rising-in-baku)). Nobody shows what you get for that difference: schools, metro, paved roads, clean air.
-- **What is the real price?** Housing prices rose 8.6% year-on-year in Q2 2026, and new builds rose 12.4%, while wages rose about 7% ([JAM News citing the Central Bank of Azerbaijan, 31.08.2026](https://jam-news.net/salaries-rise-7-while-house-prices-climb-12-4-is-it-worth-buying-home-in-azerbaijan/)). A cheaper flat far from work can cost more over 10 years once commuting is counted.
-- **What is the legal risk?** Listings routinely say *"kupça hazırlanır"*, *"müqavilə ilə"*, *"çıxarışsız"* or *"etibarnamə ilə"*. These phrases signal missing ownership documents, and most buyers don't know what they mean.
+**Why this is needed (sourced):**
 
-_User interviews:_ `<!-- TODO: add 2–3 real quotes from buyers we talked to -->`
+| Figure | Source |
+|---|---|
+| New-build prices **+12.4%** y/y (Q2 2026); all housing +8.6% | Central Bank review via [JAM News, 31.08.2026](https://jam-news.net/salaries-rise-7-while-house-prices-climb-12-4-is-it-worth-buying-home-in-azerbaijan/) |
+| Wages **+7%**, so prices outpace income | same |
+| **2.8×** price gap between Baku districts (Səbail 4,132 ₼/m², Pirallahı 1,452 ₼/m²) | [Caliber.az, 30.09.2026](https://caliber.az/en/post/a-metre-at-a-premium-why-are-property-prices-rising-in-baku) |
+| **21%** of 100,436 Baku listings state "Çıxarış: yoxdur" (no property deed) | bina.az listings dataset, Oct–Nov 2024 (aggregated by us, see §4) |
 
-## 2. Solution
+The three questions a buyer can't answer today: *Which area suits me? What is the real price? Is there a legal risk?* Listing sites show flats, maps show places, and nobody joins them up for a decision.
 
-| Map + panel | Persona → personal fit | AI analyst + tools |
-|---|---|---|
-| ![Baku price map](docs/screenshots/map-baku.jpg) | ![Persona fit](docs/screenshots/persona-fit.jpg) | ![AI analyst](docs/screenshots/ai-analyst.jpg) |
+_User interviews / timing test:_ `<!-- TODO: 3 participants, manual bina.az + Google Maps vs Məskən, minutes + quotes (template on /keyfiyyet) -->`
 
-1. **Choropleth map** at two levels (Azerbaijan by rayon, Baku by district). Eight metrics: fit, flat price, density, services, transport, paved roads, nature, air (PM2.5). The colours sweep west→east when the metric changes.
-2. **Region panel** with KPI tiles and six tabs: prices by property type, services per 10k residents vs median, transport (metro, rail, stops, routes, route numbers), road surface, nature (land cover, elevation, climate, PM2.5 vs the WHO limit), and the area's "DNA" radar with "similar but cheaper" areas.
-3. **AI Analitik**: a category, headline, strengths and weaknesses (each with the metric behind it), who it suits, and what to watch out for. There is also an "ask about this area" box.
-4. **Persona**: "2 uşaqlı ailəyik, büdcəmiz 150 min, işim Nəsimidədir" becomes weights, budget, work hub and transport mode. The map recolours by fit, shows a TOP-5, and gives a "Sənin üçün" explanation.
-5. **Tools**: a 10-year true cost (price plus the commute's money and time), a legal check of a pasted listing, and a business-gap finder.
-6. **`/muqayise`** compares 2–3 areas with an AI verdict. **`/menbeler`** lists every dataset, date, coverage figure and limitation, plus which prices are real and which are demo values.
+## 2. Prototype & AI
 
-## 3. What the AI does (and why an LLM is needed)
+**Core scenario:** "Nərimanovda metroya yaxın ev lazımdır" → 5 micro-areas around Nəriman Nərimanov, Gənclik, Bakmil and other stations. Each shows walking distance to the metro (e.g. 540 m), school distance, the count of groceries and pharmacies, the price per m² with its badge, a trade-off, and "bina.az / tap.az" search links. Confidence is 60/100 ("orta"), with a breakdown. The answer ends with one clarifying question: *"Büdcən nə qədərdir?"* The map flies to the 5 numbered, pulsing pins.
 
-| # | Feature | Why it needs an LLM |
-|---|---|---|
-| 1 | **Area profiles** (87, precomputed) | Turns ~60 numbers into a readable verdict and assigns category tags. The reasoning differs by area; a template can't weigh "few schools but 6 metro stations". |
-| 2 | **Persona → weights** | Free Azerbaijani text ("təqaüdçüyəm, sakit yer") must become a structured search (property type, budget, hub, mode, 7 weights). |
-| 3 | **"Sənin üçün"** | Explains *this* fit score for *this* person, including the trade-offs. |
-| 4 | **Ask about an area** | Open questions, answered only from the area's JSON; it says when the data can't answer. |
-| 5 | **Compare** | Synthesises 2–3 multi-dimensional profiles into "who should pick which". |
-| 6 | **Legal check** | Reads informal listing language and maps it to risks and a document checklist. Known risk phrases are also caught by a deterministic detector, so they're never missed. |
-
-**Grounding rules** (in every prompt): use only numbers from the provided JSON. Say when OSM coverage is low or a price is a demo value. Cite law articles only if their text is in `data/legal/`. Make no promises about future prices. All outputs are JSON-schema constrained (`responseJsonSchema`), validated with zod and retried once on a validation error. Results are cached by sha256 of the input. On a rate limit or outage the app falls back to clearly labelled rule-based text.
-
-**Provider:** Google Gemini via `@google/genai`. The default model is `gemini-3.7-flash`, with automatic fallback to other flash models on 429/503 (`gemini-2.5-flash` is closed to new API keys). Every call goes through one wrapper: `src/lib/ai.ts → generateJSON(prompt, zodSchema)`.
-
-## 4. Data & transparency
-
-Every number in the UI carries a badge: **Canlı (OSM)**, **Rəsmi (DSK)**, **Hesablanıb** (computed), **Mətbuat** (published estimate), **Nümunə** (sample), **Demo**, **Model**.
-
-| Dataset | Source | Type | Coverage |
-|---|---|---|---|
-| Boundaries, POIs, stops, metro, routes, roads, land cover, coastline | OpenStreetMap, [Geofabrik extract](https://download.geofabrik.de/asia/azerbaijan-latest.osm.pbf), processed with osmium | Live (OSM) | 75 rayons + 12 Baku districts. POI coverage per area: 35 high / 24 medium / 16 low |
-| Population (01.01.2026), area, density | [DSK table 1.15](https://www.stat.gov.az/source/demoqraphy/az/001_15.xls) | Official | 87/87 |
-| Elevation (5×5 grid), terrain class | Open-Meteo Elevation API | Computed | 87/87 |
-| Climate 2025 (July max, January min, precipitation) | Open-Meteo / ERA5 | Model | 87/87 |
-| PM2.5, last 30 days | Open-Meteo / CAMS | Model | 87/87 |
-| Prices (5 property types) | `data/manual/prices.csv`: 7 published figures (Caliber.az, JAM News/Chamber of Appraisers, Cyril Jarnias) + 88 demo values | Press estimate / **Demo** | 12 Baku districts + 7 cities |
-| Legal texts | e-qanun.az (`data/legal/`) | Official | Empty → AI gives a checklist without article numbers |
-
-**Limitations**
-- **Most prices are demo values.** There is no open official price-by-district statistic, and we don't scrape listing sites (bina.az, tap.az). The demo values are consistent with the published anchors (centre > suburbs, new > old, regions < Baku) and are always badged "Demo". Replacing the CSV updates everything with no code changes.
-- OSM is incomplete outside big cities: a low count can mean "not mapped" rather than "doesn't exist". The UI and the AI both state the coverage level.
-- Bus routes reflect only what's mapped in OSM. Road surface is unknown for many roads; "paved %" uses only roads with a known surface.
-- PM2.5 and climate are model values at the area's centroid, not measurements.
-- There is no traffic or real travel-time data. Yandex/Waze are listed as future partnerships.
-
-## 5. Methodology
-
-- **Areas**: OSM `boundary=administrative` (admin_level 6 for rayons; Baku districts at levels 6–8). Polygons are clipped to land using the Caspian coastline, with islands kept. Baku at country level is the union of its 12 districts.
-- **Indices (0–100)**: each metric is converted to a percentile rank among areas of the same level, and each index is the mean of its metrics.
-  - *rahatlıq*: grocery, pharmacy, food, mall, bank per 10k
-  - *nəqliyyat*: stops per 10k, routes, metro, inverse distance to metro
-  - *təhsil*: schools, kindergartens, universities per 10k
-  - *səhiyyə*: hospitals, clinics, pharmacies per 10k
-  - *təbiət*: forest + water + grass + park share, inverse PM2.5, +10 if coastal
-  - *infrastruktur*: paved share, inverse unpaved share
-  - *əlçatanlıq*: inverse price
-- **Fit** = Σ(w·index)/Σw, plus a commute term (weight 0.8, distance to the work hub's centroid). If price × m² exceeds the budget, fit is multiplied by 0.3 and labelled "büdcədən baha".
-- **Similar but cheaper**: cosine similarity of the 6 non-price indices, keeping only cheaper areas, top 3.
-- **True cost (10 years)** = price × m² + 120 × (monthly transport + commute hours × hourly value). Distance = straight line × 1.4; speeds are metro 30, bus 15, car 25 (Baku) / 60 (intercity) km/h. Labelled "təxmini model".
-- **Business gap**: residents per facility vs the median of the level. Flagged if the ratio is > 1.5 and population is > 10k.
-- **Land cover**: a 30×30 (districts) or 36×36 (rayons) sample grid per area, intersected with OSM land-use polygons through a spatial grid index.
-
-## 6. Architecture
+### Decision-engine pipeline (`/api/decide`)
 
 ```mermaid
 flowchart LR
-  subgraph Pipeline [scripts/ — run once, cached in data/raw]
-    A[Geofabrik PBF] -->|osmium tags-filter/export| B[process-osm.mjs]
-    C[DSK xls] --> D[fetch-dsk.mjs]
-    E[Open-Meteo APIs] --> F[fetch-meteo.mjs]
-    G[prices.csv + aliases] --> H
-    B --> H[build-data.mjs + score.ts]
-    D --> H
-    F --> H
-    H --> I[ai-profiles.mjs · Gemini]
-    I --> H
-  end
-  H --> J[(public/data/*.json, *.geojson ≈0.6 MB)]
-  J --> K[Next.js 16 App Router · MapLibre · Recharts]
-  K --> L[/api/persona · fit-explain · ask · compare · legal-check/]
-  L --> M[src/lib/ai.ts generateJSON → Gemini]
-  M --> N[(data/ai-cache sha256)]
+  Q[User sentence] --> I["1 INTENT (Gemini, JSON schema)<br/>goal · type · budget · locations from a 248-item catalog<br/>hard constraints · soft weights · missing fields"]
+  I -->|AI unavailable| K[keyword-rule fallback]
+  I --> R["3 RETRIEVE (code)<br/>filter 1,737 hexes / 87 regions by hard constraints<br/>relax if empty · score by weights · diversity"]
+  K --> R
+  R --> E["4 EXPLAIN (Gemini, grounded)<br/>only the candidates' JSON · why + trade-off per area"]
+  R --> C["5 CONFIDENCE (code, never AI)<br/>coverage 40 · intent completeness 25<br/>#1–#2 margin 20 · constraints met 15"]
+  E --> U[Answer + map pins + clarifying question]
+  C --> U
 ```
 
-The app reads only `public/data`. There are no external map tiles: regions are GeoJSON polygons on a plain background.
+**What the AI adds over a rule baseline (measured, see §3):** it resolves place names with typos and slang ("nerimanovda kiraye") and catches *implicit* legal risk ("sənədlər sonra düzələcək"): **100% recall vs 58%** for keyword rules. The LLM never ranks and never computes the confidence score. Ranking is reproducible code, which keeps the AI honest.
 
-## 7. Business model
+Other AI features: precomputed area profiles for 87 regions (quality-gated, regenerated automatically when the data changes), a legal check of pasted listings, 2–3-area comparison, and "Sənin üçün" fit explanations.
 
-- **B2C: free** map, persona fit and basic legal check.
-- **B2B realtors and developers**: qualified leads (the persona plus the areas a user selected), and area reports for listings and new projects.
-- **Banks**: mortgage risk and demand by area; "ipotekaya yararlı" checks.
-- **Premium legal check** with partner lawyers and notaries (document review per transaction).
-- **Municipalities and executive authorities**: service-gap reports (residents per school, clinic or pharmacy by area).
+**Data features:** a choropleth map at two levels (8 metrics), H3 micro-area layer, region panel with 6 chart tabs (prices, services per 10k vs median, transport, road surface, nature and climate, a 7-index radar plus "similar but cheaper"), 10-year true-cost calculator (price + commute money and time), and a business-gap finder.
 
-## 8. Roadmap
+## 3. Quality testing
 
-1. Price-data partnerships (banks, appraisers' chamber, portals via official APIs) to replace the demo values.
-2. Google Places enrichment for the selected area (keys already supported via `GOOGLE_MAPS_API_KEY`).
-3. Waze for Cities / Yandex traffic partnership for real commute times.
-4. Full price coverage for all 75 rayons; settlement-level detail inside Abşeron.
-5. Legal corpus from e-qanun.az with article-level citations.
-6. Mobile app, saved searches and alerts.
+All tests live in [`/evals`](evals), write `public/data/evals.json`, and are shown on **`/keyfiyyet`**. Gemini runs on the free tier, sequentially, and cached cases are never re-run.
 
-## 9. Run locally
+| Eval | What | Result |
+|---|---|---|
+| **Intent** (20 Azerbaijani queries, incl. 3 vague and 2 slang/typo) | per-field accuracy, AI vs keyword rules | location **95% vs 80%**, budget **100% vs 90%**, goal 100 vs 95, property type 100 vs 100, constraints 75 vs 100* |
+| **Legal check** (18 listings: 6 clean, 12 risky incl. implicit) | precision / recall | AI **P 86% / R 100%** · rules P 100% / R 58% |
+| **Grounding** (30 AI texts, 402 numbers) | every number must exist (±1%) in the input JSON | **93.8%** grounded; the 6.2% miss was traced to stale profiles (fixed below) |
+| **Retrieval** (10 queries with hard constraints) | 100% of returned areas satisfy them | **10/10** |
+| **Data sanity** (14 checks) | completeness, NaN, plausibility, metro vs official list, outliers | **14/14** |
+
+\* The rule baseline scores 100% on constraints because the labels were written with the same keywords. The AI's errors were missing `coastal` for "dənizə yaxın" (the prompt has since been tightened).
+
+**Failure analysis (5 real bugs, input → wrong output → cause → fix):**
+1. **Xankəndi topped every ranking.** The 409 OSM POIs are mapped for the pre-2023 city (~55k residents), but DSK 2026 counts 4,400. That gives 47.7× the median per capita, so every index hit 99. **Fix:** a generic rule (>10× median ⇒ per-capita values become null, with a warning) and a data-sanity guard.
+2. **A non-existent metro station was recommended** ("20 Sentyabr"). OSM tags depots, exits and planned stations as `station=subway` (33 vs 27 real). **Fix:** validate against the 27-station list.
+3. **Stale AI numbers (6.2% ungrounded).** Profiles were written before fix #1 changed the percentiles. **Fix:** an input hash per profile, so changed data triggers regeneration.
+4. **NaN confidence.** Operator precedence (`s + x ?? 0`). Fixed.
+5. **Fallback model dropped Azerbaijani letters.** **Fix:** a profile quality gate (length, ≥6 numbers, forbidden generic phrases, ə/ğ/ı/ş present).
+
+## 4. Feasibility
+
+| Data | Status | Source | Needed for production |
+|---|---|---|---|
+| Boundaries, POIs, metro, stops, routes, roads, land cover | **real** | OpenStreetMap (Geofabrik, osmium) | monthly refresh job |
+| Population 01.01.2026 | **official** | DSK table 1.15 | yearly |
+| Elevation, climate 2025, PM2.5 (model) | **real / model** | Open-Meteo (Copernicus DEM, ERA5, CAMS) | none |
+| Prices | **61 real** (54 sample medians from 95,632 listings + 7 published figures) · **40 demo** | bina.az listings dataset (Oct–Nov 2024; supplied by the user, collected by a third party; **we don't scrape**, only aggregates are stored) + press | price-data partnership (portal API, banks, Chamber of Appraisers) |
+| Metro validation | real | 27 operating stations (Wikipedia list; metro.gov.az unreachable) | official GTFS |
+| Legal texts | not yet | e-qanun.az | lawyer-reviewed corpus |
+
+**Running cost (measured):** on average **2,027 input + 386 output tokens per AI call** (37 calls measured). A session of ~4 calls (decide = intent + explain, a follow-up, a legal check) costs **$0.006** at gemini-3.7-flash list prices (third-party tracker; $0.375 / $1.88 per 1M) to **$0.026** at the conservative 3.5-flash price ($1.50 / $9). That is **$6–26 per 1,000 users**. The free Gemini tier covers the demo, and the sha256 cache makes repeated questions free. Hosting is free (Vercel; data is static, ~1.6 MB).
+
+**Limitations:** most rayons have no price; OSM is thin outside cities (16 of 87 areas have low coverage, shown in the UI); hex prices come from 2024 listings (+8–12%/yr since); commute times are straight-line × 1.4 with no traffic; PM2.5 is a model value.
+
+**Next step:** a 4-week pilot with one Baku realtor (lead form + area report), a listing-data partnership to replace demo prices, and a monthly OSM refresh with the sanity evals as a gate.
+
+**Business model:** free for buyers; B2B area reports and qualified leads for realtors and developers; mortgage-by-area analytics for banks; a premium legal check with partner notaries; service-gap reports for municipalities.
+
+## 5. Originality
+
+- **Decision engine, not a chatbot.** AI parses intent and explains, code ranks, and **code computes confidence** with a visible breakdown. No other tool here joins neighbourhood-level metrics to a buyer's sentence.
+- **Micro-areas.** H3 hexes labelled with human names ("Nərimanov · Gənclik m. ətrafı"), with walking distance to a validated metro station and hex-level price medians where at least 5 listings exist.
+- **Legal check of listing language**, AI plus a deterministic detector, so known risk phrases are never missed.
+- **True cost** over 10 years: a cheap flat far from work can cost more.
+- **Data honesty as a feature:** every number has a badge (Canlı OSM, Rəsmi DSK, Nümunə, Mətbuat, Demo, Model), and we publish our own failures.
+
+## Architecture & run locally
+
+```mermaid
+flowchart LR
+  A[Geofabrik PBF] -->|osmium| B[process-osm · build-hexes]
+  C[DSK xls] --> D[fetch-dsk]
+  E[Open-Meteo] --> F[fetch-meteo]
+  L[listings CSV] --> M[import-listings: aggregates only]
+  B & D & F & M --> H[build-data + score.ts]
+  H --> P[ai-profiles · Gemini, hash-checked]
+  P --> H
+  H --> J[(public/data ≈1.6 MB)]
+  J --> N[Next.js 16 · MapLibre · Recharts]
+  N --> X[/api/decide · persona · ask · compare · legal-check/]
+  X --> G[src/lib/ai.ts generateJSON → Gemini, cache]
+  J --> T[evals/* → /keyfiyyet]
+```
 
 ```bash
 npm install
-cp .env.example .env.local   # add GEMINI_API_KEY
-npm run dev                  # http://localhost:3000
+cp .env.example .env.local   # GEMINI_API_KEY
+npm run dev                  # http://localhost:3000  (app: /xerite)
+npm run check                # data-sanity + zod + next build
+node --dns-result-order=ipv4first evals/run-evals.mjs all && node evals/build.mjs
 ```
 
-Rebuild the data (optional; outputs are committed in `public/data`):
-
-```bash
-brew install osmium-tool
-curl -L -o data/raw/azerbaijan-latest.osm.pbf https://download.geofabrik.de/asia/azerbaijan-latest.osm.pbf
-npm run data:osm && npm run data:dsk && npm run data:meteo && npm run data:build
-npm run data:ai && npm run data:build   # Gemini area profiles (resumable)
-npm run check                            # zod data validation + next build
-```
-
-**Team:** _<names, roles>_ · Built for the hackathon, October 2026.
+**Team:** _<names, roles>_ · Hackathon, October 2026.

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { BUSY_MSG, generateJSON } from "@/lib/ai";
 import { ExplainSchema, IntentSchema } from "@/lib/schemas";
 import { EXPLAIN_SYSTEM, INTENT_SYSTEM } from "@/lib/prompts";
-import { loadData, loadHexes } from "@/lib/serverData";
+import { loadData, loadHexes, loadSettlements } from "@/lib/serverData";
 import { confidence, keywordIntent, locationCatalog, retrieve, type Candidate, type Intent } from "@/lib/decide";
 
 export async function POST(req: Request) {
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   intent.locations_mentioned = intent.locations_mentioned.filter((id) => catalog.some((c) => c.id === id));
 
   // 3) RETRIEVE (deterministic) + 5) CONFIDENCE (deterministic)
-  const retrieval = retrieve(intent, regions, hx, catalog);
+  const retrieval = retrieve(intent, regions, hx, catalog, loadSettlements());
   const conf = confidence(intent, retrieval);
 
   // 4) EXPLAIN (AI, grounded on candidates only)
@@ -53,7 +53,7 @@ function templateExplain(c: Candidate[], relaxed: string[], busy: boolean) {
       : "Şərtlərə uyğun ərazi tapılmadı.",
     recommendations: c.map((x) => ({
       area_id: x.area_id,
-      why: x.kind === "hex" ? `Metroya ${fmtM(x.metrics.metro_walk_m)} (${x.metrics.nearest_metro ?? "—"}), məktəbə ${fmtM(x.metrics.school_m)}, ${x.metrics.grocery} ərzaq mağazası.` : `Bal ${x.score}/100; relyef: ${x.metrics.terrain ?? "—"}, PM2.5 ${x.metrics.pm25 ?? "—"}.`,
+      why: x.kind === "settlement" ? `1.5 km radiusda ${x.metrics.grocery} ərzaq, ${x.metrics.school} məktəb, ${x.metrics.clinic} tibb müəssisəsi; dayanacaq ${fmtM(x.metrics.bus_stop_m)}.` : x.kind === "hex" ? `Metroya ${fmtM(x.metrics.metro_walk_m)} (${x.metrics.nearest_metro ?? "—"}), məktəbə ${fmtM(x.metrics.school_m)}, ${x.metrics.grocery} ərzaq mağazası.` : `Bal ${x.score}/100; relyef: ${x.metrics.terrain ?? "—"}, PM2.5 ${x.metrics.pm25 ?? "—"}.`,
       trade_off: x.violations.length ? `Uyğun gəlməyən şərt: ${x.violations.join(", ")}` : "Qiymət rayon ortasıdır, məhəllə üzrə fərqlənə bilər.",
       fits_constraints: x.fits_constraints,
     })),

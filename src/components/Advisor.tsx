@@ -166,7 +166,7 @@ function Answer({ res, onPick, onAsk }: { res: DecideResult; onPick: (c: Candida
           const links = listingLinks(cand, res.intent);
           const pc = cand.metrics.price_confidence as string | null;
           return (
-            <li key={cand.area_id} className="card-lift rounded-xl border border-sand-3 bg-sand p-3">
+            <li key={cand.area_id} className="card-lift fade-in rounded-xl border border-sand-3 bg-sand p-3" style={{ animationDelay: `${cand.rank * 70}ms` }}>
               <button onClick={() => onPick(cand)} className="flex w-full items-start gap-2.5 text-left">
                 <span className="num grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ink text-xs font-extrabold text-sand">{cand.rank}</span>
                 <span className="min-w-0 flex-1">
@@ -181,7 +181,9 @@ function Answer({ res, onPick, onAsk }: { res: DecideResult; onPick: (c: Candida
                     {cand.metrics.price_m2_hex_median != null ? (
                       <span className="rounded bg-amber/15 px-1.5 py-0.5">{fmt(cand.metrics.price_m2_hex_median as number)} ₼/m² · {cand.metrics.price_hex_listings} elan (məhəllə)</span>
                     ) : cand.metrics.price_m2_district_avg != null && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">{fmt(cand.metrics.price_m2_district_avg as number)} ₼/m² · rayon ortası</span>}
-                    {cand.kind === "region" && cand.metrics.price_m2 != null && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">{fmt(cand.metrics.price_m2 as number)} ₼/m²</span>}
+                    {cand.kind === "settlement" && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">1.5 km: {cand.metrics.grocery} ərzaq · {cand.metrics.school} məktəb · {cand.metrics.clinic} tibb</span>}
+                    {cand.kind === "settlement" && cand.metrics.rayon_terrain && <span className="rounded bg-green/10 px-1.5 py-0.5 text-green">{cand.metrics.rayon_terrain as string} · {fmt(cand.metrics.rayon_elevation_m as number)} m</span>}
+                    {cand.kind !== "hex" && cand.metrics.price_m2 != null && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">{fmt(cand.metrics.price_m2 as number)} ₼/m²</span>}
                     {pc && <Badge kind={priceBadge({ confidence: pc as "mock" } as never)} />}
                     {!cand.fits_constraints && <span className="rounded bg-pomegranate/10 px-1.5 py-0.5 font-semibold text-pomegranate">{cand.violations.join(", ")}</span>}
                   </span>

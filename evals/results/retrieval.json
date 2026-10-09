@@ -21,8 +21,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Yasamal · 20 Yanvar st. m. ətrafı",
-    "Yasamal · Nizami m. ətrafı"
+    "Yasamal · 20 Yanvar m. ətrafı",
+    "Yasamal · Nizami Gəncəvi m. ətrafı"
    ]
   },
   {
@@ -32,8 +32,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmayıl Xətai m. ətrafı",
-    "Xətai · Y16 m. ətrafı"
+    "Xətai · Şah İsmail Xətai m. ətrafı",
+    "Nəsimi · Memar Əcəmi m. ətrafı"
    ]
   },
   {
@@ -54,7 +54,7 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmayıl Xətai m. ətrafı",
+    "Xətai · Şah İsmail Xətai m. ətrafı",
     "Xətai · Əhmədli m. ətrafı"
    ]
   },
@@ -65,8 +65,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Şəki",
-    "Quba"
+    "Şəki · Kiş",
+    "Quba · Bəhrəli"
    ]
   },
   {
@@ -76,8 +76,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Sumqayıt",
-    "Lənkəran"
+    "Lənkəran · Sütəmurdov",
+    "Salyan · Salyan"
    ]
   },
   {
@@ -87,7 +87,7 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmayıl Xətai m. ətrafı",
+    "Xətai · Şah İsmail Xətai m. ətrafı",
     "Xətai · Əhmədli m. ətrafı"
    ]
   },

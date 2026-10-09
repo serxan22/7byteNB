@@ -1,7 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Level, National, Region } from "./types.ts";
-import type { HexData } from "./decide.ts";
+import type { HexData, SettlementData } from "./decide.ts";
+
+let stCache: SettlementData | null = null;
+export function loadSettlements(): SettlementData {
+  stCache ??= JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/settlements.json"), "utf8"));
+  return stCache!;
+}
 
 let hexCache: HexData | null = null;
 export function loadHexes(): HexData {

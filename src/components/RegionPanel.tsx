@@ -5,6 +5,7 @@ import type { National, PropertyType, Region } from "@/lib/types";
 import { fmt, INDEX_LABEL, POI_LABEL, PROPERTY_LABEL, priceBadge } from "@/lib/metrics";
 import { similarCheaper } from "@/lib/score";
 import { Badge } from "./Badge";
+import CountUp from "./CountUp";
 
 const TAG_LABEL: Record<string, string> = {
   aile_dostu: "Ailə üçün",
@@ -23,12 +24,12 @@ export { TAG_LABEL };
 const TABS = ["Qiymətlər", "Xidmətlər", "Nəqliyyat", "Yollar", "Təbiət", "DNT"] as const;
 type Tab = (typeof TABS)[number];
 
-function Kpi({ label, value, unit, badge }: { label: string; value: string; unit?: string; badge: React.ReactNode }) {
+function Kpi({ label, value, unit, badge, num }: { label: string; value: string; unit?: string; badge: React.ReactNode; num?: number | null }) {
   return (
     <div className="min-w-0 rounded-xl bg-sand px-3 py-2.5">
       <div className="truncate text-[11px] font-semibold text-ink-3">{label}</div>
       <div className={`num mt-1 whitespace-nowrap font-extrabold leading-none tracking-tight ${value === "—" ? "text-sm text-ink-3" : "text-[22px]"}`}>
-        {value === "—" ? "məlumat yoxdur" : value}
+        {value === "—" ? "məlumat yoxdur" : num != null ? <CountUp value={num} /> : value}
         {unit && <span className="ml-1 text-xs font-semibold text-ink-3">{unit}</span>}
       </div>
       <div className="mt-1.5">{badge}</div>
@@ -94,11 +95,11 @@ export default function RegionPanel({
 
       {/* KPIs */}
       <div className="mt-4 grid grid-cols-2 gap-2 xl:grid-cols-3">
-        <Kpi label="Əhali" value={fmt(r.population.v)} badge={<Badge kind="official" />} />
-        <Kpi label="Sıxlıq" value={fmt(r.density.v)} unit="/km²" badge={<Badge kind="official" />} />
+        <Kpi label="Əhali" value={fmt(r.population.v)} num={r.population.v} badge={<Badge kind="official" />} />
+        <Kpi label="Sıxlıq" value={fmt(r.density.v)} num={r.density.v} unit="/km²" badge={<Badge kind="official" />} />
         <Kpi label="Orta m² (köhnə)" value={mainPrice?.value != null ? fmt(mainPrice.value) : "—"} unit={mainPrice?.value != null ? "₼" : undefined} badge={mainPrice ? <Badge kind={priceBadge(mainPrice)} /> : <span className="text-[10px] text-ink-3">yoxdur</span>} />
         <Kpi label={r.transport.metro ? "Metro stansiyası" : "Dayanacaq"} value={fmt(r.transport.metro || r.transport.bus_stops)} badge={<Badge kind="osm" />} />
-        <Kpi label="Marşrut" value={fmt(r.transport.bus_routes)} badge={<Badge kind="osm" />} />
+        <Kpi label="Marşrut" value={fmt(r.transport.bus_routes)} num={r.transport.bus_routes} badge={<Badge kind="osm" />} />
         <Kpi label="Asfalt yollar" value={fmt(r.roads.paved_known_pct)} unit={r.roads.paved_known_pct != null ? "%" : undefined} badge={<Badge kind="osm" />} />
       </div>
 
