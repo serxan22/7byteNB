@@ -1,0 +1,117 @@
+{
+ "n": 10,
+ "passed": 10,
+ "pass_rate": 100,
+ "rows": [
+  {
+   "name": "Nərimanov + metro ≤800 m",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Nərimanov · Nəriman Nərimanov m. ətrafı",
+    "Nərimanov · Gənclik m. ətrafı"
+   ]
+  },
+  {
+   "name": "Yasamal + məktəb ≤500 m",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Yasamal · 20 Yanvar st. m. ətrafı",
+    "Yasamal · Nizami m. ətrafı"
+   ]
+  },
+  {
+   "name": "Bakı + metro ≤500 m + bağça ≤600 m",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Xətai · Şah İsmayıl Xətai m. ətrafı",
+    "Xətai · Y16 m. ətrafı"
+   ]
+  },
+  {
+   "name": "Binəqədi + park ≤400 m",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Binəqədi · Azadlıq prospekti m. ətrafı",
+    "Binəqədi · Nəsimi m. ətrafı"
+   ]
+  },
+  {
+   "name": "Bakı + ≤2000 ₼/m²",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Xətai · Şah İsmayıl Xətai m. ətrafı",
+    "Xətai · Əhmədli m. ətrafı"
+   ]
+  },
+  {
+   "name": "Bakıdan kənar + dağlıq",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Şəki",
+    "Quba"
+   ]
+  },
+  {
+   "name": "Sahilə yaxın rayon",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Sumqayıt",
+    "Lənkəran"
+   ]
+  },
+  {
+   "name": "Xətai + metro ≤1000 m + məktəb ≤700 m",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Xətai · Şah İsmayıl Xətai m. ətrafı",
+    "Xətai · Əhmədli m. ətrafı"
+   ]
+  },
+  {
+   "name": "Gəncə + məktəb ≤800 m",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Gəncə · Cavadxan",
+    "Gəncə"
+   ]
+  },
+  {
+   "name": "Nəsimi + metro ≤600 m + park ≤500 m",
+   "returned": 5,
+   "satisfying": 5,
+   "relaxed": [],
+   "pass": true,
+   "sample": [
+    "Nəsimi · Memar Əcəmi m. ətrafı",
+    "Nəsimi · Cəfər Cabbarlı m. ətrafı"
+   ]
+  }
+ ]
+}

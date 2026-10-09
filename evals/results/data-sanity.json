@@ -1,6 +1,6 @@
 {
- "ran_at": "2026-10-09T13:19:57.000Z",
- "passed": 13,
+ "ran_at": "2026-10-09T13:26:25.052Z",
+ "passed": 14,
  "total": 14,
  "checks": [
   {
@@ -70,9 +70,9 @@
    "hard": true
   },
   {
-   "name": "Metro stansiyaları: rəsmi siyahı ilə müqayisə",
-   "pass": false,
-   "detail": "OSM 33; rəsmi siyahı faylı yoxdur",
+   "name": "Metro stansiyaları: OSM ≈ rəsmi siyahı (±3)",
+   "pass": true,
+   "detail": "OSM 26 / rəsmi 27 (Wikipedia — List of Baku Metro stations (27 işləyən stansiya; metro.gov.az əlçatan olmadı))",
    "hard": false
   },
   {

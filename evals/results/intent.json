@@ -1,0 +1,850 @@
+{
+ "n": 20,
+ "ai_answered": 20,
+ "accuracy": {
+  "ai": {
+   "goal": 100,
+   "property_type": 100,
+   "locations": 95,
+   "constraints": 75,
+   "budget": 100
+  },
+  "baseline": {
+   "goal": 95,
+   "property_type": 100,
+   "locations": 80,
+   "constraints": 100,
+   "budget": 90
+  }
+ },
+ "rows": [
+  {
+   "q": "Nərimanovda metroya yaxın ev lazımdır",
+   "expected": {
+    "q": "Nərimanovda metroya yaxın ev lazımdır",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov"
+    ],
+    "cons": [
+     "metro"
+    ]
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov",
+     "mt-neriman-nerimanov"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Yasamalda məktəbə yaxın 3 otaqlı mənzil almaq istəyirəm, büdcə 200 min",
+   "expected": {
+    "q": "Yasamalda məktəbə yaxın 3 otaqlı mənzil almaq istəyirəm, büdcə 200 min",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-yasamal"
+    ],
+    "cons": [
+     "school"
+    ],
+    "budget": 200000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": false
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-yasamal"
+    ],
+    "budget": 200000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-yasamal",
+     "pl-yasamal"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Uşaqlı ailə üçün sakit ərazi, büdcə 150 min",
+   "expected": {
+    "q": "Uşaqlı ailə üçün sakit ərazi, büdcə 150 min",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "cons": [],
+    "budget": 150000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": 150000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": 150000
+   }
+  },
+  {
+   "q": "Kafe açmaq üçün yer axtarıram",
+   "expected": {
+    "q": "Kafe açmaq üçün yer axtarıram",
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [],
+    "budget": null
+   }
+  },
+  {
+   "q": "Bakıdan kənarda dağ havası, həyət evi",
+   "expected": {
+    "q": "Bakıdan kənarda dağ havası, həyət evi",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [],
+    "cons": [
+     "outside_baku",
+     "mountain"
+    ]
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": false,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-baki"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Xətaidə yeni tikili, 2 otaq, 120 min manat",
+   "expected": {
+    "q": "Xətaidə yeni tikili, 2 otaq, 120 min manat",
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [
+     "bk-xetai"
+    ],
+    "cons": [],
+    "budget": 120000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": false
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [
+     "bk-xetai"
+    ],
+    "budget": 120000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [
+     "bk-xetai"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Tələbəyəm, universitetə yaxın kirayə ev lazımdır",
+   "expected": {
+    "q": "Tələbəyəm, universitetə yaxın kirayə ev lazımdır",
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   }
+  },
+  {
+   "q": "Sumqayıtda dənizə yaxın mənzil",
+   "expected": {
+    "q": "Sumqayıtda dənizə yaxın mənzil",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-sumqayit"
+    ],
+    "cons": [
+     "coastal"
+    ]
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-sumqayit"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-sumqayit"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Gəncədə aptek açmaq istəyirəm",
+   "expected": {
+    "q": "Gəncədə aptek açmaq istəyirəm",
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [
+     "az-gence"
+    ],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [
+     "az-gence"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [
+     "az-gence"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Qubada torpaq sahəsi almaq istəyirəm, bağ evi tikmək üçün",
+   "expected": {
+    "q": "Qubada torpaq sahəsi almaq istəyirəm, bağ evi tikmək üçün",
+    "goal": "buy",
+    "type": "torpaq",
+    "locs": [
+     "az-quba"
+    ],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": false,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "torpaq",
+    "locs": [
+     "az-quba"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "torpaq",
+    "locs": [
+     "az-quba",
+     "az-qubadli"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Səbaildə investisiya üçün mənzil, sonra kirayə verəcəm",
+   "expected": {
+    "q": "Səbaildə investisiya üçün mənzil, sonra kirayə verəcəm",
+    "goal": "invest",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-sebail"
+    ],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": false,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "invest",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-sebail"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-sebail"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Binəqədidə bağçaya və parka yaxın ev, 2 uşağımız var",
+   "expected": {
+    "q": "Binəqədidə bağçaya və parka yaxın ev, 2 uşağımız var",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-bineqedi"
+    ],
+    "cons": [
+     "kindergarten",
+     "park"
+    ]
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": false,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-abseron",
+     "bk-bineqedi",
+     "pl-bineqedi"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-bineqedi",
+     "pl-bineqedi",
+     "pl-bine"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Şəkidə təqaüdə çıxanda yaşamaq üçün həyət evi",
+   "expected": {
+    "q": "Şəkidə təqaüdə çıxanda yaşamaq üçün həyət evi",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-seki"
+    ],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": false,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-seki"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-seki",
+     "bk-yasamal",
+     "pl-yasamal"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Nizamidə 100 min dollara mənzil",
+   "expected": {
+    "q": "Nizamidə 100 min dollara mənzil",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nizami"
+    ],
+    "cons": [],
+    "budget": 170000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nizami"
+    ],
+    "budget": 170000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nizami",
+     "mt-nizami"
+    ],
+    "budget": 170000
+   }
+  },
+  {
+   "q": "ev lazimdi metro yaninda ucuz",
+   "expected": {
+    "q": "ev lazimdi metro yaninda ucuz",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "cons": [
+     "metro"
+    ]
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   }
+  },
+  {
+   "q": "nerimanovda kiraye ev axtariram",
+   "expected": {
+    "q": "nerimanovda kiraye ev axtariram",
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov"
+    ],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Harada yaşamaq yaxşıdır?",
+   "expected": {
+    "q": "Harada yaşamaq yaxşıdır?",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": false,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-yasamal",
+     "pl-yasamal"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Yaxşı yer tövsiyə et",
+   "expected": {
+    "q": "Yaxşı yer tövsiyə et",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   }
+  },
+  {
+   "q": "Ev almaq istəyirəm",
+   "expected": {
+    "q": "Ev almaq istəyirəm",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   }
+  },
+  {
+   "q": "Lənkəranda dənizə yaxın həyət evi, 80 min",
+   "expected": {
+    "q": "Lənkəranda dənizə yaxın həyət evi, 80 min",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-lenkeran"
+    ],
+    "cons": [
+     "coastal"
+    ],
+    "budget": 80000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-lenkeran"
+    ],
+    "budget": 80000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-lenkeran"
+    ],
+    "budget": 80000
+   }
+  }
+ ]
+}

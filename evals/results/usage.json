@@ -1,0 +1,191 @@
+{
+ "calls": [
+  {
+   "in": 3554,
+   "out": 293,
+   "kind": "intent"
+  },
+  {
+   "in": 3538,
+   "out": 286,
+   "kind": "intent"
+  },
+  {
+   "in": 3529,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3534,
+   "out": 281,
+   "kind": "intent"
+  },
+  {
+   "in": 3541,
+   "out": 284,
+   "kind": "intent"
+  },
+  {
+   "in": 3538,
+   "out": 219,
+   "kind": "intent"
+  },
+  {
+   "in": 3533,
+   "out": 289,
+   "kind": "intent"
+  },
+  {
+   "in": 3533,
+   "out": 288,
+   "kind": "intent"
+  },
+  {
+   "in": 3541,
+   "out": 286,
+   "kind": "intent"
+  },
+  {
+   "in": 3539,
+   "out": 288,
+   "kind": "intent"
+  },
+  {
+   "in": 3541,
+   "out": 319,
+   "kind": "intent"
+  },
+  {
+   "in": 3538,
+   "out": 293,
+   "kind": "intent"
+  },
+  {
+   "in": 3533,
+   "out": 284,
+   "kind": "intent"
+  },
+  {
+   "in": 3527,
+   "out": 218,
+   "kind": "intent"
+  },
+  {
+   "in": 3530,
+   "out": 278,
+   "kind": "intent"
+  },
+  {
+   "in": 3528,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3528,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3527,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3539,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 455,
+   "out": 364,
+   "kind": "legal"
+  },
+  {
+   "in": 440,
+   "out": 481,
+   "kind": "legal"
+  },
+  {
+   "in": 442,
+   "out": 494,
+   "kind": "legal"
+  },
+  {
+   "in": 441,
+   "out": 406,
+   "kind": "legal"
+  },
+  {
+   "in": 442,
+   "out": 366,
+   "kind": "legal"
+  },
+  {
+   "in": 441,
+   "out": 291,
+   "kind": "legal"
+  },
+  {
+   "in": 432,
+   "out": 448,
+   "kind": "legal"
+  },
+  {
+   "in": 430,
+   "out": 517,
+   "kind": "legal"
+  },
+  {
+   "in": 428,
+   "out": 578,
+   "kind": "legal"
+  },
+  {
+   "in": 428,
+   "out": 551,
+   "kind": "legal"
+  },
+  {
+   "in": 428,
+   "out": 586,
+   "kind": "legal"
+  },
+  {
+   "in": 431,
+   "out": 497,
+   "kind": "legal"
+  },
+  {
+   "in": 429,
+   "out": 634,
+   "kind": "legal"
+  },
+  {
+   "in": 427,
+   "out": 544,
+   "kind": "legal"
+  },
+  {
+   "in": 430,
+   "out": 530,
+   "kind": "legal"
+  },
+  {
+   "in": 440,
+   "out": 634,
+   "kind": "legal"
+  },
+  {
+   "in": 439,
+   "out": 527,
+   "kind": "legal"
+  },
+  {
+   "in": 435,
+   "out": 503,
+   "kind": "legal"
+  }
+ ],
+ "avg_in": 2027,
+ "avg_out": 386
+}

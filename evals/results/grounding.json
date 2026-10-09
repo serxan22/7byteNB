@@ -1,0 +1,221 @@
+{
+ "n_texts": 29,
+ "numbers": 402,
+ "ungrounded": 25,
+ "grounded_pct": 93.8,
+ "rows": [
+  {
+   "id": "az-abseron",
+   "numbers": 19,
+   "ungrounded": 1,
+   "examples": [
+    72
+   ]
+  },
+  {
+   "id": "az-agdas",
+   "numbers": 14,
+   "ungrounded": 1,
+   "examples": [
+    82
+   ]
+  },
+  {
+   "id": "az-agsu",
+   "numbers": 18,
+   "ungrounded": 1,
+   "examples": [
+    57
+   ]
+  },
+  {
+   "id": "az-baki",
+   "numbers": 12,
+   "ungrounded": 1,
+   "examples": [
+    91
+   ]
+  },
+  {
+   "id": "az-beyleqan",
+   "numbers": 6,
+   "ungrounded": 1,
+   "examples": [
+    24
+   ]
+  },
+  {
+   "id": "az-celilabad",
+   "numbers": 3,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-fuzuli",
+   "numbers": 9,
+   "ungrounded": 3,
+   "examples": [
+    57,
+    57,
+    25
+   ]
+  },
+  {
+   "id": "az-goranboy",
+   "numbers": 12,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-haciqabul",
+   "numbers": 16,
+   "ungrounded": 2,
+   "examples": [
+    57,
+    57
+   ]
+  },
+  {
+   "id": "az-kelbecer",
+   "numbers": 15,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-lacin",
+   "numbers": 11,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-masalli",
+   "numbers": 10,
+   "ungrounded": 1,
+   "examples": [
+    24
+   ]
+  },
+  {
+   "id": "az-naxcivan",
+   "numbers": 17,
+   "ungrounded": 2,
+   "examples": [
+    80,
+    80
+   ]
+  },
+  {
+   "id": "az-ordubad",
+   "numbers": 7,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-qebele",
+   "numbers": 12,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-qubadli",
+   "numbers": 13,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-sabirabad",
+   "numbers": 5,
+   "ungrounded": 1,
+   "examples": [
+    25
+   ]
+  },
+  {
+   "id": "az-salyan",
+   "numbers": 22,
+   "ungrounded": 5,
+   "examples": [
+    78,
+    63,
+    78,
+    63
+   ]
+  },
+  {
+   "id": "az-sederek",
+   "numbers": 14,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-serur",
+   "numbers": 4,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-sumqayit",
+   "numbers": 15,
+   "ungrounded": 2,
+   "examples": [
+    80,
+    21
+   ]
+  },
+  {
+   "id": "az-tovuz",
+   "numbers": 18,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-xankendi",
+   "numbers": 32,
+   "ungrounded": 1,
+   "examples": [
+    409
+   ]
+  },
+  {
+   "id": "az-xocavend",
+   "numbers": 9,
+   "ungrounded": 2,
+   "examples": [
+    65,
+    65
+   ]
+  },
+  {
+   "id": "az-zaqatala",
+   "numbers": 16,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "bk-bineqedi",
+   "numbers": 11,
+   "ungrounded": 1,
+   "examples": [
+    54
+   ]
+  },
+  {
+   "id": "bk-nizami",
+   "numbers": 17,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "bk-sabuncu",
+   "numbers": 20,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "bk-xetai",
+   "numbers": 25,
+   "ungrounded": 0,
+   "examples": []
+  }
+ ]
+}

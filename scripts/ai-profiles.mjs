@@ -2,6 +2,7 @@
 // Resumable: regions already in data/processed/ai-profiles.json are skipped (use --force to redo).
 // Order: Baku districts + main cities first, then the remaining rayons.
 import fs from "node:fs";
+import crypto from "node:crypto";
 import { generateJSON, AI_MODEL } from "../src/lib/ai.ts";
 import { AIProfileSchema } from "../src/lib/schemas.ts";
 import { PROFILE_SYSTEM, regionForAI } from "../src/lib/prompts.ts";
@@ -39,6 +40,11 @@ if (process.argv.includes("--quality")) {
 }
 
 const PRIORITY = ["az-baki", "az-gence", "az-sumqayit", "az-mingecevir", "az-lenkeran", "az-seki", "az-quba"];
+// staleness: a profile is regenerated when the data it was written from has changed (input hash)
+const inputHash = (r) => crypto.createHash("sha1").update(JSON.stringify(regionForAI({ ...r, ai: undefined }, national[r.level]))).digest("hex").slice(0, 12);
+const stale = [...az, ...baku].filter((r) => done[r.id] && done[r.id]._h !== inputHash(r)).map((r) => r.id);
+if (process.argv.includes("--refresh-stale")) for (const id of stale) delete done[id];
+else if (stale.length) console.log(`${stale.length} profiles are stale (data changed) — run with --refresh-stale`);
 const queue = [...baku, ...PRIORITY.map((id) => az.find((r) => r.id === id)).filter(Boolean), ...az.filter((r) => !PRIORITY.includes(r.id))]
   .filter((r) => !done[r.id] && (!only || only.includes(r.id)));
 console.log(`model ${process.env.AI_MODEL || AI_MODEL}; ${Object.keys(done).length} done, ${queue.length} to go`);
@@ -57,6 +63,7 @@ for (const r of queue) {
   if (res.ok) {
     const p = res.data;
     p.tags = p.tags.slice(0, 4);
+    p._h = inputHash(r);
     done[r.id] = p;
     fs.writeFileSync(OUT, JSON.stringify(done, null, 1));
     console.log(`✓ ${r.id} (${res.cached ? "cache" : res.model}) — ${p.headline}`);

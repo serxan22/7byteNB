@@ -1,0 +1,20 @@
+[
+ {"t":"Nəsimidə 2 otaqlı mənzil satılır, 65 m², çıxarış var, ipotekaya yararlıdır. Qiymət 160 000 AZN.","risky":false},
+ {"t":"Yasamal, 3 otaq, 90 m², təmirli, kupça hazırdır, notarius vasitəsilə satış.","risky":false},
+ {"t":"Xətai rayonu, yeni tikili, 110 m², çıxarışlı, kredit mümkündür, sənədlər qaydasındadır.","risky":false},
+ {"t":"Binəqədi, həyət evi 4 otaq, 6 sot torpaq, kupça var, kommunal borc yoxdur.","risky":false},
+ {"t":"Nərimanov, 1 otaqlı 45 m², tam təmirli, mülkiyyətçidən, çıxarış var.","risky":false},
+ {"t":"Sumqayıt, 2 otaqlı mənzil, 58 m², çıxarış var, ipoteka ilə almaq olar.","risky":false},
+ {"t":"Masazırda mənzil satılır, çıxarışsız, qiymət razılaşma yolu ilə.","risky":true},
+ {"t":"Kupçasız həyət evi, Sabunçu, 5 sot, ucuz qiymətə.","risky":true},
+ {"t":"Yeni binada mənzil, kupça hazırlanır, ilkin ödəniş 30%.","risky":true},
+ {"t":"Mənzil müqavilə ilə satılır, MTK binası, 2 otaq.","risky":true},
+ {"t":"Etibarnamə ilə satılır, sahibi xaricdədir, 3 otaqlı.","risky":true},
+ {"t":"Yarımçıq tikili, karkas hazırdır, 2027-də təhvil.","risky":true},
+ {"t":"Torpaq sahəsi, qeydiyyatsız, bələdiyyə torpağıdır.","risky":true},
+ {"t":"İpotekaya yararsızdır, nağd ödəniş, Xırdalan.","risky":true},
+ {"t":"Sənədlər sonra düzələcək, indi beh ver, qiymət çox sərfəlidir.","risky":true},
+ {"t":"Bina hələ istismara verilməyib, amma tezliklə veriləcək, sənəd məsələsi həll olunur.","risky":true},
+ {"t":"Mənzil qardaşımın adınadır, onun əvəzinə mən satıram, sənəd yoxdur hələlik.","risky":true},
+ {"t":"Çıxarış yoxdur, amma heç bir problem olmayacaq, bütün qonşular belə alıb.","risky":true}
+]

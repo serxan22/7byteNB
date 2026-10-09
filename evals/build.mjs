@@ -1,0 +1,34 @@
+// Merges evals/results/*.json + failure cases + cost model into public/data/evals.json (shown on /keyfiyyet).
+import fs from "node:fs";
+const r = (f, d = null) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : d);
+const usage = r("evals/results/usage.json");
+// Prices per 1M tokens (USD). Third-party trackers; Google's page could not be opened — verify before budgeting.
+const PRICES = {
+  assumed: { model: "gemini-3.7-flash", in: 0.375, out: 1.88, source: "pricepertoken.com (Google təsdiqi tapılmadı)" },
+  conservative: { model: "gemini-3.5-flash", in: 1.5, out: 9.0, source: "benchlm.ai / morphllm.com" },
+};
+const avgIn = usage?.avg_in ?? null, avgOut = usage?.avg_out ?? null;
+const CALLS_PER_SESSION = 4; // decide = intent + explain (2), 1 follow-up ask/compare, 1 legal check
+const cost = (p) => (avgIn == null ? null : ((avgIn * p.in + avgOut * p.out) / 1e6) * CALLS_PER_SESSION);
+const out = {
+  generated_at: new Date().toISOString(),
+  intent: r("evals/results/intent.json"),
+  legal: r("evals/results/legal.json"),
+  grounding: r("evals/results/grounding.json"),
+  retrieval: r("evals/results/retrieval.json"),
+  sanity: r("evals/results/data-sanity.json"),
+  profile_quality: r("evals/results/profile-quality-before.json"),
+  failures: r("evals/data/failures.json", []),
+  cost: {
+    avg_tokens_in: avgIn, avg_tokens_out: avgOut, measured_calls: usage?.calls.length ?? 0, calls_per_session: CALLS_PER_SESSION,
+    per_session_usd: { assumed: cost(PRICES.assumed), conservative: cost(PRICES.conservative) },
+    per_1000_users_usd: { assumed: cost(PRICES.assumed) && cost(PRICES.assumed) * 1000, conservative: cost(PRICES.conservative) && cost(PRICES.conservative) * 1000 },
+    prices: PRICES,
+    notes: "Pulsuz Gemini limiti demo üçün kifayətdir; keş təkrar sorğuları pulsuz edir. Hostinq: Vercel Hobby (pulsuz), məlumat statikdir.",
+  },
+};
+// strip row-level detail that is too long for the page
+if (out.intent) out.intent.rows = out.intent.rows.map((x) => ({ q: x.q, ai: x.ai, baseline: x.baseline }));
+if (out.legal) out.legal.rows = out.legal.rows.map((x) => ({ t: x.t, risky: x.risky, ai: x.ai, baseline: x.baseline, ai_flags: x.ai_flags }));
+fs.writeFileSync("public/data/evals.json", JSON.stringify(out));
+console.log("evals.json:", Object.entries(out).filter(([, v]) => v).map(([k]) => k).join(", "));

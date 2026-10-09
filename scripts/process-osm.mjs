@@ -16,6 +16,14 @@ import turfIntersect from "@turf/intersect";
 import turfUnion from "@turf/union";
 
 const O = "data/raw/osm";
+// Official station list validates OSM: depots, exits and planned stations tagged station=subway are dropped.
+const METRO = JSON.parse(fs.readFileSync("data/manual/metro-stations.json", "utf8"));
+const officialMetro = (raw) => {
+  const n = (raw || "").replace(/ metro stansiyası| m\/s/i, "").trim();
+  const name = METRO.aliases[n] ?? n;
+  return METRO.stations.includes(name) ? name : null;
+};
+
 const t0 = Date.now();
 const log = (...a) => console.log(`[${((Date.now() - t0) / 1000).toFixed(1)}s]`, ...a);
 
@@ -195,14 +203,14 @@ for await (const f of seq(`${O}/pois.geojsonseq`)) {
   const hit = locate(lon, lat);
   if (!hit.length) continue;
   const cs = cats(t);
-  const isMetro = t.station === "subway";
+  const isMetro = t.station === "subway" && !!officialMetro(t["name:az"] || t.name);
   const isRail = !isMetro && t.railway === "station" && t.station !== "light_rail";
   const isStop = t.highway === "bus_stop";
   if (isMetro) metroPts.push([lon, lat]);
   if (cs.includes("park") && /Polygon/.test(f.geometry.type)) parkPolys.push(f);
   for (const r of hit) {
     for (const c of cs) r.pois[c] = (r.pois[c] ?? 0) + 1;
-    if (isMetro) r.transport.metroNames.add(t.name || `${lon.toFixed(3)},${lat.toFixed(3)}`);
+    if (isMetro) r.transport.metroNames.add(officialMetro(t["name:az"] || t.name));
     if (isRail) r.transport.railNames.add(t.name || `${lon.toFixed(2)},${lat.toFixed(2)}`);
     if (isStop) r.transport.bus_stops++;
   }

@@ -131,6 +131,19 @@ body {
 .card-lift { transition: transform 160ms ease, box-shadow 160ms ease; }
 .card-lift:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(24, 38, 46, 0.08); }
 .ring-anim { transition: stroke-dasharray 900ms ease-out; }
+.az-draw {
+  fill-opacity: 0.55;
+  stroke: var(--caspian);
+  stroke-width: 0.6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: az-draw 2.2s ease-out both, az-fill 1.6s ease-out both;
+}
+@keyframes az-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes az-fill { from { fill-opacity: 0; } to { fill-opacity: 0.55; } }
+@media (prefers-reduced-motion: reduce) {
+  .az-draw { stroke-dashoffset: 0; fill-opacity: 0.55; }
+}
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;

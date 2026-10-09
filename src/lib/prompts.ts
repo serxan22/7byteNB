@@ -101,7 +101,7 @@ export const INTENT_SYSTEM = (locations: { id: string; name: string }[]) => `Sə
 - property_type: menzil_yeni | menzil_kohne | heyet_evi | obyekt | torpaq. Biznes üçün obyekt. Dəqiq deyilməyibsə menzil_kohne.
 - budget_azn: "150 min" = 150000; dollar ×1.7; yoxdursa null. desired_m2: yoxdursa null.
 - locations_mentioned: YALNIZ aşağıdakı siyahıdakı id-lər. Rayon, metro stansiyası və ya qəsəbə adı çəkilibsə onun id-sini qoy. "Bakıdan kənar" deyilibsə Bakı id-lərini qoyma. Uydurma id yazma.
-- hard_constraints: metro_within_m ("metroya yaxın" = 800, "metro yanında" = 500), school_within_m, kindergarten_within_m, park_within_m (yaxın = 800), max_price_m2, outside_baku, mountain (dağ havası/dağlıq), coastal (dəniz/sahil).
+- hard_constraints: metro_within_m ("metroya yaxın" = 800, "metro yanında" = 500), school_within_m, kindergarten_within_m, park_within_m (yaxın = 800), max_price_m2, outside_baku, mountain (dağ havası/dağlıq), coastal ("dənizə yaxın", "sahil", "dəniz kənarı" → MÜTLƏQ true).
 - business_type: open_business üçün cafe | pharmacy | grocery | clinic | kindergarten | sport | other; digər hallarda null.
 - soft_preferences: 7 indeks üçün 0..1 çəki (rahatliq, neqliyyat, tehsil, sehiyye, tebiet, infrastruktur, elcatanliq).
 - household: "uşaqlı ailə", "tələbə", "təqaüdçü", "tək", null.

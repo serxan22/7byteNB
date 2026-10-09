@@ -1,0 +1,12 @@
+[
+ {"name":"Nərimanov + metro ≤800 m","locs":["bk-nerimanov"],"cons":{"metro_within_m":800}},
+ {"name":"Yasamal + məktəb ≤500 m","locs":["bk-yasamal"],"cons":{"school_within_m":500}},
+ {"name":"Bakı + metro ≤500 m + bağça ≤600 m","locs":["az-baki"],"cons":{"metro_within_m":500,"kindergarten_within_m":600}},
+ {"name":"Binəqədi + park ≤400 m","locs":["bk-bineqedi"],"cons":{"park_within_m":400}},
+ {"name":"Bakı + ≤2000 ₼/m²","locs":["az-baki"],"cons":{"max_price_m2":2000}},
+ {"name":"Bakıdan kənar + dağlıq","locs":[],"cons":{"outside_baku":true,"mountain":true}},
+ {"name":"Sahilə yaxın rayon","locs":[],"cons":{"outside_baku":true,"coastal":true}},
+ {"name":"Xətai + metro ≤1000 m + məktəb ≤700 m","locs":["bk-xetai"],"cons":{"metro_within_m":1000,"school_within_m":700}},
+ {"name":"Gəncə + məktəb ≤800 m","locs":["az-gence"],"cons":{"school_within_m":800}},
+ {"name":"Nəsimi + metro ≤600 m + park ≤500 m","locs":["bk-nesimi"],"cons":{"metro_within_m":600,"park_within_m":500}}
+]

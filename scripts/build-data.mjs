@@ -76,7 +76,7 @@ const regions = osm.map((o) => {
     indices: {},
     coverage: { osm: totalPois > 200 ? "yüksək" : totalPois > 40 ? "orta" : "aşağı", prices: best ?? "none" },
     ...(listings?.regions[o.id] ? { listings: { n: listings.regions[o.id].n, deed_share: listings.regions[o.id].deed_share, mortgage_share: listings.regions[o.id].mortgage_share, period: listings.period } } : {}),
-    ...(aiProfiles[o.id] ? { ai: aiProfiles[o.id] } : {}),
+    ...(aiProfiles[o.id] ? { ai: Object.fromEntries(Object.entries(aiProfiles[o.id]).filter(([k]) => k !== "_h")) } : {}),
   };
 });
 

@@ -1,0 +1,187 @@
+{
+ "n": 18,
+ "ai": {
+  "precision": 86,
+  "recall": 100,
+  "tp": 12,
+  "fp": 2,
+  "fn": 0,
+  "n": 18
+ },
+ "baseline": {
+  "precision": 100,
+  "recall": 58,
+  "tp": 7,
+  "fp": 0,
+  "fn": 5,
+  "n": 18
+ },
+ "combined_note": "Saytda hər ikisi birlikdə işləyir: qayda tapdığını AI-ın siyahısına əlavə edir.",
+ "rows": [
+  {
+   "t": "Nəsimidə 2 otaqlı mənzil satılır, 65 m², çıxarış var, ipotekaya yararlıdır. Qiymət 160 000 AZN.",
+   "risky": false,
+   "ai": false,
+   "baseline": false,
+   "ai_flags": []
+  },
+  {
+   "t": "Yasamal, 3 otaq, 90 m², təmirli, kupça hazırdır, notarius vasitəsilə satış.",
+   "risky": false,
+   "ai": true,
+   "baseline": false,
+   "ai_flags": [
+    "kupça hazırdır (yüksək)"
+   ]
+  },
+  {
+   "t": "Xətai rayonu, yeni tikili, 110 m², çıxarışlı, kredit mümkündür, sənədlər qaydasındadır.",
+   "risky": false,
+   "ai": true,
+   "baseline": false,
+   "ai_flags": [
+    "kredit mümkündür (orta)"
+   ]
+  },
+  {
+   "t": "Binəqədi, həyət evi 4 otaq, 6 sot torpaq, kupça var, kommunal borc yoxdur.",
+   "risky": false,
+   "ai": false,
+   "baseline": false,
+   "ai_flags": []
+  },
+  {
+   "t": "Nərimanov, 1 otaqlı 45 m², tam təmirli, mülkiyyətçidən, çıxarış var.",
+   "risky": false,
+   "ai": false,
+   "baseline": false,
+   "ai_flags": []
+  },
+  {
+   "t": "Sumqayıt, 2 otaqlı mənzil, 58 m², çıxarış var, ipoteka ilə almaq olar.",
+   "risky": false,
+   "ai": false,
+   "baseline": false,
+   "ai_flags": []
+  },
+  {
+   "t": "Masazırda mənzil satılır, çıxarışsız, qiymət razılaşma yolu ilə.",
+   "risky": true,
+   "ai": true,
+   "baseline": true,
+   "ai_flags": [
+    "çıxarışsız (yüksək)"
+   ]
+  },
+  {
+   "t": "Kupçasız həyət evi, Sabunçu, 5 sot, ucuz qiymətə.",
+   "risky": true,
+   "ai": true,
+   "baseline": true,
+   "ai_flags": [
+    "Kupçasız (yüksək)"
+   ]
+  },
+  {
+   "t": "Yeni binada mənzil, kupça hazırlanır, ilkin ödəniş 30%.",
+   "risky": true,
+   "ai": true,
+   "baseline": true,
+   "ai_flags": [
+    "kupça hazırlanır (yüksək)",
+    "ilkin ödəniş 30% (orta)"
+   ]
+  },
+  {
+   "t": "Mənzil müqavilə ilə satılır, MTK binası, 2 otaq.",
+   "risky": true,
+   "ai": true,
+   "baseline": true,
+   "ai_flags": [
+    "müqavilə ilə satılır (yüksək)",
+    "MTK binası (orta)"
+   ]
+  },
+  {
+   "t": "Etibarnamə ilə satılır, sahibi xaricdədir, 3 otaqlı.",
+   "risky": true,
+   "ai": true,
+   "baseline": true,
+   "ai_flags": [
+    "Etibarnamə ilə satılır (yüksək)",
+    "sahibi xaricdədir (orta)"
+   ]
+  },
+  {
+   "t": "Yarımçıq tikili, karkas hazırdır, 2027-də təhvil.",
+   "risky": true,
+   "ai": true,
+   "baseline": true,
+   "ai_flags": [
+    "Yarımçıq tikili (yüksək)",
+    "2027-də təhvil (yüksək)"
+   ]
+  },
+  {
+   "t": "Torpaq sahəsi, qeydiyyatsız, bələdiyyə torpağıdır.",
+   "risky": true,
+   "ai": true,
+   "baseline": true,
+   "ai_flags": [
+    "torpaq sahəsi (orta)",
+    "qeydiyyatsız (yüksək)",
+    "bələdiyyə torpağıdır (yüksək)"
+   ]
+  },
+  {
+   "t": "İpotekaya yararsızdır, nağd ödəniş, Xırdalan.",
+   "risky": true,
+   "ai": true,
+   "baseline": false,
+   "ai_flags": [
+    "İpotekaya yararsızdır (yüksək)",
+    "nağd ödəniş (orta)"
+   ]
+  },
+  {
+   "t": "Sənədlər sonra düzələcək, indi beh ver, qiymət çox sərfəlidir.",
+   "risky": true,
+   "ai": true,
+   "baseline": false,
+   "ai_flags": [
+    "Sənədlər sonra düzələcək (yüksək)",
+    "indi beh ver (yüksək)"
+   ]
+  },
+  {
+   "t": "Bina hələ istismara verilməyib, amma tezliklə veriləcək, sənəd məsələsi həll olunur.",
+   "risky": true,
+   "ai": true,
+   "baseline": false,
+   "ai_flags": [
+    "Bina hələ istismara verilməyib (yüksək)",
+    "tezliklə veriləcək, sənəd məsələsi həll olunur (yüksək)"
+   ]
+  },
+  {
+   "t": "Mənzil qardaşımın adınadır, onun əvəzinə mən satıram, sənəd yoxdur hələlik.",
+   "risky": true,
+   "ai": true,
+   "baseline": false,
+   "ai_flags": [
+    "qardaşımın adınadır, onun əvəzinə mən satıram (yüksək)",
+    "sənəd yoxdur hələlik (yüksək)"
+   ]
+  },
+  {
+   "t": "Çıxarış yoxdur, amma heç bir problem olmayacaq, bütün qonşular belə alıb.",
+   "risky": true,
+   "ai": true,
+   "baseline": false,
+   "ai_flags": [
+    "Çıxarış yoxdur (yüksək)",
+    "bütün qonşular belə alıb (yüksək)"
+   ]
+  }
+ ]
+}

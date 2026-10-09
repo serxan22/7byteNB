@@ -1,0 +1,22 @@
+[
+ {"q":"Nərimanovda metroya yaxın ev lazımdır","goal":"buy","type":"menzil_kohne","locs":["bk-nerimanov"],"cons":["metro"]},
+ {"q":"Yasamalda məktəbə yaxın 3 otaqlı mənzil almaq istəyirəm, büdcə 200 min","goal":"buy","type":"menzil_kohne","locs":["bk-yasamal"],"cons":["school"],"budget":200000},
+ {"q":"Uşaqlı ailə üçün sakit ərazi, büdcə 150 min","goal":"buy","type":"menzil_kohne","locs":[],"cons":[],"budget":150000},
+ {"q":"Kafe açmaq üçün yer axtarıram","goal":"open_business","type":"obyekt","locs":[],"cons":[]},
+ {"q":"Bakıdan kənarda dağ havası, həyət evi","goal":"buy","type":"heyet_evi","locs":[],"cons":["outside_baku","mountain"]},
+ {"q":"Xətaidə yeni tikili, 2 otaq, 120 min manat","goal":"buy","type":"menzil_yeni","locs":["bk-xetai"],"cons":[],"budget":120000},
+ {"q":"Tələbəyəm, universitetə yaxın kirayə ev lazımdır","goal":"rent","type":"menzil_kohne","locs":[],"cons":[]},
+ {"q":"Sumqayıtda dənizə yaxın mənzil","goal":"buy","type":"menzil_kohne","locs":["az-sumqayit"],"cons":["coastal"]},
+ {"q":"Gəncədə aptek açmaq istəyirəm","goal":"open_business","type":"obyekt","locs":["az-gence"],"cons":[]},
+ {"q":"Qubada torpaq sahəsi almaq istəyirəm, bağ evi tikmək üçün","goal":"buy","type":"torpaq","locs":["az-quba"],"cons":[]},
+ {"q":"Səbaildə investisiya üçün mənzil, sonra kirayə verəcəm","goal":"invest","type":"menzil_kohne","locs":["bk-sebail"],"cons":[]},
+ {"q":"Binəqədidə bağçaya və parka yaxın ev, 2 uşağımız var","goal":"buy","type":"menzil_kohne","locs":["bk-bineqedi"],"cons":["kindergarten","park"]},
+ {"q":"Şəkidə təqaüdə çıxanda yaşamaq üçün həyət evi","goal":"buy","type":"heyet_evi","locs":["az-seki"],"cons":[]},
+ {"q":"Nizamidə 100 min dollara mənzil","goal":"buy","type":"menzil_kohne","locs":["bk-nizami"],"cons":[],"budget":170000},
+ {"q":"ev lazimdi metro yaninda ucuz","goal":"buy","type":"menzil_kohne","locs":[],"cons":["metro"]},
+ {"q":"nerimanovda kiraye ev axtariram","goal":"rent","type":"menzil_kohne","locs":["bk-nerimanov"],"cons":[]},
+ {"q":"Harada yaşamaq yaxşıdır?","goal":"buy","type":"menzil_kohne","locs":[],"cons":[]},
+ {"q":"Yaxşı yer tövsiyə et","goal":"buy","type":"menzil_kohne","locs":[],"cons":[]},
+ {"q":"Ev almaq istəyirəm","goal":"buy","type":"menzil_kohne","locs":[],"cons":[]},
+ {"q":"Lənkəranda dənizə yaxın həyət evi, 80 min","goal":"buy","type":"heyet_evi","locs":["az-lenkeran"],"cons":["coastal"],"budget":80000}
+]

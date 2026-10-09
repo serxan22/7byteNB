@@ -10,7 +10,8 @@ export const AI_MODEL = process.env.AI_MODEL || "gemini-3.7-flash";
 const FALLBACK_MODELS = (process.env.AI_FALLBACK_MODELS || "gemini-3.8-flash,gemini-3.6-flash,gemini-3.5-flash,gemini-flash-latest,gemini-3.5-flash-lite").split(",").map((s) => s.trim()).filter(Boolean);
 export const hasAI = () => !!process.env.GEMINI_API_KEY;
 
-export type AIResult<T> = { ok: true; data: T; cached: boolean; model: string } | { ok: false; reason: "no_key" | "busy" | "failed" };
+export type AIUsage = { in: number; out: number };
+export type AIResult<T> = { ok: true; data: T; cached: boolean; model: string; usage?: AIUsage } | { ok: false; reason: "no_key" | "busy" | "failed" };
 export const BUSY_MSG = "AI hazırda məşğuldur — bir az sonra yenidən cəhd et.";
 
 const CACHE_DIRS = [path.join(process.cwd(), "data/ai-cache"), "/tmp/meskan-ai-cache"];
@@ -84,7 +85,8 @@ export async function generateJSON<S extends z.ZodType>(
         const check = schema.safeParse(parsed);
         if (check.success) {
           cacheWrite(key, check.data);
-          return { ok: true, data: check.data, cached: false, model };
+          const u = res.usageMetadata;
+          return { ok: true, data: check.data, cached: false, model, usage: u ? { in: u.promptTokenCount ?? 0, out: (u.candidatesTokenCount ?? 0) + (u.thoughtsTokenCount ?? 0) } : undefined };
         }
         // one retry with the validation error appended
         contents = `${prompt}\n\nƏvvəlki cavab JSON sxemə uyğun deyildi: ${check.success ? "" : check.error.message.slice(0, 600)}\nDüzəldib yalnız etibarlı JSON qaytar.`;
