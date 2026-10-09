@@ -10,8 +10,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Nərimanov · Nəriman Nərimanov m. ətrafı",
-    "Nərimanov · Gənclik m. ətrafı"
+    "Nərimanov · Dərnəgül 9",
+    "Nərimanov · Gənclik m. ətrafı 2"
    ]
   },
   {
@@ -22,7 +22,7 @@
    "pass": true,
    "sample": [
     "Yasamal · 20 Yanvar m. ətrafı",
-    "Yasamal · Nizami Gəncəvi m. ətrafı"
+    "Yasamal · Yasamal 6"
    ]
   },
   {
@@ -32,8 +32,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmail Xətai m. ətrafı",
-    "Nəsimi · Memar Əcəmi m. ətrafı"
+    "Xətai · Şah İsmail Xətai m. ətrafı 10",
+    "Nəsimi · Cəfər Cabbarlı m. ətrafı 2"
    ]
   },
   {
@@ -43,8 +43,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Binəqədi · Azadlıq prospekti m. ətrafı",
-    "Binəqədi · Nəsimi m. ətrafı"
+    "Binəqədi · 6-cı mikrorayon",
+    "Binəqədi · Dərnəgül"
    ]
   },
   {
@@ -54,7 +54,7 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmail Xətai m. ətrafı",
+    "Xətai · Şah İsmail Xətai m. ətrafı 10",
     "Xətai · Əhmədli m. ətrafı"
    ]
   },
@@ -87,7 +87,7 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmail Xətai m. ətrafı",
+    "Xətai · Şah İsmail Xətai m. ətrafı 10",
     "Xətai · Əhmədli m. ətrafı"
    ]
   },
@@ -98,19 +98,19 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Gəncə · Cavadxan",
-    "Gəncə"
+    "Gəncə · Sadıllı 4",
+    "Gəncə · Cavadxan 7"
    ]
   },
   {
    "name": "Nəsimi + metro ≤600 m + park ≤500 m",
-   "returned": 5,
-   "satisfying": 5,
+   "returned": 4,
+   "satisfying": 4,
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Nəsimi · Memar Əcəmi m. ətrafı",
-    "Nəsimi · 28 May m. ətrafı"
+    "Nəsimi · Cəfər Cabbarlı m. ətrafı 2",
+    "Nəsimi · 3-cü mikrorayon"
    ]
   }
  ]

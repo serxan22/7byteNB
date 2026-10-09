@@ -1,7 +1,7 @@
 {
- "ran_at": "2026-10-09T14:05:08.324Z",
- "passed": 16,
- "total": 16,
+ "ran_at": "2026-10-09T14:14:26.247Z",
+ "passed": 20,
+ "total": 20,
  "checks": [
   {
    "name": "75 rayon/şəhər var",
@@ -76,15 +76,39 @@
    "hard": false
   },
   {
-   "name": "Hər məhəllə (hex parçası) öz rayonunun içindədir",
+   "name": "H3 hesablama şəbəkəsi: hər parça öz rayonunun içindədir",
    "pass": true,
    "detail": "3700 parça yoxlanıldı",
    "hard": true
   },
   {
-   "name": "Məhəllələrin cəmi sahəsi ≈ rayon sahəsi (±3%)",
+   "name": "H3 hesablama şəbəkəsi: parçaların cəmi ≈ rayon sahəsi (±3%)",
    "pass": true,
    "detail": "maks fərq 1.60%",
+   "hard": true
+  },
+  {
+   "name": "Hər məhəllə öz rayonunun içindədir",
+   "pass": true,
+   "detail": "1125 məhəllə yoxlanıldı",
+   "hard": true
+  },
+  {
+   "name": "Məhəllələr bir-birini örtmür (sadələşdirmə payı ≤0.5%)",
+   "pass": true,
+   "detail": "14 rayon",
+   "hard": true
+  },
+  {
+   "name": "Məhəllələrin cəmi sahəsi ≈ rayon sahəsi (±3%)",
+   "pass": true,
+   "detail": "maks fərq 0.11%",
+   "hard": true
+  },
+  {
+   "name": "Hər məhəllənin adı var",
+   "pass": true,
+   "detail": "1125 ad",
    "hard": true
   },
   {

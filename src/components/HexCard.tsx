@@ -16,7 +16,7 @@ export default function HexCard({ hex, cats, parent }: { hex: Hex; cats: string[
   ];
   return (
     <div className="fade-in border-b border-sand-3 bg-sand p-4">
-      <div className="text-[11px] font-semibold text-ink-3">Məhəllə · H3 altıbucaq (~0.7 km²)</div>
+      <div className="text-[11px] font-semibold text-ink-3">Məhəllə · {hex.a != null ? `${hex.a} km² · ` : ""}təxmini sərhəd (OSM + Voronoi)</div>
       <div className="text-lg font-extrabold leading-tight">{hex.l}</div>
       <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
         {dist.map(([k, v]) => (
@@ -45,7 +45,7 @@ export default function HexCard({ hex, cats, parent }: { hex: Hex; cats: string[
         <span>Köhnə tikili: <b className="num">{price?.value != null ? `${fmt(price.value)} ₼/m²` : "məlumat yoxdur"}</b> — <i>rayon ortası</i>, məhəllə qiyməti deyil</span>
         {price && <Badge kind={priceBadge(price)} />}
       </div>
-      <div className="mt-2 flex items-center gap-1.5 text-[10px] text-ink-3"><Badge kind="osm" /> Məsafələr düz xətlə, ən yaxın OSM obyektinə qədər.</div>
+      <div className="mt-2 flex items-center gap-1.5 text-[10px] text-ink-3"><Badge kind="osm" /> Məsafələr düz xətlə, məhəllə daxilində orta (sahəyə görə çəkili).</div>
     </div>
   );
 }

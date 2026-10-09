@@ -74,7 +74,7 @@ export default function MapView({ level, regions, colors, hexColors, selectedId,
           fetch("/data/regions-az.geojson").then((r) => r.json()),
           fetch("/data/regions-baku.geojson").then((r) => r.json()),
           fetch("/data/pois-baku.json").then((r) => r.json()),
-          fetch("/data/hexes-geo.json").then((r) => r.json()),
+          fetch("/data/mahalle-geo.json").then((r) => r.json()),
         ]);
         const border = css("--map-border") || "#fbf8f1";
         for (const [src, data] of [["az", az], ["baku", baku]] as const) {
@@ -116,12 +116,12 @@ export default function MapView({ level, regions, colors, hexColors, selectedId,
             if (id) cb.current.onSelect(id);
           });
         }
-        // H3 micro-areas (zoomed in): coloured by the active metric, hover + click
+        // neighbourhoods (OSM boundaries + Voronoi from OSM place points), zoomed in: coloured by the active metric
         m.addSource("hexes", { type: "geojson", data: hexGeo, promoteId: "id" });
-        m.addLayer({ id: "hex-fill", type: "fill", source: "hexes", minzoom: 10.3, paint: { "fill-color": ["coalesce", ["feature-state", "c"], "rgba(0,0,0,0)"], "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10.3, 0, 11, 0.78] } });
-        m.addLayer({ id: "hex-line", type: "line", source: "hexes", minzoom: 10.3, paint: { "line-color": border, "line-width": 0.5, "line-opacity": 0.9 } });
+        m.addLayer({ id: "hex-fill", type: "fill", source: "hexes", minzoom: 10, paint: { "fill-color": ["coalesce", ["feature-state", "c"], "rgba(0,0,0,0)"], "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0, 10.8, 0.8] } });
+        m.addLayer({ id: "hex-line", type: "line", source: "hexes", minzoom: 10, paint: { "line-color": border, "line-width": 0.6, "line-opacity": 0.95 } });
         // region outline drawn above the honeycomb so each district reads as its own cut shape
-        for (const src of ["az", "baku"]) m.addLayer({ id: `${src}-top`, type: "line", source: src, minzoom: 10.3, paint: { "line-color": border, "line-width": 2.2 } });
+        for (const src of ["az", "baku"]) m.addLayer({ id: `${src}-top`, type: "line", source: src, minzoom: 10, paint: { "line-color": border, "line-width": 2.2 } });
         m.addLayer({ id: "hex-hl", type: "line", source: "hexes", filter: ["in", ["get", "id"], ["literal", []]], paint: { "line-color": "#18262e", "line-width": 2.6 } });
         for (const src of ["az", "baku"]) m.addLayer({ id: `${src}-hl`, type: "line", source: src, filter: ["in", ["get", "id"], ["literal", []]], paint: { "line-color": "#0f4c5c", "line-width": 3 } });
         m.on("mousemove", "hex-fill", (e: import("maplibre-gl").MapLayerMouseEvent) => {

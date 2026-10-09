@@ -11,7 +11,9 @@ export function loadSettlements(): SettlementData {
 
 let hexCache: HexData | null = null;
 export function loadHexes(): HexData {
-  hexCache ??= JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/hexes.json"), "utf8"));
+  // organic neighbourhoods (mahalle) are the retrieval units; H3 hexes remain only the compute grid behind them
+  const f = path.join(process.cwd(), "public/data/mahalle.json");
+  hexCache ??= JSON.parse(fs.readFileSync(fs.existsSync(f) ? f : path.join(process.cwd(), "public/data/hexes.json"), "utf8"));
   return hexCache!;
 }
 

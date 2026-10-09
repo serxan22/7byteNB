@@ -8,7 +8,7 @@ export type Intent = z.infer<typeof IntentSchema>;
 export type Hex = {
   h: string; c: [number, number]; r: string; l: string; p: number[]; st: number;
   m: number | null; mn: string | null; s: number; sc: number | null; k: number | null; pk: number | null; rk: number; pv: number | null;
-  pm?: number; pn?: number;
+  pm?: number; pn?: number; a?: number;
 };
 export type HexData = { res: number; cats: string[]; hexes: Hex[] };
 export type Settlement = { id: string; n: string; t: 0 | 1; c: [number, number]; r: string; p: number[]; s: number | null };

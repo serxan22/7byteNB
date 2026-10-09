@@ -78,13 +78,48 @@ else add("Metro stansiyaları: rəsmi siyahı ilə müqayisə", false, `OSM ${ba
     const inA = (regF[f.properties.r] ?? []).reduce((s2, rf) => s2 + (turfArea(turfIntersect(featureCollection([f, rf])) ?? { type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [] } }) || 0), 0);
     if (inA < a * 0.99) outside.push(`${f.properties.id} (${Math.round((inA / a) * 100)}%)`);
   }
-  add("Hər məhəllə (hex parçası) öz rayonunun içindədir", !outside.length, outside.slice(0, 3).join(", ") || `${geo.length} parça yoxlanıldı`);
+  add("H3 hesablama şəbəkəsi: hər parça öz rayonunun içindədir", !outside.length, outside.slice(0, 3).join(", ") || `${geo.length} parça yoxlanıldı`);
   const dev = Object.entries(sums).map(([r, a]) => {
     const ra = regF[r].reduce((s2, rf) => s2 + turfArea(rf), 0);
     return [r, (a / ra - 1) * 100];
   });
   const bad = dev.filter(([, d]) => Math.abs(d) > 3);
+  add("H3 hesablama şəbəkəsi: parçaların cəmi ≈ rayon sahəsi (±3%)", !bad.length, bad.map(([r, d]) => `${r} ${d.toFixed(1)}%`).join(", ") || `maks fərq ${Math.max(...dev.map(([, d]) => Math.abs(d))).toFixed(2)}%`);
+}
+
+// 7c. Mahalle (organic neighbourhoods): inside district, no overlaps, areas ±3%, every one named
+if (fs.existsSync("public/data/mahalle-geo.json")) {
+  const { default: turfArea } = await import("@turf/area");
+  const { default: turfIntersect } = await import("@turf/intersect");
+  const { default: turfUnion } = await import("@turf/union");
+  const { featureCollection } = await import("@turf/helpers");
+  const geo = JSON.parse(fs.readFileSync("public/data/mahalle-geo.json", "utf8")).features;
+  const recs = JSON.parse(fs.readFileSync("public/data/mahalle.json", "utf8")).hexes;
+  const regs = [...JSON.parse(fs.readFileSync("public/data/regions-baku.geojson", "utf8")).features, ...JSON.parse(fs.readFileSync("public/data/regions-az.geojson", "utf8")).features];
+  const regF = {};
+  for (const f of regs) (regF[f.properties.id] ||= []).push(f);
+  const outside = [], byR = {};
+  for (const f of geo) {
+    const a = turfArea(f);
+    (byR[f.properties.r] ||= []).push(f);
+    const inA = regF[f.properties.r].reduce((s2, rf) => { const x = turfIntersect(featureCollection([f, rf])); return s2 + (x ? turfArea(x) : 0); }, 0);
+    if (inA < a * 0.99) outside.push(`${f.properties.id} (${Math.round((inA / a) * 100)}%)`);
+  }
+  add("Hər məhəllə öz rayonunun içindədir", !outside.length, outside.slice(0, 3).join(", ") || `${geo.length} məhəllə yoxlanıldı`);
+  const over = [], dev = [];
+  for (const [r, fs2] of Object.entries(byR)) {
+    const sum = fs2.reduce((s2, f) => s2 + turfArea(f), 0);
+    const u = turfUnion(featureCollection(fs2));
+    const ua = u ? turfArea(u) : sum;
+    if ((sum - ua) / ua > 0.005) over.push(`${r} ${(((sum - ua) / ua) * 100).toFixed(2)}%`);
+    const ra = regF[r].reduce((s2, rf) => s2 + turfArea(rf), 0);
+    dev.push([r, (sum / ra - 1) * 100]);
+  }
+  add("Məhəllələr bir-birini örtmür (sadələşdirmə payı ≤0.5%)", !over.length, over.join(", ") || `${Object.keys(byR).length} rayon`);
+  const bad = dev.filter(([, d]) => Math.abs(d) > 3);
   add("Məhəllələrin cəmi sahəsi ≈ rayon sahəsi (±3%)", !bad.length, bad.map(([r, d]) => `${r} ${d.toFixed(1)}%`).join(", ") || `maks fərq ${Math.max(...dev.map(([, d]) => Math.abs(d))).toFixed(2)}%`);
+  const unnamed = recs.filter((x) => !x.l || x.l.split(" · ").length < 2);
+  add("Hər məhəllənin adı var", !unnamed.length, unnamed.slice(0, 3).map((x) => x.h).join(", ") || `${recs.length} ad`);
 }
 
 // 8. Coverage stats (informational)

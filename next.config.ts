@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   outputFileTracingIncludes: {
-    "/api/**": ["./public/data/*.json", "./data/ai-cache/**", "./data/legal/**"],
+    "/api/**": ["./public/data/*.json", "./public/data/mahalle.json", "./data/ai-cache/**", "./data/legal/**"],
   },
   turbopack: {
     root: process.cwd(),

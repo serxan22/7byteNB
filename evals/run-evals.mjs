@@ -15,7 +15,7 @@ const read = (f) => JSON.parse(fs.readFileSync(f, "utf8"));
 const az = read("public/data/regions-az.json"), bk = read("public/data/regions-baku.json");
 const regions = [...az, ...bk];
 const national = read("public/data/national.json");
-const hx = read("public/data/hexes.json");
+const hx = read("public/data/mahalle.json"); // retrieval units = mahalle (hexes are only the compute grid)
 const catalog = locationCatalog(regions, hx);
 fs.mkdirSync("evals/results", { recursive: true });
 const usage = [];

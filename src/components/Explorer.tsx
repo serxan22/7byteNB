@@ -53,7 +53,7 @@ export default function Explorer() {
       fetch("/data/regions-az.json").then((r) => r.json()),
       fetch("/data/regions-baku.json").then((r) => r.json()),
       fetch("/data/national.json").then((r) => r.json()),
-      fetch("/data/hexes.json").then((r) => r.json()),
+      fetch("/data/mahalle.json").then((r) => r.json()),
     ]).then(([az, baku, national, hx]) => {
       setData({ az, baku, national });
       setHexes(hx);
@@ -208,7 +208,7 @@ export default function Explorer() {
                     <div className="mt-0.5 text-xs text-ink-2">
                       metro {hoverHex.m != null ? `${fmt(hoverHex.m)} m` : "—"} · dayanacaq {fmt(hoverHex.s)} m · {hoverHex.p.reduce((a, b) => a + b, 0)} obyekt
                     </div>
-                    <div className="mt-0.5 text-[10px] text-ink-3">məhəllə (H3 ~0.7 km²) · <Badge kind="osm" /></div>
+                    <div className="mt-0.5 text-[10px] text-ink-3">məhəllə · təxmini sərhəd · <Badge kind="osm" /></div>
                   </>
                 )}
               </div>
@@ -230,7 +230,7 @@ export default function Explorer() {
                 </div>
               </div>
               {m.note && <div className="mt-1 max-w-[300px] text-[10px] leading-snug text-ink-3">{m.note}</div>}
-              {level === "baku_district" && <div className="mt-1 max-w-[300px] text-[10px] leading-snug text-ink-3">Yaxınlaşdır: məhəllələr (H3 altıbucaqlar) görünəcək.</div>}
+              {level === "baku_district" && <div className="mt-1 max-w-[300px] text-[10px] leading-snug text-ink-3">Yaxınlaşdır: məhəllələr görünəcək.</div>}
             </div>
           </div>
         </section>
