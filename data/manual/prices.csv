@@ -1,0 +1,96 @@
+region_id,region_name,property_type,value,unit,n_samples,source,source_url,collected_at,confidence
+bk-sebail,"Səbail",menzil_yeni,4600,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-sebail,"Səbail",menzil_kohne,4132,AZN_m2,0,"Caliber.az (bütün yaşayış, orta, 2026-09)",https://caliber.az/en/post/a-metre-at-a-premium-why-are-property-prices-rising-in-baku,2026-10-09,estimate
+bk-sebail,"Səbail",heyet_evi,3000,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-sebail,"Səbail",obyekt,6500,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-sebail,"Səbail",torpaq,60000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-nesimi,"Nəsimi",menzil_yeni,3700,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nesimi,"Nəsimi",menzil_kohne,3300,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nesimi,"Nəsimi",heyet_evi,2600,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nesimi,"Nəsimi",obyekt,5200,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nesimi,"Nəsimi",torpaq,50000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-yasamal,"Yasamal",menzil_yeni,3250,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-yasamal,"Yasamal",menzil_kohne,2900,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-yasamal,"Yasamal",heyet_evi,2300,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-yasamal,"Yasamal",obyekt,4300,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-yasamal,"Yasamal",torpaq,42000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-nerimanov,"Nərimanov",menzil_yeni,3150,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nerimanov,"Nərimanov",menzil_kohne,2800,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nerimanov,"Nərimanov",heyet_evi,2200,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nerimanov,"Nərimanov",obyekt,4200,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nerimanov,"Nərimanov",torpaq,40000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-xetai,"Xətai",menzil_yeni,3000,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xetai,"Xətai",menzil_kohne,2600,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xetai,"Xətai",heyet_evi,1900,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xetai,"Xətai",obyekt,3900,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xetai,"Xətai",torpaq,35000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-nizami,"Nizami",menzil_yeni,2800,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nizami,"Nizami",menzil_kohne,2500,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nizami,"Nizami",heyet_evi,1900,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nizami,"Nizami",obyekt,3600,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-nizami,"Nizami",torpaq,32000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-bineqedi,"Binəqədi",menzil_yeni,2250,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-bineqedi,"Binəqədi",menzil_kohne,2000,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-bineqedi,"Binəqədi",heyet_evi,1300,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-bineqedi,"Binəqədi",obyekt,2800,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-bineqedi,"Binəqədi",torpaq,20000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-xezer,"Xəzər",menzil_yeni,1950,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xezer,"Xəzər",menzil_kohne,1700,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xezer,"Xəzər",heyet_evi,1100,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xezer,"Xəzər",obyekt,2300,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-xezer,"Xəzər",torpaq,15000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-sabuncu,"Sabunçu",menzil_yeni,1850,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-sabuncu,"Sabunçu",menzil_kohne,1650,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-sabuncu,"Sabunçu",heyet_evi,1000,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-sabuncu,"Sabunçu",obyekt,2200,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-sabuncu,"Sabunçu",torpaq,14000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-suraxani,"Suraxanı",menzil_yeni,1750,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-suraxani,"Suraxanı",menzil_kohne,1550,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-suraxani,"Suraxanı",heyet_evi,950,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-suraxani,"Suraxanı",obyekt,2000,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-suraxani,"Suraxanı",torpaq,12000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-qaradag,"Qaradağ",menzil_yeni,1700,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-qaradag,"Qaradağ",menzil_kohne,1500,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-qaradag,"Qaradağ",heyet_evi,850,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-qaradag,"Qaradağ",obyekt,1900,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-qaradag,"Qaradağ",torpaq,9000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+bk-pirallahi,"Pirallahı",menzil_yeni,1650,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-pirallahi,"Pirallahı",menzil_kohne,1452,AZN_m2,0,"Caliber.az (bütün yaşayış, orta, 2026-09)",https://caliber.az/en/post/a-metre-at-a-premium-why-are-property-prices-rising-in-baku,2026-10-09,estimate
+bk-pirallahi,"Pirallahı",heyet_evi,800,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-pirallahi,"Pirallahı",obyekt,1800,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+bk-pirallahi,"Pirallahı",torpaq,8000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+az-baki,"Bakı",menzil_yeni,2812.5,AZN_m2,0,"JAM News / Qiymətləndiricilər Palatası (yeni tikili, median, 2026-07)",https://jam-news.net/salaries-rise-7-while-house-prices-climb-12-4-is-it-worth-buying-home-in-azerbaijan/,2026-10-09,estimate
+az-baki,"Bakı",menzil_kohne,2616.7,AZN_m2,0,"JAM News / Qiymətləndiricilər Palatası (təkrar bazar, median, 2026-07)",https://jam-news.net/salaries-rise-7-while-house-prices-climb-12-4-is-it-worth-buying-home-in-azerbaijan/,2026-10-09,estimate
+az-baki,"Bakı",heyet_evi,1500,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-baki,"Bakı",obyekt,4000,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-baki,"Bakı",torpaq,18000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+az-sumqayit,"Sumqayıt",menzil_yeni,1150,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-sumqayit,"Sumqayıt",menzil_kohne,850,AZN_m2,0,"Cyril Jarnias bloqu (kollektiv bina 350–650 USD/m²; ilkin mənbə göstərilməyib; USD aralığının ortası ×1.70)",https://www.cyriljarnias.com/immobilier-international/investir-immobilier-azerbaidjan/comparatif-immobilier-bakou-ganja-sumqayit/,2026-10-09,estimate
+az-sumqayit,"Sumqayıt",heyet_evi,750,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-sumqayit,"Sumqayıt",obyekt,1400,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-sumqayit,"Sumqayıt",torpaq,7000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+az-gence,"Gəncə",menzil_yeni,1020,AZN_m2,0,"Cyril Jarnias bloqu (yeni kompleks 500–700 USD/m²; ilkin mənbə göstərilməyib; USD aralığının ortası ×1.70)",https://www.cyriljarnias.com/immobilier-international/investir-immobilier-azerbaidjan/comparatif-immobilier-bakou-ganja-sumqayit/,2026-10-09,estimate
+az-gence,"Gəncə",menzil_kohne,680,AZN_m2,0,"Cyril Jarnias bloqu (sovet dövrü 300–500 USD/m²; ilkin mənbə göstərilməyib; USD aralığının ortası ×1.70)",https://www.cyriljarnias.com/immobilier-international/investir-immobilier-azerbaidjan/comparatif-immobilier-bakou-ganja-sumqayit/,2026-10-09,estimate
+az-gence,"Gəncə",heyet_evi,600,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-gence,"Gəncə",obyekt,1100,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-gence,"Gəncə",torpaq,4000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+az-mingecevir,"Mingəçevir",menzil_yeni,900,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-mingecevir,"Mingəçevir",menzil_kohne,650,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-mingecevir,"Mingəçevir",heyet_evi,500,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-mingecevir,"Mingəçevir",obyekt,900,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-mingecevir,"Mingəçevir",torpaq,3000,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+az-lenkeran,"Lənkəran",menzil_yeni,850,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-lenkeran,"Lənkəran",menzil_kohne,600,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-lenkeran,"Lənkəran",heyet_evi,450,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-lenkeran,"Lənkəran",obyekt,850,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-lenkeran,"Lənkəran",torpaq,2500,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+az-quba,"Quba",menzil_yeni,850,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-quba,"Quba",menzil_kohne,600,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-quba,"Quba",heyet_evi,550,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-quba,"Quba",obyekt,850,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-quba,"Quba",torpaq,3500,AZN_sot,0,"Demo dəyər",,2026-10-09,mock
+az-seki,"Şəki",menzil_yeni,800,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-seki,"Şəki",menzil_kohne,550,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-seki,"Şəki",heyet_evi,500,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-seki,"Şəki",obyekt,800,AZN_m2,0,"Demo dəyər",,2026-10-09,mock
+az-seki,"Şəki",torpaq,2800,AZN_sot,0,"Demo dəyər",,2026-10-09,mock

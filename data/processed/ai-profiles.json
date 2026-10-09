@@ -1,0 +1,1071 @@
+{
+ "bk-nizami": {
+  "headline": "Nizami rayonu: metro şəbəkəsi və asfalt yolları olan sıx məskunlaşmış ərazi",
+  "tags": [
+   {
+    "tag": "genc_pesekar",
+    "reason": "Ərazidə 4 metro stansiyası və 10 min sakinə 0.86 ticarət mərkəzi (median 0.39) mövcuddur."
+   },
+   {
+    "tag": "biznes_furseti",
+    "reason": "Rayonda 10 min sakinə 0.86 ticarət mərkəzi və 0.38 bazar düşür (medianlar müvafiq olaraq 0.39 və 0.29)."
+   }
+  ],
+  "summary": "Nizami rayonu 9310 nəfər/km² sıxlığı ilə Bakı medianından (2890.5 nəfər/km²) daha sıx məskunlaşıb. Ərazidə 4 metro stansiyası və 37 avtobus marşrutu sakinlərin gediş-gəlişini təmin edir. Örtüyü bəlli olan yollarda asfalt payı 95.4% təşkil etsə də, 10 min sakinə düşən ərzaq mağazası (6.98) və aptek (1.02) göstəriciləri şəhər medianından geri qalır. Bundan əlavə, rayon ərazisinin 14.7%-ni sənaye zonaları əhatə edir.",
+  "strengths": [
+   "Məlum örtüklü yolların asfalt payı yüksək səviyyədədir (asfalt yollar 95.4%; median 83.1%)",
+   "Ticarət mərkəzlərinin sıxlığı şəhər normasından çoxdur (10 min sakinə 0.86 ticarət mərkəzi; median 0.39)",
+   "Ərazidə ictimai relsli nəqliyyat təminatı mövcuddur (4 metro stansiyası; şəhər üzrə 4 stansiya)"
+  ],
+  "weaknesses": [
+   "Gündəlik ərzaq təminatı nöqtələrinin sıxlığı aşağıdır (10 min sakinə 6.98 ərzaq mağazası; median 13.41)",
+   "Xəstəxana sayı əhali nisbətinə görə azlıq təşkil edir (10 min sakinə 1.45 xəstəxana; median 2.75)",
+   "Aptek təminatı şəhər medianından xeyli zəifdir (10 min sakinə 1.02 aptek; median 2.24)"
+  ],
+  "best_for": [
+   "Metro və ictimai nəqliyyat marşrutlarına yaxın olmaq istəyənlər",
+   "Ticarət mərkəzləri və bazarlara tez-tez üz tutan sakinlər"
+  ],
+  "watch_out": [
+   "Yolların 58.9%-nin örtük məlumatı sistemdə qeyd edilməyib.",
+   "Ərazinin 14.7%-i sənaye zonasıdır və əhali sıxlığı 9310 nəfər/km² səviyyəsindədir."
+  ],
+  "confidence_note": "OSM xəritələnməsi yüksək olsa da, qiymət məlumatları demo (mock) dəyərlərdir və onlardan qərar vermək üçün istifadə edilməməlidir."
+ },
+ "bk-sabuncu": {
+  "headline": "Geniş əraziyə və əlçatan mənzil fonduna malik şəhərkənarı rayon",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 4.82 məktəb düşür və bu göstərici Bakı medianından (3.43) yüksəkdir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Əlçatanlıq indeksi 71 bal təşkil edir (Bakı rayonları üzrə median 50 bal)."
+   }
+  ],
+  "summary": "Sabunçu 232.4 km² ərazisi və 331 800 nəfər əhalisi olan, əsasən fərdi yaşayış sahələrindən ibarət geniş rayondur. Ərazidə ərzaq təminatı yaxşıdır, 10 min sakinə 17.51 ərzaq mağazası qeydə alınıb. İctimai nəqliyyat infrastrukturu zəifdir, rayonda metro stansiyası yoxdur və ən yaxın metroya məsafə 9.4 km təşkil edir. Məktəb təminatı üzrə təhsil indeksi 54 bal olub şəhər medianından yüksəkdir.",
+  "strengths": [
+   "Məktəb təminatı şəhər səviyyəsindən yüksəkdir (10 min sakinə 4.82 məktəb; median 3.43)",
+   "Gündəlik tələbat üçün ərzaq mağazalarının sıxlığı yetərlidir (10 min sakinə 17.51 ərzaq mağazası; median 13.41)",
+   "Uşaq bağçalarının sayı şəhər medianını üstələyir (10 min sakinə 2.68 bağça; median 2.32)"
+  ],
+  "weaknesses": [
+   "İctimai nəqliyyat və avtobus dayanacağı sıxlığı aşağıdır (10 min sakinə 2.41 avtobus dayanacağı; median 6.22)",
+   "Ərazidə metro xətti mövcud deyil (0 metro stansiyası, ən yaxın metroya 9.4 km)",
+   "Gündəlik xidmət və rahatlıq infrastrukturu zəif inkişaf edib (rahatlıq indeksi 38; median 51.5)"
+  ],
+  "best_for": [
+   "Məktəbə yaxın həyət evi və ya mənzil axtaran ailələr",
+   "Şəxsi avtomobili olan və şəhər mərkəzindən kənar ərazi seçən sakinlər"
+  ],
+  "watch_out": [
+   "Yolların 93.1%-nin örtük növü məlum deyil və asfalt payı barədə dəqiq məlumat yoxdur",
+   "İctimai nəqliyyatla şəhər mərkəzinə gediş-gəliş məsafəsi uzundur (nəqliyyat indeksi 27)"
+  ],
+  "confidence_note": "OSM xəritələnmə əhatəsi yüksəkdir, lakin yolların 93.1%-nin səthi qeyd olunmayıb. Təqdim olunan qiymət göstəriciləri demo (mock) xarakter daşıyır və rəsmi bazar dəyəri kimi qəbul edilməməlidir."
+ },
+ "bk-xetai": {
+  "headline": "Yüksək nəqliyyat imkanlarına və sıx məskunlaşmaya malik Xətai rayonu",
+  "tags": [
+   {
+    "tag": "genc_pesekar",
+    "reason": "Ərazidə 7 metro stansiyası və 36 avtobus marşrutu fəaliyyət göstərir (nəqliyyat indeksi 69)."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Məktəbəqədər təhsil təminatı şəhər medianından yüksəkdir (10 min sakinə 3.02 bağça; median 2.32)."
+   }
+  ],
+  "summary": "Xətai rayonu 277800 nəfər əhali və 1 km²-ə 9260 nəfər sıxlıqla Bakının ən sıx məskunlaşmış rayonlarındandır. Ərazidə 7 metro stansiyası və 162 avtobus dayanacağı mövcuddur ki, bu da nəqliyyat indeksini 69 səviyyəsinə çatdırır. Rahatlıq indeksi 23, səhiyyə indeksi isə 24 olub Bakı rayonlarının 51.5 olan medianından xeyli aşağıdır. Örtüyü məlum olan yollarda asfalt payı 95% təşkil etsə də, yolların 78.2%-nin örtük məlumatı qeydə alınmayıb.",
+  "strengths": [
+   "İnkişaf etmiş ictimai nəqliyyat və metro şəbəkəsi (nəqliyyat indeksi 69; Bakı medianı 56)",
+   "Uşaq bağçaları ilə təminatın yüksək olması (10 min sakinə 3.02 bağça; Bakı medianı 2.32)",
+   "Örtüyü məlum olan yolların yüksək asfaltlanma səviyyəsi (asfalt yollar 95%; Bakı medianı 83.1%)"
+  ],
+  "weaknesses": [
+   "Apteklərin sayının əhali nisbətində kəskin azlığı (10 min sakinə 0.86 aptek; Bakı medianı 2.24)",
+   "Səhiyyə müəssisələri ilə ümumi təminatın zəifliyi (səhiyyə indeksi 24; Bakı medianı 51.5)",
+   "Əhali sıxlığının şəhər medianından xeyli yüksək olması (1 km²-ə 9260 sakin; Bakı medianı 2890.5)"
+  ],
+  "best_for": [
+   "İctimai nəqliyyatdan və metrodan aktiv istifadə edənlər",
+   "Uşaq bağçasına yaxın yaşamaq istəyən ailələr"
+  ],
+  "watch_out": [
+   "Yolların 78.2%-nin örtük növü məlum deyil, daxili məhəllə yolları araşdırılmalıdır",
+   "Gündəlik xidmət və ərzaq sıxlığı zəifdir (rahatlıq indeksi 23)"
+  ],
+  "confidence_note": "OSM xəritələnmə əhatəsi yüksəkdir, lakin daşınmaz əmlak qiymətləri demo (mock) xarakter daşıdığı üçün real bazar dəyərini əks etdirmir."
+ },
+ "bk-pirallahi": {
+  "headline": "Pirallahı: Sakit sahil həyatı və əlverişli qiymətlər, məhdud nəqliyyat",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Köhnə tikili mənzillərin təxmini qiyməti 1452 AZN/m² təşkil edir və əlçatanlıq indeksi 96 baldır."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "10 min sakinə 39.36 park düşür və PM2.5 hava çirkliliyi modeli 10.9 səviyyəsindədir."
+   }
+  ],
+  "summary": "Pirallahı rayonu aşağı əhali sıxlığı (hər km²-ə 627 nəfər) və dənizkənarı düzənlik relyefi ilə fərqlənir. Ərazidə 10 min sakinə düşən məktəb (6.38) və xəstəxana (4.26) sayı şəhər medianından yüksəkdir. Bununla belə, nəqliyyat indeksi cəmi 8 baldır və ən yaxın metro stansiyası 31.3 km məsafədə yerləşir. Örtüyü məlum olan yolların yalnız 7.6%-i asfaltdır.",
+  "strengths": [
+   "Yaşıllıq və istirahət zonalarının yüksək payı (10 min sakinə 39.36 park; median 10.04)",
+   "Əhali sayına nisbətdə məktəb təminatının yüksək olması (10 min sakinə 6.38 məktəb; median 3.43)",
+   "Köhnə mənzillərin şəhər üzrə təxmini qiymətdən ucuz olması (köhnə tikili 1452 AZN/m²; median 2250 AZN/m²)"
+  ],
+  "weaknesses": [
+   "İctimai nəqliyyat infrastrukturunun zəifliyi (10 min sakinə 0.53 avtobus dayanacağı; median 6.22)",
+   "Metro şəbəkəsindən uzaqlıq (ən yaxın metro məsafəsi 31.3 km)",
+   "Asfalt örtüklü yolların çox aşağı payı (məlum yolların asfalt payı 7.6%; median 83.1%)"
+  ],
+  "best_for": [
+   "Sakit, şəhər səs-küyündən uzaq sahil mühiti axtaranlar",
+   "Büdcəyə uyğun köhnə tikili mənzil almaq istəyənlər"
+  ],
+  "watch_out": [
+   "İctimai nəqliyyat xətlərinin məhdudluğu və şəhər mərkəzinə olan məsafə",
+   "Yolların 69.6%-nin örtüyünün naməlum olması və asfalt infrastrukturunun azlığı"
+  ],
+  "confidence_note": "OSM məlumat əhatəsi orta səviyyədədir, yəni bəzi obyektlər xəritələnməmiş qala bilər. Yeni tikili, həyət evi və torpaq qiymətləri demo (mock) xarakterlidir, yalnız köhnə tikili qiyməti dərc olunmuş təxmindir."
+ },
+ "bk-suraxani": {
+  "headline": "Təhsil müəssisələri geniş, lakin yol və ictimai nəqliyyat infrastrukturu zəif rayon",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə düşən məktəb (4.78) və bağça (3.49) sayı şəhər medianından yüksəkdir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Mənzil qiymətlərinin nisbi ucuzluğunu əks etdirən əlçatanlıq indeksi 79 bənd təşkil edir."
+   }
+  ],
+  "summary": "Suraxanı rayonunda 10 min sakinə 20.58 ərzaq mağazası və 4.78 məktəb düşür ki, bu da şəhər üzrə median göstəricilərdən yüksəkdir. Bununla belə, ərazidə metro stansiyası yoxdur və ən yaxın metro 4.8 km məsafədə yerləşir, nəqliyyat indeksi isə 32 bənddir. Yol örtüyü məlum olan yollar arasında asfalt payı cəmi 39.6%-dir və yolların 86.6%-nin örtüyü qeydə alınmayıb. Mənzil qiymətləri üzrə verilən rəqəmlər demo (mock) xarakteri daşıyır.",
+  "strengths": [
+   "10 min nəfərə düşən məktəb təminatının yüksək olması (10 min sakinə 4.78 məktəb; median 3.43)",
+   "Ərzaq mağazalarının sıxlığı (10 min sakinə 20.58 ərzaq mağazası; median 13.41)",
+   "Uşaq bağçalarının say üstünlüyü (10 min sakinə 3.49 bağça; median 2.32)"
+  ],
+  "weaknesses": [
+   "Metro stansiyasının olmaması və zəif nəqliyyat göstəriciləri (nəqliyyat indeksi 32; median 56)",
+   "Örtüyü məlum olan yollarda asfaltlaşdırma səviyyəsinin aşağı olması (asfalt yollar 39.6%; median 83.1%)",
+   "Səhiyyə obyektləri və xəstəxana sıxlığının azlığı (10 min sakinə 1.62 xəstəxana; median 2.75)"
+  ],
+  "best_for": [
+   "Geniş məktəb və bağça şəbəkəsi axtaran ailələr",
+   "Fərdi nəqliyyatı olan və qəsəbə tipli yaşayışa üstünlük verənlər"
+  ],
+  "watch_out": [
+   "Ərazidə metro stansiyasının olmaması və ən yaxın metronun 4.8 km məsafədə yerləşməsi",
+   "Yolların 86.6%-nin səth örtüyünün məlum olmaması və qeydə alınanların cəmi 39.6%-nin asfalt olması",
+   "Qiymət göstəricilərinin faktiki deyil, demo xarakterli olması"
+  ],
+  "confidence_note": "OSM xəritələnmə səviyyəsi yüksəkdir, lakin yolların 86.6%-nin örtük məlumatı sistemdə mövcud deyil. Bütün daşınmaz əmlak qiymətləri demo (mock) dəyərlərdir, real bazar qiymətlərini əks etdirmir."
+ },
+ "bk-xezer": {
+  "headline": "Xəzər rayonu geniş ərazisi, park bolluğu və zəif nəqliyyat əlaqələri ilə seçilir.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə 10 min sakinə 18.15 park düşür və sahilboyu düzənlik relyefə malikdir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Elçatanlıq indeksi 63 olmaqla, yeni mənzillərin demo qiyməti 1950 AZN/m2 təşkil edir."
+   }
+  ],
+  "summary": "Xəzər rayonu Bakı şəhərinin geniş və seyrək məskunlaşmış sahil rayonlarından biridir. Ərazidə ərzaq və təhsil obyektləri kifayət qədər yaxşı təmsil olunsa da, nəqliyyat və infrastruktur göstəriciləri zəifdir. Yolların örtüyü haqqında məlumatların 90.3%-i naməlumdur və asfalt yolların payı göstərilməyib. Qiymətlər yalnız demo xarakterlidir və bu dəyərlərdən nəticə çıxarmaq düzgün deyil.",
+  "strengths": [
+   "Park bolluğu müşahidə olunur (10 min sakinə 18.15 park; median 10.04)",
+   "Ərzaq mağazaları geniş yayılıb (10 min sakinə 28.46 ərzaq; median 13.41)",
+   "Təhsil indeksi nisbətən yüksəkdir (tehsil indeksi 71; median 49)"
+  ],
+  "weaknesses": [
+   "Nəqliyyat şəbəkəsi zəifdir (neqliyyat indeksi 19; median 56)",
+   "İnfrastruktur göstəricisi aşağıdır (infrastruktur indeksi 21; median 49)",
+   "Səhiyyə xidmətləri geridə qalır (sehiyye indeksi 44; median 51.5)"
+  ],
+  "best_for": [
+   "Parklara yaxın və seyrək ərazidə yaşamaq istəyənlər",
+   "Şəhər mərkəzinin səs-küyündən uzaq həyət evi axtaranlar"
+  ],
+  "watch_out": [
+   "Nəqliyyat imkanları məhduddur və metro stansiyalarından uzaqdır",
+   "Yol örtüyü barədə məlumatlar naməlumdur (90.3%)",
+   "Təqdim olunan qiymətlər demo dəyəridir"
+  ],
+  "confidence_note": "OSM xəritəçəkmə əhatəsi yüksəkdir, lakin qiymətlərin confidence göstəricisi mock olduğundan qiymətlər demo dəyərdir."
+ },
+ "bk-qaradag": {
+  "headline": "Qaradağ rayonu geniş ərazisi və sərfəli mənzil qiymətləri ilə seçilir.",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Mənzil qiymətləri ucuzdur və elçatanlıq indeksi 88 təşkil edir."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 6.08 məktəb düşür."
+   }
+  ],
+  "summary": "Qaradağ rayonu Bakı şəhərinin böyük əraziyə malik rayonlarından biridir. Ərazidə təhsil müəssisələrinin sıxlığı yüksəkdir və 10 min sakinə 6.08 məktəb düşür. Lakin nəqliyyat indeksi 32, infrastruktur indeksi isə 10 təşkil edir. Məlumat üçün qeyd edək ki, qiymətlər demo dəyərdir.",
+  "strengths": [
+   "Təhsil göstəriciləri nisbətən yaxşıdır (təhsil indeksi 88).",
+   "Mənzil qiymətləri büdcəyə uyğundur (elçatanlıq 88).",
+   "Parkların sayı hər min sakinə görə yüksəkdir (10 min sakinə 20.27 park; median 10.04)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı azdır (asfalt yollar 36.7%).",
+   "Nəqliyyat infrastrukturu zəifdir (neqliyyat indeksi 32).",
+   "İnfrastruktur göstəricisi aşağı səviyyədədir (infrastruktur indeksi 10)."
+  ],
+  "best_for": [
+   "Büdcəsinə qənaət etmək istəyənlər.",
+   "Geniş ərazidə yaşamağa üstünlük verənlər."
+  ],
+  "watch_out": [
+   "Yolların örtüyü zəifdir.",
+   "Qiymətlər demo dəyərdir."
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymətlər mock statusundadır və demo dəyərlərdir, onlardan nəticə çıxarmaq olmaz."
+ },
+ "bk-yasamal": {
+  "headline": "Yasamal rayonu: güclü nəqliyyat və səhiyyə infrastrukturu ilə fərqlənən ərazi",
+  "tags": [
+   {
+    "tag": "telebe",
+    "reason": "Ərazidə 10 min sakinə 2.05 universitet düşür və bu göstərici ilə tələbələr üçün əlverişlidir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Mənzil qiyməti indeksi 21 təşkil edir və elçatanlıq səviyyəsi aşağıdır."
+   }
+  ],
+  "summary": "Yasamal Bakı şəhərinin rayonu olaraq 194700 əhaliyə sahibdir. Ərazidə nəqliyyat indeksi 77, səhiyyə indeksi isə 67 təşkil edir. Məktəb göstəricisi 10 min sakinə 2.57 bərabərdir. Qiymət məlumatları demo dəyərli mock səviyyəsindədir.",
+  "strengths": [
+   "Nəqliyyat şəbəkəsi genişdir (neqliyyat indeksi 77)",
+   "Səhiyyə obyektləri sıx yerləşir (sehiyye indeksi 67)",
+   "Asfalt yolların örtüyü yüksəkdir (asfalt yollar 93.3%)"
+  ],
+  "weaknesses": [
+   "Təhsil müəssisələrinin sıxlığı azdır (tehsil indeksi 29)",
+   "Mənzil elçatanlığı aşağı səviyyədədir (elcatanliq indeksi 21)",
+   "Rahatlıq indeksi median səviyyədən aşağıdır (rahatliq indeksi 43)"
+  ],
+  "best_for": [
+   "Nəqliyyat əlçatanlığına üstünlük verənlər",
+   "Səhiyyə xidmətlərinə yaxın olmaq istəyənlər"
+  ],
+  "watch_out": [
+   "Qiymətin confidence-i mock olduğu üçün rəqəmlər demo dəyərdir və ondan nəticə çıxarmaq olmaz.",
+   "Səth örtüyü məlum olmayan yolların payı 47.6%-dir."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymət məlumatlarının confidence-i mock olduğu üçün qiymətlər demo dəyərdir və ondan nəticə çıxarmaq olmaz."
+ },
+ "bk-sebail": {
+  "headline": "Səbail rayonu: Zəngin iaşə obyektləri və parkları ilə seçilən mərkəzi ərazi",
+  "tags": [
+   {
+    "tag": "premium",
+    "reason": "Yeni mənzillərin qiyməti 4600 AZN_m2 təşkil edir."
+   },
+   {
+    "tag": "turizm",
+    "reason": "10 min sakinə 40.25 iaşə obyekti düşür."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Təbiət indeksi 77 faiz təşkil edir."
+   }
+  ],
+  "summary": "Səbail rayonu Bakı şəhərinin mərkəzi və dağətəyi hissəsində yerləşir, ərazidə 102100 sakin yaşayır. İaşə obyektləri və parkların sıxlığı yüksəkdir, rahatlıq indeksi 74 faizdir. Nəqliyyat indeksi 57 faiz, təhsil indeksi isə 52 faiz təşkil edir. Asfalt yolların payı bilinən yollar arasında 72.9 faizdir.",
+  "strengths": [
+   "İaşə obyektlərinin sıxlığı yüksəkdir (10 min sakinə 40.25 iaşə obyekti; median 11.37)",
+   "Parkların təminatı ölkə medianını üstələyir (10 min sakinə 18.41 park; median 10.04)",
+   "Bank və ATM şəbəkəsi genişdir (10 min sakinə 10.28 bank_atm; median 2.96)"
+  ],
+  "weaknesses": [
+   "Yeni mənzillərin qiyməti yüksəkdir və əlçatanlıq indeksi aşağıdır (elcatanliq 4 faiz)",
+   "Asfalt yolların payı median göstəricidən azdır (asfalt yollar 72.9 faiz; median 83.1 faiz)",
+   "Təhsil müəssisələrinin göstəricisi orta səviyyədədir (təhsil indeksi 52 faiz; median 49 faiz)"
+  ],
+  "best_for": [
+   "Yüksək büdcəli alıcılar",
+   "İaşə və xidmət obyektlərinə üstünlük verənlər"
+  ],
+  "watch_out": [
+   "Qiymətlərin bir hissəsi demo dəyərdir",
+   "Yolların örtüyü üzrə məlumat boşluqları mövcuddur"
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir. Köhnə mənzillərin qiyməti estimate, yeni mənzil qiymətləri isə mock dəyərdir."
+ },
+ "bk-nerimanov": {
+  "headline": "Inkişaf etmiş infrastruktura və zəngin ictimai iaşə obyektlərinə malik paytaxt rayonu.",
+  "tags": [
+   {
+    "tag": "genc_pesekar",
+    "reason": "Nəqliyyat indeksi 77 olmaqla metrolar və dayanacaqlarla təmin olunub."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Təbiət indeksi 85 və 10 min sakinə 8.93 park təşkil edir."
+   }
+  ],
+  "summary": "Nərimanov rayonu yüksək nəqliyyat və səhiyyə imkanları ilə seçilir. Ərazidə 10 min sakinə 14.6 iaşə obyekti düşür. Asfalt yolların örtüyü 99.4 faiz təşkil edir. Səhiyyə indeksi 79, infrastruktur indeksi isə 87-dir.",
+  "strengths": [
+   "İnfrastruktur səviyyəsi yüksəkdir (infrastruktur indeksi 87).",
+   "Səhiyyə obyektləri ilə təminat yaxşıdır (sehiyye indeksi 79).",
+   "Nəqliyyat imkanları əlverişlidir (neqliyyat indeksi 77)."
+  ],
+  "weaknesses": [
+   "Məktəb göstəricisi median səviyyədən aşağıdır (10 min sakinə 2.98 məktəb; median 3.43).",
+   "Ərzaq mağazalarının sayı medianla müqayisədə azdır (10 min sakinə 6.67 ərzaq; median 13.41).",
+   "Əlçatanlıq göstəricisi aşağıdır (elcatanliq indeksi 29)."
+  ],
+  "best_for": [
+   "Nəqliyyat rahatlığı axtaranlar",
+   "Səhiyyə xidmətlərinə yaxın olmaq istəyənlər"
+  ],
+  "watch_out": [
+   "Qiymətlər demo dəyərdir.",
+   "Məktəb və bağça sıxlığına diqqət yetirin."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymətin confidence-i mock-dursa, bu qiymətin demo dəyər olduğunu yaz və ondan nəticə çıxarma."
+ },
+ "bk-nesimi": {
+  "headline": "Nəsimi rayonu - güclü nəqliyyat və mərkəzi yerləşmə imkanları",
+  "tags": [
+   {
+    "tag": "genc_pesekar",
+    "reason": "Neqliyyat indeksi 78 teşkil edir ve erazide 6 metro stansiyasi movcuddur."
+   },
+   {
+    "tag": "biznes_furseti",
+    "reason": "Obyekt qiymeti 3700 AZN/m2 (mock) deyil, yeni 5200 AZN/m2 (mock) teskil edir."
+   }
+  ],
+  "summary": "Nesimi rayonu 219700 nefer ehaliye malik sıx meskunlasmis Bakı rayonudur. Erazide neqliyyat indeksi 78, infrastruktur indeksi ise 96 teşkil edir. Hemcinin 10 min sakinere dusen 14.29 kafe ve restoran movcuddur. Qiymet gostericileri mock statusundadır.",
+  "strengths": [
+   "Asfalt yolların payı yuksekdir (asfalt yollar 100%).",
+   "Neqliyyat imkanlari yaxshidir (neqliyyat 78; median 56).",
+   "Bank ve ATM sıxlığı musbetdir (10 min sakinə 6.87 bank_atm; median 2.96)."
+  ],
+  "weaknesses": [
+   "Tehsil gostericisi nisbeten ashagidir (tehsil 38; median 49).",
+   "Erzaq mehsullarının sıxlığı medianin altindadir (10 min sakinə 6.55 grocery; median 13.41).",
+   "Elcatanliq indeksi ashagidir (elcatanliq 13; median 50)."
+  ],
+  "best_for": [
+   "Neqliyyat elverisliliyi axtaranlar.",
+   "Merkezi erazide yashamaq isteyenler."
+  ],
+  "watch_out": [
+   "Qiymet melumatlari mock derecelidir, demo deyerdir.",
+   "Səth ortuyu melumatı 34.7% namelumdur."
+  ],
+  "confidence_note": "OSM ehatesi yuksekdir. Qiymetlerin confidence deyeri mock oldugundan, bu qiymetler demo deyeridir ve ondan netice cixarmaq olmur."
+ },
+ "bk-bineqedi": {
+  "headline": "Binəqədi rayonu: geniş ərazi, orta infrastruktur və sərfəli qiymətlər",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "Ərazidə 10 min sakinə 3.53 məktəb düşür."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Elçatanlıq indeksi 54 təşkil edir."
+   }
+  ],
+  "summary": "Binəqədi geniş əraziyə malik Bakı rayonlarından biridir. Nəqliyyat infrastrukturu nisbətən yaxşıdır, lakin digər sahələrdə göstəricilər orta səviyyədədir. OSM xəritə əhatəsi yüksəkdir. Qiymətlər demo dəyərdir.",
+  "strengths": [
+   "Nəqliyyat göstəriciləri nisbətən yaxşıdır (neqliyyat indeksi 72).",
+   "Avtobus dayanacaqlarının sıxlığı qənaətbəxşdir (10 min sakinə 7.57 dayanacaq).",
+   "Ərzaq mağazalarının təminatı medianı üstələyir (10 min sakinə 15.23 ərzaq; median 13.41)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı aşağıdır (asfalt yollar 65.1%).",
+   "Təhsil obyektlərinin sıxlığı zəifdir (tehsil indeksi 38).",
+   "Səhiyyə indeksi Bakı medianından geridə qalır (sehiyye indeksi 46; median 51.5)."
+  ],
+  "best_for": [
+   "Büdcəsinə uyğun mənzil axtaranlar",
+   "Nəqliyyat xətlərinə yaxın yaşamaq istəyənlər"
+  ],
+  "watch_out": [
+   "Yolların örtüyü haqqında məlumat məhduddur (surface_unknown_pct 82.5).",
+   "Qiymətlər mock statusundadır, demo dəyərlərdir."
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymət məlumatları mock statusundadır və demo dəyərlərdir."
+ },
+ "az-baki": {
+  "headline": "Bakı şəhəri üzrə geniş sosial-iqtisadi infrastruktur və əlçatanlıq göstəriciləri",
+  "tags": [
+   {
+    "tag": "genc_pesekar",
+    "reason": "Ərazidə nəqliyyat indeksi 99 olmaqla iş və xidmətlərə çıxış genişdir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Mənzil elçatanlıq indeksi 7 səviyyəsindədir, qiymətlər yüksəkdir."
+   }
+  ],
+  "summary": "Bakı şəhəri geniş ticarət, iaşə və səhiyyə obyektləri ilə seçilir. Yeni tikili mənzillərin qiyməti 2812.5 AZN_m2, köhnə tikililərin qiyməti isə 2616.7 AZN_m2 olaraq dərc olunmuş təxmini rəqəmdir. Asfalt yolların örtüyü 46.5% təşkil edir. Nəqliyyat və rahatlıq indeksləri ölkə medianından yüksəkdir.",
+  "strengths": [
+   "Rahatlıq indeksinin yüksək olması (rahatlıq indeksi 91)",
+   "Nəqliyyat şəbəkəsinin sıxlığı (neqliyyat indeksi 99)",
+   "Səhiyyə obyektlərinin əlçatanlığı (sehiyye indeksi 92)"
+  ],
+  "weaknesses": [
+   "Mənzil elçatanlığının aşağı olması (elcatanliq indeksi 7)",
+   "Təhsil indeksi göstəricisinin nisbi səviyyəsi (tehsil indeksi 76)",
+   "Asfalt yolların payının məhdud olması (asfalt yollar 46.5%)"
+  ],
+  "best_for": [
+   "Şəhər mərkəzində yaşamaq istəyənlər",
+   "İctimai nəqliyyatdan aktiv istifadə edənlər"
+  ],
+  "watch_out": [
+   "Həyət evi və torpaq qiymətləri demo dəyərdir, onlardan nəticə çıxarma.",
+   "Səth örtüyü məlum olmayan yolların payı 80.2%-dir."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir. Qiymətlərdən bəziləri estimate olaraq dərc olunmuş təxmini rəqəmdir, bəziləri isə mock olaraq demo dəyərdir."
+ },
+ "az-gence": {
+  "headline": "Gəncə şəhəri: güclü təhsil və nəqliyyat infrastrukturu ilə fərqlənən dağətəyi yaşayış məntəqəsi",
+  "tags": [
+   {
+    "tag": "telebe",
+    "reason": "10 min sakinə 0.97 universitet düşür və təhsil indeksi 76 təşkil edir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Yeni tikili mənzillərin qiyməti 1020 AZN/m2, köhnə mənzillərin qiyməti isə 680 AZN/m2 təşkil edir."
+   }
+  ],
+  "summary": "Gəncə şəhəri 331100 sakini olan dağətəyi rayon/şəhər səviyyəli yaşayış məntəqəsidir. Ərazidə nəqliyyat indeksi 75, infrastruktur indeksi isə 75 səviyyəsindədir. Yeni tikili mənzil qiymətləri dərc olunmuş təxmini rəqəmdir. Həmçinin heyət evi qiyməti 600 AZN/m2, obyekt qiyməti isə 1100 AZN/m2-dir və bunlar demo dəyərdir.",
+  "strengths": [
+   "Nəqliyyat infrastrukturu yaxşı səviyyədədir (nəqliyyat indeksi 75)",
+   "Təhsil imkanları ölkə medianından üstündür (təhsil indeksi 76)",
+   "Asfalt yolların payı məlum yollar arasında müəyyən edilib (asfalt yollar 27.7%)"
+  ],
+  "weaknesses": [
+   "Təbiət göstəriciləri nisbətən aşağıdır (təbiət indeksi 41)",
+   "Əlverişlilik göstəricisi məhduddur (əlverişlilik indeksi 36)",
+   "Səhiyyə üzrə aptek sayı azdır (10 min sakinə 0.21 aptek)"
+  ],
+  "best_for": [
+   "Tələbələr və təhsil işçiləri",
+   "Orta büdcəli mənzil axtaranlar"
+  ],
+  "watch_out": [
+   "Heyət evi və torpaq qiymətləri mock səviyyəsindədir",
+   "Səhiyyə və təbiət göstəricilərini nəzərə alın"
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir. Yeni və köhnə mənzil qiymətləri estimate, digər qiymətlər isə mock (demo) dəyərlərdir."
+ },
+ "az-sumqayit": {
+  "headline": "Sumqayıt şəhəri: İnkişaf etmiş infrastruktur və geniş iaşə obyektləri",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə 10 min sakinə 8.8 park düşür."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Mənzil qiymətlərinin əlçatanlıq indeksi 21 təşkil edir."
+   }
+  ],
+  "summary": "Sumqayıt geniş iaşə və park şəbəkəsi ilə seçilən rayon/şəhər tipli yaşayış məntəqəsidir. Rahatlıq indeksi 80, infrastruktur indeksi isə 96 səviyyəsindədir. Örtüyü məlum yolların asfalt payı 62 faiz təşkil edir. OSM-də obyektlərin xəritələnməsi yüksək səviyyədədir.",
+  "strengths": [
+   "Parkların sıxlığı yüksəkdir (10 min sakinə 8.8 park; ölkə medianı 4.26)",
+   "Ərzaq mağazalarının sayı kifayət qədərdir (10 min sakinə 6.33 ərzaq; ölkə medianı 2.37)",
+   "İnfrastruktur göstəricisi ölkə medianını üstələyir (infrastruktur indeksi 96; ölkə medianı 45)"
+  ],
+  "weaknesses": [
+   "Təbiət göstəricisi nisbətən aşağıdır (təbiət indeksi 30; ölkə medianı 51)",
+   "Məktəblərin sayı azdır (10 min sakinə 2.1 məktəb; ölkə medianı 4.65)",
+   "Yol örtüyü məlumatlarında boşluqlar mövcuddur (sahənin 85 faizində səth məlum deyil)"
+  ],
+  "best_for": [
+   "Parklara və iaşə obyektlərinə yaxın olmaq istəyənlər",
+   "İnfrastrukturun inkişafına önəm verənlər"
+  ],
+  "watch_out": [
+   "Yeni mənzil və həyət evi qiymətləri mock səviyyəsindədir və demo dəyərdir",
+   "Səthi məlum olmayan yolların payı 85 faizdir",
+   "Təbiət indeksi ölkə medianından aşağıdır"
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksəkdir. Yeni mənzil, həyət evi, obyekt və torpaq qiymətlərinin confidence göstəricisi mock-dur, yəni demo dəyərdir və onlardan nəticə çıxarmaq olmaz; köhnə mənzil qiyməti isə estimate səviyyəsindədir."
+ },
+ "az-mingecevir": {
+  "headline": "Mingəçevir şəhəri: güclü təhsil və səhiyyə infrastrukturu ilə fərqlənən dağətəyi ərazi.",
+  "tags": [
+   {
+    "tag": "telebe",
+    "reason": "10 min sakinə 1.45 universitet düşməsi təhsil imkanlarının yaxşı olduğunu göstərir."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 12.39 park düşməsi ailəvi istirahət üçün şərait yaradır."
+   }
+  ],
+  "summary": "Mingəçevir 103300 sakini olan dağətəyi rayon/şəhər səviyyəli yaşayış məntəqəsidir. Ərazidə təhsil və səhiyyə göstəriciləri ölkə medianından yüksəkdir, rahatlıq indeksi isə 70 təşkil edir. Nəqliyyat infrastrukturu zəifdir və yolların örtüyü üzrə məlumatlar məhduddur. Qiymətlər üçün təqdim edilən dəyərlər mock səviyyəsindədir.",
+  "strengths": [
+   "Təhsil indeksi ölkə medianını üstələyir (tehsil indeksi 83, median 53).",
+   "Səhiyyə obyektlərinin sıxlığı yüksəkdir (10 min sakinə 2.32 xəstəxana; median 0.85).",
+   "Parkların payı ərazidə kifayət qədərdir (10 min sakinə 12.39 park; median 4.26)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı barədə məlumat yoxdur (asfalt yollar 0%).",
+   "Səth örtüyü məlum olmayan yolların payı yüksəkdir (surface_unknown_pct 80.5).",
+   "Nəqliyyat şəbəkəsi məhduddur və neqliyyat indeksi ölkə medianı ilə demək olar eynidir (neqliyyat indeksi 49, median 48)."
+  ],
+  "best_for": [
+   "Səhiyyə və təhsil obyektlərinə yaxın olmaq istəyənlər.",
+   "Park zonalarına üstünlük verən sakinلər."
+  ],
+  "watch_out": [
+   "Qiymətlərin confidence göstəricisi mock-dur, yəni demo dəyərlərdir.",
+   "Yol örtüyü haqqında məlumatlar tam deyil."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymətlər mock statusundadır və demo xarakteri daşıyır."
+ },
+ "az-lenkeran": {
+  "headline": "Lənkəran: təbiəti ilə seçilən, zəngin yaşırtüplü sahil rayonu.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə meşə örtüyü 27.9%, su sahəsi isə 10.1% təşkil edir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Elçatanlıq indeksi 71 səviyyəsindədir."
+   }
+  ],
+  "summary": "Lənkəran dağlıq relyefi, sahil xətti və 27.9% meşə örtüyü ilə fərqlənən geniş ərazidir. Rayonda 10 min sakinə 2.71 məktəb və 1.4 park düşür. İfrastruktur indeksi 93, asfalt yolların payı isə 38.7% təşkil edir. Qiymət məlumatları demo xarakterlidir və onlardan nəticə çıxarmaq olmaz.",
+  "strengths": [
+   "İnfrastruktur göstəricisi ölkə medianından yüksəkdir (infrastruktur indeksi 93)",
+   "Təbii landşaft və yaşıllıqlar geniş yer tutur (meşə örtüyü 27.9%)",
+   "Təhsil müəssisələrinin təminatı mövcuddur (10 min sakinə 2.71 məktəb)"
+  ],
+  "weaknesses": [
+   "Səhiyyə obyektlərinin sıxlığı aşağıdır (10 min sakinə 0.61 xəstəxana)",
+   "Aptek və ərzaq mağazalarının sayı məhduddur (10 min sakinə 0.13 aptek)",
+   "İctimai iaşə obyektləri azdır (10 min sakinə 1.31 iaşə obyekti)"
+  ],
+  "best_for": [
+   "Təbiət qoynunda yaşamaq istəyənlər",
+   "Mənzil büdcəsini diqqətdə saxlayanlar"
+  ],
+  "watch_out": [
+   "Qiymət göstəriciləri demo dəyərlərdir",
+   "Səhiyyə və iaşə obyektlərinin sayı azdır",
+   "Səth örtüyü məlum olan yollarda məlumat boşluqları var (88.8% naməlum)"
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymət göstəriciləri mock səviyyəsindədir və demo dəyərlərdir."
+ },
+ "az-seki": {
+  "headline": "Şəki: dağlıq relyefli, təbiət baxımından zəngin və təhsil obyektləri ilə seçilən rayon",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə meşə örtüyü 16.8% təşkil edir və 10 min sakinə 6.8 park düşür."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Elçatanlıq indeksi 93 səviyyəsindədir və yeni tikili mənzilin kvadrat metri 800 AZN-dir."
+   }
+  ],
+  "summary": "Şəki rayonu 185200 əhaliyə malik dağlıq ərazidir. Rayonda təhsil və səhiyyə obyektlərinin təminatı ölkə medianından yüksəkdir. Asfalt yolların payı məlum yollar arasında 80% təşkil edir. Qiymət göstəriciləri demo xarakterlidir.",
+  "strengths": [
+   "Təhsil indeksi ölkə medianını üstələyir (10 min sakinə 9.13 məktəb)",
+   "Parkların sıxlığı yüksəkdir (10 min sakinə 6.8 park; median 4.26)",
+   "Səhiyyə infrastrukturu genişdir (10 min sakinə 2 xəstəxana; median 0.85)"
+  ],
+  "weaknesses": [
+   "Nəqliyyat şəbəkəsində metro stansiyaları yoxdur (0 metro stansiyası)",
+   "Yol örtüyü məlumatlarında qeyri-müəyyənlik var (naməlum səth 73.5%)",
+   "İnfrastruktur indeksi orta səviyyədədir (infrastruktur indeksi 44)"
+  ],
+  "best_for": [
+   "Təbiət qoynunda yaşamaq istəyənlər",
+   "Büdcəyə uyğun daşınmaz əmlak axtaranlar"
+  ],
+  "watch_out": [
+   "Yol örtüyü haqqında məlumatların əhəmiyyətli hissəsi naməlumdur",
+   "Qiymətlər demo xarakterlidir"
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymətlərin confidence göstəricisi mock-dur, yəni qiymətlər demo dəyərdir və onlardan qəti nəticə çıxarmaq olmaz."
+ },
+ "az-quba": {
+  "headline": "Quba: Zəngin təbiəti və dağlıq relyefi ilə seçilən rayon",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə təbiət indeksi 89 təşkil edir və meşə örtüyü 28.7%-dir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Əlçatanlıq indeksi 71-dir."
+   }
+  ],
+  "summary": "Quba 172200 sakinə malik, dağlıq relyefli və zəngin təbiətli rayondur. Ərazidə 10 min sakinə 4.41 məktəb və 3.54 park düşür. Yol infrastrukturunda asfalt yolların payı 4.9%-dir. Qiymətlər yalnız demo məqsədlidir.",
+  "strengths": [
+   "Təbiət göstəriciləri ölkə medianından yüksəkdir (təbiət indeksi 89; median 51)",
+   "Məktəb infrastrukturu mövcuddur (10 min sakinə 4.41 məktəb; median 4.65)",
+   "İctimai iaşə obyektləri fəaliyyət göstərir (10 min sakinə 4.18 iaşə obyekti; median 3.34)"
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı azdır (asfalt yollar 4.9%; median 4.35%)",
+   "Səhiyyə obyektlərinin sıxlığı aşağıdır (10 min sakinə 0.46 xəstəxana; median 0.85)",
+   "Məktəbəqədər müəssisələr məhduddur (10 min sakinə 0.58 bağça; median 0.54)"
+  ],
+  "best_for": [
+   "Təbiət qoynunda yaşamaq istəyənlər",
+   "Dağlıq əraziüstünlük verənlər"
+  ],
+  "watch_out": [
+   "Məlum yollar arasında asfalt örtüyü cəmi 4.9%-dir",
+   "Qiymətlər mock statusundadır, yəni demo dəyərdir"
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymətlər mock statusundadır və ondan nəticə çıxarmaq olmaz."
+ },
+ "az-sederek": {
+  "headline": "Sədərək rayonunun dağətəyi relyefli, məhdud ictimai iaşə və xidmət obyektləri olan ərazisi.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə parkların payı 10 min sakinə 2.56 təşkil edir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Mənzil qiymətləri üzrə məlumat yoxdur, lakin təbii şərait sakitdir."
+   }
+  ],
+  "summary": "Sədərək 23400 sakini olan dağətəyi rayon/şəhərdir. OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm aşağı səviyyədədir. İnfrastruktur indeksi 81 olaraq qiymətləndirilir. Rahatlıq indeksi isə 23-dür.",
+  "strengths": [
+   "İnfrastruktur göstəricisi ölkə medianından yüksəkdir (infrastruktur 81; median 45).",
+   "Təbiət göstəricisi mövcuddur (tebiet 54; median 51).",
+   "Parkların təminatı qeydə alınıb (10 min sakinə 2.56 park; median 4.26)."
+  ],
+  "weaknesses": [
+   "Təhsil indeksi aşağıdır (tehsil 19; median 53).",
+   "Səhiyyə göstəricisi nisbətən zəifdir (sehiyye 28; median 49).",
+   "Rahatlıq səviyyəsi məhduddur (rahatliq 23; median 50)."
+  ],
+  "best_for": [
+   "Sakit həyat tərzi axtaranlar.",
+   "İnfrastruktur göstəricisinə önəm verənlər."
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib.",
+   "Qiymət məlumatı mövcud deyil.",
+   "Aptek və ərzaq mağazaları üzrə məlumat yoxdur."
+  ],
+  "confidence_note": "OSM əhatəsi aşağıdır, yəni xəritədə məlumatlar tam deyil. Qiymətlər barədə məlumat yoxdur."
+ },
+ "az-ismayilli": {
+  "headline": "İsmayıllı rayonu üzrə daşınmaz əmlak və ərazi analizi",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə meşə örtüyü 37.7 faiz təşkil edir və təbiət indeksi 74-dür."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 12.51 məktəb və 17.06 park düşür."
+   }
+  ],
+  "summary": "İsmayıllı dağlıq relyefə malik olub, geniş park və meşə sahələri ilə seçilir. Təhsil göstəriciləri ölkə medianından yüksəkdir, rahatlıq indeksi isə 76-dır. İfrastruktur və nəqliyyat sahəsində müəyyən məhdudiyyətlər mövcuddur. Qiymət məlumatları mövcud deyil.",
+  "strengths": [
+   "Təhsil imkanları yaxşıdır (10 min sakinə 12.51 məktəb; median 4.65)",
+   "Parkların sıxlığı yüksəkdir (10 min sakinə 17.06 park; median 4.26)",
+   "Rahatlıq indeksi ölkə medianını üstələyir (rahatliq 76; median 50)"
+  ],
+  "weaknesses": [
+   "İnfrastruktur göstəricisi aşağıdır (infrastruktur 37; median 45)",
+   "Məlum yolların asfalt örtüyü azdır (asfalt yollar 0.9 faiz; median 4.35 faiz)",
+   "Məktəbəqədər müəssisə sayı azdır (10 min sakinə 0.91 bağça; median 0.54)"
+  ],
+  "best_for": [
+   "Təbiət qoynunda yaşamaq istəyənlər",
+   "Ailəvi yaşayış üçün uyğun mühit axtaranlar"
+  ],
+  "watch_out": [
+   "Asfalt yolların örtüyü barədə məlumatda boşluqlar var, səth naməlumdur 67.3 faiz",
+   "Qiymətlər barədə məlumat yoxdur"
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymət məlumatları mövcud deyil."
+ },
+ "az-masalli": {
+  "headline": "Masallı rayonunun təbiət yönümlü və infrastrukturu məhdud ərazi profili",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə meşə örtüyü 19.9%, park göstəricisi isə 10 min sakinə 0.7 park təşkil edir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Qiymətlə bağlı məlumat yoxdur, lakin təbii və coğrafi şərait müəyyən imkanlar yaradır."
+   }
+  ],
+  "summary": "Masallı rayonu dağətəyi relyefdə yerləşir və orta OSM əhatəsinə malikdir. Ərazidə ərzaq, təhsil və səhiyyə obyektləri məhdud saydadır. Yolların asfalt payı 9.8% təşkil edir. İndekslərə görə rahatlıq 24, nəqliyyat 37, təbiət isə 57 səviyyəsindədir.",
+  "strengths": [
+   "Təbiət indeksi ölkə medianına yaxın və meşə örtüyü yüksəkdir (təbiət indeksi 57; median 51)",
+   "Asfalt yolların payı ölkə üzrə rayon medianını üstələyir (asfalt yollar 9.8%; median 4.35%)",
+   "Rayon ərazisində dəmir yolu stansiyaları mövcuddur (dəmir yolu stansiyaları 3; məlumat yoxdur)"
+  ],
+  "weaknesses": [
+   "Ərzaq mağazalarının sıxlığı ölkə medianından xeyli aşağıdır (10 min sakinə 0.22 ərzaq; median 2.37)",
+   "Məktəblərin sayı və təhsil indeksi məhdud səviyyədədir (10 min sakinə 1.27 məktəb; median 4.65)",
+   "Aptek və bankomat göstəriciləri çox aşağıdır (10 min sakinə 0 aptek; median 0.21)"
+  ],
+  "best_for": [
+   "Təbiət və sakitlik üstünlük verənlər",
+   "Kənd təsərrüfatı və yerli yaşayışla maraqlananlar"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm ortadır.",
+   "Qiymət məlumatları mövcud deyil, qiymət confidence-i yoxdur.",
+   "İctimai nəqliyyat dayanacaqları və marşrutları haqqında məlumat yoxdur."
+  ],
+  "confidence_note": "OSM əhatəsi ortadır, yəni bəzi obyektlər xəritəyə daxil edilməyib. Qiymətlər haqqında heç bir məlumat yoxdur."
+ },
+ "az-goycay": {
+  "headline": "Göyçay rayonu təhsil imkanları ilə seçilən dağətəyi ərazidir.",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 7.1 məktəb düşür."
+   },
+   {
+    "tag": "teqaudcu",
+    "reason": "Ərazidə parkların sıxlığı 10 min sakinə 3.01 təşkil edir."
+   }
+  ],
+  "summary": "Göyçay rayonu 119700 əhalisi olan dağətəyi yaşayış məntəqəsidir. Ərazidə təhsil indeksi 74 təşkil edərək ölkə medianını üstələyir. Rahatlıq və səhiyyə indeksləri hər biri 58 səviyyəsindədir. İnfrastruktur göstəriciləri çərçivəsində asfalt yolların payı məlum yollar arasında 2.1 faizdir.",
+  "strengths": [
+   "Təhsil indeksi ölkə medianından yüksəkdir (tehsil indeksi 74; median 53)",
+   "Məktəblərin təminatı ölkə medianını üstələyir (10 min sakinə 7.1 məktəb; median 4.65)",
+   "Ərzaq mağazalarının təminatı mövcuddur (10 min sakinə 2.92 ərzaq mağazası; median 2.37)"
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı aşağı səviyyədədir (asfalt yollar 2.1 faiz; median 4.35)",
+   "Təbiət indeksi nisbətən geridə qalır (tebiet indeksi 25; median 51)",
+   "Səhiyyə mərkəzlərindən klinikaların sayı azdır (10 min sakinə 0.08 klinika; median 0)"
+  ],
+  "best_for": [
+   "Təhsil müəssisələrinə yaxınlıq axtaranlar",
+   "Dağətəyi bölgədə yaşamaq istəyənlər"
+  ],
+  "watch_out": [
+   "Asfalt örtüklü yolların faizi azdır",
+   "Qiymət məlumatları mövcud deyil"
+  ],
+  "confidence_note": "OSM məlumat əhatəsi yüksək səviyyədədir. Qiymətlər haqqında məlumat yoxdur."
+ },
+ "az-qobustan": {
+  "headline": "Qobustan rayonunun obyektiv təhlili və ərazi xarakteristikası",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə təbiət indeksi 47 təşkil edir və PM2.5 göstəricisi 12.4 miqdardadır."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Məlumat bazasında qiymətlər mövcud deyil, lakin elçatanlıq indeksi məlumat yoxdur."
+   }
+  ],
+  "summary": "Qobustan dağətəyi relyefə malik rayon/şəhər səviyyəli ərazidir. Təhsil indeksi 46, rahatlıq indeksi isə 58 səviyyəsindədir. İnfrastruktur indeksi 21, asfalt yolların payı isə məlumat yoxdur. OSM-də obyektlərin bir hissəsi xəritələnməyib çünki coverage.osm orta səviyyədədir.",
+  "strengths": [
+   "10 min sakinə 6.89 məktəb (ölkə üzrə rayon medianı 4.65)",
+   "10 min sakinə 4.59 park (ölkə üzrə rayon medianı 4.26)",
+   "Rahatlıq indeksi 58 (ölkə üzrə rayon medianı 50)"
+  ],
+  "weaknesses": [
+   "İnfrastruktur indeksi 21 (ölkə üzrə rayon medianı 45)",
+   "Asfalt yolların payı 0% (ölkə üzrə rayon medianı 4.35%)",
+   "10 min sakinə 0.42 bağça (ölkə üzrə rayon medianı 0.54)"
+  ],
+  "best_for": [
+   "Sakit təbiət mühitində yaşamaq istəyənlər",
+   "Məktəb infrastrukturu ilə maraqlananlar"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib çünki coverage.osm orta səviyyədədir",
+   "Qiymətlər haqqında məlumat yoxdur",
+   "İnfrastruktur göstəriciləri aşağıdır"
+  ],
+  "confidence_note": "OSM əhatəsi orta səviyyədədir, yəni xəritədə məlumat boşluqları ola bilər. Qiymətlər barədə məlumat yoxdur."
+ },
+ "az-naftalan": {
+  "headline": "Səhiyyə və park göstəriciləri ilə seçilən Naftalan rayonu",
+  "tags": [
+   {
+    "tag": "teqaudcu",
+    "reason": "Səhiyyə indeksi 95 olmaqla 10 min sakinə 15.12 xəstəxana düşür."
+   },
+   {
+    "tag": "turizm",
+    "reason": "Ərazidə 10 min sakinə 65.12 park düşür."
+   }
+  ],
+  "summary": "Naftalan rayonu səhiyyə və iaşə obyektləri baxımından yüksək göstəricilərə malikdir. OSM-də xəritələnmə səviyyəsi orta olduğu üçün bəzi obyektlər xəritəyə daxil edilməyib. Nəqliyyat və infrastruktur göstəriciləri nisbətən aşağı səviyyədədir. Mənzil qiymətləri üzrə məlumat mövcud deyil.",
+  "strengths": [
+   "Səhiyyə indeksi 95 olub 10 min sakinə 15.12 xəstəxana düşür (milli median 0.85).",
+   "Rahatlıq indeksi 94 olub 10 min sakinə 12.79 ərzaq mağazası düşür (milli median 2.37).",
+   "Parkların sıxlığı yüksəkdir və 10 min sakinə 65.12 park düşür (milli median 4.26)."
+  ],
+  "weaknesses": [
+   "İnfrastruktur indeksi 29 təşkil edir və asfalt yolların payı məlum yollar arasında 0% təşkil edir (milli median 4.35%).",
+   "Nəqliyyat indeksi 37 olub 10 min sakinə 0 dayanacaq düşür (milli median 0.29).",
+   "Təbiət indeksi 42 səviyyəsindədir."
+  ],
+  "best_for": [
+   "Səhiyyə xidmətlərinə yaxın olmaq istəyənlər",
+   "Park və yaşıl zonalara üstünlük verənlər"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib.",
+   "Asfalt yolların örtüyü haqqında məlumat yoxdur.",
+   "Qiymət məlumatları mövcud deyil."
+  ],
+  "confidence_note": "OSM əhatəsi orta səviyyədədir, yəni xəritədə məlumat boşluqları ola bilər. Qiymət məlumatları mövcud deyil."
+ },
+ "az-yevlax": {
+  "headline": "Yevlax şəhərinin daşınmaz əmlak və infrastruktur analizi.",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 6.43 məktəb düşür ki, bu da ölkə medianından yüksəkdir."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Ərazidə rahatlıq indeksi 65 faiz təşkil edir."
+   }
+  ],
+  "summary": "Yevlax rayonu üzrə 10 min sakinə 0.38 aptek və 4.75 ərzaq obyekti düşür. Asfalt yolların payı 3.3 faiz təşkil edir. Səhiyyə indeksi 67 faiz, təhsil indeksi isə 58 faiz olaraq qiymətləndirilib. OSM örtüyü yüksək səviyyədədir.",
+  "strengths": [
+   "Səhiyyə xidmətləri üzrə indeks ölkə medianını üstələyir (sehiyye 67 faiz).",
+   "Təhsil müəssisələrinin sıxlığı qənaətbəxşdir (10 min sakinə 6.43 məktəb).",
+   "Gündəlik təminat obyektləri mövcuddur (10 min sakinə 4.75 ərzaq). "
+  ],
+  "weaknesses": [
+   "Yol infrastrukturu məhduddur və asfalt yolların payı azdır (asfalt yollar 3.3%).",
+   "Təbiət göstəriciləri nisbətən aşağı səviyyədədir (tebiet 30 faiz).",
+   "Məktəbəqədər müəssisələrin sayı məhduddur (10 min sakinə 0.84 bağça). "
+  ],
+  "best_for": [
+   "Məktəb yaşlı uşaqları olan ailələr.",
+   "Rayon mərkəzində yaşamağa üstünlük verənlər."
+  ],
+  "watch_out": [
+   "Asfalt örtüklü yolların faizi azdır.",
+   "Qiymət məlumatları mövcud deyil."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymət məlumatları mövcud deyil."
+ },
+ "az-semkir": {
+  "headline": "Şəmkir rayonu geniş təbiətə və zəngin park zonalarına malikdir.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə 10 min sakinə 7.39 park düşür və təbiət indeksi 62 təşkil edir."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 5.29 məktəb və təhsil indeksi 59 səviyyəsindədir."
+   }
+  ],
+  "summary": "Şəmkir rayonu 219100 əhaliyə malik dağlıq ərazidir. Rahatlıq indeksi 61, səhiyyə indeksi isə 53 təşkil edir. Asfalt yolların payı azdır və infrastruktur indeksi 27-dir. OSM-də obyektlərin əhatəsi yüksəkdir.",
+  "strengths": [
+   "Parkların bolluğu qeyd olunur (10 min sakinə 7.39 park; median 4.26).",
+   "Məktəblərin sayı ölkə medianından yüksəkdir (10 min sakinə 5.29 məktəb; median 4.65).",
+   "Xəstəxana təminatı yaxşı səviyyədədir (10 min sakinə 1.19 xəstəxana; median 0.85)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı aşağıdır (asfalt yollar 30%).",
+   "İnfrastruktur göstəricisi ölkə medianından geri qalır (infrastruktur indeksi 27; median 45).",
+   "Məktəbəqədər müəssisələrin sıxlığı azdır (10 min sakinə 0.87 bağça; median 0.54)."
+  ],
+  "best_for": [
+   "Təbiət və geniş yaşıl sahələrə üstünlük verənlər.",
+   "Ailəvi yaşayış üçün məktəb imkanlarından yararlanmaq istəyənlər."
+  ],
+  "watch_out": [
+   "Asfalt yolların az olması nəqliyyat və hərəkəti çətinləşdirə bilər.",
+   "Qiymətlər barədə məlumat yoxdur (məlumat yoxdur)."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir. Qiymət göstəriciləri üçün məlumat yoxdur."
+ },
+ "az-celilabad": {
+  "headline": "Cəlilabad rayonunun ərazi və sosial-infrastruktur göstəriciləri",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə təmiz hava və meşə/su/park payı mövcuddur, 10 min sakinə 0.81 park düşür."
+   }
+  ],
+  "summary": "Cəlilabad rayonu 221100 əhaliyə malik dağətəyi ərazidir. Təhsil, səhiyyə və gündəlik xidmət obyektləri ölkə medianından aşağı səviyyədədir. OSM-də obyektlərin bir hissəsi xəritələnməyib. Yol infrastrukturunda məlum örtüklər üzrə asfalt yollar 11.3% təşkil edir.",
+  "strengths": [
+   "Asfalt yolların payı ölkə medianı ilə müqayisədə yüksəkdir (asfalt yollar 11.3%).",
+   "Rayonda məktəb göstəricisi mövcuddur (10 min sakinə 0.54 məktəb).",
+   "Park sahələrinin mövcudluğu qeydə alınıb (10 min sakinə 0.81 park)."
+  ],
+  "weaknesses": [
+   "Ərzaq mağazalarının sıxlığı ölkə medianından azdır (10 min sakinə 0.09 ərzaq mağazası; median 2.37).",
+   "Aptek və səhiyyə xidmətləri məhduddur (10 min sakinə 0.09 aptek; median 0.21).",
+   "Nəqliyyat şəbəkəsi və dayanacaq göstəriciləri zəifdir (10 min sakinə 0 dayanacaq)."
+  ],
+  "best_for": [
+   "Sakit və təbiətə yaxın həyat tərzi axtaranlar.",
+   "Rayon mərkəzində yaşayan yerli sakinlər."
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib.",
+   "Qiymət məlumatları mövcud deyil.",
+   "İctimai nəqliyyat və gündəlik xidmət obyektləri məhduddur."
+  ],
+  "confidence_note": "OSM xəritə örtüyü orta səviyyədədir, yəni obyektlərin bir hissəsi hələ xəritələnməyib. Qiymətlər barədə məlumat yoxdur."
+ },
+ "az-yardimli": {
+  "headline": "Yardımlı rayonu: dağlıq relyefə malik səfalı və sakit ərazi",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə təbiət indeksi 75 olmaqla meşə və ot örtüyü üstünlük təşkil edir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Məlumat bazasında qiymətlər barədə məlumat yoxdur."
+   }
+  ],
+  "summary": "Yardımlı dağlıq relyefdə yerləşən, təbiət göstəriciləri ilə seçilən rayon/şəhərdir. Ərazidə rahatlıq və səhiyyə göstəriciləri ölkə medianından aşağı səviyyədədir. Yol infrastrukturunda örtüyü məlum yollar üzrə asfalt yollar 4.6% təşkil edir. OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm aşağıdır. Qiymətlər barədə məlumat yoxdur.",
+  "strengths": [
+   "Təbiət indeksi ölkə medianını üstələyir (təbiət indeksi 75; median 51).",
+   "Asfalt yolların payı mövcud məlumatlara əsasən qənaətbəxşdir (asfalt yollar 4.6%; median 4.35).",
+   "Meşə örtüyü ərazidə geniş sahəni əhatə edir (meşə 23.9%)."
+  ],
+  "weaknesses": [
+   "10 min sakinə düşən məktəb sayı ölkə medianından azdır (10 min sakinə 0.43 məktəb; median 4.65).",
+   "Rahatlıq indeksi ölkə medianından xeyli aşağıdır (rahatlıq 14; median 50).",
+   "Səhiyyə xidmətlərinin sıxlığı məhduddur (10 min sakinə 0.14 xəstəxana; median 0.85)."
+  ],
+  "best_for": [
+   "Sakit təbiət mühiti axtaranlar.",
+   "Dağlıq ərazilərə üstünlük verənlər."
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm aşağıdır.",
+   "Qiymətlər barədə məlumat mövcud deyil.",
+   "İnfrastruktur və nəqliyyat imkanları məhduddur."
+  ],
+  "confidence_note": "OSM xəritə örtüyü aşağı səviyyədədir və qiymətlər barədə məlumat yoxdur."
+ },
+ "az-lerik": {
+  "headline": "Lerik rayonu: zengin tebieti ve mehdud infrastrukturu olan dagliq erazi",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Tehsil, rahatliq ve diger indekslerle muqayisede tebiet indeksi yuksekdir (83 faiz)."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Erazinin elcatanliq indeksi ucun melumat yoxdur, lakin qiymetler barede melumat movcud deyil."
+   }
+  ],
+  "summary": "Lerik rayonu 87400 sakini olan dagliq erazidir. Erazide meşə örtüyü 35.9% teskil edir ve tebiet indeksi 83 faizdir. Lakin ərzaq, ticarət ve digər xidmətlərin sıxlığını göstərən rahatliq indeksi 29 faizdir. Asfalt yolların payı 20% təşkil edir. OSM-də obyektlərin bir hissəsi xəritələnməyib cunki coverage.osm orta seviyyededir.",
+  "strengths": [
+   "Tebiet indeksi olkeye gore yuksekdir (83 faiz; median 51)",
+   "Meşə örtüyü genisdir (35.9%)",
+   "Idman obyektlerinin sayi olke medianindan coxdur (10 min sakinə 0.8 sport; median 0.51)"
+  ],
+  "weaknesses": [
+   "Meiset xidmetleri ve erzaq mehduddur (10 min sakinə 1.26 ərzaq; median 2.37)",
+   "Infrastruktur ve yollarin ortuyu zehetdir (asfalt yollar 20%)",
+   "Tehsil obyektlerinin sıxlığı asagidir (10 min sakinə 1.14 məktəb; median 4.65)"
+  ],
+  "best_for": [
+   "Sakitlik ve tebiete ustunluk verenler",
+   "Dagliq erazi axtaranlar"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib",
+   "Qiymetler haqqinda melumat yoxdur",
+   "Neqliyyat ve sehiyye obyektleri mehduddur"
+  ],
+  "confidence_note": "OSM-in əhatəsi orta səviyyədədir, yəni xəritədə bəzi obyektlər çatışmaya bilər. Qiymətlər barədə məlumat mövcud deyil."
+ },
+ "az-qusar": {
+  "headline": "Qusar rayonu: zəngin təbiətə və yüksək park sıxlığına malik dağlıq ərazi.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə təbiət indeksi 88, meşə örtüyü isə 18.1% təşkil edir."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "10 min sakinə 9.69 park düşür və rahatlıq indeksi 71-dir."
+   }
+  ],
+  "summary": "Qusar rayonu 103200 əhalisi olan dağlıq yaşayış məntəqəsidir. Ərazi təbiət göstəriciləri və park sıxlığı ilə seçilir, həmçinin səhiyyə indeksi 71 səviyyəsindədir. Nəqliyyat infrastrukturu və yol örtüyü məhdudiyyətlərə malikdir. OSM əhatəsi yüksək səviyyədədir, lakin qiymət məlumatları mövcud deyil.",
+  "strengths": [
+   "Təbiət indeksi ölkə medianından yüksəkdir (tebiet 88; median 51).",
+   "10 min sakinə düşən parkların sayı ölkə medianını üstələyir (10 min sakinə 9.69 park; median 4.26).",
+   "Səhiyyə indeksi ölkə medianından yuxarıdır (sehiyye 71; median 49)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı məlum yollar arasında aşağı səviyyədədir (asfalt yollar 7.3%).",
+   "İctimai nəqliyyat marşrutlarının sayı məlumatda qeyd olunub (marşrutlar 0).",
+   "Məlum yolların böyük hissəsində örtük tipi naməlumdur (örtüyü naməlum yollar 76.7%)."
+  ],
+  "best_for": [
+   "Təbiət qoynunda yaşamaq istəyənlər.",
+   "Sakit mühit axtaran ailələr."
+  ],
+  "watch_out": [
+   "Qiymət məlumatları mövcud deyil.",
+   "Yol infrastrukturu və örtüyü məhduddur.",
+   "İctimai nəqliyyat imkanları zəifdir."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymət məlumatları tamamilə yoxdur və qiymət etibarlılığı qeyd olunmayıb."
+ },
+ "az-ordubad": {
+  "headline": "Ordubad rayonu: dağlıq relyefə malik sakit yaşayış məntəqəsi.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazi dağlıq relyefdə yerləşir və 10 min sakinə 1.57 park düşür."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Məlumat bazasında qiymətlər mövcud deyil, lakin infrastruktur göstəriciləri məhduddur."
+   }
+  ],
+  "summary": "Ordubad rayonu 50900 sakini olan dağlıq ərazidir. Rayonda nəqliyyat və ticarət obyektləri zəif inkişaf etmişdir, 10 min sakinə 0.79 ərzaq və 0.59 kafe düşür. Asfalt yolların payı 10.8% təşkil edir. Səhiyyə və təhsil infrastrukturu ölkə medianından aşağıdır. OSM-də obyektlərin bir hissəsi xəritələnməyib.",
+  "strengths": [
+   "Parkların təminatı mövcuddur (10 min sakinə 1.57 park; median 4.26)",
+   "Yanacaq doldurma məntəqələri fəaliyyət göstərir (10 min sakinə 0.59 yanacaq; median 0.73)",
+   "Dəmir yolu stansiyaları mövcuddur (4 stansiya)"
+  ],
+  "weaknesses": [
+   "Aptek və tibb müəssisələri yoxdur (10 min sakinə 0 aptek; median 0.21)",
+   "Məktəb təminatı aşağıdır (10 min sakinə 0.79 məktəb; median 4.65)",
+   "Asfalt yolların örtüyü məhduddur (asfalt yollar 10.8%; median 4.35%)"
+  ],
+  "best_for": [
+   "Sakit və dağlıq ərazidə yaşamaq istəyənlər.",
+   "Şəhər səs-küyündən uzaq mühit axtaranlar."
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm aşağı səviyyədədir.",
+   "Qiymətlər barədə məlumat yoxdur.",
+   "İctimai nəqliyyat və avtobus dayanacaqları qeydə alınmayıb."
+  ],
+  "confidence_note": "OSM əhatəsi aşağıdır, yəni xəritədə məlumat boşluqları ola bilər. Qiymətlər barədə məlumat yoxdur."
+ }
+}

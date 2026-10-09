@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Məskən tokens — Azerbaijan landscape palette */
+:root {
+  --sand: #e9e3d5; /* Abşeron sand — page */
+  --sand-2: #f4f0e6; /* raised surface */
+  --sand-3: #ddd5c3; /* hairlines, wells */
+  --ink: #18262e;
+  --ink-2: #4a5a62;
+  --ink-3: #7d8a8f;
+  --caspian: #0f4c5c;
+  --caspian-2: #2f7385;
+  --green: #2e6b4e;
+  --pomegranate: #a8243e;
+  --amber: #b7791f;
+  --map-bg: #e3dccb;
+  --map-border: #fbf8f1;
+  --shadow: 24 38 46;
+}
+
+:root[data-theme="dark"] {
+  --sand: #121b20;
+  --sand-2: #1a252b;
+  --sand-3: #2a3840;
+  --ink: #ece6d8;
+  --ink-2: #b4b9b6;
+  --ink-3: #849095;
+  --caspian: #6cb3c4;
+  --caspian-2: #8fc6d2;
+  --green: #74b892;
+  --pomegranate: #e0687c;
+  --amber: #e0a94a;
+  --map-bg: #0d1418;
+  --map-border: #121b20;
+  --shadow: 0 0 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --sand: #121b20;
+    --sand-2: #1a252b;
+    --sand-3: #2a3840;
+    --ink: #ece6d8;
+    --ink-2: #b4b9b6;
+    --ink-3: #849095;
+    --caspian: #6cb3c4;
+    --caspian-2: #8fc6d2;
+    --green: #74b892;
+    --pomegranate: #e0687c;
+    --amber: #e0a94a;
+    --map-bg: #0d1418;
+    --map-border: #121b20;
+    --shadow: 0 0 0;
+  }
+}
+
+@theme inline {
+  --color-sand: var(--sand);
+  --color-sand-2: var(--sand-2);
+  --color-sand-3: var(--sand-3);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-caspian: var(--caspian);
+  --color-caspian-2: var(--caspian-2);
+  --color-green: var(--green);
+  --color-pomegranate: var(--pomegranate);
+  --color-amber: var(--amber);
+  --font-sans: var(--font-manrope);
+}
+
+html,
+body {
+  background: var(--sand);
+  color: var(--ink);
+}
+body {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-feature-settings: "tnum" 1;
+}
+.num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+:focus-visible {
+  outline: 2px solid var(--caspian);
+  outline-offset: 2px;
+}
+.maplibregl-map {
+  font-family: inherit;
+}
+.map-label {
+  pointer-events: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  text-shadow: 0 0 3px var(--map-border), 0 0 3px var(--map-border), 0 0 2px var(--map-border);
+  white-space: nowrap;
+  transition: opacity 200ms;
+}
+.map-label.major {
+  font-size: 12.5px;
+  font-weight: 800;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

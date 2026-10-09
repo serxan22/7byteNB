@@ -1,0 +1,886 @@
+{
+ "source": "DSK 1.15",
+ "url": "https://www.stat.gov.az/source/demoqraphy/az/001_15.xls",
+ "date": "2026-01-01",
+ "rows": [
+  {
+   "name": "Azərbaycan Respublikası",
+   "kind": "country",
+   "area_km2": 86600,
+   "pop": 10262400,
+   "density": 118.50346420323326
+  },
+  {
+   "name": "Bakı şəhəri",
+   "kind": "group",
+   "area_km2": 2100,
+   "pop": 2356200,
+   "density": 1121.9999999999998
+  },
+  {
+   "name": "Binəqədi rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 130,
+   "pop": 309200,
+   "pop_2019": 304300,
+   "density": 2378.461538461538
+  },
+  {
+   "name": "Xətai rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 30,
+   "pop": 277800,
+   "pop_2019": 271000,
+   "density": 9260
+  },
+  {
+   "name": "Xəzər rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 370,
+   "pop": 206600,
+   "pop_2019": 202500,
+   "density": 558.3783783783783
+  },
+  {
+   "name": "Qaradağ rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 1080,
+   "pop": 118400,
+   "pop_2019": 112700,
+   "density": 109.62962962962963
+  },
+  {
+   "name": "Nərimanov rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 20,
+   "pop": 181500,
+   "pop_2019": 178600,
+   "density": 9075
+  },
+  {
+   "name": "Nəsimi rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 10,
+   "pop": 219700,
+   "pop_2019": 217400,
+   "density": 21970
+  },
+  {
+   "name": "Nizami rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 20,
+   "pop": 186200,
+   "pop_2019": 182900,
+   "density": 9310
+  },
+  {
+   "name": "Pirallahı rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 30,
+   "pop": 18800,
+   "pop_2019": 18500,
+   "density": 626.6666666666667
+  },
+  {
+   "name": "Sabunçu rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 240,
+   "pop": 331800,
+   "pop_2019": 345400,
+   "density": 1382.5
+  },
+  {
+   "name": "Səbail rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 30,
+   "pop": 102100,
+   "pop_2019": 100800,
+   "density": 3403.3333333333335
+  },
+  {
+   "name": "Suraxanı rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 120,
+   "pop": 209400,
+   "pop_2019": 204800,
+   "density": 1745
+  },
+  {
+   "name": "Yasamal rayonu",
+   "kind": "unit",
+   "group": "Bakı şəhəri",
+   "area_km2": 20,
+   "pop": 194700,
+   "pop_2019": 191500,
+   "density": 9735
+  },
+  {
+   "name": "Naxçıvan iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 5500,
+   "pop": 472400,
+   "density": 85.89090909090909
+  },
+  {
+   "name": "Naxçıvan şəhəri",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 190,
+   "pop": 98100,
+   "pop_2019": 94400,
+   "density": 516.3157894736842
+  },
+  {
+   "name": "Babək rayonu",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 830,
+   "pop": 78400,
+   "pop_2019": 76000,
+   "density": 94.45783132530121
+  },
+  {
+   "name": "Culfa rayonu",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 930,
+   "pop": 48300,
+   "pop_2019": 47000,
+   "density": 51.93548387096774
+  },
+  {
+   "name": "Kəngərli rayonu",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 700,
+   "pop": 34000,
+   "pop_2019": 32700,
+   "density": 48.57142857142858
+  },
+  {
+   "name": "Ordubad rayonu",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 980,
+   "pop": 50900,
+   "pop_2019": 50200,
+   "density": 51.93877551020408
+  },
+  {
+   "name": "Sədərək rayonu",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 220,
+   "pop": 23400,
+   "pop_2019": 16000,
+   "density": 106.36363636363636
+  },
+  {
+   "name": "Şahbuz rayonu",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 840,
+   "pop": 25300,
+   "pop_2019": 25200,
+   "density": 30.11904761904762
+  },
+  {
+   "name": "Şərur rayonu",
+   "kind": "unit",
+   "group": "Naxçıvan iqtisadi rayonu",
+   "area_km2": 810,
+   "pop": 114000,
+   "pop_2019": 117400,
+   "density": 140.74074074074073
+  },
+  {
+   "name": "Abşeron-Xızı iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 3900,
+   "pop": 880200,
+   "density": 225.6923076923077
+  },
+  {
+   "name": "Sumqayıt şəhəri",
+   "kind": "unit",
+   "group": "Abşeron-Xızı iqtisadi rayonu",
+   "area_km2": 120,
+   "pop": 428200,
+   "pop_2019": 422600,
+   "density": 3568.3333333333335
+  },
+  {
+   "name": "Abşeron rayonu",
+   "kind": "unit",
+   "group": "Abşeron-Xızı iqtisadi rayonu",
+   "area_km2": 2110,
+   "pop": 435200,
+   "pop_2019": 428000,
+   "density": 206.2559241706161
+  },
+  {
+   "name": "Xızı rayonu",
+   "kind": "unit",
+   "group": "Abşeron-Xızı iqtisadi rayonu",
+   "area_km2": 1670,
+   "pop": 16800,
+   "pop_2019": 16200,
+   "density": 10.05988023952096
+  },
+  {
+   "name": "Dağlıq Şirvan iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 6130,
+   "pop": 324500,
+   "density": 52.93637846655791
+  },
+  {
+   "name": "Ağsu rayonu",
+   "kind": "unit",
+   "group": "Dağlıq Şirvan iqtisadi rayonu",
+   "area_km2": 1020,
+   "pop": 81500,
+   "pop_2019": 78000,
+   "density": 79.90196078431373
+  },
+  {
+   "name": "İsmayıllı rayonu",
+   "kind": "unit",
+   "group": "Dağlıq Şirvan iqtisadi rayonu",
+   "area_km2": 2070,
+   "pop": 87900,
+   "pop_2019": 85100,
+   "density": 42.46376811594204
+  },
+  {
+   "name": "Qobustan rayonu",
+   "kind": "unit",
+   "group": "Dağlıq Şirvan iqtisadi rayonu",
+   "area_km2": 1370,
+   "pop": 47900,
+   "pop_2019": 44500,
+   "density": 34.96350364963503
+  },
+  {
+   "name": "Şamaxı rayonu",
+   "kind": "unit",
+   "group": "Dağlıq Şirvan iqtisadi rayonu",
+   "area_km2": 1670,
+   "pop": 107200,
+   "pop_2019": 101800,
+   "density": 64.19161676646706
+  },
+  {
+   "name": "Gəncə-Daşkəsən iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 5270,
+   "pop": 600400,
+   "density": 113.92789373814043
+  },
+  {
+   "name": "Gəncə şəhəri",
+   "kind": "unit",
+   "group": "Gəncə-Daşkəsən iqtisadi rayonu",
+   "area_km2": 110,
+   "pop": 331100,
+   "pop_2019": 328800,
+   "density": 3010
+  },
+  {
+   "name": "Naftalan şəhəri",
+   "kind": "unit",
+   "group": "Gəncə-Daşkəsən iqtisadi rayonu",
+   "area_km2": 40,
+   "pop": 8600,
+   "pop_2019": 8500,
+   "density": 215
+  },
+  {
+   "name": "Daşkəsən rayonu",
+   "kind": "unit",
+   "group": "Gəncə-Daşkəsən iqtisadi rayonu",
+   "area_km2": 1050,
+   "pop": 33400,
+   "pop_2019": 32900,
+   "density": 31.809523809523807
+  },
+  {
+   "name": "Goranboy rayonu",
+   "kind": "unit",
+   "group": "Gəncə-Daşkəsən iqtisadi rayonu",
+   "area_km2": 1700,
+   "pop": 102800,
+   "pop_2019": 95900,
+   "density": 60.470588235294116
+  },
+  {
+   "name": "Göygöl rayonu",
+   "kind": "unit",
+   "group": "Gəncə-Daşkəsən iqtisadi rayonu",
+   "area_km2": 920,
+   "pop": 65400,
+   "pop_2019": 63200,
+   "density": 71.08695652173914
+  },
+  {
+   "name": "Samux rayonu",
+   "kind": "unit",
+   "group": "Gəncə-Daşkəsən iqtisadi rayonu",
+   "area_km2": 1450,
+   "pop": 59100,
+   "pop_2019": 57000,
+   "density": 40.758620689655174
+  },
+  {
+   "name": "Qarabağ iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 9990,
+   "pop": 751100,
+   "density": 75.18518518518519
+  },
+  {
+   "name": "Xankəndi şəhəri",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 10,
+   "pop": 4400,
+   "pop_2019": 4300,
+   "density": 440
+  },
+  {
+   "name": "Ağcabədi rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 1760,
+   "pop": 137600,
+   "pop_2019": 132300,
+   "density": 78.18181818181817
+  },
+  {
+   "name": "Ağdam rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 1090,
+   "pop": 176400,
+   "pop_2019": 174800,
+   "density": 161.8348623853211
+  },
+  {
+   "name": "Ağdərə rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 1660,
+   "pop": 12200,
+   "pop_2019": null,
+   "density": 7.349397590361446
+  },
+  {
+   "name": "Bərdə rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 950,
+   "pop": 158600,
+   "pop_2019": 153100,
+   "density": 166.94736842105263
+  },
+  {
+   "name": "Füzuli rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 1380,
+   "pop": 132200,
+   "pop_2019": 127400,
+   "density": 95.79710144927536
+  },
+  {
+   "name": "Xocalı rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 930,
+   "pop": 15700,
+   "pop_2019": 11000,
+   "density": 16.881720430107524
+  },
+  {
+   "name": "Xocavənd rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 1510,
+   "pop": 12500,
+   "pop_2019": 9200,
+   "density": 8.278145695364238
+  },
+  {
+   "name": "Şuşa rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 290,
+   "pop": 25300,
+   "pop_2019": 21900,
+   "density": 87.24137931034484
+  },
+  {
+   "name": "Tərtər rayonu",
+   "kind": "unit",
+   "group": "Qarabağ iqtisadi rayonu",
+   "area_km2": 410,
+   "pop": 76200,
+   "pop_2019": 79000,
+   "density": 185.85365853658539
+  },
+  {
+   "name": "Qazax-Tovuz iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 7030,
+   "pop": 683000,
+   "density": 97.15504978662874
+  },
+  {
+   "name": "Ağstafa rayonu",
+   "kind": "unit",
+   "group": "Qazax-Tovuz iqtisadi rayonu",
+   "area_km2": 1500,
+   "pop": 87000,
+   "pop_2019": 84700,
+   "density": 58
+  },
+  {
+   "name": "Gədəbəy rayonu",
+   "kind": "unit",
+   "group": "Qazax-Tovuz iqtisadi rayonu",
+   "area_km2": 1230,
+   "pop": 101400,
+   "pop_2019": 95600,
+   "density": 82.43902439024392
+  },
+  {
+   "name": "Qazax rayonu",
+   "kind": "unit",
+   "group": "Qazax-Tovuz iqtisadi rayonu",
+   "area_km2": 700,
+   "pop": 96700,
+   "pop_2019": 94300,
+   "density": 138.14285714285717
+  },
+  {
+   "name": "Şəmkir rayonu",
+   "kind": "unit",
+   "group": "Qazax-Tovuz iqtisadi rayonu",
+   "area_km2": 1660,
+   "pop": 219100,
+   "pop_2019": 211600,
+   "density": 131.9879518072289
+  },
+  {
+   "name": "Tovuz rayonu",
+   "kind": "unit",
+   "group": "Qazax-Tovuz iqtisadi rayonu",
+   "area_km2": 1940,
+   "pop": 178800,
+   "pop_2019": 171900,
+   "density": 92.16494845360826
+  },
+  {
+   "name": "Quba-Xaçmaz iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 6960,
+   "pop": 552800,
+   "density": 79.42528735632183
+  },
+  {
+   "name": "Xaçmaz rayonu",
+   "kind": "unit",
+   "group": "Quba-Xaçmaz iqtisadi rayonu",
+   "area_km2": 1060,
+   "pop": 176100,
+   "pop_2019": 169200,
+   "density": 166.1320754716981
+  },
+  {
+   "name": "Quba rayonu",
+   "kind": "unit",
+   "group": "Quba-Xaçmaz iqtisadi rayonu",
+   "area_km2": 2610,
+   "pop": 172200,
+   "pop_2019": 164700,
+   "density": 65.97701149425288
+  },
+  {
+   "name": "Qusar rayonu",
+   "kind": "unit",
+   "group": "Quba-Xaçmaz iqtisadi rayonu",
+   "area_km2": 1500,
+   "pop": 103200,
+   "pop_2019": 99500,
+   "density": 68.8
+  },
+  {
+   "name": "Siyəzən rayonu",
+   "kind": "unit",
+   "group": "Quba-Xaçmaz iqtisadi rayonu",
+   "area_km2": 700,
+   "pop": 42200,
+   "pop_2019": 40600,
+   "density": 60.28571428571429
+  },
+  {
+   "name": "Şabran rayonu",
+   "kind": "unit",
+   "group": "Quba-Xaçmaz iqtisadi rayonu",
+   "area_km2": 1090,
+   "pop": 59100,
+   "pop_2019": 56800,
+   "density": 54.22018348623853
+  },
+  {
+   "name": "Lənkəran-Astara iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 6070,
+   "pop": 949300,
+   "density": 156.39209225700162
+  },
+  {
+   "name": "Astara rayonu",
+   "kind": "unit",
+   "group": "Lənkəran-Astara iqtisadi rayonu",
+   "area_km2": 620,
+   "pop": 113600,
+   "pop_2019": 107900,
+   "density": 183.2258064516129
+  },
+  {
+   "name": "Cəlilabad rayonu",
+   "kind": "unit",
+   "group": "Lənkəran-Astara iqtisadi rayonu",
+   "area_km2": 1440,
+   "pop": 221100,
+   "pop_2019": 207000,
+   "density": 153.54166666666666
+  },
+  {
+   "name": "Lerik rayonu",
+   "kind": "unit",
+   "group": "Lənkəran-Astara iqtisadi rayonu",
+   "area_km2": 1080,
+   "pop": 87400,
+   "pop_2019": 82400,
+   "density": 80.92592592592592
+  },
+  {
+   "name": "Lənkəran rayonu",
+   "kind": "unit",
+   "group": "Lənkəran-Astara iqtisadi rayonu",
+   "area_km2": 1540,
+   "pop": 228600,
+   "pop_2019": 223700,
+   "density": 148.44155844155844
+  },
+  {
+   "name": "Masallı rayonu",
+   "kind": "unit",
+   "group": "Lənkəran-Astara iqtisadi rayonu",
+   "area_km2": 720,
+   "pop": 228700,
+   "pop_2019": 221100,
+   "density": 317.63888888888886
+  },
+  {
+   "name": "Yardımlı rayonu",
+   "kind": "unit",
+   "group": "Lənkəran-Astara iqtisadi rayonu",
+   "area_km2": 670,
+   "pop": 69900,
+   "pop_2019": 65400,
+   "density": 104.32835820895522
+  },
+  {
+   "name": "Mərkəzi Aran iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 6690,
+   "pop": 727600,
+   "density": 108.75934230194319
+  },
+  {
+   "name": "Mingəçevir şəhəri",
+   "kind": "unit",
+   "group": "Mərkəzi Aran iqtisadi rayonu",
+   "area_km2": 140,
+   "pop": 103300,
+   "pop_2019": 101200,
+   "density": 737.8571428571428
+  },
+  {
+   "name": "Ağdaş rayonu",
+   "kind": "unit",
+   "group": "Mərkəzi Aran iqtisadi rayonu",
+   "area_km2": 1020,
+   "pop": 108100,
+   "pop_2019": 103700,
+   "density": 105.98039215686273
+  },
+  {
+   "name": "Göyçay rayonu",
+   "kind": "unit",
+   "group": "Mərkəzi Aran iqtisadi rayonu",
+   "area_km2": 740,
+   "pop": 119700,
+   "pop_2019": 115300,
+   "density": 161.75675675675677
+  },
+  {
+   "name": "Kürdəmir rayonu",
+   "kind": "unit",
+   "group": "Mərkəzi Aran iqtisadi rayonu",
+   "area_km2": 1630,
+   "pop": 119900,
+   "pop_2019": 114700,
+   "density": 73.55828220858896
+  },
+  {
+   "name": "Ucar rayonu",
+   "kind": "unit",
+   "group": "Mərkəzi Aran iqtisadi rayonu",
+   "area_km2": 830,
+   "pop": 85900,
+   "pop_2019": 82600,
+   "density": 103.49397590361447
+  },
+  {
+   "name": "Yevlax rayonu",
+   "kind": "unit",
+   "group": "Mərkəzi Aran iqtisadi rayonu",
+   "area_km2": 1470,
+   "pop": 130600,
+   "pop_2019": 125600,
+   "density": 88.84353741496598
+  },
+  {
+   "name": "Zərdab rayonu",
+   "kind": "unit",
+   "group": "Mərkəzi Aran iqtisadi rayonu",
+   "area_km2": 860,
+   "pop": 60100,
+   "pop_2019": 57800,
+   "density": 69.88372093023256
+  },
+  {
+   "name": "Mil-Muğan iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 5669.999999999999,
+   "pop": 530500,
+   "density": 93.56261022927691
+  },
+  {
+   "name": "Beyləqan rayonu",
+   "kind": "unit",
+   "group": "Mil-Muğan iqtisadi rayonu",
+   "area_km2": 1130,
+   "pop": 102600,
+   "pop_2019": 98000,
+   "density": 90.79646017699116
+  },
+  {
+   "name": "İmişli rayonu",
+   "kind": "unit",
+   "group": "Mil-Muğan iqtisadi rayonu",
+   "area_km2": 1890,
+   "pop": 133000,
+   "pop_2019": 127600,
+   "density": 70.37037037037038
+  },
+  {
+   "name": "Saatlı rayonu",
+   "kind": "unit",
+   "group": "Mil-Muğan iqtisadi rayonu",
+   "area_km2": 1180,
+   "pop": 111800,
+   "pop_2019": 106500,
+   "density": 94.74576271186442
+  },
+  {
+   "name": "Sabirabad rayonu",
+   "kind": "unit",
+   "group": "Mil-Muğan iqtisadi rayonu",
+   "area_km2": 1470,
+   "pop": 183100,
+   "pop_2019": 173200,
+   "density": 124.5578231292517
+  },
+  {
+   "name": "Şəki-Zaqatala iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 8840.000000000002,
+   "pop": 630900,
+   "density": 71.36877828054297
+  },
+  {
+   "name": "Balakən rayonu",
+   "kind": "unit",
+   "group": "Şəki-Zaqatala iqtisadi rayonu",
+   "area_km2": 940,
+   "pop": 101300,
+   "pop_2019": 97600,
+   "density": 107.76595744680851
+  },
+  {
+   "name": "Qax rayonu",
+   "kind": "unit",
+   "group": "Şəki-Zaqatala iqtisadi rayonu",
+   "area_km2": 1490,
+   "pop": 58500,
+   "pop_2019": 57300,
+   "density": 39.261744966442954
+  },
+  {
+   "name": "Qəbələ rayonu",
+   "kind": "unit",
+   "group": "Şəki-Zaqatala iqtisadi rayonu",
+   "area_km2": 1550,
+   "pop": 110100,
+   "pop_2019": 105300,
+   "density": 71.03225806451613
+  },
+  {
+   "name": "Oğuz rayonu",
+   "kind": "unit",
+   "group": "Şəki-Zaqatala iqtisadi rayonu",
+   "area_km2": 1080,
+   "pop": 44900,
+   "pop_2019": 43200,
+   "density": 41.57407407407407
+  },
+  {
+   "name": "Şəki rayonu",
+   "kind": "unit",
+   "group": "Şəki-Zaqatala iqtisadi rayonu",
+   "area_km2": 2430,
+   "pop": 185200,
+   "pop_2019": 180500,
+   "density": 76.21399176954732
+  },
+  {
+   "name": "Zaqatala rayonu",
+   "kind": "unit",
+   "group": "Şəki-Zaqatala iqtisadi rayonu",
+   "area_km2": 1350,
+   "pop": 130900,
+   "pop_2019": 127300,
+   "density": 96.96296296296296
+  },
+  {
+   "name": "Şərqi Zəngəzur iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 6340,
+   "pop": 303700,
+   "density": 47.90220820189274
+  },
+  {
+   "name": "Cəbrayıl rayonu",
+   "kind": "unit",
+   "group": "Şərqi Zəngəzur iqtisadi rayonu",
+   "area_km2": 1040,
+   "pop": 73800,
+   "pop_2019": 71200,
+   "density": 70.96153846153845
+  },
+  {
+   "name": "Kəlbəcər rayonu",
+   "kind": "unit",
+   "group": "Şərqi Zəngəzur iqtisadi rayonu",
+   "area_km2": 1970,
+   "pop": 72800,
+   "pop_2019": 71100,
+   "density": 36.954314720812185
+  },
+  {
+   "name": "Qubadlı rayonu",
+   "kind": "unit",
+   "group": "Şərqi Zəngəzur iqtisadi rayonu",
+   "area_km2": 800,
+   "pop": 37400,
+   "pop_2019": 36100,
+   "density": 46.74999999999999
+  },
+  {
+   "name": "Laçın rayonu",
+   "kind": "unit",
+   "group": "Şərqi Zəngəzur iqtisadi rayonu",
+   "area_km2": 1830,
+   "pop": 76700,
+   "pop_2019": 73000,
+   "density": 41.91256830601093
+  },
+  {
+   "name": "Zəngilan rayonu",
+   "kind": "unit",
+   "group": "Şərqi Zəngəzur iqtisadi rayonu",
+   "area_km2": 700,
+   "pop": 43000,
+   "pop_2019": 41900,
+   "density": 61.42857142857143
+  },
+  {
+   "name": "Şirvan-Salyan iqtisadi rayonu",
+   "kind": "group",
+   "area_km2": 6080,
+   "pop": 499800,
+   "density": 82.20394736842105
+  },
+  {
+   "name": "Şirvan şəhəri",
+   "kind": "unit",
+   "group": "Şirvan-Salyan iqtisadi rayonu",
+   "area_km2": 70,
+   "pop": 86000,
+   "pop_2019": 83500,
+   "density": 1228.5714285714284
+  },
+  {
+   "name": "Biləsuvar rayonu",
+   "kind": "unit",
+   "group": "Şirvan-Salyan iqtisadi rayonu",
+   "area_km2": 1360,
+   "pop": 108200,
+   "pop_2019": 102000,
+   "density": 79.55882352941177
+  },
+  {
+   "name": "Hacıqabul rayonu",
+   "kind": "unit",
+   "group": "Şirvan-Salyan iqtisadi rayonu",
+   "area_km2": 1600,
+   "pop": 76800,
+   "pop_2019": 73300,
+   "density": 47.99999999999999
+  },
+  {
+   "name": "Neftçala rayonu",
+   "kind": "unit",
+   "group": "Şirvan-Salyan iqtisadi rayonu",
+   "area_km2": 1450,
+   "pop": 87900,
+   "pop_2019": 85200,
+   "density": 60.62068965517242
+  },
+  {
+   "name": "Salyan rayonu",
+   "kind": "unit",
+   "group": "Şirvan-Salyan iqtisadi rayonu",
+   "area_km2": 1600,
+   "pop": 140900,
+   "pop_2019": 135500,
+   "density": 88.0625
+  }
+ ]
+}
