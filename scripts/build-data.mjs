@@ -9,6 +9,7 @@ const meteo = read("data/processed/meteo.json", { regions: {} });
 const aiProfiles = read("data/processed/ai-profiles.json", {});
 const aliases = read("data/manual/name-aliases.json", {});
 const popMeta = read("data/processed/population.json");
+const listings = read("data/processed/listings-agg.json", null);
 
 // ---------- prices ----------
 const priceRows = parse(fs.readFileSync("data/manual/prices.csv", "utf8"), { columns: true, skip_empty_lines: true, trim: true });
@@ -74,9 +75,29 @@ const regions = osm.map((o) => {
     prices: ps,
     indices: {},
     coverage: { osm: totalPois > 200 ? "yüksək" : totalPois > 40 ? "orta" : "aşağı", prices: best ?? "none" },
+    ...(listings?.regions[o.id] ? { listings: { n: listings.regions[o.id].n, deed_share: listings.regions[o.id].deed_share, mortgage_share: listings.regions[o.id].mortgage_share, period: listings.period } } : {}),
     ...(aiProfiles[o.id] ? { ai: aiProfiles[o.id] } : {}),
   };
 });
+
+// Per-capita reliability: OSM POI stock vs DSK population. Recently resettled areas (e.g. Xankəndi: pre-2023 OSM
+// mapping of ~55k-resident city vs 4.4k residents in 2026) produce absurd per-10k values that saturate every index.
+// Rule (generic): total POIs per 10k residents > 10× the level median → per-capita metrics are unreliable → null.
+for (const level of ["rayon", "baku_district"]) {
+  const rs = regions.filter((r) => r.level === level);
+  const tot = (r) => Object.values(r.pois).reduce((a, b) => a + b, 0);
+  const p10 = (r) => (r.population.v ? (tot(r) / r.population.v) * 1e4 : null);
+  const sorted = rs.map(p10).filter((x) => x != null).sort((a, b) => a - b);
+  const med = sorted[Math.floor(sorted.length / 2)];
+  for (const r of rs) {
+    const ratio = p10(r) / med;
+    if (ratio > 10) {
+      for (const k of Object.keys(r.per10k)) r.per10k[k] = null;
+      r.coverage.per_capita = "unreliable";
+      r.coverage.note = `OSM-də ${tot(r)} obyekt var, amma DSK-ya görə əhali cəmi ${r.population.v} nəfərdir (ölkə medianından ${Math.round(ratio)} dəfə çox obyekt/sakin). Obyektlərin çoxu əvvəlki dövrün xəritələməsidir; 10 min sakinə düşən göstəricilər etibarsızdır və hesablanmır.`;
+    } else r.coverage.per_capita = "ok";
+  }
+}
 
 const median = (xs) => {
   const v = xs.filter((x) => x != null && Number.isFinite(x)).sort((a, b) => a - b);
@@ -119,6 +140,7 @@ const sources = {
     { key: "elevation", name: "Open-Meteo Elevation API (Copernicus DEM 90 m)", url: "https://open-meteo.com/en/docs/elevation-api", badge: "computed", status: Object.keys(meteo.regions).length ? "ok" : "unavailable", date: "2026-10-09", coverage: `${regions.filter((r) => r.nature.elev_mean != null).length}/${regions.length} ərazi, hər ərazidə 5×5 şəbəkə`, used_for: "Hündürlük, relyef tipi (düzənlik/dağətəyi/dağlıq)" },
     { key: "climate", name: "Open-Meteo Historical Weather (ERA5)", url: "https://open-meteo.com/en/docs/historical-weather-api", badge: "model", status: Object.keys(meteo.regions).length ? "ok" : "unavailable", date: `${meteo.year ?? ""}`, coverage: `${regions.filter((r) => r.climate.july_max_c != null).length}/${regions.length} ərazi (mərkəz nöqtəsi)`, used_for: "İyul orta maksimum, yanvar orta minimum, illik yağıntı" },
     { key: "air", name: "Open-Meteo Air Quality (CAMS modeli)", url: "https://open-meteo.com/en/docs/air-quality-api", badge: "model", status: Object.keys(meteo.regions).length ? "ok" : "unavailable", date: "son 30 gün", coverage: `${regions.filter((r) => r.air.pm25 != null).length}/${regions.length} ərazi`, used_for: "PM2.5 (ölçmə deyil, model)" },
+    ...(listings ? [{ key: "listings", name: "bina.az elanları — istifadəçinin təqdim etdiyi dataset (üçüncü tərəf toplayıb; biz scraping etmirik)", url: null, badge: "sample", status: "ok", date: listings.period, coverage: `${listings.kept} unikal, koordinatlı elan; ${Object.values(listings.regions).filter((r) => Object.keys(r.types).length).length} ərazidə median (n≥8), ${Object.keys(listings.hexes).length} məhəllədə (n≥5)`, used_for: "Nümunə qiymətlər (median ₼/m²), çıxarışı olan elanların payı, ipoteka payı. Fərdi elan saxlanmır." }] : []),
     { key: "prices", name: "Daşınmaz əmlak qiymətləri (data/manual/prices.csv)", url: null, badge: "mock", status: "partial", date: "2026-10-09", coverage: `${realPrices.length} dərc olunmuş dəyər, ${priceLog.length - realPrices.length} demo dəyər; ${Object.keys(prices).length} ərazi`, used_for: "Qiymətlər, əlçatanlıq indeksi, büdcə filtri, həqiqi xərc" },
     { key: "legal", name: "Hüquqi mətnlər (e-qanun.az)", url: "https://e-qanun.az", badge: "official", status: fs.existsSync("data/legal") && fs.readdirSync("data/legal").some((f) => f.endsWith(".md")) ? "ok" : "unavailable", date: null, coverage: "Maddə mətni yoxdursa, AI maddə nömrəsi göstərmir", used_for: "Hüquqi yoxlama" },
     { key: "google", name: "Google Places API", url: "https://developers.google.com/maps/documentation/places", badge: "osm", status: process.env.GOOGLE_MAPS_API_KEY ? "ok" : "unavailable", date: null, coverage: "Açar yoxdur — istifadə olunmur", used_for: "Gələcək: seçilmiş ərazi üçün canlı zənginləşdirmə" },

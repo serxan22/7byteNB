@@ -3,12 +3,16 @@ import { useEffect, useRef } from "react";
 import type { Map as MLMap, GeoJSONSource, Marker } from "maplibre-gl";
 import type { Level, Region } from "@/lib/types";
 
+export type Highlight = { rank: number; centroid: [number, number]; area_id: string; kind: "hex" | "region" };
 type Props = {
   level: Level;
   regions: Region[];
   colors: Record<string, string>;
+  hexColors: Record<string, string>;
   selectedId: string | null;
+  highlights: Highlight[];
   onSelect: (id: string) => void;
+  onSelectHex: (h: string) => void;
   onHover: (id: string | null, x: number, y: number) => void;
 };
 
@@ -26,15 +30,21 @@ const lerpHex = (a: string, b: string, t: number) => {
 };
 const css = (v: string) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 
-export default function MapView({ level, regions, colors, selectedId, onSelect, onHover }: Props) {
+export default function MapView({ level, regions, colors, hexColors, selectedId, highlights, onSelect, onSelectHex, onHover }: Props) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<MLMap | null>(null);
   const ready = useRef(false);
   const current = useRef<Record<string, string>>({});
   const anim = useRef<number | null>(null);
   const markers = useRef<{ m: Marker; level: Level; rank: number; el: HTMLDivElement }[]>([]);
-  const cb = useRef({ onSelect, onHover });
-  cb.current = { onSelect, onHover };
+  const cb = useRef({ onSelect, onHover, onSelectHex });
+  cb.current = { onSelect, onHover, onSelectHex };
+  const pins = useRef<Marker[]>([]);
+  const mlRef = useRef<typeof import("maplibre-gl") | null>(null);
+  const hexColorsRef = useRef(hexColors);
+  hexColorsRef.current = hexColors;
+  const hlRef = useRef(highlights);
+  hlRef.current = highlights;
 
   // ---- init ----
   useEffect(() => {
@@ -42,6 +52,7 @@ export default function MapView({ level, regions, colors, selectedId, onSelect, 
     (async () => {
       const maplibregl = await import("maplibre-gl");
       maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
+      mlRef.current = maplibregl;
       if (cancelled || !el.current) return;
       const m = new maplibregl.Map({
         container: el.current,
@@ -59,10 +70,11 @@ export default function MapView({ level, regions, colors, selectedId, onSelect, 
       map.current = m;
       (window as unknown as { __map: MLMap }).__map = m;
       m.on("load", async () => {
-        const [az, baku, pois] = await Promise.all([
+        const [az, baku, pois, hexGeo] = await Promise.all([
           fetch("/data/regions-az.geojson").then((r) => r.json()),
           fetch("/data/regions-baku.geojson").then((r) => r.json()),
           fetch("/data/pois-baku.json").then((r) => r.json()),
+          fetch("/data/hexes-geo.json").then((r) => r.json()),
         ]);
         const border = css("--map-border") || "#fbf8f1";
         for (const [src, data] of [["az", az], ["baku", baku]] as const) {
@@ -104,6 +116,20 @@ export default function MapView({ level, regions, colors, selectedId, onSelect, 
             if (id) cb.current.onSelect(id);
           });
         }
+        // H3 micro-areas (zoomed in): coloured by the active metric, hover + click
+        m.addSource("hexes", { type: "geojson", data: hexGeo, promoteId: "id" });
+        m.addLayer({ id: "hex-fill", type: "fill", source: "hexes", minzoom: 10.3, paint: { "fill-color": ["coalesce", ["feature-state", "c"], "rgba(0,0,0,0)"], "fill-opacity": ["interpolate", ["linear"], ["zoom"], 10.3, 0, 11, 0.78] } });
+        m.addLayer({ id: "hex-line", type: "line", source: "hexes", minzoom: 10.3, paint: { "line-color": border, "line-width": 0.5, "line-opacity": 0.8 } });
+        m.addLayer({ id: "hex-hl", type: "line", source: "hexes", filter: ["in", ["get", "id"], ["literal", []]], paint: { "line-color": "#18262e", "line-width": 2.6 } });
+        for (const src of ["az", "baku"]) m.addLayer({ id: `${src}-hl`, type: "line", source: src, filter: ["in", ["get", "id"], ["literal", []]], paint: { "line-color": "#0f4c5c", "line-width": 3 } });
+        m.on("mousemove", "hex-fill", (e: import("maplibre-gl").MapLayerMouseEvent) => {
+          const id = e.features?.[0]?.properties?.id as string | undefined;
+          if (id) cb.current.onHover(`hex:${id}`, e.point.x, e.point.y);
+        });
+        m.on("click", "hex-fill", (e: import("maplibre-gl").MapLayerMouseEvent) => {
+          const id = e.features?.[0]?.properties?.id as string | undefined;
+          if (id) cb.current.onSelectHex(id);
+        });
         // Baku POI dots (zoomed in)
         m.addSource("pois", {
           type: "geojson",
@@ -128,6 +154,8 @@ export default function MapView({ level, regions, colors, selectedId, onSelect, 
         ready.current = true;
         applyLevel(level);
         animateTo(colorsRef.current, true);
+        paintHexes(hexColorsRef.current);
+        showHighlights(hlRef.current);
         buildLabels(maplibregl);
       });
       m.on("zoom", updateLabels);
@@ -218,6 +246,49 @@ export default function MapView({ level, regions, colors, selectedId, onSelect, 
     };
     anim.current = requestAnimationFrame(step);
   }
+
+  function paintHexes(hc: Record<string, string>) {
+    const m = map.current;
+    if (!m || !ready.current) return;
+    for (const [id, c] of Object.entries(hc)) m.setFeatureState({ source: "hexes", id }, { c });
+  }
+
+  function showHighlights(hl: Highlight[]) {
+    const m = map.current;
+    const ml = mlRef.current;
+    if (!m || !ml || !ready.current) return;
+    pins.current.forEach((p) => p.remove());
+    pins.current = [];
+    const hexIds = hl.filter((h) => h.kind === "hex").map((h) => h.area_id);
+    const regIds = hl.filter((h) => h.kind === "region").map((h) => h.area_id);
+    m.setFilter("hex-hl", ["in", ["get", "id"], ["literal", hexIds]]);
+    for (const src of ["az", "baku"]) m.setFilter(`${src}-hl`, ["in", ["get", "id"], ["literal", regIds]]);
+    if (!hl.length) return;
+    for (const h of hl) {
+      const el = document.createElement("button");
+      el.className = "map-pin";
+      el.textContent = String(h.rank);
+      el.setAttribute("aria-label", `Tövsiyə ${h.rank}`);
+      el.onclick = (ev) => {
+        ev.stopPropagation();
+        if (h.kind === "hex") cb.current.onSelectHex(h.area_id);
+        else cb.current.onSelect(h.area_id);
+      };
+      pins.current.push(new ml.Marker({ element: el }).setLngLat(h.centroid).addTo(m));
+    }
+    const xs = hl.map((h) => h.centroid[0]), ys = hl.map((h) => h.centroid[1]);
+    m.fitBounds([Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)], { padding: 80, maxZoom: hl[0].kind === "hex" ? 13.2 : 8.2, duration: 1400, essential: true });
+  }
+
+  useEffect(() => {
+    paintHexes(hexColors);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hexColors]);
+
+  useEffect(() => {
+    showHighlights(highlights);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [highlights]);
 
   useEffect(() => {
     applyLevel(level);

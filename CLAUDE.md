@@ -8,7 +8,7 @@ Next.js in this repo is v16 — see `AGENTS.md` and `node_modules/next/dist/docs
 - Every fetch script caches raw responses in data/raw/ and skips if cache exists. Never re-download.
 - Pipeline: data/raw → scripts → data/processed → public/data (small, simplified). App reads ONLY public/data.
 - Edit files surgically. Never regenerate a whole file to change a few lines.
-- No refactors, no extra abstractions, no unit tests. Only `npm run check` (zod validation of data + next build).
+- No refactors, no extra abstractions. Testing is REQUIRED: evals in /evals (intent, legal, grounding, retrieval, data-sanity) → public/data/evals.json, shown on /keyfiyyet. `npm run check` = data-sanity + zod + next build. Every bug fix gets a sanity check so it cannot come back.
 - Only dependencies listed in SPEC §4. A new one only if it saves >30 min.
 - A source fails twice → mark "unavailable" in data/processed/sources.json, move on. No retry loops.
 - Never scrape Google Maps, Yandex, Waze, bina.az, tap.az. Official APIs with keys from .env only.

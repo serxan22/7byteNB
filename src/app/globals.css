@@ -102,6 +102,35 @@ body {
   font-size: 12.5px;
   font-weight: 800;
 }
+.map-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--sand);
+  font: 800 13px/28px var(--font-manrope), sans-serif;
+  text-align: center;
+  border: 2px solid var(--sand-2);
+  box-shadow: 0 0 0 0 rgba(15, 76, 92, 0.55);
+  animation: pin-pulse 1.8s ease-out infinite;
+  cursor: pointer;
+}
+@keyframes pin-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(15, 76, 92, 0.55); }
+  70% { box-shadow: 0 0 0 14px rgba(15, 76, 92, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(15, 76, 92, 0); }
+}
+.fade-in { animation: fade-up 360ms ease-out both; }
+@keyframes fade-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.skeleton {
+  background: linear-gradient(90deg, var(--sand) 0%, var(--sand-3) 50%, var(--sand) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.card-lift { transition: transform 160ms ease, box-shadow 160ms ease; }
+.card-lift:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(24, 38, 46, 0.08); }
+.ring-anim { transition: stroke-dasharray 900ms ease-out; }
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;

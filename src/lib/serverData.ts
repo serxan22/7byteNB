@@ -1,6 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Level, National, Region } from "./types.ts";
+import type { HexData } from "./decide.ts";
+
+let hexCache: HexData | null = null;
+export function loadHexes(): HexData {
+  hexCache ??= JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/hexes.json"), "utf8"));
+  return hexCache!;
+}
 
 let cache: { regions: Region[]; national: Record<Level, National> } | null = null;
 export function loadData() {

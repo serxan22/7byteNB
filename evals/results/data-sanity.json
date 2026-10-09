@@ -1,0 +1,91 @@
+{
+ "ran_at": "2026-10-09T13:19:57.000Z",
+ "passed": 13,
+ "total": 14,
+ "checks": [
+  {
+   "name": "75 rayon/şəhər var",
+   "pass": true,
+   "detail": "75",
+   "hard": true
+  },
+  {
+   "name": "Bakının 12 rayonu var",
+   "pass": true,
+   "detail": "Nizami, Sabunçu, Xətai, Pirallahı, Suraxanı, Xəzər, Qaradağ, Yasamal, Səbail, Nərimanov, Nəsimi, Binəqədi",
+   "hard": true
+  },
+  {
+   "name": "Hər ərazinin əhalisi var (DSK)",
+   "pass": true,
+   "detail": "hamısında var",
+   "hard": true
+  },
+  {
+   "name": "Bakı rayonlarının əhalisi cəmi = Bakı (±2%)",
+   "pass": true,
+   "detail": "2356200 vs 2356200",
+   "hard": true
+  },
+  {
+   "name": "NaN və ya mənfi dəyər yoxdur",
+   "pass": true,
+   "detail": "yoxdur",
+   "hard": true
+  },
+  {
+   "name": "Heç bir rayon ölkə POI-lərinin 25%-dən çoxunu tutmur (Bakıdan başqa)",
+   "pass": true,
+   "detail": "maks: 6.0%",
+   "hard": true
+  },
+  {
+   "name": "10 min sakinə düşən göstəricilər inandırıcıdır (≤10× median)",
+   "pass": true,
+   "detail": "hamısı norma daxilində",
+   "hard": true
+  },
+  {
+   "name": "Əhali–OSM uyğunsuzluğu olan ərazilər işarələnib",
+   "pass": true,
+   "detail": "Xankəndi, Ağdərə, Xocalı",
+   "hard": false
+  },
+  {
+   "name": "Heç bir ərazi 4+ indeksdə 99 almır",
+   "pass": true,
+   "detail": "yoxdur",
+   "hard": true
+  },
+  {
+   "name": "PM2.5, temperatur, sıxlıq, asfalt % ağlabatan hədlərdə",
+   "pass": true,
+   "detail": "hamısı",
+   "hard": true
+  },
+  {
+   "name": "Qiymətlər ağlabatan hədlərdə (₼/m² 200–20 000)",
+   "pass": true,
+   "detail": "101 qiymət yoxlanıldı",
+   "hard": true
+  },
+  {
+   "name": "Metro stansiyaları: rəsmi siyahı ilə müqayisə",
+   "pass": false,
+   "detail": "OSM 33; rəsmi siyahı faylı yoxdur",
+   "hard": false
+  },
+  {
+   "name": "Aşağı OSM əhatəli ərazilərin payı",
+   "pass": true,
+   "detail": "16/87 (18%)",
+   "hard": false
+  },
+  {
+   "name": "Real (dərc olunmuş) qiymətlərin payı",
+   "pass": true,
+   "detail": "61/101",
+   "hard": false
+  }
+ ]
+}

@@ -113,21 +113,9 @@ export default function AIAnalyst({ region: r, national, persona, fit, overBudge
           </div>
         </div>
       ) : (
-        <p className="mt-3 text-sm text-ink-3">Bu ərazi üçün AI profili hələ hazırlanmayıb. Aşağıdakı sual qutusundan istifadə edə bilərsən.</p>
+        <p className="mt-3 text-sm text-ink-3">Bu ərazi üçün AI profili hələ hazırlanmayıb. Sağdakı AI məsləhətçidən istifadə et.</p>
       )}
 
-      <form onSubmit={ask} className="mt-6 flex flex-col gap-2 sm:flex-row">
-        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Bu ərazi haqqında soruş: məsələn, uşaqlı ailə üçün məktəb kifayətdirmi?" aria-label="Bu ərazi haqqında soruş" className="h-11 flex-1 rounded-lg border border-sand-3 bg-sand px-3 text-sm outline-none focus:border-caspian" />
-        <button disabled={busy} className="h-11 rounded-lg bg-caspian px-5 text-sm font-bold text-sand-2 disabled:opacity-60">
-          {busy ? "Cavab yazılır…" : "Soruş"}
-        </button>
-      </form>
-      {answer && (
-        <div className="mt-3 rounded-lg bg-sand px-4 py-3 text-sm leading-relaxed">
-          <div className="text-xs font-semibold text-ink-3">{answer.q}</div>
-          <p className="mt-1 whitespace-pre-line">{answer.a}</p>
-        </div>
-      )}
       <p className="mt-4 text-[11px] text-ink-3">AI bu təhlili yalnız yuxarıdakı göstəricilərə əsasən yazıb. Rəqəmlər paneldəki mənbə nişanları ilə yoxlanıla bilər; “Demo” qiymətlər real deyil.</p>
     </section>
   );

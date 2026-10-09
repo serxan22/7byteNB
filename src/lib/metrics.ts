@@ -104,7 +104,7 @@ export const METRICS: Metric[] = [
     ramp: RAMPS.pomegranate,
     get: (r, c) => r.prices[c.priceType]?.value ?? r.prices.menzil_kohne?.value ?? null,
     badge: (r, c) => priceBadge(r.prices[c.priceType] ?? r.prices.menzil_kohne),
-    note: "Qiymət yalnız 19 ərazi üçün var; çoxu demo dəyərdir",
+    note: "Qiymət: bina.az elan medianları (2024, Nümunə), dərc olunmuş rəqəmlər (Mətbuat) və demo dəyərlər",
   },
   {
     key: "density",

@@ -89,6 +89,38 @@ export const RegionSchema = z.object({
   air: z.object({ pm25: z.number().nullable() }),
   prices: z.record(z.string(), Price),
   indices: z.record(z.string(), z.number().nullable()),
-  coverage: z.object({ osm: z.enum(["yüksək", "orta", "aşağı"]), prices: z.enum(["official", "sample", "estimate", "mock", "none"]) }),
+  coverage: z.object({ osm: z.enum(["yüksək", "orta", "aşağı"]), prices: z.enum(["official", "sample", "estimate", "mock", "none"]), per_capita: z.enum(["ok", "unreliable"]).optional(), note: z.string().optional() }),
+  listings: z.object({ n: z.number(), deed_share: z.number(), mortgage_share: z.number(), period: z.string() }).optional(),
   ai: AIProfileSchema.optional(),
+});
+
+// ---- decision engine ----
+const W2 = z.number().describe("0..1");
+export const IntentSchema = z.object({
+  goal: z.enum(["buy", "rent", "invest", "open_business"]),
+  property_type: z.enum(["menzil_yeni", "menzil_kohne", "heyet_evi", "obyekt", "torpaq"]),
+  budget_azn: z.number().nullable(),
+  desired_m2: z.number().nullable(),
+  locations_mentioned: z.array(z.string()).describe("ids from the provided location list only"),
+  hard_constraints: z.object({
+    metro_within_m: z.number().nullable(),
+    school_within_m: z.number().nullable(),
+    kindergarten_within_m: z.number().nullable(),
+    park_within_m: z.number().nullable(),
+    max_price_m2: z.number().nullable(),
+    outside_baku: z.boolean(),
+    mountain: z.boolean(),
+    coastal: z.boolean(),
+  }),
+  business_type: z.enum(["cafe", "pharmacy", "grocery", "clinic", "kindergarten", "sport", "other"]).nullable(),
+  soft_preferences: z.object({ rahatliq: W2, neqliyyat: W2, tehsil: W2, sehiyye: W2, tebiet: W2, infrastruktur: W2, elcatanliq: W2 }),
+  household: z.string().nullable(),
+  missing_critical_fields: z.array(z.string()),
+});
+
+export const ExplainSchema = z.object({
+  answer_summary: z.string(),
+  recommendations: z.array(z.object({ area_id: z.string(), why: z.string(), trade_off: z.string(), fits_constraints: z.boolean() })),
+  what_to_check_next: z.array(z.string()),
+  clarifying_question: z.string().nullable(),
 });

@@ -113,8 +113,9 @@ export function fitScore(r: Region, persona: Persona, hub?: [number, number] | n
   }
   for (const k of INDEX_KEYS) {
     const w = persona.weights[k] ?? 0;
-    const v = r.indices[k];
-    if (w > 0 && v != null) {
+    // missing data must not help a region rank first: unknown index counts as a conservative 30
+    const v = r.indices[k] ?? 30;
+    if (w > 0) {
       num += w * v;
       den += w;
     }

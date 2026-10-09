@@ -34,6 +34,7 @@ export function regionForAI(r: Region, national?: National) {
     prices,
     indices: r.indices,
     coverage: r.coverage,
+    listings: r.listings ?? null,
     national: national
       ? { label: national.label, per10k: national.per10k, indices: national.indices, prices: national.prices, density: national.density, paved_pct: national.paved_pct, pm25: national.pm25 }
       : undefined,
@@ -49,7 +50,11 @@ Tapşırıq: verilən ərazi üçün profil yarat.
 - strengths: dəqiq 3 bənd, hər biri mötərizədə göstərici ilə bitir, məs. "... (10 min sakinə 14 kafe; median 11)".
 - weaknesses: dəqiq 3 bənd, eyni format.
 - best_for: 2–3 qısa bənd. watch_out: 2–3 qısa bənd (məlumat boşluqları daxil).
-- confidence_note: məlumatın etibarlılığı haqqında 1–2 cümlə (OSM əhatəsi, demo qiymətlər).`;
+- confidence_note: məlumatın etibarlılığı haqqında 1–2 cümlə (OSM əhatəsi, demo qiymətlər).
+- HƏR cümlə konkret rəqəmə və ya median ilə müqayisəyə istinad etməlidir (məs. "10 min sakinə 2.2 aptek — Bakı medianı 2.2", "asfalt payı 65%, median 49%").
+- Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar", "əlverişli mövqe", "hər kəs üçün". Ümumi, hər əraziyə aid ola biləcək cümlə yazma.
+- coverage.per_capita = "unreliable"-dirsə, 10 min sakinə düşən göstəricilərdən istifadə etmə və bunu confidence_note-da izah et.
+- listings varsa (elan sayı, çıxarış payı) onu da istifadə et.`;
 
 export const PERSONA_SYSTEM = `Sən istifadəçinin həyat tərzini təsvir edən cümləni ev axtarışı parametrlərinə çevirirsən.
 Çıxış sahələri:
@@ -90,3 +95,26 @@ Qaydalar:
 - red_flags: hər riskli ifadə üçün phrase (mətndəki kimi), meaning (nə deməkdir, alıcı üçün nə risk var), risk (yüksək/orta/aşağı).
 - checklist: 4–7 addım; step, where (məs. "Əmlak Məsələləri Dövlət Xidməti / e-gov.az", "notarius", "bank"), document (məs. "daşınmaz əmlakın dövlət reyestrindən çıxarış").
 - verdict: 1–2 cümləlik ümumi qiymət.`;
+
+export const INTENT_SYSTEM = (locations: { id: string; name: string }[]) => `Sən daşınmaz əmlak axtarışı üçün niyyət analizatorusan. İstifadəçinin Azərbaycan dilində (bəzən səhvlə, danışıq dilində) yazdığı sorğunu strukturlaşdırırsan.
+- goal: buy (almaq), rent (kirayə), invest (investisiya), open_business (biznes/kafe/aptek/mağaza açmaq).
+- property_type: menzil_yeni | menzil_kohne | heyet_evi | obyekt | torpaq. Biznes üçün obyekt. Dəqiq deyilməyibsə menzil_kohne.
+- budget_azn: "150 min" = 150000; dollar ×1.7; yoxdursa null. desired_m2: yoxdursa null.
+- locations_mentioned: YALNIZ aşağıdakı siyahıdakı id-lər. Rayon, metro stansiyası və ya qəsəbə adı çəkilibsə onun id-sini qoy. "Bakıdan kənar" deyilibsə Bakı id-lərini qoyma. Uydurma id yazma.
+- hard_constraints: metro_within_m ("metroya yaxın" = 800, "metro yanında" = 500), school_within_m, kindergarten_within_m, park_within_m (yaxın = 800), max_price_m2, outside_baku, mountain (dağ havası/dağlıq), coastal (dəniz/sahil).
+- business_type: open_business üçün cafe | pharmacy | grocery | clinic | kindergarten | sport | other; digər hallarda null.
+- soft_preferences: 7 indeks üçün 0..1 çəki (rahatliq, neqliyyat, tehsil, sehiyye, tebiet, infrastruktur, elcatanliq).
+- household: "uşaqlı ailə", "tələbə", "təqaüdçü", "tək", null.
+- missing_critical_fields: alış üçün büdcə yoxdursa "budget_azn"; yer və ya ərazi tipi heç bəlli deyilsə "locations".
+
+Yer siyahısı (id: ad):
+${locations.map((l) => `${l.id}: ${l.name}`).join("\n")}`;
+
+export const EXPLAIN_SYSTEM = `Sən "Məskən"in qərar məsləhətçisisən. İstifadəçinin sorğusu, onun strukturlaşdırılmış niyyəti və kodun SEÇDİYİ namizəd ərazilər (JSON) verilir. Sıralamanı sən dəyişmirsən — yalnız izah edirsən.
+${RULES}
+- answer_summary: 2–3 cümlə, istifadəçinin dəqiq sorğusuna birbaşa cavab (məs. "Nərimanovda metroya ən yaxın 5 məhəllə: ...").
+- recommendations: hər namizəd üçün (area_id dəqiq JSON-dakı kimi) why — konkret rəqəmlərlə (metroya piyada məsafə m, məktəbə m, ərzaq mağazası sayı, qiymət ₼/m² və onun etibarlılığı), trade_off — bir zəif cəhət rəqəmlə, fits_constraints — JSON-dakı dəyəri saxla.
+- what_to_check_next: 2–4 konkret addım (məs. "binanın çıxarışını yoxla", "axşam tıxacını yerində yoxla").
+- clarifying_question: niyyətdə missing_critical_fields varsa, BİR qısa sual (məs. büdcə). Yoxdursa null.
+- Qiymət price_confidence="mock"-dursa "demo qiymət, real deyil" de. Qiymət rayon ortasıdır — məhəllə qiyməti deyil.
+- Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar".`;

@@ -1,0 +1,63 @@
+import { NextResponse } from "next/server";
+import { BUSY_MSG, generateJSON } from "@/lib/ai";
+import { ExplainSchema, IntentSchema } from "@/lib/schemas";
+import { EXPLAIN_SYSTEM, INTENT_SYSTEM } from "@/lib/prompts";
+import { loadData, loadHexes } from "@/lib/serverData";
+import { confidence, keywordIntent, locationCatalog, retrieve, type Candidate, type Intent } from "@/lib/decide";
+
+export async function POST(req: Request) {
+  const body = await req.json().catch(() => null);
+  const question = typeof body?.question === "string" ? body.question.trim().slice(0, 500) : "";
+  if (question.length < 4) return NextResponse.json({ error: "Nə axtardığını bir cümlə ilə yaz." }, { status: 400 });
+  const { regions } = loadData();
+  const hx = loadHexes();
+  const catalog = locationCatalog(regions, hx);
+
+  // 1) INTENT (AI, structured) with the keyword baseline as fallback; ids are validated against the catalog
+  const ir = await generateJSON(question, IntentSchema, { system: INTENT_SYSTEM(catalog), maxTokens: 1500 });
+  const intent: Intent = ir.ok ? ir.data : keywordIntent(question, catalog);
+  intent.locations_mentioned = intent.locations_mentioned.filter((id) => catalog.some((c) => c.id === id));
+
+  // 3) RETRIEVE (deterministic) + 5) CONFIDENCE (deterministic)
+  const retrieval = retrieve(intent, regions, hx, catalog);
+  const conf = confidence(intent, retrieval);
+
+  // 4) EXPLAIN (AI, grounded on candidates only)
+  const compact = retrieval.candidates.map((c) => ({ area_id: c.area_id, rank: c.rank, label: c.label, region: c.region_name, score: c.score, fits_constraints: c.fits_constraints, violations: c.violations, metrics: c.metrics }));
+  const er = retrieval.candidates.length
+    ? await generateJSON(JSON.stringify({ question, intent, relaxed_constraints: retrieval.relaxed, scope: retrieval.scope, candidates: compact }), ExplainSchema, { system: EXPLAIN_SYSTEM, maxTokens: 3000 })
+    : null;
+  let explain = er?.ok ? er.data : null;
+  if (explain) explain.recommendations = explain.recommendations.filter((r) => retrieval.candidates.some((c) => c.area_id === r.area_id));
+  if (!explain || !explain.recommendations.length) explain = templateExplain(retrieval.candidates, retrieval.relaxed, !!er && !er.ok && er.reason === "busy");
+  // 2) still answer, but end with ONE clarifying question when a critical field is missing
+  if (!explain.clarifying_question && intent.missing_critical_fields.includes("budget_azn") && intent.goal !== "open_business") explain.clarifying_question = "Büdcən təxminən nə qədərdir? Ona görə qiymət filtrini dəqiqləşdirim.";
+
+  return NextResponse.json({
+    question,
+    intent,
+    intent_source: ir.ok ? "ai" : "keyword",
+    explain_source: er?.ok ? "ai" : "template",
+    retrieval: { mode: retrieval.mode, pool: retrieval.pool, relaxed: retrieval.relaxed, scope: retrieval.scope },
+    candidates: retrieval.candidates,
+    explain,
+    confidence: conf,
+  });
+}
+
+function templateExplain(c: Candidate[], relaxed: string[], busy: boolean) {
+  const fmtM = (v: unknown) => (typeof v === "number" ? `${v} m` : "—");
+  return {
+    answer_summary: c.length
+      ? `${c.length} ərazi seçildi; ən yüksək bal: ${c[0].label} (${c[0].score}/100).${relaxed.length ? ` Yumşaldılan şərt: ${relaxed.join(", ")}.` : ""} ${busy ? BUSY_MSG : "(Qayda əsaslı izah.)"}`
+      : "Şərtlərə uyğun ərazi tapılmadı.",
+    recommendations: c.map((x) => ({
+      area_id: x.area_id,
+      why: x.kind === "hex" ? `Metroya ${fmtM(x.metrics.metro_walk_m)} (${x.metrics.nearest_metro ?? "—"}), məktəbə ${fmtM(x.metrics.school_m)}, ${x.metrics.grocery} ərzaq mağazası.` : `Bal ${x.score}/100; relyef: ${x.metrics.terrain ?? "—"}, PM2.5 ${x.metrics.pm25 ?? "—"}.`,
+      trade_off: x.violations.length ? `Uyğun gəlməyən şərt: ${x.violations.join(", ")}` : "Qiymət rayon ortasıdır, məhəllə üzrə fərqlənə bilər.",
+      fits_constraints: x.fits_constraints,
+    })),
+    what_to_check_next: ["Elanlarda binanın çıxarışı olub-olmadığını yoxla", "Ərazini axşam saatlarında yerində gör"],
+    clarifying_question: null as string | null,
+  };
+}

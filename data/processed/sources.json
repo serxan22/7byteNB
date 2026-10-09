@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T11:44:13.714Z",
+ "generated_at": "2026-10-09T13:22:11.641Z",
  "datasets": [
   {
    "key": "osm",
@@ -53,13 +53,23 @@
    "used_for": "PM2.5 (ölçmə deyil, model)"
   },
   {
+   "key": "listings",
+   "name": "bina.az elanları — istifadəçinin təqdim etdiyi dataset (üçüncü tərəf toplayıb; biz scraping etmirik)",
+   "url": null,
+   "badge": "sample",
+   "status": "ok",
+   "date": "2024-10–2024-11",
+   "coverage": "95632 unikal, koordinatlı elan; 17 ərazidə median (n≥8), 277 məhəllədə (n≥5)",
+   "used_for": "Nümunə qiymətlər (median ₼/m²), çıxarışı olan elanların payı, ipoteka payı. Fərdi elan saxlanmır."
+  },
+  {
    "key": "prices",
    "name": "Daşınmaz əmlak qiymətləri (data/manual/prices.csv)",
    "url": null,
    "badge": "mock",
    "status": "partial",
    "date": "2026-10-09",
-   "coverage": "7 dərc olunmuş dəyər, 88 demo dəyər; 19 ərazi",
+   "coverage": "61 dərc olunmuş dəyər, 40 demo dəyər; 22 ərazi",
    "used_for": "Qiymətlər, əlçatanlıq indeksi, büdcə filtri, həqiqi xərc"
   },
   {
@@ -98,11 +108,11 @@
    "region_id": "bk-sebail",
    "region_name": "Səbail",
    "property_type": "menzil_yeni",
-   "value": 4600,
+   "value": 2389,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-sebail",
@@ -118,21 +128,21 @@
    "region_id": "bk-sebail",
    "region_name": "Səbail",
    "property_type": "heyet_evi",
-   "value": 3000,
+   "value": 1685,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-sebail",
    "region_name": "Səbail",
    "property_type": "obyekt",
-   "value": 6500,
+   "value": 4000,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-sebail",
@@ -148,41 +158,41 @@
    "region_id": "bk-nesimi",
    "region_name": "Nəsimi",
    "property_type": "menzil_yeni",
-   "value": 3700,
+   "value": 2660,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nesimi",
    "region_name": "Nəsimi",
    "property_type": "menzil_kohne",
-   "value": 3300,
+   "value": 2385,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nesimi",
    "region_name": "Nəsimi",
    "property_type": "heyet_evi",
-   "value": 2600,
+   "value": 2481,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nesimi",
    "region_name": "Nəsimi",
    "property_type": "obyekt",
-   "value": 5200,
+   "value": 3692,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nesimi",
@@ -198,41 +208,41 @@
    "region_id": "bk-yasamal",
    "region_name": "Yasamal",
    "property_type": "menzil_yeni",
-   "value": 3250,
+   "value": 2393,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-yasamal",
    "region_name": "Yasamal",
    "property_type": "menzil_kohne",
-   "value": 2900,
+   "value": 2558,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-yasamal",
    "region_name": "Yasamal",
    "property_type": "heyet_evi",
-   "value": 2300,
+   "value": 1714,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-yasamal",
    "region_name": "Yasamal",
    "property_type": "obyekt",
-   "value": 4300,
+   "value": 4000,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-yasamal",
@@ -248,41 +258,41 @@
    "region_id": "bk-nerimanov",
    "region_name": "Nərimanov",
    "property_type": "menzil_yeni",
-   "value": 3150,
+   "value": 2722,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nerimanov",
    "region_name": "Nərimanov",
    "property_type": "menzil_kohne",
-   "value": 2800,
+   "value": 2550,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nerimanov",
    "region_name": "Nərimanov",
    "property_type": "heyet_evi",
-   "value": 2200,
+   "value": 1840,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nerimanov",
    "region_name": "Nərimanov",
    "property_type": "obyekt",
-   "value": 4200,
+   "value": 4310,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nerimanov",
@@ -298,41 +308,41 @@
    "region_id": "bk-xetai",
    "region_name": "Xətai",
    "property_type": "menzil_yeni",
-   "value": 3000,
+   "value": 2354,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xetai",
    "region_name": "Xətai",
    "property_type": "menzil_kohne",
-   "value": 2600,
+   "value": 1973,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xetai",
    "region_name": "Xətai",
    "property_type": "heyet_evi",
-   "value": 1900,
+   "value": 1262,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xetai",
    "region_name": "Xətai",
    "property_type": "obyekt",
-   "value": 3900,
+   "value": 3976,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xetai",
@@ -348,41 +358,41 @@
    "region_id": "bk-nizami",
    "region_name": "Nizami",
    "property_type": "menzil_yeni",
-   "value": 2800,
+   "value": 2236,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nizami",
    "region_name": "Nizami",
    "property_type": "menzil_kohne",
-   "value": 2500,
+   "value": 2231,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nizami",
    "region_name": "Nizami",
    "property_type": "heyet_evi",
-   "value": 1900,
+   "value": 1267,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nizami",
    "region_name": "Nizami",
    "property_type": "obyekt",
-   "value": 3600,
+   "value": 2681,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-nizami",
@@ -398,41 +408,41 @@
    "region_id": "bk-bineqedi",
    "region_name": "Binəqədi",
    "property_type": "menzil_yeni",
-   "value": 2250,
+   "value": 2165,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-bineqedi",
    "region_name": "Binəqədi",
    "property_type": "menzil_kohne",
-   "value": 2000,
+   "value": 2168,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-bineqedi",
    "region_name": "Binəqədi",
    "property_type": "heyet_evi",
-   "value": 1300,
+   "value": 862,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-bineqedi",
    "region_name": "Binəqədi",
    "property_type": "obyekt",
-   "value": 2800,
+   "value": 2400,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-bineqedi",
@@ -448,41 +458,41 @@
    "region_id": "bk-xezer",
    "region_name": "Xəzər",
    "property_type": "menzil_yeni",
-   "value": 1950,
+   "value": 1450,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xezer",
    "region_name": "Xəzər",
    "property_type": "menzil_kohne",
-   "value": 1700,
+   "value": 1500,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xezer",
    "region_name": "Xəzər",
    "property_type": "heyet_evi",
-   "value": 1100,
+   "value": 1567,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xezer",
    "region_name": "Xəzər",
    "property_type": "obyekt",
-   "value": 2300,
+   "value": 1000,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-xezer",
@@ -498,41 +508,41 @@
    "region_id": "bk-sabuncu",
    "region_name": "Sabunçu",
    "property_type": "menzil_yeni",
-   "value": 1850,
+   "value": 2500,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-sabuncu",
    "region_name": "Sabunçu",
    "property_type": "menzil_kohne",
-   "value": 1650,
+   "value": 2000,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-sabuncu",
    "region_name": "Sabunçu",
    "property_type": "heyet_evi",
-   "value": 1000,
+   "value": 900,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-sabuncu",
    "region_name": "Sabunçu",
    "property_type": "obyekt",
-   "value": 2200,
+   "value": 1667,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-sabuncu",
@@ -548,41 +558,41 @@
    "region_id": "bk-suraxani",
    "region_name": "Suraxanı",
    "property_type": "menzil_yeni",
-   "value": 1750,
+   "value": 1600,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-suraxani",
    "region_name": "Suraxanı",
    "property_type": "menzil_kohne",
-   "value": 1550,
+   "value": 1644,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-suraxani",
    "region_name": "Suraxanı",
    "property_type": "heyet_evi",
-   "value": 950,
+   "value": 786,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-suraxani",
    "region_name": "Suraxanı",
    "property_type": "obyekt",
-   "value": 2000,
+   "value": 1182,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-suraxani",
@@ -598,11 +608,11 @@
    "region_id": "bk-qaradag",
    "region_name": "Qaradağ",
    "property_type": "menzil_yeni",
-   "value": 1700,
+   "value": 1522,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-qaradag",
@@ -610,29 +620,29 @@
    "property_type": "menzil_kohne",
    "value": 1500,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-qaradag",
    "region_name": "Qaradağ",
    "property_type": "heyet_evi",
-   "value": 850,
+   "value": 880,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-qaradag",
    "region_name": "Qaradağ",
    "property_type": "obyekt",
-   "value": 1900,
+   "value": 1025,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-qaradag",
@@ -668,11 +678,11 @@
    "region_id": "bk-pirallahi",
    "region_name": "Pirallahı",
    "property_type": "heyet_evi",
-   "value": 800,
+   "value": 980,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "bk-pirallahi",
@@ -718,21 +728,21 @@
    "region_id": "az-baki",
    "region_name": "Bakı",
    "property_type": "heyet_evi",
-   "value": 1500,
+   "value": 1344,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "az-baki",
    "region_name": "Bakı",
    "property_type": "obyekt",
-   "value": 4000,
+   "value": 3394,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "az-baki",
@@ -748,11 +758,11 @@
    "region_id": "az-sumqayit",
    "region_name": "Sumqayıt",
    "property_type": "menzil_yeni",
-   "value": 1150,
+   "value": 1450,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "az-sumqayit",
@@ -768,11 +778,11 @@
    "region_id": "az-sumqayit",
    "region_name": "Sumqayıt",
    "property_type": "heyet_evi",
-   "value": 750,
+   "value": 910,
    "unit": "AZN_m2",
-   "source": "Demo dəyər",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
    "source_url": "",
-   "confidence": "mock"
+   "confidence": "sample"
   },
   {
    "region_id": "az-sumqayit",
@@ -1043,6 +1053,66 @@
    "source": "Demo dəyər",
    "source_url": "",
    "confidence": "mock"
+  },
+  {
+   "region_id": "az-abseron",
+   "region_name": "Abşeron",
+   "property_type": "obyekt",
+   "value": 1118,
+   "unit": "AZN_m2",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
+   "source_url": "",
+   "confidence": "sample"
+  },
+  {
+   "region_id": "az-abseron",
+   "region_name": "Abşeron",
+   "property_type": "heyet_evi",
+   "value": 783,
+   "unit": "AZN_m2",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
+   "source_url": "",
+   "confidence": "sample"
+  },
+  {
+   "region_id": "az-abseron",
+   "region_name": "Abşeron",
+   "property_type": "menzil_yeni",
+   "value": 1250,
+   "unit": "AZN_m2",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
+   "source_url": "",
+   "confidence": "sample"
+  },
+  {
+   "region_id": "az-abseron",
+   "region_name": "Abşeron",
+   "property_type": "menzil_kohne",
+   "value": 1200,
+   "unit": "AZN_m2",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
+   "source_url": "",
+   "confidence": "sample"
+  },
+  {
+   "region_id": "az-xacmaz",
+   "region_name": "Xaçmaz",
+   "property_type": "heyet_evi",
+   "value": 539,
+   "unit": "AZN_m2",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
+   "source_url": "",
+   "confidence": "sample"
+  },
+  {
+   "region_id": "az-astara",
+   "region_name": "Astara",
+   "property_type": "heyet_evi",
+   "value": 634,
+   "unit": "AZN_m2",
+   "source": "bina.az elanlarının medianı (istifadəçi datasetı, 2024-10–2024-11)",
+   "source_url": "",
+   "confidence": "sample"
   }
  ]
 }

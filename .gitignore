@@ -43,3 +43,5 @@ next-env.d.ts
 data/raw/
 .playwright-mcp/
 *.jpg.tmp
+.playwright-mcp/
+data/manual/prices.before-listings.csv

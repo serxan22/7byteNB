@@ -1,0 +1,18 @@
+{
+ "total": 84,
+ "failing": 2,
+ "examples": [
+  [
+   "az-saatli",
+   [
+    "Azərbaycan hərfləri yoxdur"
+   ]
+  ],
+  [
+   "az-zerdab",
+   [
+    "3+3 deyil"
+   ]
+  ]
+ ]
+}

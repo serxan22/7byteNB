@@ -17,6 +17,27 @@ const baku = JSON.parse(fs.readFileSync("public/data/regions-baku.json", "utf8")
 const national = JSON.parse(fs.readFileSync("public/data/national.json", "utf8"));
 const done = fs.existsSync(OUT) && !force ? JSON.parse(fs.readFileSync(OUT, "utf8")) : {};
 
+// B6 quality gate: generic or number-free profiles are regenerated
+const FORBIDDEN = ["yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar", "əlverişli mövqe", "hər kəs üçün"];
+export function profileQuality(p) {
+  const text = [p.headline, p.summary, ...p.strengths, ...p.weaknesses].join(" ");
+  const nums = (text.match(/\d+([.,]\d+)?/g) ?? []).length;
+  const issues = [];
+  if (text.length < 400) issues.push("qısa");
+  if (nums < 6) issues.push(`az rəqəm (${nums})`);
+  if (FORBIDDEN.some((f) => text.toLocaleLowerCase("az").includes(f))) issues.push("qadağan ifadə");
+  if (!/[əğış]/.test(text)) issues.push("Azərbaycan hərfləri yoxdur");
+  if (p.strengths.length !== 3 || p.weaknesses.length !== 3) issues.push("3+3 deyil");
+  return issues;
+}
+if (process.argv.includes("--quality")) {
+  const bad = Object.entries(done).map(([id, p]) => [id, profileQuality(p)]).filter(([, i]) => i.length);
+  fs.mkdirSync("evals/results", { recursive: true });
+  fs.writeFileSync("evals/results/profile-quality-before.json", JSON.stringify({ total: Object.keys(done).length, failing: bad.length, examples: bad.slice(0, 10) }, null, 1));
+  console.log(`quality: ${bad.length}/${Object.keys(done).length} profiles fail →`, bad.slice(0, 6).map(([id, i]) => `${id}: ${i.join(", ")}`).join(" | "));
+  for (const [id] of bad) delete done[id];
+}
+
 const PRIORITY = ["az-baki", "az-gence", "az-sumqayit", "az-mingecevir", "az-lenkeran", "az-seki", "az-quba"];
 const queue = [...baku, ...PRIORITY.map((id) => az.find((r) => r.id === id)).filter(Boolean), ...az.filter((r) => !PRIORITY.includes(r.id))]
   .filter((r) => !done[r.id] && (!only || only.includes(r.id)));

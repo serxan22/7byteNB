@@ -27,8 +27,8 @@ function Kpi({ label, value, unit, badge }: { label: string; value: string; unit
   return (
     <div className="min-w-0 rounded-xl bg-sand px-3 py-2.5">
       <div className="truncate text-[11px] font-semibold text-ink-3">{label}</div>
-      <div className="num mt-1 whitespace-nowrap text-[22px] font-extrabold leading-none tracking-tight">
-        {value}
+      <div className={`num mt-1 whitespace-nowrap font-extrabold leading-none tracking-tight ${value === "—" ? "text-sm text-ink-3" : "text-[22px]"}`}>
+        {value === "—" ? "məlumat yoxdur" : value}
         {unit && <span className="ml-1 text-xs font-semibold text-ink-3">{unit}</span>}
       </div>
       <div className="mt-1.5">{badge}</div>
@@ -81,6 +81,11 @@ export default function RegionPanel({
           </div>
         )}
       </div>
+      {r.coverage.per_capita === "unreliable" && r.coverage.note && (
+        <div className="mt-3 rounded-lg border border-pomegranate/40 bg-pomegranate/10 px-3 py-2 text-xs leading-snug text-ink-2">
+          <b className="text-pomegranate">Əhali və xəritə uyğun gəlmir.</b> {r.coverage.note}
+        </div>
+      )}
       {r.coverage.osm !== "yüksək" && (
         <div className="mt-3 rounded-lg border border-amber/40 bg-amber/10 px-3 py-2 text-xs leading-snug text-ink-2">
           <b className="text-amber">OSM əhatəsi {r.coverage.osm}dır.</b> Burada az obyekt görünməsi onların olmadığını yox, xəritədə qeyd olunmadığını göstərə bilər.
@@ -176,6 +181,20 @@ function PricesTab({ r, national, scope }: { r: Region; national: National; scop
           <div className="text-right text-[11px] text-ink-3">
             <Badge kind={priceBadge(land)} />
             <div className="num mt-1">{scope}: {fmt(national.prices.torpaq)} ₼</div>
+          </div>
+        </div>
+      )}
+      {r.listings && (
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <div className="rounded-xl bg-sand px-3 py-2.5">
+            <div className="text-[11px] font-semibold text-ink-3">Elanlarda çıxarış var</div>
+            <div className="num text-xl font-extrabold">{r.listings.deed_share}%</div>
+            <div className="text-[10px] text-ink-3">{fmt(r.listings.n)} elan, {r.listings.period}</div>
+          </div>
+          <div className="rounded-xl bg-sand px-3 py-2.5">
+            <div className="text-[11px] font-semibold text-ink-3">İpotekaya uyğun elan</div>
+            <div className="num text-xl font-extrabold">{r.listings.mortgage_share}%</div>
+            <Badge kind="sample" />
           </div>
         </div>
       )}

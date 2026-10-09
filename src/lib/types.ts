@@ -80,7 +80,8 @@ export interface Region {
   air: { pm25: number | null };
   prices: Partial<Record<PropertyType, Price>>;
   indices: Record<IndexKey, number | null>;
-  coverage: { osm: "yüksək" | "orta" | "aşağı"; prices: "official" | "sample" | "estimate" | "mock" | "none" };
+  coverage: { osm: "yüksək" | "orta" | "aşağı"; prices: "official" | "sample" | "estimate" | "mock" | "none"; per_capita?: "ok" | "unreliable"; note?: string };
+  listings?: { n: number; deed_share: number; mortgage_share: number; period: string };
   ai?: AIProfile;
 }
 

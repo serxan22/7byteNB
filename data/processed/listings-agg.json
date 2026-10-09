@@ -1,0 +1,1492 @@
+{
+ "source": "bina.az elanları — istifadəçinin təqdim etdiyi dataset (üçüncü tərəf tərəfindən toplanıb)",
+ "period": "2024-10–2024-11",
+ "rows": 100775,
+ "unique": 100775,
+ "kept": 95632,
+ "no_geo": 29,
+ "outliers": 106,
+ "regions": {
+  "bk-sebail": {
+   "types": {
+    "menzil_kohne": {
+     "median": 3083,
+     "n": 1237
+    },
+    "menzil_yeni": {
+     "median": 2389,
+     "n": 1807
+    },
+    "heyet_evi": {
+     "median": 1685,
+     "n": 888
+    },
+    "obyekt": {
+     "median": 4000,
+     "n": 365
+    }
+   },
+   "deed_share": 84,
+   "mortgage_share": 30,
+   "n": 4297
+  },
+  "az-baki": {
+   "types": {
+    "menzil_kohne": {
+     "median": 2256,
+     "n": 18052
+    },
+    "heyet_evi": {
+     "median": 1344,
+     "n": 13525
+    },
+    "obyekt": {
+     "median": 3394,
+     "n": 4033
+    },
+    "menzil_yeni": {
+     "median": 2436,
+     "n": 55629
+    }
+   },
+   "deed_share": 78,
+   "mortgage_share": 34,
+   "n": 91239
+  },
+  "bk-bineqedi": {
+   "types": {
+    "heyet_evi": {
+     "median": 862,
+     "n": 1638
+    },
+    "menzil_yeni": {
+     "median": 2165,
+     "n": 4054
+    },
+    "menzil_kohne": {
+     "median": 2168,
+     "n": 2260
+    },
+    "obyekt": {
+     "median": 2400,
+     "n": 302
+    }
+   },
+   "deed_share": 76,
+   "mortgage_share": 37,
+   "n": 8254
+  },
+  "bk-yasamal": {
+   "types": {
+    "heyet_evi": {
+     "median": 1714,
+     "n": 159
+    },
+    "obyekt": {
+     "median": 4000,
+     "n": 879
+    },
+    "menzil_yeni": {
+     "median": 2393,
+     "n": 12554
+    },
+    "menzil_kohne": {
+     "median": 2558,
+     "n": 3058
+    }
+   },
+   "deed_share": 86,
+   "mortgage_share": 43,
+   "n": 16650
+  },
+  "bk-suraxani": {
+   "types": {
+    "obyekt": {
+     "median": 1182,
+     "n": 63
+    },
+    "heyet_evi": {
+     "median": 786,
+     "n": 1154
+    },
+    "menzil_kohne": {
+     "median": 1644,
+     "n": 965
+    },
+    "menzil_yeni": {
+     "median": 1600,
+     "n": 862
+    }
+   },
+   "deed_share": 73,
+   "mortgage_share": 26,
+   "n": 3044
+  },
+  "bk-xetai": {
+   "types": {
+    "menzil_yeni": {
+     "median": 2354,
+     "n": 11862
+    },
+    "obyekt": {
+     "median": 3976,
+     "n": 687
+    },
+    "menzil_kohne": {
+     "median": 1973,
+     "n": 3211
+    },
+    "heyet_evi": {
+     "median": 1262,
+     "n": 443
+    }
+   },
+   "deed_share": 73,
+   "mortgage_share": 34,
+   "n": 16203
+  },
+  "bk-nesimi": {
+   "types": {
+    "menzil_yeni": {
+     "median": 2660,
+     "n": 9333
+    },
+    "obyekt": {
+     "median": 3692,
+     "n": 709
+    },
+    "menzil_kohne": {
+     "median": 2385,
+     "n": 2603
+    },
+    "heyet_evi": {
+     "median": 2481,
+     "n": 41
+    }
+   },
+   "deed_share": 76,
+   "mortgage_share": 31,
+   "n": 12686
+  },
+  "az-abseron": {
+   "types": {
+    "obyekt": {
+     "median": 1118,
+     "n": 107
+    },
+    "heyet_evi": {
+     "median": 783,
+     "n": 1782
+    },
+    "menzil_yeni": {
+     "median": 1250,
+     "n": 2234
+    },
+    "menzil_kohne": {
+     "median": 1200,
+     "n": 36
+    }
+   },
+   "deed_share": 78,
+   "mortgage_share": 30,
+   "n": 4159
+  },
+  "bk-nizami": {
+   "types": {
+    "obyekt": {
+     "median": 2681,
+     "n": 272
+    },
+    "menzil_kohne": {
+     "median": 2231,
+     "n": 2049
+    },
+    "menzil_yeni": {
+     "median": 2236,
+     "n": 4100
+    },
+    "heyet_evi": {
+     "median": 1267,
+     "n": 171
+    }
+   },
+   "deed_share": 78,
+   "mortgage_share": 30,
+   "n": 6592
+  },
+  "bk-nerimanov": {
+   "types": {
+    "menzil_yeni": {
+     "median": 2722,
+     "n": 9666
+    },
+    "menzil_kohne": {
+     "median": 2550,
+     "n": 1996
+    },
+    "obyekt": {
+     "median": 4310,
+     "n": 500
+    },
+    "heyet_evi": {
+     "median": 1840,
+     "n": 182
+    }
+   },
+   "deed_share": 71,
+   "mortgage_share": 33,
+   "n": 12344
+  },
+  "bk-sabuncu": {
+   "types": {
+    "menzil_kohne": {
+     "median": 2000,
+     "n": 526
+    },
+    "heyet_evi": {
+     "median": 900,
+     "n": 1655
+    },
+    "menzil_yeni": {
+     "median": 2500,
+     "n": 1192
+    },
+    "obyekt": {
+     "median": 1667,
+     "n": 149
+    }
+   },
+   "deed_share": 76,
+   "mortgage_share": 32,
+   "n": 3522
+  },
+  "bk-xezer": {
+   "types": {
+    "heyet_evi": {
+     "median": 1567,
+     "n": 7103
+    },
+    "obyekt": {
+     "median": 1000,
+     "n": 66
+    },
+    "menzil_kohne": {
+     "median": 1500,
+     "n": 85
+    },
+    "menzil_yeni": {
+     "median": 1450,
+     "n": 55
+    }
+   },
+   "deed_share": 93,
+   "mortgage_share": 23,
+   "n": 7309
+  },
+  "bk-qaradag": {
+   "types": {
+    "menzil_kohne": {
+     "median": 1500,
+     "n": 55
+    },
+    "heyet_evi": {
+     "median": 880,
+     "n": 49
+    },
+    "menzil_yeni": {
+     "median": 1522,
+     "n": 94
+    },
+    "obyekt": {
+     "median": 1025,
+     "n": 25
+    }
+   },
+   "deed_share": 74,
+   "mortgage_share": 30,
+   "n": 223
+  },
+  "az-sumqayit": {
+   "types": {
+    "heyet_evi": {
+     "median": 910,
+     "n": 148
+    },
+    "menzil_yeni": {
+     "median": 1450,
+     "n": 10
+    }
+   },
+   "deed_share": 96,
+   "mortgage_share": 31,
+   "n": 162
+  },
+  "bk-pirallahi": {
+   "types": {
+    "heyet_evi": {
+     "median": 980,
+     "n": 30
+    }
+   },
+   "deed_share": 90,
+   "mortgage_share": 26,
+   "n": 50
+  },
+  "az-agdam": {
+   "types": {},
+   "deed_share": 0,
+   "mortgage_share": 0,
+   "n": 2
+  },
+  "az-xacmaz": {
+   "types": {
+    "heyet_evi": {
+     "median": 539,
+     "n": 39
+    }
+   },
+   "deed_share": 86,
+   "mortgage_share": 8,
+   "n": 49
+  },
+  "az-astara": {
+   "types": {
+    "heyet_evi": {
+     "median": 634,
+     "n": 8
+    }
+   },
+   "deed_share": 75,
+   "mortgage_share": 13,
+   "n": 16
+  },
+  "az-gedebey": {
+   "types": {},
+   "deed_share": 100,
+   "mortgage_share": 50,
+   "n": 2
+  },
+  "az-babek": {
+   "types": {},
+   "deed_share": 100,
+   "mortgage_share": 0,
+   "n": 2
+  },
+  "az-naxcivan": {
+   "types": {},
+   "deed_share": 100,
+   "mortgage_share": 0,
+   "n": 1
+  }
+ },
+ "hexes": {
+  "882ce58117fffff": {
+   "median": 2320,
+   "n": 132
+  },
+  "882ce58e31fffff": {
+   "median": 2000,
+   "n": 638
+  },
+  "882ce581c7fffff": {
+   "median": 3345,
+   "n": 654
+  },
+  "882ce58189fffff": {
+   "median": 3110,
+   "n": 540
+  },
+  "882ce581edfffff": {
+   "median": 3257,
+   "n": 153
+  },
+  "882ce58039fffff": {
+   "median": 2300,
+   "n": 561
+  },
+  "882ce58029fffff": {
+   "median": 1914,
+   "n": 2017
+  },
+  "882ce581d3fffff": {
+   "median": 2808,
+   "n": 1501
+  },
+  "882ce58031fffff": {
+   "median": 2490,
+   "n": 641
+  },
+  "882ce58e1dfffff": {
+   "median": 2250,
+   "n": 712
+  },
+  "882ce5952bfffff": {
+   "median": 1212,
+   "n": 808
+  },
+  "882ce58027fffff": {
+   "median": 2917,
+   "n": 1608
+  },
+  "882ce59521fffff": {
+   "median": 1171,
+   "n": 50
+  },
+  "882ce58c49fffff": {
+   "median": 2059,
+   "n": 1512
+  },
+  "882ce58ec5fffff": {
+   "median": 2050,
+   "n": 93
+  },
+  "882ce581d5fffff": {
+   "median": 2700,
+   "n": 1541
+  },
+  "882ce58e57fffff": {
+   "median": 2333,
+   "n": 908
+  },
+  "882ce58015fffff": {
+   "median": 2207,
+   "n": 832
+  },
+  "882ce58011fffff": {
+   "median": 2077,
+   "n": 750
+  },
+  "882ce58003fffff": {
+   "median": 2259,
+   "n": 1204
+  },
+  "882ce5801dfffff": {
+   "median": 2192,
+   "n": 750
+  },
+  "882ce5803bfffff": {
+   "median": 2078,
+   "n": 215
+  },
+  "882ce581d7fffff": {
+   "median": 2923,
+   "n": 826
+  },
+  "882ce581c3fffff": {
+   "median": 2730,
+   "n": 1498
+  },
+  "882ce58acbfffff": {
+   "median": 2056,
+   "n": 168
+  },
+  "882ce580e5fffff": {
+   "median": 2409,
+   "n": 453
+  },
+  "882ce581d1fffff": {
+   "median": 2661,
+   "n": 903
+  },
+  "882ce58e23fffff": {
+   "median": 2067,
+   "n": 1320
+  },
+  "882ce58e19fffff": {
+   "median": 2254,
+   "n": 481
+  },
+  "882ce581d9fffff": {
+   "median": 2553,
+   "n": 523
+  },
+  "882ce58017fffff": {
+   "median": 2188,
+   "n": 251
+  },
+  "882ce58691fffff": {
+   "median": 3436,
+   "n": 35
+  },
+  "882ce5819dfffff": {
+   "median": 2643,
+   "n": 2727
+  },
+  "882ce58e55fffff": {
+   "median": 2250,
+   "n": 195
+  },
+  "882ce58e21fffff": {
+   "median": 2200,
+   "n": 533
+  },
+  "882ce581ebfffff": {
+   "median": 4375,
+   "n": 145
+  },
+  "882ce58523fffff": {
+   "median": 1592,
+   "n": 210
+  },
+  "882ce58021fffff": {
+   "median": 2451,
+   "n": 1300
+  },
+  "882ce58e3dfffff": {
+   "median": 2059,
+   "n": 584
+  },
+  "882ce581c5fffff": {
+   "median": 3071,
+   "n": 475
+  },
+  "882ce5852dfffff": {
+   "median": 1836,
+   "n": 9
+  },
+  "882ce58191fffff": {
+   "median": 3400,
+   "n": 337
+  },
+  "882ce5808dfffff": {
+   "median": 2316,
+   "n": 235
+  },
+  "882ce5840dfffff": {
+   "median": 1220,
+   "n": 48
+  },
+  "882ce58037fffff": {
+   "median": 2721,
+   "n": 2397
+  },
+  "882ce5803dfffff": {
+   "median": 2486,
+   "n": 1616
+  },
+  "882ce58183fffff": {
+   "median": 2937,
+   "n": 222
+  },
+  "882ce58e27fffff": {
+   "median": 2039,
+   "n": 425
+  },
+  "882ce580e9fffff": {
+   "median": 2300,
+   "n": 747
+  },
+  "882ce580ebfffff": {
+   "median": 2294,
+   "n": 495
+  },
+  "882ce58113fffff": {
+   "median": 2917,
+   "n": 861
+  },
+  "882ce580adfffff": {
+   "median": 2700,
+   "n": 1586
+  },
+  "882ce58035fffff": {
+   "median": 2500,
+   "n": 1055
+  },
+  "882ce58e29fffff": {
+   "median": 2200,
+   "n": 380
+  },
+  "882ce58e05fffff": {
+   "median": 1813,
+   "n": 11
+  },
+  "882ce58c4dfffff": {
+   "median": 2083,
+   "n": 827
+  },
+  "882ce5820bfffff": {
+   "median": 1375,
+   "n": 130
+  },
+  "882ce58007fffff": {
+   "median": 2362,
+   "n": 811
+  },
+  "882ce580a5fffff": {
+   "median": 2780,
+   "n": 2000
+  },
+  "882ce58025fffff": {
+   "median": 2556,
+   "n": 1427
+  },
+  "882ce5819bfffff": {
+   "median": 2071,
+   "n": 83
+  },
+  "882ce580b7fffff": {
+   "median": 2306,
+   "n": 100
+  },
+  "882ce581c1fffff": {
+   "median": 2815,
+   "n": 801
+  },
+  "882ce580c7fffff": {
+   "median": 2293,
+   "n": 436
+  },
+  "882ce581dbfffff": {
+   "median": 2716,
+   "n": 455
+  },
+  "882ce580e1fffff": {
+   "median": 2270,
+   "n": 462
+  },
+  "882ce581cbfffff": {
+   "median": 2889,
+   "n": 689
+  },
+  "882ce58295fffff": {
+   "median": 2125,
+   "n": 199
+  },
+  "882ce58123fffff": {
+   "median": 1688,
+   "n": 61
+  },
+  "882ce59523fffff": {
+   "median": 1222,
+   "n": 397
+  },
+  "882ce58e53fffff": {
+   "median": 2345,
+   "n": 1507
+  },
+  "882ce58c41fffff": {
+   "median": 1833,
+   "n": 244
+  },
+  "882ce58ee1fffff": {
+   "median": 1629,
+   "n": 110
+  },
+  "882ce582a5fffff": {
+   "median": 1662,
+   "n": 80
+  },
+  "882ce5802bfffff": {
+   "median": 2393,
+   "n": 1520
+  },
+  "882ce58033fffff": {
+   "median": 2536,
+   "n": 359
+  },
+  "882ce58005fffff": {
+   "median": 2069,
+   "n": 652
+  },
+  "882ce58c5dfffff": {
+   "median": 1767,
+   "n": 234
+  },
+  "882ce5818bfffff": {
+   "median": 2956,
+   "n": 487
+  },
+  "882ce58067fffff": {
+   "median": 1797,
+   "n": 605
+  },
+  "882ce580a1fffff": {
+   "median": 2667,
+   "n": 482
+  },
+  "882ce58e15fffff": {
+   "median": 2092,
+   "n": 700
+  },
+  "882ce58cbbfffff": {
+   "median": 1529,
+   "n": 99
+  },
+  "882ce58001fffff": {
+   "median": 1710,
+   "n": 367
+  },
+  "882ce58e51fffff": {
+   "median": 2383,
+   "n": 320
+  },
+  "882ce581c9fffff": {
+   "median": 2778,
+   "n": 955
+  },
+  "882ce59527fffff": {
+   "median": 1250,
+   "n": 63
+  },
+  "882ce58e39fffff": {
+   "median": 2093,
+   "n": 323
+  },
+  "882ce58195fffff": {
+   "median": 3560,
+   "n": 865
+  },
+  "882ce581ddfffff": {
+   "median": 2730,
+   "n": 1177
+  },
+  "882ce5821dfffff": {
+   "median": 1393,
+   "n": 158
+  },
+  "882ce58e35fffff": {
+   "median": 2000,
+   "n": 849
+  },
+  "882ce58c45fffff": {
+   "median": 2169,
+   "n": 480
+  },
+  "882ce58153fffff": {
+   "median": 2338,
+   "n": 260
+  },
+  "882ce58e11fffff": {
+   "median": 1992,
+   "n": 585
+  },
+  "882ce58137fffff": {
+   "median": 2326,
+   "n": 150
+  },
+  "882ce58527fffff": {
+   "median": 2291,
+   "n": 99
+  },
+  "882ce58ee9fffff": {
+   "median": 1663,
+   "n": 22
+  },
+  "882ce5811bfffff": {
+   "median": 2636,
+   "n": 777
+  },
+  "882ce580edfffff": {
+   "median": 2356,
+   "n": 517
+  },
+  "882ce580c5fffff": {
+   "median": 2078,
+   "n": 212
+  },
+  "882ce58203fffff": {
+   "median": 1500,
+   "n": 12
+  },
+  "882ce5970dfffff": {
+   "median": 1243,
+   "n": 14
+  },
+  "882ce58c59fffff": {
+   "median": 1762,
+   "n": 434
+  },
+  "882ce58255fffff": {
+   "median": 1282,
+   "n": 10
+  },
+  "882ce58e3bfffff": {
+   "median": 2082,
+   "n": 322
+  },
+  "882ce58e59fffff": {
+   "median": 2250,
+   "n": 41
+  },
+  "882ce58c43fffff": {
+   "median": 1867,
+   "n": 112
+  },
+  "882ce58193fffff": {
+   "median": 3385,
+   "n": 81
+  },
+  "882ce58199fffff": {
+   "median": 2238,
+   "n": 326
+  },
+  "882ce58085fffff": {
+   "median": 2660,
+   "n": 35
+  },
+  "882ce58c81fffff": {
+   "median": 1375,
+   "n": 28
+  },
+  "882ce58ec9fffff": {
+   "median": 2083,
+   "n": 40
+  },
+  "882ce58e17fffff": {
+   "median": 1813,
+   "n": 154
+  },
+  "882ce581e9fffff": {
+   "median": 3333,
+   "n": 303
+  },
+  "882ce58521fffff": {
+   "median": 1831,
+   "n": 19
+  },
+  "882ce580a9fffff": {
+   "median": 2325,
+   "n": 51
+  },
+  "882ce58e33fffff": {
+   "median": 1857,
+   "n": 121
+  },
+  "882ce5813dfffff": {
+   "median": 2286,
+   "n": 471
+  },
+  "882ce58693fffff": {
+   "median": 3483,
+   "n": 179
+  },
+  "882ce58525fffff": {
+   "median": 1905,
+   "n": 149
+  },
+  "882ce58057fffff": {
+   "median": 2083,
+   "n": 158
+  },
+  "882ce58139fffff": {
+   "median": 2065,
+   "n": 92
+  },
+  "882ce5813bfffff": {
+   "median": 2046,
+   "n": 71
+  },
+  "882ce580e3fffff": {
+   "median": 2110,
+   "n": 84
+  },
+  "882ce58197fffff": {
+   "median": 4280,
+   "n": 780
+  },
+  "882ce581cdfffff": {
+   "median": 2700,
+   "n": 407
+  },
+  "882ce58e13fffff": {
+   "median": 2145,
+   "n": 167
+  },
+  "882ce58ecdfffff": {
+   "median": 2179,
+   "n": 263
+  },
+  "882ce58f1bfffff": {
+   "median": 2145,
+   "n": 59
+  },
+  "882ce58e03fffff": {
+   "median": 2100,
+   "n": 192
+  },
+  "882ce58e67fffff": {
+   "median": 1933,
+   "n": 5
+  },
+  "882ce581e5fffff": {
+   "median": 2686,
+   "n": 178
+  },
+  "882ce58115fffff": {
+   "median": 2022,
+   "n": 129
+  },
+  "882ce58c47fffff": {
+   "median": 1682,
+   "n": 64
+  },
+  "882ce580e7fffff": {
+   "median": 2277,
+   "n": 45
+  },
+  "882ce58c83fffff": {
+   "median": 1331,
+   "n": 50
+  },
+  "882ce58cabfffff": {
+   "median": 1288,
+   "n": 49
+  },
+  "882ce58c4bfffff": {
+   "median": 1867,
+   "n": 320
+  },
+  "882ce58cbdfffff": {
+   "median": 1500,
+   "n": 5
+  },
+  "882ce58023fffff": {
+   "median": 2522,
+   "n": 292
+  },
+  "882ce58019fffff": {
+   "median": 2100,
+   "n": 157
+  },
+  "882ce58507fffff": {
+   "median": 1607,
+   "n": 56
+  },
+  "882ce5801bfffff": {
+   "median": 1875,
+   "n": 35
+  },
+  "882ce59505fffff": {
+   "median": 1426,
+   "n": 28
+  },
+  "882ce58181fffff": {
+   "median": 6869,
+   "n": 106
+  },
+  "882ce5800bfffff": {
+   "median": 1726,
+   "n": 99
+  },
+  "882ce5802dfffff": {
+   "median": 2207,
+   "n": 56
+  },
+  "882ce58a57fffff": {
+   "median": 2357,
+   "n": 38
+  },
+  "882ce58ad9fffff": {
+   "median": 2508,
+   "n": 154
+  },
+  "882ce58063fffff": {
+   "median": 1941,
+   "n": 307
+  },
+  "882ce58c69fffff": {
+   "median": 1593,
+   "n": 43
+  },
+  "882ce5825bfffff": {
+   "median": 1068,
+   "n": 6
+  },
+  "882ce58ca3fffff": {
+   "median": 1386,
+   "n": 31
+  },
+  "882ce58135fffff": {
+   "median": 2250,
+   "n": 23
+  },
+  "882ce58e37fffff": {
+   "median": 1938,
+   "n": 241
+  },
+  "882ce58c51fffff": {
+   "median": 1556,
+   "n": 56
+  },
+  "882ce59525fffff": {
+   "median": 1278,
+   "n": 58
+  },
+  "882ce58e5bfffff": {
+   "median": 2098,
+   "n": 36
+  },
+  "882ce58711fffff": {
+   "median": 988,
+   "n": 10
+  },
+  "882ce58cb1fffff": {
+   "median": 1471,
+   "n": 45
+  },
+  "882ce5953dfffff": {
+   "median": 1222,
+   "n": 35
+  },
+  "882ce58c63fffff": {
+   "median": 1667,
+   "n": 6
+  },
+  "882ce5b125fffff": {
+   "median": 1583,
+   "n": 16
+  },
+  "882ce59507fffff": {
+   "median": 951,
+   "n": 11
+  },
+  "882ce580c1fffff": {
+   "median": 1563,
+   "n": 15
+  },
+  "882ce58c09fffff": {
+   "median": 1550,
+   "n": 85
+  },
+  "882ce58519fffff": {
+   "median": 1524,
+   "n": 5
+  },
+  "882ce58111fffff": {
+   "median": 2641,
+   "n": 53
+  },
+  "882ce5812bfffff": {
+   "median": 2186,
+   "n": 30
+  },
+  "882ce58051fffff": {
+   "median": 1857,
+   "n": 121
+  },
+  "882ce598b5fffff": {
+   "median": 1503,
+   "n": 28
+  },
+  "882ce58e63fffff": {
+   "median": 2037,
+   "n": 171
+  },
+  "882ce58c8bfffff": {
+   "median": 1248,
+   "n": 52
+  },
+  "882ce58e25fffff": {
+   "median": 2000,
+   "n": 34
+  },
+  "882ce5b81bfffff": {
+   "median": 1324,
+   "n": 6
+  },
+  "882ce58e0bfffff": {
+   "median": 2300,
+   "n": 73
+  },
+  "882ce58119fffff": {
+   "median": 2358,
+   "n": 94
+  },
+  "882ce58c11fffff": {
+   "median": 1613,
+   "n": 59
+  },
+  "882ce58055fffff": {
+   "median": 1726,
+   "n": 71
+  },
+  "882ce5821bfffff": {
+   "median": 1267,
+   "n": 94
+  },
+  "882ce58ec1fffff": {
+   "median": 1882,
+   "n": 17
+  },
+  "882ce5829dfffff": {
+   "median": 1429,
+   "n": 23
+  },
+  "882ce58c61fffff": {
+   "median": 1569,
+   "n": 39
+  },
+  "882ce582c9fffff": {
+   "median": 1219,
+   "n": 47
+  },
+  "882ce58131fffff": {
+   "median": 1393,
+   "n": 6
+  },
+  "882ce5806bfffff": {
+   "median": 2138,
+   "n": 5
+  },
+  "882ce598b9fffff": {
+   "median": 1624,
+   "n": 17
+  },
+  "882ce58a55fffff": {
+   "median": 2148,
+   "n": 27
+  },
+  "882ce58eedfffff": {
+   "median": 1800,
+   "n": 62
+  },
+  "882ce582adfffff": {
+   "median": 1778,
+   "n": 65
+  },
+  "882ce58e1bfffff": {
+   "median": 2000,
+   "n": 35
+  },
+  "882ce58741fffff": {
+   "median": 1120,
+   "n": 14
+  },
+  "882ce58e61fffff": {
+   "median": 2167,
+   "n": 7
+  },
+  "882ce582edfffff": {
+   "median": 1129,
+   "n": 14
+  },
+  "882ce58253fffff": {
+   "median": 1409,
+   "n": 40
+  },
+  "882ce59529fffff": {
+   "median": 1409,
+   "n": 37
+  },
+  "882ce5818dfffff": {
+   "median": 3531,
+   "n": 24
+  },
+  "882ce58211fffff": {
+   "median": 1349,
+   "n": 37
+  },
+  "882ce5bb0bfffff": {
+   "median": 1368,
+   "n": 9
+  },
+  "882ce58505fffff": {
+   "median": 1894,
+   "n": 9
+  },
+  "882ce586bbfffff": {
+   "median": 3910,
+   "n": 34
+  },
+  "882ce59883fffff": {
+   "median": 1431,
+   "n": 32
+  },
+  "882ce58133fffff": {
+   "median": 2686,
+   "n": 25
+  },
+  "882ce598bbfffff": {
+   "median": 1472,
+   "n": 8
+  },
+  "882ce582b9fffff": {
+   "median": 1691,
+   "n": 16
+  },
+  "882ce580cdfffff": {
+   "median": 1563,
+   "n": 11
+  },
+  "882ce582bbfffff": {
+   "median": 849,
+   "n": 15
+  },
+  "882ce58053fffff": {
+   "median": 1850,
+   "n": 35
+  },
+  "882ce5876bfffff": {
+   "median": 1198,
+   "n": 5
+  },
+  "882ce586d5fffff": {
+   "median": 4420,
+   "n": 66
+  },
+  "882ce58e2bfffff": {
+   "median": 2302,
+   "n": 16
+  },
+  "882ce58529fffff": {
+   "median": 1773,
+   "n": 7
+  },
+  "882ce58537fffff": {
+   "median": 750,
+   "n": 10
+  },
+  "882ce59737fffff": {
+   "median": 1523,
+   "n": 15
+  },
+  "882ce58ee5fffff": {
+   "median": 1625,
+   "n": 53
+  },
+  "882ce580a7fffff": {
+   "median": 2514,
+   "n": 40
+  },
+  "882ce586c7fffff": {
+   "median": 3693,
+   "n": 46
+  },
+  "882ce58c87fffff": {
+   "median": 1301,
+   "n": 7
+  },
+  "882ce58013fffff": {
+   "median": 2182,
+   "n": 49
+  },
+  "882ce58089fffff": {
+   "median": 2277,
+   "n": 53
+  },
+  "882ce59717fffff": {
+   "median": 1073,
+   "n": 14
+  },
+  "882ce59887fffff": {
+   "median": 1606,
+   "n": 22
+  },
+  "882ce5ba11fffff": {
+   "median": 1541,
+   "n": 9
+  },
+  "882ce5869dfffff": {
+   "median": 3236,
+   "n": 50
+  },
+  "882ce58297fffff": {
+   "median": 1333,
+   "n": 12
+  },
+  "882ce58ec3fffff": {
+   "median": 1644,
+   "n": 17
+  },
+  "882ce58e89fffff": {
+   "median": 1550,
+   "n": 26
+  },
+  "882ce58e81fffff": {
+   "median": 1800,
+   "n": 12
+  },
+  "882ce59747fffff": {
+   "median": 957,
+   "n": 5
+  },
+  "882ce58c55fffff": {
+   "median": 1593,
+   "n": 17
+  },
+  "882ce58ee7fffff": {
+   "median": 1500,
+   "n": 11
+  },
+  "882ce58225fffff": {
+   "median": 917,
+   "n": 10
+  },
+  "882ce5823dfffff": {
+   "median": 1226,
+   "n": 6
+  },
+  "882ce58c6dfffff": {
+   "median": 1450,
+   "n": 6
+  },
+  "882ce58127fffff": {
+   "median": 1548,
+   "n": 6
+  },
+  "882ce5973bfffff": {
+   "median": 905,
+   "n": 9
+  },
+  "882ce58f13fffff": {
+   "median": 2175,
+   "n": 14
+  },
+  "882ce5b857fffff": {
+   "median": 1500,
+   "n": 9
+  },
+  "882ce58ca1fffff": {
+   "median": 1258,
+   "n": 39
+  },
+  "882ce5b8c3fffff": {
+   "median": 1067,
+   "n": 7
+  },
+  "882ce5800dfffff": {
+   "median": 1363,
+   "n": 12
+  },
+  "882ce58409fffff": {
+   "median": 1482,
+   "n": 17
+  },
+  "882ce580b3fffff": {
+   "median": 2250,
+   "n": 29
+  },
+  "882ce5868bfffff": {
+   "median": 4165,
+   "n": 12
+  },
+  "882ce5bb11fffff": {
+   "median": 1148,
+   "n": 15
+  },
+  "882ce59501fffff": {
+   "median": 1286,
+   "n": 7
+  },
+  "882ce58293fffff": {
+   "median": 970,
+   "n": 6
+  },
+  "882ce5bac5fffff": {
+   "median": 1450,
+   "n": 18
+  },
+  "882ce590e7fffff": {
+   "median": 945,
+   "n": 7
+  },
+  "882ce582cbfffff": {
+   "median": 1357,
+   "n": 19
+  },
+  "882ce58e2dfffff": {
+   "median": 1966,
+   "n": 7
+  },
+  "882ce58cb9fffff": {
+   "median": 1397,
+   "n": 8
+  },
+  "882ce58107fffff": {
+   "median": 2215,
+   "n": 6
+  },
+  "882ce5805bfffff": {
+   "median": 1764,
+   "n": 7
+  },
+  "882ce5ba27fffff": {
+   "median": 1615,
+   "n": 11
+  },
+  "882ce582b1fffff": {
+   "median": 1395,
+   "n": 6
+  },
+  "882ce59503fffff": {
+   "median": 1270,
+   "n": 7
+  },
+  "882ce585edfffff": {
+   "median": 1095,
+   "n": 6
+  },
+  "882ce58151fffff": {
+   "median": 2170,
+   "n": 7
+  },
+  "882ce5810bfffff": {
+   "median": 1968,
+   "n": 11
+  },
+  "882ce59551fffff": {
+   "median": 1170,
+   "n": 5
+  },
+  "882ce5908dfffff": {
+   "median": 1158,
+   "n": 7
+  },
+  "882ce58ac9fffff": {
+   "median": 1071,
+   "n": 16
+  },
+  "882ce5b819fffff": {
+   "median": 1444,
+   "n": 11
+  },
+  "882ce58157fffff": {
+   "median": 2400,
+   "n": 7
+  },
+  "882ce58009fffff": {
+   "median": 2057,
+   "n": 5
+  },
+  "882ce58291fffff": {
+   "median": 711,
+   "n": 10
+  },
+  "882ce58747fffff": {
+   "median": 1092,
+   "n": 5
+  },
+  "882ce58697fffff": {
+   "median": 4930,
+   "n": 9
+  },
+  "882ce58cadfffff": {
+   "median": 1500,
+   "n": 11
+  },
+  "882ce580b1fffff": {
+   "median": 2383,
+   "n": 6
+  },
+  "882ce5815bfffff": {
+   "median": 1821,
+   "n": 5
+  },
+  "882ce58233fffff": {
+   "median": 1440,
+   "n": 8
+  },
+  "882ce58ea7fffff": {
+   "median": 1419,
+   "n": 5
+  },
+  "882ce59735fffff": {
+   "median": 1209,
+   "n": 5
+  },
+  "882ce5aac7fffff": {
+   "median": 1109,
+   "n": 6
+  }
+ }
+}

@@ -2134,39 +2134,6 @@
   ],
   "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymətlər haqqında heç bir məlumat yoxdur."
  },
- "az-xankendi": {
-  "headline": "Xankəndi şəhəri zəngin sosial obyekt və infrastruktur göstəriciləri ilə seçilir",
-  "tags": [
-   {
-    "tag": "teqaudcu",
-    "reason": "Səhiyyə indeksi 99 təşkil edir və 10 min sakinə 47.73 xəstəxana düşür."
-   },
-   {
-    "tag": "aile_dostu",
-    "reason": "Təhsil indeksi 99-dur və 10 min sakinə 52.27 məktəb düşür."
-   }
-  ],
-  "summary": "Xankəndi şəhəri yüksək rahatlıq, səhiyyə və təhsil indekslərinə malikdir. Ərazidə park və idman obyektlərinin sıxlığı nəzərə çarpır. Yolların asfalt örtüyü payı 63%-dir. Qiymət məlumatları mövcud deyil, OSM xəritə əhatəsi isə yüksəkdir.",
-  "strengths": [
-   "Rahatlıq indeksi ölkə medianından yüksəkdir (rahatlıq 99; median 50).",
-   "Təhsil obyektlərinin payı əlverişlidir (10 min sakinə 52.27 məktəb; median 4.65).",
-   "Səhiyyə xidmətləri əlçatandır (sehiyyə 99; median 49)."
-  ],
-  "weaknesses": [
-   "Təbiət göstəricisi orta səviyyədədir (tebiet 45; median 51).",
-   "Yolların asfalt örtüyü tam deyil (asfalt yollar 63%; mənfi 31.3% örtüyü naməlumdur).",
-   "Daşınmaz əmlak qiymətləri barədə rəsmi məlumat yoxdur (məlumat yoxdur)."
-  ],
-  "best_for": [
-   "Sosial obyektlərə yaxın yaşamaq istəyənlər.",
-   "Geniş təhsil və səhiyyə infrastrukturu axtaranlar."
-  ],
-  "watch_out": [
-   "Qiymət məlumatları mövcud deyil.",
-   "Yolların bir hissəsinin örtüyü naməlumdur."
-  ],
-  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymət məlumatları mövcud deyil."
- },
  "az-xizi": {
   "headline": "Xızı rayonu: dağlıq relyefə malik, təbiət üstünlüklü və infrastruktur göstəriciləri məhdud ərazi",
   "tags": [
@@ -2536,39 +2503,6 @@
   ],
   "confidence_note": "OSM-də obyektlərin bir hissəsi xəritələnməyib çünki örtük səviyyəsi ortadır. Qiymətlər üzrə heç bir məlumat mövcud deyil."
  },
- "az-agdere": {
-  "headline": "Ağdərə: Dağlıq landşaftlı və yüksək təbii yaşıllığa malik rayon.",
-  "tags": [
-   {
-    "tag": "tebiet_sakitlik",
-    "reason": "Ərazidə meşə örtüyü 46.3% təşkil edir."
-   },
-   {
-    "tag": "aile_dostu",
-    "reason": "10 min sakinə 20.49 məktəb düşür."
-   }
-  ],
-  "summary": "Ağdərə dağlıq ərazidə yerləşən və zəngin təbiətə malik rayondur. İnfrastruktur göstəricilərində səhiyyə və rahatlıq indeksləri yüksəkdir. Asfalt yolların payı azdır və nəqliyyat imkanları məhduddur. OSM xəritə əhatəsi yüksək səviyyədədir.",
-  "strengths": [
-   "Rahatlıq indeksi ölkə medianından yüksəkdir (10 min sakinə 104.1 ərzaq mağazası; median 2.37)",
-   "Səhiyyə obyektləri ilə təminat yaxşıdır (10 min sakinə 13.11 xəstəxana; median 0.85)",
-   "Təbii meşə örtüyü genişdir (meşə payı 46.3%)"
-  ],
-  "weaknesses": [
-   "Asfalt yolların payı aşağıdır (asfalt yollar 14.5%)",
-   "Nəqliyyat şəbəkəsi zəifdir (10 min sakinə 0.82 dayanacaq)",
-   "Ali təhsil müəssisəsi mövcud deyil (10 min sakinə 0 universitet)"
-  ],
-  "best_for": [
-   "Təbiət qoynunda sakit yaşayış üstünlükverənlər",
-   "Yerli sosial obyektlərdən istifadə edənlər"
-  ],
-  "watch_out": [
-   "Keyfiyyətli asfalt yolların az olması",
-   "Mənzil qiymətləri üzrə məlumat yoxdur"
-  ],
-  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymətlər barədə məlumat mövcud deyil."
- },
  "az-balaken": {
   "headline": "Balakən: dağlıq relyefli, zəngin təbiətə və səhiyyə obyektlərinə malik rayon",
   "tags": [
@@ -2601,39 +2535,6 @@
    "Səth örtüyü məlum olmayan yolların payı 77.9%-dir"
   ],
   "confidence_note": "OSM məlumat örtüyü yüksək səviyyədədir, lakin qiymət məlumatları mövcud deyil."
- },
- "az-xocali": {
-  "headline": "Xocalı rayonunun dağlıq ərazi profili və sosial obyekt göstəriciləri",
-  "tags": [
-   {
-    "tag": "tebiet_sakitlik",
-    "reason": "Ərazidə meşə örtüyü 51.2 faiz təşkil edir."
-   },
-   {
-    "tag": "aile_dostu",
-    "reason": "10 min sakinə 60.51 məktəb düşür."
-   }
-  ],
-  "summary": "Xocalı rayonu 15700 əhaliyə malik dağlıq ərazidir. Ərazidə rahatlıq indeksi 98, səhiyyə indeksi isə 97 səviyyəsindədir. Yol infrastrukturunda asfalt yolların payı 16.2 faizdir. OSM əhatəsi yüksək səviyyədədir.",
-  "strengths": [
-   "Rahatlıq indeksi yüksəkdir (rahatlıq 98)",
-   "Səhiyyə indeksi yüksəkdir (sehiyye 97)",
-   "Məktəb göstəricisi yüksəkdir (10 min sakinə 60.51 məktəb)"
-  ],
-  "weaknesses": [
-   "Asfalt yolların payı azdır (asfalt yollar 16.2 faiz)",
-   "İnfrastruktur indeksi aşağıdır (infrastruktur 42)",
-   "Nəqliyyat dayanacaqları məhduddur (10 min sakinə 3.18 dayanacaq)"
-  ],
-  "best_for": [
-   "Təbiət və sakitlik sevənlər",
-   "Dağlıq ərazidə yaşamağa üstünlük verənlər"
-  ],
-  "watch_out": [
-   "Asfalt yolların örtüyü azdır",
-   "Qiymət məlumatı mövcud deyil"
-  ],
-  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymət göstəriciləri üçün məlumat yoxdur."
  },
  "az-neftcala": {
   "headline": "Neftçala rayonu üzrə mövcud sosial və infrastrukturobyektlərin icmalı.",
