@@ -55,3 +55,6 @@ data/raw
 node_modules
 data/raw
 .vercel
+demo/*.mp4
+demo/raw/
+demo/frames/
