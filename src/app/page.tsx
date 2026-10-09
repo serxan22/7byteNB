@@ -36,9 +36,9 @@ export default function Landing() {
   const paths = outlinePaths();
   return (
     <div className="min-h-screen">
-      <header className="mx-auto flex max-w-6xl items-center gap-5 px-4 py-4">
+      <header className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-5 gap-y-2 px-4 py-4">
         <span className="text-[22px] font-extrabold tracking-[-0.04em] text-caspian">Məskən</span>
-        <div className="ml-auto"><TopNav /></div>
+        <div className="ml-auto min-w-0 max-w-full"><TopNav /></div>
       </header>
 
       <section className="hero-glow relative overflow-hidden">

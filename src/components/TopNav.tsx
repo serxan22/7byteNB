@@ -31,8 +31,8 @@ export default function TopNav({ hideMap = false }: { hideMap?: boolean }) {
     setPill(el ? { x: el.offsetLeft, w: el.offsetWidth } : null);
   }, [target, path]);
   return (
-    <nav className="flex items-center gap-1" aria-label="Əsas menyu" onMouseLeave={() => setHover(null)}>
-      <div className="relative flex items-center gap-0.5 rounded-full p-0.5">
+    <nav className="flex min-w-0 max-w-full items-center gap-1" aria-label="Əsas menyu" onMouseLeave={() => setHover(null)}>
+      <div className="relative flex min-w-0 items-center gap-0.5 overflow-x-auto rounded-full p-0.5 [scrollbar-width:none]">
         {pill && (
           <span
             aria-hidden="true"
@@ -49,7 +49,7 @@ export default function TopNav({ hideMap = false }: { hideMap?: boolean }) {
             onFocus={() => setHover(i)}
             onBlur={() => setHover(null)}
             aria-current={i === active ? "page" : undefined}
-            className={`nav-item relative z-10 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold ${i === active ? "text-caspian" : "text-ink-2 hover:text-ink"}`}
+            className={`nav-item relative z-10 flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold max-sm:px-2 ${i === active ? "text-caspian" : "text-ink-2 hover:text-ink"}`}
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 max-sm:hidden" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{it.icon}</svg>
             {it.label}
