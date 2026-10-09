@@ -1067,5 +1067,337 @@
    "İctimai nəqliyyat və avtobus dayanacaqları qeydə alınmayıb."
   ],
   "confidence_note": "OSM əhatəsi aşağıdır, yəni xəritədə məlumat boşluqları ola bilər. Qiymətlər barədə məlumat yoxdur."
+ },
+ "az-cebrayil": {
+  "headline": "Cəbrayıl rayonu üzrə mövcud infrastruktur və obyektiv coğrafi göstəricilər",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə meşə örtüyü 0.8% təşkil edir."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Asfalt yolların payı 5.9%-ə bərabərdir."
+   }
+  ],
+  "summary": "Cəbrayıl rayonu 73800 sakini olan və 1072.9 kvadrat kilometr ərazini əhatə edən dağlıq rayondur. OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm aşağı səviyyədədir. Rayonda ticarət, ərzaq və səhiyyə obyektləri üzrə məlumat yoxdur, təhsil göstəriciləri isə məhduddur. Nəqliyyat infrastrukturu daxilində 12 bus_stops mövcuddur.",
+  "strengths": [
+   "Nəqliyyat indeksi 60 təşkil edir (neqliyyat 60)",
+   "İnfrastruktur indeksi 53 səviyyəsindədir (infrastruktur 53)",
+   "Avtobus dayanacaqlarının 10 min sakinə düşən sayı 1.63-dür (10 min sakinə 1.63 bus_stops)"
+  ],
+  "weaknesses": [
+   "Rahatlıq indeksi 16 təşkil edir (rahatliq 16)",
+   "Təbiət indeksi 15-ə bərabərdir (tebiet 15)",
+   "Məlum yollar arasında asfalt yolların payı 5.9%-dir (asfalt yollar 5.9%)"
+  ],
+  "best_for": [
+   "Sakit ərazi axtaranlar",
+   "İnfrastrukturun bərpası prosesini izləyənlər"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib",
+   "Ərzaq, aptek və səhiyyə obyektləri haqqında məlumat yoxdur",
+   "Qiymətlər barədə məlumat mövcud deyil"
+  ],
+  "confidence_note": "OSM xəritə əhatəsi aşağı səviyyədədir və məlumatların bir hissəsi xəritələnməyib. Qiymətlər üzrə məlumat yoxdur."
+ },
+ "az-berde": {
+  "headline": "Bərdə rayonu üzrə mövcud sosial-infrastruktur və nəqliyyat göstəricilərinin təhlili.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə parkların payı 10 min sakinə 0.63 təşkil edir."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Asfalt yolların payı 4 faiz səviyyəsindədir."
+   }
+  ],
+  "summary": "Bərdə rayonu 158600 əhaliyə malik düzənlik ərazidir. Rahatlıq indeksi 23, nəqliyyat indeksi isə 43 olaraq müəyyən edilmişdir. İnfrastruktur indeksi 68 təşkil edir. OSM üzrə əhatə dərəcəsi orta səviyyədədir.",
+  "strengths": [
+   "İnfrastruktur indeksi 68 səviyyəsindədir (infrastruktur 68; median 45)",
+   "Yanacaq doldurma məntəqələrinin sayı 10 min sakinə 0.76-dır (10 min sakinə 0.76 yanacaq; median 0.73)",
+   "Nəqliyyat indeksi 43 olaraq qeydə alınıb (neqliyyat 43; median 48)"
+  ],
+  "weaknesses": [
+   "Aptek göstəricisi 10 min sakinə 0-dır (10 min sakinə 0 aptek; median 0.21)",
+   "Məktəb göstəricisi 10 min sakinə 2.84 təşkil edir (10 min sakinə 2.84 məktəb; median 4.65)",
+   "Rahatlıq indeksi 23 olaraq aşağıdır (rahatliq 23; median 50)"
+  ],
+  "best_for": [
+   "Sakit düzənlik mühiti axtaranlar",
+   "Yerli infrastruktur imkanları ilə maraqlananlar"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm orta səviyyədədir.",
+   "Qiymət məlumatı mövcud deyil.",
+   "Asfalt yolların payı məlum yollar arasında 4 faizdir."
+  ],
+  "confidence_note": "OSM əhatəsi ortadır, yəni xəritədə məlumat boşluqları ola bilər. Qiymətlər barədə məlumat yoxdur."
+ },
+ "az-agcabedi": {
+  "headline": "Ağcabədi rayonunun infrastrukturu və obyekt təminatı haqqında obyektiv məlumat",
+  "tags": [
+   {
+    "tag": "teqaudcu",
+    "reason": "Səhiyyə indeksi 62, 10 min sakinə 0.65 xəstəxana düşür."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "İnfrastruktur indeksi 62, asfalt yolların payı 10.8% təşkil edir."
+   }
+  ],
+  "summary": "Ağcabədi rayonu 137600 əhaliyə malikdir və ərazidə rahatlıq indeksi 60, səhiyyə indeksi isə 62 təşkil edir. Nəqliyyat indeksi 37, təhsil indeksi isə 52 səviyyəsindədir. Təbiət indeksi 31, PM2.5 modeli isə 13.8-dir. Məlumat üçün qeyd edək ki, OSM əhatəsi yüksəkdir.",
+  "strengths": [
+   "Səhiyyə göstəricisi ölkə üzrə medianı üstələyir (səhiyyə indeksi 62; median 49).",
+   "İnfrastruktur göstəricisi nisbətən yaxşı səviyyədədir (infrastruktur indeksi 62; median 45).",
+   "Rahatlıq səviyyəsi qənaətbəxşdir (rahatlıq indeksi 60; median 50)."
+  ],
+  "weaknesses": [
+   "Nəqliyyat imkanları aşağı səviyyədədir (neqliyyat indeksi 37; median 48).",
+   "Təbiət göstəricisi ölkə medianından geri qalır (tebiet indeksi 31; median 51).",
+   "Asfalt yolların örtüyü məlum hissədə azdır (asfalt yollar 10.8%; median 4.35%)."
+  ],
+  "best_for": [
+   "Səhiyyə obyektlərinə yaxınlıq axtaranlar",
+   "Mövcud infrastrukturdan istifadə edənlər"
+  ],
+  "watch_out": [
+   "Nəqliyyat şəbəkəsinin məhdud olması",
+   "Təbiət zonalarının azlığı",
+   "Qiymət məlumatlarının olmaması"
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymət məlumatları mövcud deyil."
+ },
+ "az-saatli": {
+  "headline": "Saatli rayonu: duzenlik erazi ve asagi OSM ehatesi",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Saatli erazisinde qiymetler barede melumat yoxdur ve elcatanliq indeksi gosterilmemisdir."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Erazide tebiet indeksi 21 teskil edir."
+   }
+  ],
+  "summary": "Saatli rayonu 111800 sakin ve 95 nefer/kv.km densiteti olan duzenlik erazidir. OSM-de obyektlerin bir hissesi xeritelenmeyib cunki coverage.osm asagidir. Qiymetler uzre melumat movcud deyil. Erazide 10 min sakinere 0.54 mekteb var.",
+  "strengths": [
+   "Infrastruktur indeksi 94 seviyyesindedir (infrastruktur 94)",
+   "Demiryolu stansiyalarinin sayi 1 ededdir (rail_stations 1)",
+   "Hava keyfiyyeti uzre PM2.5 modeli 13.1 gosterir (pm2.5 13.1)"
+  ],
+  "weaknesses": [
+   "10 min sakinere 0 aptek dusur (10 min sakinere 0 aptek)",
+   "10 min sakinere 0 kafe dusur (10 min sakinere 0 kafe)",
+   "10 min sakinere 0 xestexana ve klinika yoxdur (10 min sakinere 0.09 xestexana)"
+  ],
+  "best_for": [
+   "Sakit duzenlik erazi axtaranlar",
+   "Infrastruktur gostericisi ile maraqlananlar"
+  ],
+  "watch_out": [
+   "OSM-de obyektlerin bir hissesi xeritelenmeyib",
+   "Qiymet melumatlari movcud deyil"
+  ],
+  "confidence_note": "OSM ehatesi asagidir, yeni obyektlerin bir hissesi xeritelenmeyib. Qiymetler barede melumat yoxdur."
+ },
+ "az-sirvan": {
+  "headline": "Şirvan şəhərinin sosial, təhsil və səhiyyə obyektləri ilə təmin olunmuş ərazi profili",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "Ərazidə rahatlıq indeksi 83 faiz təşkil edir."
+   },
+   {
+    "tag": "teqaudcu",
+    "reason": "Səhiyyə indeksi 85 faiz səviyyəsindədir."
+   }
+  ],
+  "summary": "Şirvan düzənlik relyefində yerləşən və 86000 əhalisi olan şəhər tipli ərazidir. Rahatlıq və səhiyyə göstəriciləri ölkə üzrə rayon medianından yüksəkdir. Nəqliyyat infrastrukturu və yolların örtüyü üzrə müəyyən məhdudiyyətlər mövcuddur. OSM-də obyektlərin əhatəsi yüksək səviyyədədir.",
+  "strengths": [
+   "Səhiyyə indeksi ölkə medianını üstələyir (səhiyyə indeksi 85)",
+   "Rahatlıq səviyyəsi qənaətbəxşdir (rahatlıq indeksi 83)",
+   "Təhsil imkanları yaxşı səviyyədədir (tehsil indeksi 72)"
+  ],
+  "weaknesses": [
+   "Nəqliyyat göstəriciləri nisbətən zəifdir (neqliyyat indeksi 46)",
+   "İnfrastruktur göstəriciləri orta səviyyədədir (infrastruktur indeksi 45)",
+   "Asfalt yolların faizi məlum deyil və səth naməlumdur (asfalt yollar 0%)"
+  ],
+  "best_for": [
+   "Səhiyyə və təhsil obyektlərinə yaxınlıq axtaranlar",
+   "Şəhər mərkəzində yaşamağa üstünlük verənlər"
+  ],
+  "watch_out": [
+   "Nəqliyyat və yolların infrastrukturu",
+   "Qiymət məlumatları mövcud deyil"
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksək səviyyədədir. Qiymətlər haqqında məlumat yoxdur."
+ },
+ "az-haciqabul": {
+  "headline": "Hacıqabul şəhərinin daşınmaz əmlak və infrastruktur göstəriciləri təhlili",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Ərazidə qiymət məlumatları mövcud deyil, lakin region üzrə qiymət göstəriciləri məlumat yoxdur."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Rayonun təbiət indeksi 29 təşkil edir."
+   }
+  ],
+  "summary": "Hacıqabul rayonu üzrə rahatlıq indeksi 57, nəqliyyat indeksi isə 37 səviyyəsindədir. Təhsil indeksi 53, səhiyyə indeksi isə 59 olaraq qeydə alınıb. Ərazidə asfalt yolların payı 0 faiz təşkil edir. OSM əhatəsi yüksəkdir.",
+  "strengths": [
+   "Səhiyyə indeksi ölkə medianı ilə müqayisədə yaxşıdır (səhiyyə indeksi 59; median 49)",
+   "Rahatlıq göstəriciləri ölkə medianını üstələyir (rahatliq indeksi 57; median 50)",
+   "Təhsil indeksi ölkə medianı səviyyəsindədir (tehsil indeksi 53; median 53)"
+  ],
+  "weaknesses": [
+   "İnfrastruktur göstəriciləri aşağı səviyyədədir (infrastruktur indeksi 37; median 45)",
+   "Nəqliyyat şəbəkəsi zəifdir (neqliyyat indeksi 37; median 48)",
+   "Asfalt yolların miqdarı məhduddur (asfalt yollar 0%; median 4.35%)"
+  ],
+  "best_for": [
+   "Mövcud infrastruktur və səhiyyə obyektlərindən istifadə etmək istəyənlər",
+   "Rayon mərkəzində yaşamağa üstünlük verənlər"
+  ],
+  "watch_out": [
+   "Asfalt yolların örtüyü haqqında məlumat yoxdur və örtüyü məlum olan yolların asfalt payı 0 faizdir",
+   "Qiymət məlumatları mövcud deyil"
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymət məlumatları mövcud deyil."
+ },
+ "az-sabirabad": {
+  "headline": "Sabirabad rayonunun ərazi profili və sosial-infrastruktur göstəriciləri",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Ərazidə qiymət göstəriciləri məlumat yoxdur."
+   }
+  ],
+  "summary": "Sabirabad rayonu 183100 əhaliyə malik düzənlik ərazidir. OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki coverage.osm orta səviyyədədir. Ərazidə infrastruktur və digər sosial obyekt göstəriciləri məhduddur. Qiymət məlumatları mövcud deyil.",
+  "strengths": [
+   "İnfrastruktur indeksi ölkə üzrə rayon medianından yüksəkdir (infrastruktur indeksi 67)",
+   "Asfalt yolların örtüyü məlum yollar arasında müəyyən edilib (asfalt yollar 4.7%)",
+   "Ərazinin orta hündürlüyü qeyd olunub (orta hündürlük -19 metr)"
+  ],
+  "weaknesses": [
+   "10 min sakinə düşən ərzaq mağazası sayı azdır (10 min sakinə 0.44 ərzaq)",
+   "10 min sakinə düşən məktəb sayı məhduddur (10 min sakinə 0.82 məktəb)",
+   "Səhiyyə indeksi ölkə medianından aşağıdır (sehiyye indeksi 25)"
+  ],
+  "best_for": [
+   "Sakit və düzənlik ərazi üstünlük verənlər",
+   "Məlumatları obyektiv qiymətləndirən analitiklər"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib",
+   "Qiymət məlumatları mövcud deyil",
+   "Nəqliyyat və səhiyyə obyektləri məhduddur"
+  ],
+  "confidence_note": "OSM əhatəsi orta səviyyədədir, yəni obyektlərin bir hissəsi xəritələnməyib. Qiymət məlumatları mövcud deyil."
+ },
+ "az-samaxi": {
+  "headline": "Şamaxı rayonu: dağlıq landşaftı və inkişaf etmiş park infrastrukturu",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə təbiət indeksi 82 faiz təşkil edir və 10 min sakinə 14.37 park düşür."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Təhsil indeksi 75 olmaqla, 10 min sakinə 8.3 məktəb düşür."
+   }
+  ],
+  "summary": "Şamaxı dağlıq ərazidə yerləşən, təbiət və park bolluğu ilə seçilən rayondur. Rahatlıq indeksi 83, səhiyyə indeksi isə 78 səviyyəsindədir. Yol infrastrukturunun asfalt örtüyü payı məlum yollar arasında 0 faizdir. Qiymət məlumatları mövcud deyil.",
+  "strengths": [
+   "Parkların sıxlığı yüksəkdir (10 min sakinə 14.37 park; median 4.26).",
+   "Təhsil müəssisələrinin əlçatanlığı yaxşıdır (10 min sakinə 8.3 məktəb; median 4.65).",
+   "Səhiyyə göstəriciləri ölkə medianından üstündür (səhiyyə indeksi 78; median 49)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların örtüyü haqqında məlumatlar məhduddur (asfalt yollar 0%; median 4.35%).",
+   "Nəqliyyat şəbəkəsi zəifdir (10 min sakinə 0.56 dayanacaq; median 0.29).",
+   "Yol infrastrukturunun indeks göstəricisi aşağıdır (infrastruktur indeksi 25; median 45)."
+  ],
+  "best_for": [
+   "Təbiət qoynunda yaşamaq istəyənlər",
+   "Sakit mühit axtaran ailələr"
+  ],
+  "watch_out": [
+   "Asfalt yolların payı aşağıdır və səth məlumatları çatışmır.",
+   "Qiymət məlumatları mövcud deyil.",
+   "Nəqliyyat imkanları məhduddur."
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymət məlumatları mövcud deyil və heç bir demo dəyər təqdim olunmur."
+ },
+ "az-agsu": {
+  "headline": "Ağsu - dağətəyi relyefdə yerləşən, geniş park və məktəb infrastrukturlu rayon.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə 10 min sakinə 11.29 park düşür və təbiət göstəriciləri mövcuddur."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Rayonda 10 min sakinə 9.94 məktəb mövcuddur."
+   }
+  ],
+  "summary": "Ağsu rayonu dağətəyi relyefdə yerləşir və 81500 əhaliyə malikdir. Ərazidə rahatlıq indeksi 49, təhsil indeksi 57, səhiyyə indeksi isə 45 təşkil edir. Nəqliyyat indeksi 37, infrastruktur indeksi isə 31 səviyyəsindədir. Qiymət məlumatları mövcud deyil.",
+  "strengths": [
+   "Parkların sıxlığı yüksəkdir (10 min sakinə 11.29 park; median 4.26).",
+   "Məktəb infrastrukturu ölkə medianından üstündür (10 min sakinə 9.94 məktəb; median 4.65).",
+   "İctimai iaşə obyektləri kifayət qədərdir (10 min sakinə 9.57 kafe/restoran; median 3.34)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların örtüyü haqqında məlumat məhduddur və infrastruktur indeksi aşağıdır (infrastruktur indeksi 31; median 45).",
+   "Nəqliyyat şəbəkəsi zəifdir və dayanacaqlar qeydə alınmayıb (neqliyyat indeksi 37; median 48).",
+   "Ərzaq mağazalarının sıxlığı ölkə medianından azdır (10 min sakinə 0.86 ərzaq; median 2.37)."
+  ],
+  "best_for": [
+   "Sakit və təbiətə yaxın mühitdə yaşamaq istəyənlər.",
+   "Məktəb yaşı övladı olan ailələr."
+  ],
+  "watch_out": [
+   "Nəqliyyat və yolların asfalt örtüyü göstəriciləri zəifdir.",
+   "Mənzil qiymətləri barədə məlumat yoxdur."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, lakin qiymətlər barədə məlumat yoxdur."
+ },
+ "az-susa": {
+  "headline": "Şuşa şəhərinin təbii parklar baxımından zəngin və dağlıq relyefli ərazisi",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "10 min sakinə 9.88 park düşür və meşə örtüyü 38.2 faiz təşkil edir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Ərazidə qiymət məlumatı yoxdur və məlumat mövcud deyil."
+   }
+  ],
+  "summary": "Şuşa ərazisi dağlıq relyefə və 10 min sakinə 9.88 park göstəricisinə malikdir. OSM-də obyektlərin bir hissəsi xəritələnməyib çünki coverage.osm orta səviyyədədir. Yolların asfalt payı 24.4 faiz təşkil edir. Mənzil qiymətləri üzrə məlumat yoxdur.",
+  "strengths": [
+   "10 min sakinə 9.88 park düşür (10 min sakinə 9.88 park; median 4.26)",
+   "Meşə örtüyü ərazidə 38.2 faiz təşkil edir (meşə örtüyü 38.2 faiz)",
+   "Səhiyyə indeksi 43 səviyyəsindədir (sehiyye indeksi 43; median 49)"
+  ],
+  "weaknesses": [
+   "10 min sakinə 0 məktəb düşür (10 min sakinə 0 məktəb; median 4.65)",
+   "10 min sakinə 0 aptek düşür (10 min sakinə 0 aptek; median 0.21)",
+   "Asfalt yolların payı 24.4 faizdir (asfalt yollar 24.4 faiz; median 4.35)"
+  ],
+  "best_for": [
+   "Təbiət və sakitlik sevənlər",
+   "Dağlıq ərazidə yaşamaq istəyənlər"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib, çünki əhatə səviyyəsi ortadır",
+   "Mənzil qiymətləri barədə məlumat mövcud deyil",
+   "Təhsil müəssisələri məlumatı yoxdur"
+  ],
+  "confidence_note": "OSM-də obyektlərin bir hissəsi xəritələnməyib çünki əhatə səviyyəsi ortadır. Qiymət məlumatları mövcud deyil."
  }
 }
