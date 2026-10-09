@@ -11,7 +11,7 @@ import { Badge } from "./Badge";
 import RegionPanel from "./RegionPanel";
 import AIAnalyst from "./AIAnalyst";
 import Tools from "./Tools";
-import ThemeToggle from "./ThemeToggle";
+import TopNav from "./TopNav";
 import Advisor, { type DecideResult } from "./Advisor";
 import HexCard from "./HexCard";
 
@@ -175,12 +175,7 @@ export default function Explorer() {
               </button>
             ))}
           </div>
-          <nav className="flex items-center gap-4 text-sm font-semibold text-ink-2">
-            <Link href="/muqayise" className="hover:text-caspian">Müqayisə</Link>
-            <Link href="/keyfiyyet" className="hover:text-caspian">Keyfiyyət</Link>
-            <Link href="/menbeler" className="hover:text-caspian">Mənbələr</Link>
-            <ThemeToggle />
-          </nav>
+          <TopNav hideMap />
         </div>
       </header>
 
@@ -197,7 +192,7 @@ export default function Explorer() {
             {data && <MapView level={level} regions={all} colors={colors} hexColors={hexColors} selectedId={selectedId} highlights={highlights} onSelect={selectRegion} onSelectHex={selectHex} onHover={(id, x, y) => setHover(id ? { id, x, y } : null)} />}
             {!data && <div className="absolute inset-0 grid place-items-center text-sm text-ink-3">Xəritə yüklənir…</div>}
             {hover && (hoverRegion || hoverHex) && (
-              <div className="pointer-events-none absolute z-20 max-w-[280px] rounded-lg border border-sand-3 bg-sand-2 px-3 py-2 shadow-lg" style={{ left: hover.x + 14, top: hover.y + 14 }}>
+              <div className="tip-in pointer-events-none absolute z-20 max-w-[280px] rounded-lg border border-sand-3 bg-sand-2 px-3 py-2 shadow-lg" style={{ left: hover.x + 14, top: hover.y + 14 }}>
                 {hoverRegion && (
                   <>
                     <div className="text-sm font-extrabold">{hoverRegion.name}</div>

@@ -141,6 +141,27 @@ body {
 }
 @keyframes az-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes az-fill { from { fill-opacity: 0; } to { fill-opacity: 0.55; } }
+/* ---- polish: micro-interactions ---- */
+button, a, [role="tab"] { -webkit-tap-highlight-color: transparent; }
+button:not(:disabled):not(.map-pin), .chip, .nav-item { transition: transform 120ms ease, background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease; }
+button:not(:disabled):not(.map-pin):active, .chip:active, .nav-item:active { transform: scale(0.97); }
+.maplibregl-ctrl button:not(:disabled):active { transform: none; }
+:focus-visible { outline-offset: 3px; transition: outline-offset 120ms ease; }
+.chip:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(var(--shadow), 0.08); }
+.nav-pill { transition: transform 260ms cubic-bezier(.3,.7,.2,1), width 260ms cubic-bezier(.3,.7,.2,1), background-color 200ms ease; }
+.nav-item:hover { transform: translateY(-1px); }
+.btn-primary { position: relative; overflow: hidden; isolation: isolate; box-shadow: 0 1px 0 rgba(255,255,255,.15) inset, 0 2px 8px rgba(15, 76, 92, 0.18); }
+.btn-primary::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.22) 50%, transparent 70%); transform: translateX(-120%); transition: transform 700ms ease; }
+.btn-primary:hover::after { transform: translateX(120%); }
+.btn-primary:hover { box-shadow: 0 0 0 3px rgba(47, 115, 133, 0.18), 0 6px 16px rgba(15, 76, 92, 0.22); }
+.tip-in { animation: fade-up 160ms ease-out both; }
+.link-u { background: linear-gradient(currentColor, currentColor) left bottom / 0 1.5px no-repeat; transition: background-size 220ms ease; padding-bottom: 1px; }
+.link-u:hover { background-size: 100% 1.5px; }
+.hero-glow { background:
+  radial-gradient(60% 70% at 78% 40%, color-mix(in srgb, var(--caspian) 13%, transparent), transparent 70%),
+  radial-gradient(40% 50% at 10% 90%, color-mix(in srgb, var(--amber) 8%, transparent), transparent 70%); }
+.hero-glow::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .05; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 @media (prefers-reduced-motion: reduce) {
   .az-draw { stroke-dashoffset: 0; fill-opacity: 0.55; }
 }

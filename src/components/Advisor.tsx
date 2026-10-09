@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Candidate, Confidence, Intent } from "@/lib/decide";
 import { Badge } from "./Badge";
+import CountUp from "./CountUp";
 import { fmt, priceBadge } from "@/lib/metrics";
 
 export type DecideResult = {
@@ -37,12 +38,17 @@ function listingLinks(c: Candidate, intent: Intent) {
 
 function Ring({ value, label }: { value: number; label: string }) {
   const r = 22, C = 2 * Math.PI * r;
+  const [shown, setShown] = useState(0);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setShown(value));
+    return () => cancelAnimationFrame(id);
+  }, [value]);
   const color = value >= 70 ? "var(--green)" : value >= 45 ? "var(--amber)" : "var(--pomegranate)";
   return (
     <svg width="58" height="58" viewBox="0 0 58 58" role="img" aria-label={`Tövsiyə etibarlılığı ${value}, ${label}`}>
       <circle cx="29" cy="29" r={r} fill="none" stroke="var(--sand-3)" strokeWidth="6" />
-      <circle cx="29" cy="29" r={r} fill="none" stroke={color} strokeWidth="6" strokeLinecap="round" strokeDasharray={`${(value / 100) * C} ${C}`} transform="rotate(-90 29 29)" className="ring-anim" />
-      <text x="29" y="33" textAnchor="middle" className="num" fontSize="15" fontWeight="800" fill="var(--ink)">{value}</text>
+      <circle cx="29" cy="29" r={r} fill="none" stroke={color} strokeWidth="6" strokeLinecap="round" strokeDasharray={`${(shown / 100) * C} ${C}`} transform="rotate(-90 29 29)" className="ring-anim" />
+      <text x="29" y="33" textAnchor="middle" className="num" fontSize="15" fontWeight="800" fill="var(--ink)"><CountUp value={value} /></text>
     </svg>
   );
 }
@@ -97,11 +103,11 @@ export default function Advisor({ onResult, onPick, initialQuery }: { onResult: 
         <div className="text-xs font-bold text-caspian">AI məsləhətçi</div>
         <form onSubmit={(e) => { e.preventDefault(); ask(q); }} className="mt-2 flex gap-2">
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Nə axtarırsan? Məs: Yasamalda məktəbə yaxın 3 otaqlı" aria-label="Nə axtarırsan?" className="h-11 min-w-0 flex-1 rounded-lg border border-sand-3 bg-sand px-3 text-sm outline-none focus:border-caspian" />
-          <button disabled={busy} className="h-11 shrink-0 rounded-lg bg-caspian px-4 text-sm font-bold text-sand-2 disabled:opacity-60">Soruş</button>
+          <button disabled={busy} className="btn-primary h-11 shrink-0 rounded-lg bg-caspian px-4 text-sm font-bold text-sand-2 disabled:opacity-60">Soruş</button>
         </form>
         <div className="mt-2 flex flex-wrap gap-1.5">
           {SUGGESTIONS.map((s) => (
-            <button key={s} onClick={() => ask(s)} disabled={busy} className="rounded-full border border-sand-3 px-2.5 py-1 text-[11px] text-ink-2 hover:border-caspian hover:text-caspian disabled:opacity-50">{s}</button>
+            <button key={s} onClick={() => ask(s)} disabled={busy} className="chip rounded-full border border-sand-3 px-2.5 py-1 text-[11px] text-ink-2 hover:border-caspian hover:text-caspian disabled:opacity-50">{s}</button>
           ))}
         </div>
       </div>

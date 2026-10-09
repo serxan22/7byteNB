@@ -4,10 +4,14 @@ const r = (f, d = null) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "ut
 const usage = r("evals/results/usage.json");
 // Prices per 1M tokens (USD). Third-party trackers; Google's page could not be opened — verify before budgeting.
 const PRICES = {
-  assumed: { model: "gemini-3.7-flash", in: 0.375, out: 1.88, source: "pricepertoken.com (Google təsdiqi tapılmadı)" },
-  conservative: { model: "gemini-3.5-flash", in: 1.5, out: 9.0, source: "benchlm.ai / morphllm.com" },
+  assumed: { model: "gemini-3.7-flash (əsas model)", in: 0.375, out: 1.88, source: "pricepertoken.com (Google təsdiqi tapılmadı)" },
+  conservative: { model: "gemini-3.5-flash (ehtiyat model)", in: 1.5, out: 9.0, source: "benchlm.ai / morphllm.com" },
 };
 const avgIn = usage?.avg_in ?? null, avgOut = usage?.avg_out ?? null;
+// model names are read from the AI wrapper so this page can never drift from what the app actually calls
+const aiSrc = fs.readFileSync("src/lib/ai.ts", "utf8");
+const MODELS = { primary: aiSrc.match(/AI_MODEL \|\| "([^"]+)"/)?.[1] ?? null, fallbacks: (aiSrc.match(/AI_FALLBACK_MODELS \|\| "([^"]+)"/)?.[1] ?? "").split(",") };
+const usedCounts = (usage?.calls ?? []).reduce((o, c) => ((o[c.model ?? "naməlum"] = (o[c.model ?? "naməlum"] ?? 0) + 1), o), {});
 const CALLS_PER_SESSION = 4; // decide = intent + explain (2), 1 follow-up ask/compare, 1 legal check
 const cost = (p) => (avgIn == null ? null : ((avgIn * p.in + avgOut * p.out) / 1e6) * CALLS_PER_SESSION);
 const out = {
@@ -24,6 +28,8 @@ const out = {
     per_session_usd: { assumed: cost(PRICES.assumed), conservative: cost(PRICES.conservative) },
     per_1000_users_usd: { assumed: cost(PRICES.assumed) && cost(PRICES.assumed) * 1000, conservative: cost(PRICES.conservative) && cost(PRICES.conservative) * 1000 },
     prices: PRICES,
+    models: MODELS,
+    calls_by_model: usedCounts,
     notes: "Pulsuz Gemini limiti demo üçün kifayətdir; keş təkrar sorğuları pulsuz edir. Hostinq: Vercel Hobby (pulsuz), məlumat statikdir.",
   },
 };

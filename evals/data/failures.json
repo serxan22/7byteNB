@@ -15,7 +15,7 @@
  },
  {
   "title": "AI profillərindəki rəqəmlər köhnəlmişdi",
-  "input": "Grounding eval: 30 profil, 402 rəqəm",
+  "input": "Grounding eval: 29 AI profili, 402 rəqəm (ilk ölçmə)",
   "wrong": "25 rəqəm (6.2%) giriş JSON-da tapılmadı, məs. Füzuli üçün 'indeks 57'.",
   "cause": "Profillər Xankəndi düzəlişindən əvvəl yazılmışdı; düzəliş bütün rayonların faiz dərəcələrini dəyişdi, mətn isə köhnə qaldı.",
   "mitigation": "Hər profil giriş məlumatının hash-ini saxlayır; məlumat dəyişəndə profil avtomatik köhnəlmiş sayılır və yenidən yazılır (--refresh-stale). Nəticə: grounding 93.8% → 99.8% (639 rəqəmdən 1-i tapılmadı)."

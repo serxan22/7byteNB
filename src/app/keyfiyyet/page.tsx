@@ -14,7 +14,7 @@ type Evals = {
   retrieval: { n: number; passed: number; pass_rate: number; rows: { name: string; returned: number; satisfying: number; pass: boolean; sample: string[] }[] } | null;
   sanity: { passed: number; total: number; checks: { name: string; pass: boolean; detail: string; hard: boolean }[] } | null;
   failures: { title: string; input: string; wrong: string; cause: string; mitigation: string }[];
-  cost: { avg_tokens_in: number | null; avg_tokens_out: number | null; measured_calls: number; calls_per_session: number; per_session_usd: { assumed: number | null; conservative: number | null }; per_1000_users_usd: { assumed: number | null; conservative: number | null }; prices: Record<string, { model: string; in: number; out: number; source: string }>; notes: string };
+  cost: { models?: { primary: string | null; fallbacks: string[] }; avg_tokens_in: number | null; avg_tokens_out: number | null; measured_calls: number; calls_per_session: number; per_session_usd: { assumed: number | null; conservative: number | null }; per_1000_users_usd: { assumed: number | null; conservative: number | null }; prices: Record<string, { model: string; in: number; out: number; source: string }>; notes: string };
 };
 
 const FIELD: Record<string, string> = { goal: "Məqsəd", property_type: "Əmlak növü", locations: "Yer", constraints: "Şərtlər", budget: "Büdcə" };
@@ -41,7 +41,7 @@ export default function Quality() {
       <Link href="/xerite" className="text-sm font-bold text-caspian">← Xəritəyə qayıt</Link>
       <h1 className="mt-4 text-4xl font-extrabold tracking-[-0.035em] md:text-5xl">Keyfiyyət və testlər</h1>
       <p className="mt-3 max-w-[70ch] text-[15px] leading-relaxed text-ink-2">
-        AI-ın nə qədər dəqiq olduğunu sadə qayda əsaslı yanaşma ilə müqayisə edirik, rəqəmlərin uydurulmadığını yoxlayırıq və məlumatın özünü testdən keçiririk. Bütün testlər <code className="rounded bg-sand-3/60 px-1">/evals</code> qovluğundadır və təkrar işlədilə bilər. Son yeniləmə: {e.generated_at.slice(0, 16).replace("T", " ")}.
+        AI-ın nə qədər dəqiq olduğunu sadə qayda əsaslı yanaşma ilə müqayisə edirik, rəqəmlərin uydurulmadığını yoxlayırıq və məlumatın özünü testdən keçiririk. Testlər açıqdır və təkrar işlədilə bilər. Son yeniləmə: {new Date(e.generated_at).toLocaleString("az-AZ", { timeZone: "Asia/Baku", dateStyle: "medium", timeStyle: "short" })} (Bakı vaxtı).
       </p>
 
       <div className="mt-8 grid gap-3 sm:grid-cols-4">
@@ -58,6 +58,8 @@ export default function Quality() {
           </div>
         ))}
       </div>
+
+      <p className="mt-3 text-sm text-ink-3">Nümunə ölçüləri kiçikdir (10–30 hal); nəticələr ilkin göstəricidir.</p>
 
       <section className="mt-10 grid gap-8 md:grid-cols-2">
         <div>
@@ -101,14 +103,24 @@ export default function Quality() {
         <div>
           <h2 className="text-xl font-extrabold">4. Şərtlərə uyğunluq (retrieval)</h2>
           {e.retrieval && (
-            <ul className="mt-2 space-y-1 text-xs">
-              {e.retrieval.rows.map((r) => (
-                <li key={r.name} className="flex justify-between gap-2 border-b border-sand-3/60 py-1">
-                  <span>{r.pass ? "✓" : "✗"} {r.name}</span>
-                  <span className="num text-ink-2">{r.satisfying}/{r.returned}</span>
-                </li>
-              ))}
-            </ul>
+            <table className="mt-2 w-full text-xs">
+              <thead className="text-ink-3">
+                <tr className="border-b border-sand-3">
+                  <th className="py-1.5 pr-2 text-left font-semibold">Sorğu (sərt şərtlər)</th>
+                  <th className="px-2 py-1.5 text-right font-semibold">Uyğun / qaytarılan</th>
+                  <th className="py-1.5 pl-2 text-right font-semibold">Nəticə</th>
+                </tr>
+              </thead>
+              <tbody>
+                {e.retrieval.rows.map((r) => (
+                  <tr key={r.name} className="border-b border-sand-3/60 last:border-0">
+                    <td className="py-1.5 pr-2">{r.name}</td>
+                    <td className="num px-2 py-1.5 text-right text-ink-2">{r.satisfying} / {r.returned}</td>
+                    <td className={`py-1.5 pl-2 text-right font-bold ${r.pass ? "text-green" : "text-pomegranate"}`}>{r.pass ? "✓ keçdi" : "✗"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           )}
         </div>
       </section>
@@ -118,6 +130,13 @@ export default function Quality() {
         {e.sanity && (
           <div className="mt-3 overflow-x-auto rounded-xl border border-sand-3 bg-sand-2">
             <table className="w-full min-w-[600px] text-sm">
+              <thead className="border-b border-sand-3 text-xs text-ink-3">
+                <tr>
+                  <th className="px-3 py-2 text-left font-semibold">Nəticə</th>
+                  <th className="px-3 py-2 text-left font-semibold">Yoxlama</th>
+                  <th className="px-3 py-2 text-left font-semibold">Təfərrüat</th>
+                </tr>
+              </thead>
               <tbody>
                 {e.sanity.checks.map((c) => (
                   <tr key={c.name} className="border-b border-sand-3/60 last:border-0">
@@ -166,8 +185,9 @@ export default function Quality() {
         <div>
           <h2 className="text-xl font-extrabold">8. Xərc</h2>
           <ul className="mt-2 space-y-1.5 text-sm text-ink-2">
+            <li>Model (src/lib/ai.ts): <b className="text-ink">{e.cost.models?.primary ?? "—"}</b>; limit və ya yüklənmə olanda ehtiyat: {e.cost.models?.fallbacks.join(", ") || "—"}.</li>
             <li>Ölçülmüş orta: <b className="num text-ink">{e.cost.avg_tokens_in ?? "—"}</b> giriş + <b className="num text-ink">{e.cost.avg_tokens_out ?? "—"}</b> çıxış token / çağırış ({e.cost.measured_calls} çağırış)</li>
-            <li>Sessiya (~{e.cost.calls_per_session} AI çağırışı): <b className="text-ink">{usd(e.cost.per_session_usd.assumed)}</b> (gemini-3.7-flash) … <b className="text-ink">{usd(e.cost.per_session_usd.conservative)}</b> (3.5-flash, ehtiyatlı)</li>
+            <li>Sessiya (~{e.cost.calls_per_session} AI çağırışı): <b className="text-ink">{usd(e.cost.per_session_usd.assumed)}</b> ({e.cost.models?.primary ?? "əsas model"} qiyməti) … <b className="text-ink">{usd(e.cost.per_session_usd.conservative)}</b> (gemini-3.5-flash qiyməti, ehtiyatlı hesab)</li>
             <li>1000 istifadəçi: <b className="text-ink">{usd(e.cost.per_1000_users_usd.assumed)}</b> … <b className="text-ink">{usd(e.cost.per_1000_users_usd.conservative)}</b></li>
             <li className="text-xs text-ink-3">Qiymət mənbələri: {Object.values(e.cost.prices).map((p) => `${p.model}: $${p.in}/$${p.out} per 1M (${p.source})`).join("; ")}. {e.cost.notes}</li>
           </ul>

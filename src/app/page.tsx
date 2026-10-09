@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
 import HeroSearch from "@/components/HeroSearch";
-import ThemeToggle from "@/components/ThemeToggle";
+import TopNav from "@/components/TopNav";
 
 type Geo = { features: { properties: { id: string }; geometry: { type: string; coordinates: number[][][] | number[][][][] } }[] };
 
@@ -38,17 +38,11 @@ export default function Landing() {
     <div className="min-h-screen">
       <header className="mx-auto flex max-w-6xl items-center gap-5 px-4 py-4">
         <span className="text-[22px] font-extrabold tracking-[-0.04em] text-caspian">Məskən</span>
-        <nav className="ml-auto flex items-center gap-4 text-sm font-semibold text-ink-2">
-          <Link href="/xerite" className="hover:text-caspian">Xəritə</Link>
-          <Link href="/muqayise" className="hover:text-caspian">Müqayisə</Link>
-          <Link href="/keyfiyyet" className="hover:text-caspian">Keyfiyyət</Link>
-          <Link href="/menbeler" className="hover:text-caspian">Mənbələr</Link>
-          <ThemeToggle />
-        </nav>
+        <div className="ml-auto"><TopNav /></div>
       </header>
 
-      <section className="relative overflow-hidden">
-        <svg viewBox="0 0 480 360" className="pointer-events-none absolute right-[-2%] top-[6%] h-[88%] w-auto opacity-80 max-lg:right-[-35%] max-lg:opacity-25" aria-hidden="true">
+      <section className="hero-glow relative overflow-hidden">
+        <svg viewBox="0 0 480 360" className="pointer-events-none absolute right-[-4%] top-[6%] h-[88%] w-auto opacity-80 [mask-image:linear-gradient(to_right,transparent_0%,black_42%)] max-lg:right-[-35%] max-lg:opacity-25" aria-hidden="true">
           {paths.map((p, i) => (
             <path key={i} d={p.d} pathLength={1} className="az-draw" fill={p.fill} style={{ animationDelay: `${p.delay.toFixed(2)}s, ${(p.delay + 1.6).toFixed(2)}s` }} />
           ))}
@@ -115,8 +109,8 @@ export default function Landing() {
           <span className="font-semibold text-ink">Məlumat mənbələri:</span>
           <span>OpenStreetMap</span><span>Dövlət Statistika Komitəsi</span><span>Open-Meteo / ERA5 / CAMS</span><span>bina.az elan medianları (2024)</span><span>Google Gemini (AI)</span>
           <span className="ml-auto flex gap-4 font-semibold">
-            <Link href="/menbeler" className="text-caspian hover:underline">Mənbələr və metodologiya</Link>
-            <Link href="/keyfiyyet" className="text-caspian hover:underline">Testlər və keyfiyyət</Link>
+            <Link href="/menbeler" className="link-u text-caspian">Mənbələr və metodologiya</Link>
+            <Link href="/keyfiyyet" className="link-u text-caspian">Testlər və keyfiyyət</Link>
           </span>
         </div>
       </section>
