@@ -146,7 +146,7 @@ export default function Sources() {
         <div>
           <h2 className="text-xl font-extrabold">Metodologiya</h2>
           <ul className="mt-3 space-y-3 text-sm leading-relaxed text-ink-2">
-            <li><b className="text-ink">Məhəllələr.</b> H3 (rezolyusiya 8, ~0.7 km²) altıbucaqlar: Bakı, Sumqayıt, Gəncə — 1 737 məhəllə; ən yaxın metro (27 işləyən stansiya ilə yoxlanılıb), dayanacaq, məktəb, bağça, park məsafəsi; ad OSM yaşayış məntəqəsindən. Qiymət məhəllədə ≥5 elan varsa median, yoxdursa rayon ortası.</li>
+            <li><b className="text-ink">Məhəllələr.</b> H3 (rezolyusiya 8, ~0.7 km²) altıbucaqlar: Bakı, Sumqayıt, Gəncə — 3 700 məhəllə (rayon sərhədinə görə kəsilmiş pətək); ən yaxın metro (27 işləyən stansiya ilə yoxlanılıb), dayanacaq, məktəb, bağça, park məsafəsi; ad OSM yaşayış məntəqəsindən. Qiymət məhəllədə ≥5 elan varsa median, yoxdursa rayon ortası.</li>
             <li><b className="text-ink">Qərar mühərriki.</b> AI sorğunu strukturlaşdırır və izah edir; uyğun əraziləri kod süzür və sıralayır; etibarlılıq balını kod hesablayır (əhatə 40%, sorğunun tamlığı 25%, 1-ci və 2-ci arasında fərq 20%, şərtlərə uyğunluq 15%).</li>
             <li><b className="text-ink">Ərazilər.</b> OSM inzibati sərhədləri: 75 rayon/şəhər və Bakının 12 rayonu. Dəniz sahəsi Xəzər sahil xətti ilə kəsilib (adalar saxlanılıb). Əhali və sıxlıq — DSK, 01.01.2026.</li>
             <li><b className="text-ink">Xidmətlər.</b> OSM obyektləri (aptek, ərzaq, məktəb, bağça, xəstəxana, poliklinika, bank, kafe, idman, park və s.) poliqonun içinə düşməsinə görə sayılır və 10 min sakinə bölünür.</li>

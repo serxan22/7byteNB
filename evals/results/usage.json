@@ -184,8 +184,108 @@
    "in": 435,
    "out": 503,
    "kind": "legal"
+  },
+  {
+   "in": 3543,
+   "out": 312,
+   "kind": "intent"
+  },
+  {
+   "in": 3564,
+   "out": 308,
+   "kind": "intent"
+  },
+  {
+   "in": 3548,
+   "out": 288,
+   "kind": "intent"
+  },
+  {
+   "in": 3539,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3544,
+   "out": 281,
+   "kind": "intent"
+  },
+  {
+   "in": 3551,
+   "out": 286,
+   "kind": "intent"
+  },
+  {
+   "in": 3548,
+   "out": 278,
+   "kind": "intent"
+  },
+  {
+   "in": 3543,
+   "out": 289,
+   "kind": "intent"
+  },
+  {
+   "in": 3543,
+   "out": 288,
+   "kind": "intent"
+  },
+  {
+   "in": 3551,
+   "out": 286,
+   "kind": "intent"
+  },
+  {
+   "in": 3549,
+   "out": 288,
+   "kind": "intent"
+  },
+  {
+   "in": 3551,
+   "out": 300,
+   "kind": "intent"
+  },
+  {
+   "in": 3548,
+   "out": 293,
+   "kind": "intent"
+  },
+  {
+   "in": 3543,
+   "out": 284,
+   "kind": "intent"
+  },
+  {
+   "in": 3537,
+   "out": 285,
+   "kind": "intent"
+  },
+  {
+   "in": 3540,
+   "out": 289,
+   "kind": "intent"
+  },
+  {
+   "in": 3538,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3538,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3537,
+   "out": 282,
+   "kind": "intent"
+  },
+  {
+   "in": 3549,
+   "out": 282,
+   "kind": "intent"
   }
  ],
- "avg_in": 2027,
- "avg_out": 386
+ "avg_in": 2560,
+ "avg_out": 351
 }

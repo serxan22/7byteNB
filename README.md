@@ -1,6 +1,6 @@
 # Məskən — harada yaşamalı, rəqəmlərlə
 
-**Məskən** helps a home buyer in Azerbaijan pick an *area*, not just a flat. You write one sentence ("Nərimanovda metroya yaxın ev lazımdır"). An AI decision engine turns it into constraints. Deterministic code then ranks 87 regions and **1,737 micro-areas** (H3 hexes) against them, and AI explains each recommendation with real numbers. A confidence score, computed by code rather than the model, says how much to trust the answer.
+**Məskən** helps a home buyer in Azerbaijan pick an *area*, not just a flat. You write one sentence ("Nərimanovda metroya yaxın ev lazımdır"). An AI decision engine turns it into constraints. Deterministic code then ranks 87 regions, **3,700 micro-areas** (an H3 honeycomb cut to each district's shape) and 1,284 villages against them, and AI explains each recommendation with real numbers. A confidence score, computed by code rather than the model, says how much to trust the answer.
 
 **Live demo:** https://meskan-seven.vercel.app (app: [/xerite](https://meskan-seven.vercel.app/xerite), tests: [/keyfiyyet](https://meskan-seven.vercel.app/keyfiyyet)) · **UI language:** Azerbaijani · **AI:** Google Gemini (flash models, free tier) · **Tests:** [`/keyfiyyet`](#3-quality-testing)
 
@@ -38,7 +38,7 @@ _User interviews / timing test:_ `<!-- TODO: 3 participants, manual bina.az + Go
 flowchart LR
   Q[User sentence] --> I["1 INTENT (Gemini, JSON schema)<br/>goal · type · budget · locations from a 248-item catalog<br/>hard constraints · soft weights · missing fields"]
   I -->|AI unavailable| K[keyword-rule fallback]
-  I --> R["3 RETRIEVE (code)<br/>filter 1,737 hexes / 87 regions by hard constraints<br/>relax if empty · score by weights · diversity"]
+  I --> R["3 RETRIEVE (code)<br/>filter 3,700 hex pieces / 1,284 villages / 87 regions by hard constraints<br/>relax if empty · score by weights · diversity"]
   K --> R
   R --> E["4 EXPLAIN (Gemini, grounded)<br/>only the candidates' JSON · why + trade-off per area"]
   R --> C["5 CONFIDENCE (code, never AI)<br/>coverage 40 · intent completeness 25<br/>#1–#2 margin 20 · constraints met 15"]
@@ -58,20 +58,21 @@ All tests live in [`/evals`](evals), write `public/data/evals.json`, and are sho
 
 | Eval | What | Result |
 |---|---|---|
-| **Intent** (20 Azerbaijani queries, incl. 3 vague and 2 slang/typo) | per-field accuracy, AI vs keyword rules | location **95% vs 80%**, budget **100% vs 90%**, goal 100 vs 95, property type 100 vs 100, constraints 75 vs 100* |
+| **Intent** (20 Azerbaijani queries, incl. 3 vague and 2 slang/typo) | per-field accuracy, AI pipeline vs keyword rules | location **95% vs 80%**, budget **100% vs 90%**, goal 100 vs 95, constraints 100 vs 100, property type 95 vs 100 |
 | **Legal check** (18 listings: 6 clean, 12 risky incl. implicit) | precision / recall | AI **P 86% / R 100%** · rules P 100% / R 58% |
-| **Grounding** (30 AI texts, 402 numbers) | every number must exist (±1%) in the input JSON | **93.8%** grounded; the 6.2% miss was traced to stale profiles (fixed below) |
+| **Grounding** (29 AI area profiles, 639 numbers) | every number must exist (±1%) in the input JSON | **99.8%** grounded (was 93.8% before the stale-profile fix below) |
 | **Retrieval** (10 queries with hard constraints) | 100% of returned areas satisfy them | **10/10** |
-| **Data sanity** (14 checks) | completeness, NaN, plausibility, metro vs official list, outliers | **14/14** |
+| **Data sanity** (16 checks) | completeness, NaN, plausibility, metro vs official list, outliers, honeycomb pieces inside districts and area sums | **16/16** |
 
-\* The rule baseline scores 100% on constraints because the labels were written with the same keywords. The AI's errors were missing `coastal` for "dənizə yaxın" (the prompt has since been tightened).
+The AI pipeline adds a deterministic step that normalises location ids: it drops unknown ids, maps `az-X` to `bk-X`, and drops `az-baki` when a district is named. Without it, location accuracy was 75% (failure #6).
 
-**Failure analysis (5 real bugs, input → wrong output → cause → fix):**
+**Failure analysis (6 real bugs, input → wrong output → cause → fix):**
 1. **Xankəndi topped every ranking.** The 409 OSM POIs are mapped for the pre-2023 city (~55k residents), but DSK 2026 counts 4,400. That gives 47.7× the median per capita, so every index hit 99. **Fix:** a generic rule (>10× median ⇒ per-capita values become null, with a warning) and a data-sanity guard.
 2. **A non-existent metro station was recommended** ("20 Sentyabr"). OSM tags depots, exits and planned stations as `station=subway` (33 vs 27 real). **Fix:** validate against the 27-station list.
-3. **Stale AI numbers (6.2% ungrounded).** Profiles were written before fix #1 changed the percentiles. **Fix:** an input hash per profile, so changed data triggers regeneration.
+3. **Stale AI numbers (6.2% ungrounded).** Profiles were written before fix #1 changed the percentiles. **Fix:** an input hash per profile, so changed data triggers regeneration. Grounding went from 93.8% to **99.8%**.
 4. **NaN confidence.** Operator precedence (`s + x ?? 0`). Fixed.
 5. **Fallback model dropped Azerbaijani letters.** **Fix:** a profile quality gate (length, ≥6 numbers, forbidden generic phrases, ə/ğ/ı/ş present).
+6. **The model invented location ids** (`az-nerimanov`), or added `az-baki`, which widened the search to the whole city. **Fix:** deterministic normalisation. Location accuracy went from 75% to 95%.
 
 ## 4. Feasibility
 
@@ -95,7 +96,7 @@ All tests live in [`/evals`](evals), write `public/data/evals.json`, and are sho
 ## 5. Originality
 
 - **Decision engine, not a chatbot.** AI parses intent and explains, code ranks, and **code computes confidence** with a visible breakdown. No other tool here joins neighbourhood-level metrics to a buyer's sentence.
-- **Micro-areas.** 1,737 H3 hexes in Baku, Sumqayıt and Gəncə, labelled with human names ("Nərimanov · Gənclik m. ətrafı"), with walking distance to a validated metro station and hex-level price medians where at least 5 listings exist. Outside these cities, 1,284 OSM towns and villages carry stats within 1.5 km ("Bakıdan kənarda dağ havası" returns "Şəki · Kiş", "Quba · Bəhrəli").
+- **Micro-areas.** 3,700 H3 res-8 pieces in Baku, Sumqayıt and Gəncə — a honeycomb clipped to each district polygon (border cells split per district, slivers merged, verified: every piece inside its district, areas sum to ±1.6%), labelled with human names ("Nərimanov · Gənclik m. ətrafı"), with walking distance to a validated metro station and hex-level price medians where at least 5 listings exist. Outside these cities, 1,284 OSM towns and villages carry stats within 1.5 km ("Bakıdan kənarda dağ havası" returns "Şəki · Kiş", "Quba · Bəhrəli").
 - **Legal check of listing language**, AI plus a deterministic detector, so known risk phrases are never missed.
 - **True cost** over 10 years: a cheap flat far from work can cost more.
 - **Data honesty as a feature:** every number has a badge (Canlı OSM, Rəsmi DSK, Nümunə, Mətbuat, Demo, Model), and we publish our own failures.

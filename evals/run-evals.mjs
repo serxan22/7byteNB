@@ -4,7 +4,7 @@ import fs from "node:fs";
 import { generateJSON } from "../src/lib/ai.ts";
 import { IntentSchema, LegalSchema } from "../src/lib/schemas.ts";
 import { INTENT_SYSTEM, LEGAL_SYSTEM, regionForAI } from "../src/lib/prompts.ts";
-import { keywordIntent, locationCatalog, retrieve } from "../src/lib/decide.ts";
+import { keywordIntent, locationCatalog, normalizeLocations, retrieve } from "../src/lib/decide.ts";
 const ST = JSON.parse(fs.readFileSync("public/data/settlements.json", "utf8"));
 import { legalDetect } from "../src/lib/fallbacks.ts";
 
@@ -54,7 +54,9 @@ async function evalIntent() {
   for (const c of cases) {
     const base = keywordIntent(c.q, catalog);
     const pred = await ai(c.q, IntentSchema, INTENT_SYSTEM(catalog), 1500);
-    rows.push({ q: c.q, expected: c, ai: pred ? scoreIntent(pred, c) : null, baseline: scoreIntent(base, c), ai_pred: pred && { goal: pred.goal, type: pred.property_type, locs: pred.locations_mentioned, budget: pred.budget_azn }, base_pred: { goal: base.goal, type: base.property_type, locs: base.locations_mentioned, budget: base.budget_azn } });
+    const rawLocs = pred ? [...pred.locations_mentioned] : null;
+    if (pred) pred.locations_mentioned = normalizeLocations(pred.locations_mentioned, catalog); // same post-processing as /api/decide
+    rows.push({ q: c.q, expected: c, ai: pred ? scoreIntent(pred, c) : null, baseline: scoreIntent(base, c), ai_pred: pred && { goal: pred.goal, type: pred.property_type, locs: pred.locations_mentioned, raw_locs: rawLocs, budget: pred.budget_azn }, base_pred: { goal: base.goal, type: base.property_type, locs: base.locations_mentioned, budget: base.budget_azn } });
     process.stdout.write(pred ? "." : "x");
   }
   const fields = ["goal", "property_type", "locations", "constraints", "budget"];

@@ -4,9 +4,9 @@
  "accuracy": {
   "ai": {
    "goal": 100,
-   "property_type": 100,
+   "property_type": 95,
    "locations": 95,
-   "constraints": 75,
+   "constraints": 100,
    "budget": 100
   },
   "baseline": {
@@ -49,6 +49,11 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [
+     "bk-nerimanov",
+     "mt-neriman-nerimanov"
+    ],
+    "raw_locs": [
+     "az-baki",
      "bk-nerimanov",
      "mt-neriman-nerimanov"
     ],
@@ -95,7 +100,13 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [
-     "bk-yasamal"
+     "bk-yasamal",
+     "pl-yasamal"
+    ],
+    "raw_locs": [
+     "az-baki",
+     "bk-yasamal",
+     "pl-yasamal"
     ],
     "budget": 200000
    },
@@ -137,6 +148,7 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [],
+    "raw_locs": [],
     "budget": 150000
    },
    "base_pred": {
@@ -173,6 +185,7 @@
     "goal": "open_business",
     "type": "obyekt",
     "locs": [],
+    "raw_locs": [],
     "budget": null
    },
    "base_pred": {
@@ -212,6 +225,7 @@
     "goal": "buy",
     "type": "heyet_evi",
     "locs": [],
+    "raw_locs": [],
     "budget": null
    },
    "base_pred": {
@@ -255,6 +269,9 @@
     "locs": [
      "bk-xetai"
     ],
+    "raw_locs": [
+     "bk-xetai"
+    ],
     "budget": 120000
    },
    "base_pred": {
@@ -293,6 +310,7 @@
     "goal": "rent",
     "type": "menzil_kohne",
     "locs": [],
+    "raw_locs": [],
     "budget": null
    },
    "base_pred": {
@@ -319,7 +337,7 @@
     "goal": true,
     "property_type": true,
     "locations": true,
-    "constraints": false,
+    "constraints": true,
     "budget": true
    },
    "baseline": {
@@ -333,6 +351,9 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [
+     "az-sumqayit"
+    ],
+    "raw_locs": [
      "az-sumqayit"
     ],
     "budget": null
@@ -361,7 +382,7 @@
     "goal": true,
     "property_type": true,
     "locations": true,
-    "constraints": false,
+    "constraints": true,
     "budget": true
    },
    "baseline": {
@@ -375,6 +396,9 @@
     "goal": "open_business",
     "type": "obyekt",
     "locs": [
+     "az-gence"
+    ],
+    "raw_locs": [
      "az-gence"
     ],
     "budget": null
@@ -403,7 +427,7 @@
     "goal": true,
     "property_type": true,
     "locations": true,
-    "constraints": false,
+    "constraints": true,
     "budget": true
    },
    "baseline": {
@@ -417,6 +441,9 @@
     "goal": "buy",
     "type": "torpaq",
     "locs": [
+     "az-quba"
+    ],
+    "raw_locs": [
      "az-quba"
     ],
     "budget": null
@@ -462,6 +489,9 @@
     "locs": [
      "bk-sebail"
     ],
+    "raw_locs": [
+     "az-sebail"
+    ],
     "budget": null
    },
    "base_pred": {
@@ -489,7 +519,7 @@
    },
    "ai": {
     "goal": true,
-    "property_type": true,
+    "property_type": false,
     "locations": false,
     "constraints": true,
     "budget": true
@@ -503,11 +533,12 @@
    },
    "ai_pred": {
     "goal": "buy",
-    "type": "menzil_kohne",
+    "type": "heyet_evi",
     "locs": [
-     "az-abseron",
-     "bk-bineqedi",
-     "pl-bineqedi"
+     "az-abseron"
+    ],
+    "raw_locs": [
+     "az-abseron"
     ],
     "budget": null
    },
@@ -516,8 +547,8 @@
     "type": "menzil_kohne",
     "locs": [
      "bk-bineqedi",
-     "pl-bineqedi",
-     "pl-bine"
+     "pl-bine",
+     "pl-bineqedi"
     ],
     "budget": null
    }
@@ -537,7 +568,7 @@
     "goal": true,
     "property_type": true,
     "locations": true,
-    "constraints": false,
+    "constraints": true,
     "budget": true
    },
    "baseline": {
@@ -551,6 +582,9 @@
     "goal": "buy",
     "type": "heyet_evi",
     "locs": [
+     "az-seki"
+    ],
+    "raw_locs": [
      "az-seki"
     ],
     "budget": null
@@ -598,14 +632,16 @@
     "locs": [
      "bk-nizami"
     ],
+    "raw_locs": [
+     "bk-nizami"
+    ],
     "budget": 170000
    },
    "base_pred": {
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [
-     "bk-nizami",
-     "mt-nizami"
+     "bk-nizami"
     ],
     "budget": 170000
    }
@@ -639,6 +675,7 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [],
+    "raw_locs": [],
     "budget": null
    },
    "base_pred": {
@@ -679,6 +716,9 @@
     "locs": [
      "bk-nerimanov"
     ],
+    "raw_locs": [
+     "az-nerimanov"
+    ],
     "budget": null
    },
    "base_pred": {
@@ -717,6 +757,7 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [],
+    "raw_locs": [],
     "budget": null
    },
    "base_pred": {
@@ -756,6 +797,7 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [],
+    "raw_locs": [],
     "budget": null
    },
    "base_pred": {
@@ -792,6 +834,7 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [],
+    "raw_locs": [],
     "budget": null
    },
    "base_pred": {
@@ -819,7 +862,7 @@
     "goal": true,
     "property_type": true,
     "locations": true,
-    "constraints": false,
+    "constraints": true,
     "budget": true
    },
    "baseline": {
@@ -833,6 +876,9 @@
     "goal": "buy",
     "type": "heyet_evi",
     "locs": [
+     "az-lenkeran"
+    ],
+    "raw_locs": [
      "az-lenkeran"
     ],
     "budget": 80000

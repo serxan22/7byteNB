@@ -29,6 +29,15 @@ export function locationCatalog(regions: Region[], hx: HexData): LocationRef[] {
   return out;
 }
 
+/** Deterministic post-processing of model output: unknown ids dropped, az-X → bk-X when only the Baku district exists,
+ *  parent "az-baki" dropped when a Baku district/metro/place is named (it would widen the search to all of Baku). */
+export function normalizeLocations(ids: string[], catalog: LocationRef[]): string[] {
+  const has = (id: string) => catalog.some((c) => c.id === id);
+  let out = ids.map((id) => (has(id) ? id : id.startsWith("az-") && has(`bk-${id.slice(3)}`) ? `bk-${id.slice(3)}` : null)).filter((x): x is string => !!x);
+  if (out.some((id) => id.startsWith("bk-") || id.startsWith("mt-") || id.startsWith("pl-"))) out = out.filter((id) => id !== "az-baki");
+  return [...new Set(out)];
+}
+
 // ---------- keyword baseline (also the fallback when the LLM is unavailable) ----------
 export function keywordIntent(text: string, catalog: LocationRef[]): Intent {
   const t = norm(text);

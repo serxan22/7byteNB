@@ -58,7 +58,7 @@ export default function Landing() {
             Harada yaşamalı? Rəqəmlərlə, şəxsən sənin üçün.
           </h1>
           <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-ink-2">
-            Ev alan və ya biznes açan insana ərazi seçməkdə kömək edirik: istəyini bir cümlə ilə yaz — 87 ərazi, 1 737 şəhər məhəlləsi və 1 284 kənd-qəsəbə arasından şərtlərinə uyğun olanları göstərək, qiymətini və riskini izah edək.
+            Ev alan və ya biznes açan insana ərazi seçməkdə kömək edirik: istəyini bir cümlə ilə yaz — 87 ərazi, 3 700 şəhər məhəlləsi və 1 284 kənd-qəsəbə arasından şərtlərinə uyğun olanları göstərək, qiymətini və riskini izah edək.
           </p>
           <HeroSearch />
         </div>
@@ -98,7 +98,7 @@ export default function Landing() {
         <ol className="mt-5 grid gap-4 md:grid-cols-3">
           {[
             ["Yaz", "“Nərimanovda metroya yaxın ev, büdcə 180 min” — AI istəyini strukturlaşdırır: məqsəd, büdcə, yer, şərtlər.", <path key="a" d="M6 30h36M6 20h28M6 10h20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />],
-            ["Süz", "Kod 1 737 məhəllədən şərtlərə uyğun olanları seçir və sıralayır — metroya piyada məsafə, məktəb, qiymət.", <g key="b"><circle cx="12" cy="12" r="5" fill="currentColor" /><circle cx="30" cy="20" r="5" fill="currentColor" opacity=".5" /><circle cx="18" cy="32" r="5" fill="currentColor" opacity=".3" /></g>],
+            ["Süz", "Kod 3 700 məhəllədən şərtlərə uyğun olanları seçir və sıralayır — metroya piyada məsafə, məktəb, qiymət.", <g key="b"><circle cx="12" cy="12" r="5" fill="currentColor" /><circle cx="30" cy="20" r="5" fill="currentColor" opacity=".5" /><circle cx="18" cy="32" r="5" fill="currentColor" opacity=".3" /></g>],
             ["Qərar ver", "AI hər tövsiyəni rəqəmlərlə izah edir, zəif cəhəti deyir; etibarlılıq balı məlumatın keyfiyyətindən hesablanır.", <path key="c" d="M8 22l9 9 19-21" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round" />],
           ].map(([t, d, icon], i) => (
             <li key={i} className="rounded-2xl border border-sand-3 p-5">
