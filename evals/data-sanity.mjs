@@ -119,6 +119,9 @@ if (fs.existsSync("public/data/mahalle-geo.json")) {
   const bad = dev.filter(([, d]) => Math.abs(d) > 3);
   add("Məhəllələrin cəmi sahəsi ≈ rayon sahəsi (±3%)", !bad.length, bad.map(([r, d]) => `${r} ${d.toFixed(1)}%`).join(", ") || `maks fərq ${Math.max(...dev.map(([, d]) => Math.abs(d))).toFixed(2)}%`);
   const unnamed = recs.filter((x) => !x.l || x.l.split(" · ").length < 2);
+  const { default: pip2 } = await import("@turf/boolean-point-in-polygon");
+  const wrongPlace = recs.filter((x) => x.lp && !(regF[x.r] ?? []).some((rf) => pip2(x.lp, rf)));
+  add("Məhəllə adındakı yer öz rayonunun içindədir", !wrongPlace.length, wrongPlace.slice(0, 3).map((x) => x.l).join(", ") || `${recs.length} ad yoxlanıldı`);
   add("Hər məhəllənin adı var", !unnamed.length, unnamed.slice(0, 3).map((x) => x.h).join(", ") || `${recs.length} ad`);
 }
 

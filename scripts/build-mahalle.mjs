@@ -173,6 +173,18 @@ for (const h of hexData.hexes) {
   members[gi].push(h);
 }
 const usedLabels = {};
+// named major/secondary streets per district, used to disambiguate repeated labels with a real nearby street name
+const streets = {};
+for await (const f of seq("data/raw/osm/roads.geojsonseq")) {
+  const t = f.properties;
+  const name = t["name:az"] || t.name;
+  if (!name || !["primary", "secondary", "tertiary", "trunk"].includes(t.highway) || /[\u0530-\u058F\u0600-\u06FF]/.test(name)) continue;
+  const co = f.geometry.coordinates;
+  const mid = co[Math.floor(co.length / 2)];
+  const d = inDistrict(mid);
+  if (d) (streets[d.id] ||= []).push({ ll: mid, name });
+}
+const inOwn = (ll, rid) => { const d = districts.find((x) => x.id === rid); return pip(point(ll), d.g); };
 const recs = [], features = [];
 geoms.forEach((g, gi) => {
   const hs = members[gi];
@@ -184,14 +196,22 @@ geoms.forEach((g, gi) => {
   const pms = hs.filter((h) => h.pm).map((h) => h.pm).sort((a, b) => a - b);
   const dname = districts.find((d) => d.id === g.r).name;
   // label: OSM name → nearest place node within 2.5 km → nearest metro
-  let base = g.name;
+  // label: OSM name → nearest place / metro whose POINT lies inside this district (never a neighbour's place)
+  // OSM-named cells: label point = a point inside the cell (centroid can fall outside islands/concave shapes)
+  const inner = pip(point(g.cent), g.f) ? g.cent : (hs[0]?.c ?? (g.f.geometry.type === "Polygon" ? g.f.geometry.coordinates[0][0] : g.f.geometry.coordinates[0][0][0]));
+  let base = g.name, lp = g.name ? inner : null;
   if (!base) {
-    const np = seeds.filter((s) => s.kind === "place").map((s) => ({ s, d: dist(s.ll, g.cent) })).sort((a, b) => a.d - b.d)[0];
-    base = np && np.d < 2500 ? np.s.name : near ? `${near.mn} m. ətrafı` : np ? `${np.s.name} yaxınlığı` : "mərkəz";
+    const own = seeds.filter((s) => inOwn(s.ll, g.r)).map((s) => ({ s, d: dist(s.ll, g.cent) })).sort((a, b) => a.d - b.d);
+    const np = own.find((x) => x.s.kind === "place" && x.d < 2500) ?? own[0];
+    base = np ? (np.s.kind === "metro" || np.d < 2500 ? np.s.name : `${np.s.name} yaxınlığı`) : "mərkəz";
+    lp = np ? np.s.ll : g.cent;
   }
   let label = `${dname} · ${base}`;
-  usedLabels[label] = (usedLabels[label] ?? 0) + 1;
-  if (usedLabels[label] > 1) label = `${label} ${usedLabels[label]}`;
+  if (usedLabels[label]) {
+    const st = (streets[g.r] ?? []).map((x) => ({ x, d: dist(x.ll, g.cent) })).sort((a, b) => a.d - b.d).find(({ x }) => !usedLabels[`${label}, ${x.name}`]);
+    label = st ? `${label}, ${st.x.name}` : `${label} (${Math.round(g.a * 10) / 10} km²)`;
+  }
+  usedLabels[label] = 1;
   recs.push({
     h: id,
     c: [+g.cent[0].toFixed(5), +g.cent[1].toFixed(5)],
@@ -211,6 +231,7 @@ geoms.forEach((g, gi) => {
     a: +g.a.toFixed(3),
     ...(pms.length ? { pm: pms[Math.floor(pms.length / 2)], pn: hs.reduce((s, h) => s + (h.pn ?? 0), 0) } : {}),
     nh: hs.length,
+    lp: lp.map((x) => +x.toFixed(5)),
   });
   features.push(F({ type: g.f.geometry.type, coordinates: round(g.f.geometry.coordinates) }, { id, r: g.r }));
   void W;

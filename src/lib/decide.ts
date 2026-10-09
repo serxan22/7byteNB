@@ -227,7 +227,9 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
       if (isHex(c.x)) {
         const hx2 = c.x;
         if (picks.some((p) => isHex(p.x) && distM(p.x.c, hx2.c) < 900)) continue;
-        if (distinctLabels && picks.some((p) => isHex(p.x) && p.x.l === hx2.l)) continue;
+        // pass 1: no two picks share a label or a nearest-metro area; pass 2: only labels must differ
+        if (picks.some((p) => isHex(p.x) && p.x.l === hx2.l)) continue;
+        if (distinctLabels && hx2.mn && (hx2.m ?? 9e9) < 1200 && picks.some((p) => isHex(p.x) && p.x.mn === hx2.mn && (p.x.m ?? 9e9) < 1200)) continue;
         if (!singleScope && (perReg[hx2.r] ?? 0) >= 2) continue;
         perReg[hx2.r] = (perReg[hx2.r] ?? 0) + 1;
       }
