@@ -58,7 +58,7 @@ export default function Landing() {
             Harada yaşamalı? Rəqəmlərlə, şəxsən sənin üçün.
           </h1>
           <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-ink-2">
-            Ev alan və ya biznes açan insana ərazi seçməkdə kömək edirik: istəyini bir cümlə ilə yaz — 87 ərazi və 1 737 məhəllə arasından şərtlərinə uyğun olanları göstərək, qiymətini və riskini izah edək.
+            Ev alan və ya biznes açan insana ərazi seçməkdə kömək edirik: istəyini bir cümlə ilə yaz — 87 ərazi, 1 737 şəhər məhəlləsi və 1 284 kənd-qəsəbə arasından şərtlərinə uyğun olanları göstərək, qiymətini və riskini izah edək.
           </p>
           <HeroSearch />
         </div>

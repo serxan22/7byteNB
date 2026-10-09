@@ -969,5 +969,313 @@
   ],
   "confidence_note": "OSM əhatəsi orta səviyyədədir, bu da o deməkdir ki, obyektlərin bir hissəsi xəritələnməyib. Qiymətlər üzrə məlumat mövcud deyil.",
   "_h": "fcbc3d9ec341"
+ },
+ "az-yardimli": {
+  "headline": "Yardımlı rayonu: dağlıq landşafta malik ucqar yaşayış məntəqəsi",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə təbiət indeksi 75 olmaqla ölkə üzrə rayon medianı olan 51-i üstələyir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Ərazidə qiymət məlumatı mövcud deyil, lakin əhali sıxlığı kvadrat kilometrə 104 nəfərdir."
+   }
+  ],
+  "summary": "Yardımlı rayonu 69900 sakinə malik dağlıq ərazidir. Təbiət indeksi 75 təşkil edir, meşə örtüyü isə 23.9 faizdir. Rahatlıq indeksi 14, təhsil indeksi isə 19-dur. İnfrastruktur üzrə asfalt yolların payı 4.6 faizdir.",
+  "strengths": [
+   "Təbiət indeksi ölkə üzrə rayon medianını üstələyir (75; median 51)",
+   "Meşə örtüyü sahəsinin payı yüksəkdir (23.9 faiz)",
+   "İnfrastruktur göstəricisində asfalt yolların payı qeydə alınıb (4.6 faiz)"
+  ],
+  "weaknesses": [
+   "Rahatlıq indeksi ölkə medianından geridə qalır (14; median 49.5)",
+   "Təhsil indeksi aşağı səviyyədədir (19; median 53)",
+   "10 min sakinə düşən məktəb sayı azdır (0.43; median 4.14)"
+  ],
+  "best_for": [
+   "Təbiət mühitində yaşamaq istəyənlər",
+   "Sakit həyat tərzi axtaranlar"
+  ],
+  "watch_out": [
+   "OSM-də xəritələnmə səviyyəsi aşağıdır, obyektlərin bir hissəsi xəritələnməyib",
+   "Qiymət məlumatı yoxdur",
+   "Nəqliyyat dayanacaqları və marşrutlar barədə məlumat yoxdur"
+  ],
+  "confidence_note": "OSM xəritə örtüyü aşağı səviyyədədir və obyektlərin bir hissəsi xəritələnməyib. Qiymətlər haqqında heç bir məlumat mövcud deyil.",
+  "_h": "994246e62486"
+ },
+ "az-lerik": {
+  "headline": "Lerik rayonu: dağlıq landşaft və zəngin meşə örtüyünə malik ərazi.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Təbiət indeksi 83, meşə örtüyü isə 35.9% təşkil edir."
+   }
+  ],
+  "summary": "Lerik rayonu 87400 sakinə malik dağlıq ərazidir. Təbiət indeksi 83 olmaqla ölkə üzrə rayon medianı olan 51-i üstələyir. Səhiyyə indeksi 27, təhsil indeksi isə 24 səviyyəsindədir. İnfrastruktur indeksi 23, asfalt yolların payı isə məlum yollar arasında 20% təşkil edir.",
+  "strengths": [
+   "Təbiət indeksi 83 olaraq qeydə alınıb (ölkə üzrə rayon medianı 51)",
+   "Meşə örtüyünün payı 35.9% təşkil edir (məlumat yoxdur)",
+   "10 min sakinə 1.6 park düşür (ölkə üzrə rayon medianı 3.89)"
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı 20% təşkil edir (ölkə üzrə rayon medianı 4.35%)",
+   "10 min sakinə 1.26 ərzaq obyekti düşür (ölkə üzrə rayon medianı 2.29)",
+   "Təhsil indeksi 24 təşkil edir (ölkə üzrə rayon medianı 53)"
+  ],
+  "best_for": [
+   "Sakit və təbiət qoynunda yaşamaq istəyənlər üçün",
+   "Dağlıq ərazi və təmiz hava axtaranlar üçün"
+  ],
+  "watch_out": [
+   "OSM xəritə örtüyü orta səviyyədədir, obyektlərin bir hissəsi xəritələnməyib",
+   "İnfrastruktur və nəqliyyat imkanları məhduddur",
+   "Qiymət məlumatları mövcud deyil"
+  ],
+  "confidence_note": "OSM əhatəsi orta səviyyədədir, yəni obyektlərin bir hissəsi xəritələnməyib. Qiymətlər üzrə məlumat yoxdur.",
+  "_h": "2986c4217769"
+ },
+ "az-qusar": {
+  "headline": "Qusar rayonu: zəngin təbiət və yüksək park sıxlığına malik dağlıq ərazi",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Təbiət indeksi 88, ölkə üzrə rayon medianı isə 51-dir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "10 min sakinə 9.69 park düşür, ölkə üzrə rayon medianı isə 3.89-dur."
+   }
+  ],
+  "summary": "Qusar rayonu dağlıq relyefdə yerləşir və ərazidə 103200 sakin yaşayır. Rahatlıq indeksi 75 (ölkə üzrə rayon medianı 49.5), təbiət indeksi isə 88 (ölkə üzrə rayon medianı 51) təşkil edir. Səhiyyə indeksi 74 olub, 10 min sakinə 1.16 xəstəxana düşür (ölkə üzrə rayon medianı 0.75). İnfrastruktur indeksi 66, məlum yolların asfalt payı isə 7.3%-dir (ölkə üzrə rayon medianı 4.35%).",
+  "strengths": [
+   "Təbiət indeksi ölkə üzrə rayon medianından yüksəkdir (88; median 51)",
+   "10 min sakinə düşən park sayı ölkə medianını üstələyir (9.69; median 3.89)",
+   "Rahatlıq indeksi ölkə üzrə rayon medianından çoxdur (75; median 49.5)"
+  ],
+  "weaknesses": [
+   "Məlum yolların asfalt payı aşağı səviyyədədir (7.3%; median 4.35%)",
+   "Nəqliyyat indeksi ölkə üzrə rayon medianı ilə yaxındır (48; median 47)",
+   "Səth örtüyü məlum olmayan yolların payı yüksəkdir (76.7%)"
+  ],
+  "best_for": [
+   "Təbiət mühitində yaşamaq istəyənlər",
+   "Park və yaşıl sahələrə üstünlük verənlər"
+  ],
+  "watch_out": [
+   "Asfalt örtüklü yolların payının məhdud olması",
+   "Qiymət məlumatlarının mövcud olmaması"
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir, per capita göstəriciləri etibarlıdır, lakin qiymət məlumatları mövcud deyil.",
+  "_h": "c20bde16e486"
+ },
+ "az-ordubad": {
+  "headline": "Ordubad rayonu dağlıq relyef və aşağı infrastruktur göstəricilərinə malikdir.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "10 min sakinə 1.57 park düşür və PM2.5 modeli 11.2 təşkil edir."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Elcatanliq indeksi məlumat yoxdur."
+   }
+  ],
+  "summary": "Ordubad rayonunun əhalisi 50900 nəfər, ərazisi 951 kvadrat kilometrdir. Rahatlıq indeksi 25, təhsil indeksi 22, səhiyyə indeksi isə 19-dur. Asfalt yolların payı 10.8 faiz təşkil edir. OSM-də obyektlərin bir hissəsi xəritələnməyib.",
+  "strengths": [
+   "Dəmir yolu stansiyalarının sayı 4-dür (4 stansiya).",
+   "Parkların sıxlığı 10 min sakinə 1.57-dir (10 min sakinə 1.57 park; median 3.89).",
+   "Yanacaqdoldurma məntəqələrinin sıxlığı 10 min sakinə 0.59-dur (10 min sakinə 0.59 fuel; median 0.69)."
+  ],
+  "weaknesses": [
+   "Aptek və xəstəxana göstəriciləri 10 min sakinə 0-dır (10 min sakinə 0 aptek; median 0.18).",
+   "Məktəb göstəricisi 10 min sakinə 0.79-dur (10 min sakinə 0.79 məktəb; median 4.14).",
+   "Asfalt yolların payı 10.8 faizdir (asfalt yollar 10.8%; median 4.35%)."
+  ],
+  "best_for": [
+   "Sakit təbiət mühiti axtaranlar (tebiet indeksi 38).",
+   "Dağlıq relyefdə yaşamaq istəyənlər (ortalama hündürlük 1680 metr)."
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib (coverage.osm aşağı).",
+   "Mənzil qiymətləri haqqında məlumat yoxdur.",
+   "Səhiyyə və ticarət obyektlərinin sıxlığı ölkə medianından aşağıdır."
+  ],
+  "confidence_note": "OSM əhatəsi aşağıdır, yəni obyektlərin bir hissəsi xəritələnməyib. Qiymətlər haqqında məlumat yoxdur, per_capita isə ok səviyyəsindədir.",
+  "_h": "701e22ccaebf"
+ },
+ "az-berde": {
+  "headline": "Bərdə rayonu üzrə mövcud infrastruktur və obyekt göstəricilərinin təhlili.",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Ərazidə qiymət məlumatları mövcud deyil, lakin infrastruktur indeksi 68 təşkil edir."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Təbiət indeksi 16, meşə örtüyü isə 1 faizdir."
+   }
+  ],
+  "summary": "Bərdə rayonunda 10 min sakinə 2.84 məktəb düşür ki, ölkə üzrə rayon medianı 4.14-dür. Səhiyyə indeksi 25, rahatlıq indeksi isə 24 təşkil edir. Asfalt yolların payı bilinən yollar arasında 4 faizdir. OSM-də obyektlərin bir hissəsi xəritələnməyib çünki coverage.osm orta səviyyədədir.",
+  "strengths": [
+   "İnfrastruktur indeksi ölkə medianından yuxarı olaraq 68 təşkil edir (infrastruktur indeksi 68, median 45).",
+   "Ərazidə dəmir yolu stansiyası mövcuddur (dəmir yolu stansiyaları 1).",
+   "Yanacaqdoldurma məntəqələrinin sayı 10 min sakinə 0.76 təşkil edir (10 min sakinə 0.76 yanacaqdoldurma, median 0.69)."
+  ],
+  "weaknesses": [
+   "Aptek və ticarət mərkəzləri üzrə göstəricilər sıfırdır (10 min sakinə 0 aptek, median 0.18).",
+   "Təbiət indeksi ölkə medianından aşağıdır (təbiət indeksi 16, median 51).",
+   "Məlum yollar arasında asfalt örtüklü yolların payı aşağıdır (asfalt payı 4 faiz, median 4.35 faiz)."
+  ],
+  "best_for": [
+   "Məktəb və təhsil obyektlərinin mövcudluğunu nəzərə alanlar (10 min sakinə 2.84 məktəb).",
+   "Yanacaqdoldurma məntəqəsi sıxlığına üstünlük verənlər (10 min sakinə 0.76 yanacaqdoldurma)."
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib çünki coverage.osm orta səviyyədədir.",
+   "Qiymət məlumatları mövcud deyil və qiymət etibarlılığı yoxdur (prices.prices məlumatı yoxdur).",
+   "Səhiyyə və rahatlıq indeksləri median səviyyədən geridə qalır (sehiyye indeksi 25, rahatliq indeksi 24)."
+  ],
+  "confidence_note": "OSM əhatəsi orta səviyyədədir, yəni obyektlərin bir hissəsi xəritələnməyib. Qiymət məlumatları mövcud deyil.",
+  "_h": "4499618c4ac2"
+ },
+ "az-agcabedi": {
+  "headline": "Ağcabədi rayonu üzrə mövcud infrastruktur və obyektlərin obyektiv təhlili",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Ərazidə qiymət göstəriciləri mövcud deyil, elan məlumatları yoxdur."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Yolların asfalt payı 10.8%, ölkə üzrə rayon medianı 4.35%-dir."
+   }
+  ],
+  "summary": "Ağcabədi rayonunda əhali sayı 137600 nəfər, ərazi sıxlığı kvadrat kilometrə 78 nəfər təşkil edir. Rahatlıq indeksi 63, ölkə üzrə rayon medianı 49.5-dir. Nəqliyyat indeksi 37, ölkə üzrə rayon medianı 47-dir. Səhiyyə indeksi 64, ölkə üzrə rayon medianı 49-dur.",
+  "strengths": [
+   "Səhiyyə indeksi 64 olub, ölkə üzrə rayon medianı 49 ilə müqayisədə yüksəkdir (sehiyye 64).",
+   "Rahatlıq indeksi 63 olub, ölkə üzrə rayon medianı 49.5-dir (rahatliq 63).",
+   "İnfrastruktur indeksi 62 olub, ölkə üzrə rayon medianı 45-dir (infrastruktur 62)."
+  ],
+  "weaknesses": [
+   "Nəqliyyat indeksi 37 olub, ölkə üzrə rayon medianı 47-dir (neqliyyat 37).",
+   "Təbiət indeksi 31 olub, ölkə üzrə rayon medianı 51-dir (tebiet 31).",
+   "Məlum yollar arasında asfalt yolların payı 10.8%, örtüyü naməlum yolların payı 67.5%-dir (paved_pct_of_known 10.8%)."
+  ],
+  "best_for": [
+   "10 min sakinə 1.45 yanacaqdoldurma məntəqəsi olan ərazilərdə obyekt axtaranlar",
+   "10 min sakinə 3.13 ərzaq mağazası mövcud olan ünvanlar"
+  ],
+  "watch_out": [
+   "Mənzil qiymətləri və elanlar haqqında məlumat yoxdur",
+   "Avtobus dayanacaqları və marşrutları mövcud deyil (bus_stops 0)"
+  ],
+  "confidence_note": "OSM xəritə əhatəsi yüksəkdir, lakin qiymət və elan məlumatları mövcud deyil.",
+  "_h": "76c683dd114c"
+ },
+ "az-saatli": {
+  "headline": "Saatlı rayonu üzrə məhdud obyekt payı və düzənlik coğrafi mövqe",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Ərazidə park indeksi 21 təşkil edir və PM2.5 modeli 13.1 səviyyəsindədir."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "İnfrastruktur indeksi 94 təşkil edir, lakin örtüyü məlum yollarda naməlum səth payı 91.8 faizdir."
+   }
+  ],
+  "summary": "Saatlı rayonunda 10 min sakinə düşən məktəb göstəricisi 0.54, xəstəxana isə 0.09 təşkil edir. Rahatlıq indeksi 17, təhsil indeksi isə 21 səviyyəsindədir. Örtüyü məlum yollarda naməlum səth payı 91.8 faizdir və OSM-də obyektlərin bir hissəsi xəritələnməyib. Qiymət məlumatları mövcud deyil.",
+  "strengths": [
+   "İnfrastruktur indeksinin ölkə üzrə rayon medianı ilə müqayisədə yüksək olması (94, median 45)",
+   "Düzənlik ərazi və təbiət indeksinin mövcud olması (21, ölkə üzrə rayon medianı 51)",
+   "Dəmir yolu stansiyasının mövcud olması (1 stansiya)"
+  ],
+  "weaknesses": [
+   "Rahatlıq indeksinin ölkə üzrə rayon medianından aşağı olması (17, median 49.5)",
+   "10 min sakinə düşən ərzaq mağazası sayının məhdud olması (0.45, ölkə üzrə rayon medianı 2.29)",
+   "Naməlum səth örtüyünə malik yolların yüksək payı (91.8 faiz)"
+  ],
+  "best_for": [
+   "Mövcud dəmir yolu stansiyasından (1 stansiya) istifadə edənlər",
+   "Sakit düzənlik ərazidə yerləşmək istəyənlər"
+  ],
+  "watch_out": [
+   "OSM-də obyektlərin bir hissəsi xəritələnməyib",
+   "Qiymət məlumatları mövcud deyil",
+   "Avtobus dayanacaqları və marşrutları mövcud deyil (0)"
+  ],
+  "confidence_note": "OSM əhatəsi aşağıdır, yəni obyektlərin bir hissəsi xəritələnməyib. Qiymət məlumatları mövcud deyil.",
+  "_h": "32fb6cf60fcb"
+ },
+ "az-sirvan": {
+  "headline": "Şirvan şəhəri üzrə ərazi analizi və göstəricilər profili",
+  "tags": [
+   {
+    "tag": "teqaudcu",
+    "reason": "10 min sakinə düşən park sayı 21.28 təşkil edir və ölkə medianı 3.89-dur."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Rahatlıq indeksi 86, ölkə medianı isə 49.5 səviyyəsindədir."
+   }
+  ],
+  "summary": "Şirvan şəhərində rahatlıq indeksi 86, səhiyyə indeksi isə 88 olaraq qeydə alınmışdır. Ərazidə 10 min sakinə 11.4 ərzaq obyekti düşür ki, bu da ölkə medianı olan 2.29-u üstələyir. Nəqliyyat indeksi 46, infrastruktur indeksi isə 45 təşkil edir. Asfalt yolların məlum örtük üzrə payı 0 faizdir və səth naməlumluğu 81.3 faiz təşkil edir.",
+  "strengths": [
+   "Səhiyyə indeksi ölkə medianı 49 ilə müqayisədə 88 səviyyəsindədir (sehiyye indeksi 88).",
+   "10 min sakinə düşən park sayı ölkə medianı 3.89-a qarşı 21.28-dir (10 min sakinə 21.28 park).",
+   "10 min sakinə ərzaq obyektlərinin sayı ölkə medianı 2.29-dan yüksəkdir (10 min sakinə 11.4 ərzaq)."
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı məlum yollar arasında 0 faizdir, ölkə medianı isə 4.35 faizdir (asfalt payı 0%).",
+   "Nəqliyyat indeksi 46 olaraq ölkə medianı 47-dən bir qədər aşağıdır (neqliyyat indeksi 46).",
+   "Yolların örtük növünün naməlumluq faizi 81.3 təşkil edir (naməlum səth 81.3%)."
+  ],
+  "best_for": [
+   "Yüksək rahatlıq və səhiyyə göstəricilərinə üstünlük verənlər üçün səhiyyə indeksi 88-dir.",
+   "Çoxlu park ərazisi axtaranlar üçün 10 min sakinə 21.28 park düşür."
+  ],
+  "watch_out": [
+   "Asfalt yolların payı 0 faizdir və səth məlumatı naməlumdur (81.3%).",
+   "Mənzil qiymətləri üzrə məlumat mövcud deyil (prices yoxdur)."
+  ],
+  "confidence_note": "OSM əhatəsi yüksəkdir və adambaşına düşən göstəricilər etibarlıdır (per_capita ok). Qiymətlər haqqında məlumat yoxdur.",
+  "_h": "3531d028117e"
+ },
+ "az-haciqabul": {
+  "headline": "Hacıqabul rayonu: 76800 sakin üçün dağətəyi yaşayış məntəqəsi",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Ərazidə qiymət göstəriciləri mövcud deyil, lakin əhali sıxlığı kvadrat kilometrə 48 nəfər təşkil edir."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Asfalt yolların payı məlum yollar arasında 0%, naməlum örtük isə 75.3% təşkil edir."
+   }
+  ],
+  "summary": "Hacıqabul 1750.9 kvadrat kilometr ərazini və 76800 nəfər əhalini əhatə edir. Ərazinin rahatlıq indeksi 59, nəqliyyat indeksi 37, təhsil indeksi isə 55-dir. Səhiyyə indeksi 61, təbiət indeksi 29, infrastruktur indeksi isə 37 səviyyəsindədir. OSM örtüyü yüksəkdir və adambaşına düşən göstəricilər etibarlıdır.",
+  "strengths": [
+   "Səhiyyə indeksi 61 təşkil edir və ölkə üzrə rayon medianı olan 49-u üstələyir (sehiyye indeksi 61)",
+   "Rahatlıq indeksi 59 səviyyəsindədir, ölkə üzrə rayon medianı isə 49.5-dir (rahatliq indeksi 59)",
+   "10 min sakinə 2.34 xəstəxana düşür, ölkə üzrə median isə 0.75-dir (10 min sakinə 2.34 xəstəxana)"
+  ],
+  "weaknesses": [
+   "Asfalt yolların payı 0%, ölkə üzrə median isə 4.35%-dir (asfalt yolların payı 0%)",
+   "Nəqliyyat indeksi 37 təşkil edir, ölkə üzrə rayon medianı isə 47-dir (neqliyyat indeksi 37)",
+   "Təbiət indeksi 29 səviyyəsindədir, ölkə üzrə median isə 51-dir (tebiet indeksi 29)"
+  ],
+  "best_for": [
+   "Xəstəxana əlçatanlığı axtaranlar",
+   "Səhiyyə göstəricilərinə üstünlük verənlər"
+  ],
+  "watch_out": [
+   "Asfalt örtüklü yolların payı məlumatda yoxdur",
+   "Qiymət məlumatları mövcud deyil",
+   "Nəqliyyat göstəriciləri aşağıdır"
+  ],
+  "confidence_note": "OSM xəritə örtüyü yüksəkdir və adambaşına düşən göstəricilər etibarlıdır. Qiymətlər barədə məlumat yoxdur.",
+  "_h": "80ffe1cf4406"
  }
 }

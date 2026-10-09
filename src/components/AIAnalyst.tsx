@@ -8,14 +8,10 @@ type FitExplain = { fit_comment: string; why: string[]; trade_offs: string[] };
 
 export default function AIAnalyst({ region: r, national, persona, fit, overBudget }: { region: Region; national: National; persona: Persona | null; fit: number | null; overBudget: boolean }) {
   const ai = r.ai;
-  const [q, setQ] = useState("");
-  const [answer, setAnswer] = useState<{ q: string; a: string } | null>(null);
-  const [busy, setBusy] = useState(false);
   const [fx, setFx] = useState<FitExplain | null>(null);
   const [fxBusy, setFxBusy] = useState(false);
 
   useEffect(() => {
-    setAnswer(null);
     setFx(null);
     if (!persona || fit == null) return;
     let cancel = false;
@@ -29,19 +25,6 @@ export default function AIAnalyst({ region: r, national, persona, fit, overBudge
       cancel = true;
     };
   }, [r.id, persona, fit, overBudget]);
-
-  async function ask(e: React.FormEvent) {
-    e.preventDefault();
-    if (!q.trim()) return;
-    setBusy(true);
-    try {
-      const res = await fetch("/api/ask", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ question: q, regionId: r.id }) });
-      const j = await res.json();
-      setAnswer({ q, a: j.answer ?? j.error ?? "Cavab alınmadı" });
-    } finally {
-      setBusy(false);
-    }
-  }
 
   return (
     <section className="rounded-2xl border-2 border-caspian/25 bg-sand-2 p-5 md:p-7" aria-labelledby="ai-title">

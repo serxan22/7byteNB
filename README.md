@@ -95,7 +95,7 @@ All tests live in [`/evals`](evals), write `public/data/evals.json`, and are sho
 ## 5. Originality
 
 - **Decision engine, not a chatbot.** AI parses intent and explains, code ranks, and **code computes confidence** with a visible breakdown. No other tool here joins neighbourhood-level metrics to a buyer's sentence.
-- **Micro-areas.** H3 hexes labelled with human names ("Nərimanov · Gənclik m. ətrafı"), with walking distance to a validated metro station and hex-level price medians where at least 5 listings exist.
+- **Micro-areas.** 1,737 H3 hexes in Baku, Sumqayıt and Gəncə, labelled with human names ("Nərimanov · Gənclik m. ətrafı"), with walking distance to a validated metro station and hex-level price medians where at least 5 listings exist. Outside these cities, 1,284 OSM towns and villages carry stats within 1.5 km ("Bakıdan kənarda dağ havası" returns "Şəki · Kiş", "Quba · Bəhrəli").
 - **Legal check of listing language**, AI plus a deterministic detector, so known risk phrases are never missed.
 - **True cost** over 10 years: a cheap flat far from work can cost more.
 - **Data honesty as a feature:** every number has a badge (Canlı OSM, Rəsmi DSK, Nümunə, Mətbuat, Demo, Model), and we publish our own failures.
