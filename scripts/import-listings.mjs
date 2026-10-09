@@ -96,14 +96,8 @@ for (const [id, o] of Object.entries(regions)) {
 }
 fs.writeFileSync(csvPath, [header, ...existing.values()].join("\n") + "\n");
 
-// hex medians into hexes.json
-const hx = JSON.parse(fs.readFileSync("public/data/hexes.json", "utf8"));
-let hexWith = 0;
-for (const h of hx.hexes) {
-  const s = hexes[h.h];
-  if (s) { h.pm = s.median; h.pn = s.n; hexWith++; } else { delete h.pm; delete h.pn; }
-}
-fs.writeFileSync("public/data/hexes.json", JSON.stringify(hx));
+// hex medians are attached by scripts/build-hexes.mjs (reads listings-agg.json; pieces are "<h3>_<region>")
+const hexWith = Object.keys(hexes).length;
 console.log(`rows ${rows}, unique ${seen.size}, kept ${kept}, no-geo ${noGeo}, outliers ${outlier}, period ${period}`);
 console.log(`regions with medians: ${Object.values(regions).filter((r) => Object.keys(r.types).length).length}; prices.csv mock→sample ${replaced}, new rows ${added}; hexes with median ${hexWith}`);
 console.log("Baku:", JSON.stringify(regions["az-baki"]), "\nNərimanov:", JSON.stringify(regions["bk-nerimanov"]));

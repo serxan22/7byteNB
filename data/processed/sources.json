@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T13:25:45.598Z",
+ "generated_at": "2026-10-09T13:47:06.855Z",
  "datasets": [
   {
    "key": "osm",
@@ -71,6 +71,36 @@
    "date": "2026-10-09",
    "coverage": "61 dərc olunmuş dəyər, 40 demo dəyər; 22 ərazi",
    "used_for": "Qiymətlər, əlçatanlıq indeksi, büdcə filtri, həqiqi xərc"
+  },
+  {
+   "key": "metro",
+   "name": "Bakı metrosu — 27 işləyən stansiya (OSM yoxlaması üçün)",
+   "url": "https://en.wikipedia.org/wiki/List_of_Baku_Metro_stations",
+   "badge": "official",
+   "status": "ok",
+   "date": "2026-10-09",
+   "coverage": "OSM-dəki 33 'stansiya'dan depo, çıxış və planlaşdırılan 7-si atıldı; 26/27 uyğun gəlir",
+   "used_for": "Metroya piyada məsafə, nəqliyyat indeksi. metro.gov.az əlçatan olmadı."
+  },
+  {
+   "key": "mida",
+   "name": "MİDA güzəştli mənzil qiymətləri",
+   "url": "https://mida.gov.az",
+   "badge": "official",
+   "status": "unavailable",
+   "date": null,
+   "coverage": "2026 üçün m² qiyməti dərc olunmayıb; tapılan 2021 elanları mənzil başınadır",
+   "used_for": "Planlaşdırılırdı: rəsmi qiymət nöqtələri"
+  },
+  {
+   "key": "bna",
+   "name": "Bakı Nəqliyyat Agentliyi — avtobus marşrutları",
+   "url": "https://bna.az",
+   "badge": "official",
+   "status": "unavailable",
+   "date": null,
+   "coverage": "Maşınla oxunan açıq marşrut məlumatı tapılmadı; OSM marşrutları istifadə olunur",
+   "used_for": "Planlaşdırılırdı: marşrut yoxlaması"
   },
   {
    "key": "legal",

@@ -1,7 +1,7 @@
 {
- "ran_at": "2026-10-09T13:31:37.704Z",
- "passed": 14,
- "total": 14,
+ "ran_at": "2026-10-09T13:49:53.658Z",
+ "passed": 16,
+ "total": 16,
  "checks": [
   {
    "name": "75 rayon/şəhər var",
@@ -74,6 +74,18 @@
    "pass": true,
    "detail": "OSM 26 / rəsmi 27 (Wikipedia — List of Baku Metro stations (27 işləyən stansiya; metro.gov.az əlçatan olmadı))",
    "hard": false
+  },
+  {
+   "name": "Hər məhəllə (hex parçası) öz rayonunun içindədir",
+   "pass": true,
+   "detail": "3700 parça yoxlanıldı",
+   "hard": true
+  },
+  {
+   "name": "Məhəllələrin cəmi sahəsi ≈ rayon sahəsi (±3%)",
+   "pass": true,
+   "detail": "maks fərq 1.60%",
+   "hard": true
   },
   {
    "name": "Aşağı OSM əhatəli ərazilərin payı",

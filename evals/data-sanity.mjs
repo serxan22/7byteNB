@@ -62,6 +62,31 @@ const official = fs.existsSync("data/manual/metro-stations.json") ? JSON.parse(f
 if (official) add("Metro stansiyaları: OSM ≈ rəsmi siyahı (±3)", Math.abs(bakuMetro - official.stations.length) <= 3, `OSM ${bakuMetro} / rəsmi ${official.stations.length} (${official.source})`, false);
 else add("Metro stansiyaları: rəsmi siyahı ilə müqayisə", false, `OSM ${bakuMetro}; rəsmi siyahı faylı yoxdur`, false);
 
+// 7b. Honeycomb: every hex piece lies inside its parent region; summed piece area ≈ region area (±3%)
+{
+  const { default: turfArea } = await import("@turf/area");
+  const { default: turfIntersect } = await import("@turf/intersect");
+  const { featureCollection } = await import("@turf/helpers");
+  const geo = JSON.parse(fs.readFileSync("public/data/hexes-geo.json", "utf8")).features;
+  const regs = [...JSON.parse(fs.readFileSync("public/data/regions-baku.geojson", "utf8")).features, ...JSON.parse(fs.readFileSync("public/data/regions-az.geojson", "utf8")).features];
+  const regF = {};
+  for (const f of regs) (regF[f.properties.id] ||= []).push(f);
+  const outside = [], sums = {};
+  for (const f of geo) {
+    const a = turfArea(f);
+    sums[f.properties.r] = (sums[f.properties.r] ?? 0) + a;
+    const inA = (regF[f.properties.r] ?? []).reduce((s2, rf) => s2 + (turfArea(turfIntersect(featureCollection([f, rf])) ?? { type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [] } }) || 0), 0);
+    if (inA < a * 0.99) outside.push(`${f.properties.id} (${Math.round((inA / a) * 100)}%)`);
+  }
+  add("Hər məhəllə (hex parçası) öz rayonunun içindədir", !outside.length, outside.slice(0, 3).join(", ") || `${geo.length} parça yoxlanıldı`);
+  const dev = Object.entries(sums).map(([r, a]) => {
+    const ra = regF[r].reduce((s2, rf) => s2 + turfArea(rf), 0);
+    return [r, (a / ra - 1) * 100];
+  });
+  const bad = dev.filter(([, d]) => Math.abs(d) > 3);
+  add("Məhəllələrin cəmi sahəsi ≈ rayon sahəsi (±3%)", !bad.length, bad.map(([r, d]) => `${r} ${d.toFixed(1)}%`).join(", ") || `maks fərq ${Math.max(...dev.map(([, d]) => Math.abs(d))).toFixed(2)}%`);
+}
+
 // 8. Coverage stats (informational)
 const low = all.filter((r) => r.coverage.osm === "aşağı").length;
 add("Aşağı OSM əhatəli ərazilərin payı", true, `${low}/${all.length} (${Math.round((low / all.length) * 100)}%)`, false);

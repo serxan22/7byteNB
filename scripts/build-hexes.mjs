@@ -1,12 +1,17 @@
-// Micro-areas: H3 res-8 hexes (~0.74 km²) over Baku, Sumqayıt and Gəncə built-up areas (hex with ≥1 POI or road).
-// Out: public/data/hexes.json (metrics) + public/data/hexes-geo.json (boundaries).
+// Micro-areas: H3 res-8 honeycomb (~0.74 km²) cut to the shape of each region (Baku districts, Sumqayıt, Gəncə).
+// Every overlapping cell is clipped to its region polygon → pieces "<h3>_<regionId>"; slivers (<5% of a hex) are
+// dropped and their stats merged into a neighbouring piece of the same region. Stats use the clipped geometry.
+// Cache: data/raw/hexes/pieces.json (clipping step). Out: public/data/hexes.json + public/data/hexes-geo.json.
 import fs from "node:fs";
 import readline from "node:readline";
-import { latLngToCell, cellToLatLng, cellToBoundary } from "h3-js";
+import { latLngToCell, cellToBoundary, polygonToCellsExperimental, POLYGON_TO_CELLS_FLAGS, gridDisk } from "h3-js";
+import turfArea from "@turf/area";
+import turfCentroid from "@turf/centroid";
+import turfIntersect from "@turf/intersect";
 import turfBbox from "@turf/bbox";
 import turfLength from "@turf/length";
 import pip from "@turf/boolean-point-in-polygon";
-import { point } from "@turf/helpers";
+import { point, polygon, featureCollection } from "@turf/helpers";
 
 const O = "data/raw/osm";
 // Official station list validates OSM: depots, exits and planned stations tagged station=subway are dropped.
@@ -58,19 +63,55 @@ const rep = (g) => {
   const b = turfBbox(g);
   return [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2];
 };
-const cells = new Map();
-const cell = (h) => {
-  if (!cells.has(h)) cells.set(h, { p: new Array(CATS.length).fill(0), road: 0, paved: 0, unpaved: 0, stops: 0 });
-  return cells.get(h);
+// ---- step 1 (cached): honeycomb clipped to region polygons ----
+const CACHE = "data/raw/hexes/pieces.json";
+let cache;
+if (fs.existsSync(CACHE)) cache = JSON.parse(fs.readFileSync(CACHE, "utf8"));
+else {
+  const pieces = {}, slivers = {};
+  for (const t of targets) {
+    const polys = t.f.geometry.type === "Polygon" ? [t.f.geometry.coordinates] : t.f.geometry.coordinates;
+    const hs = new Set(polys.flatMap((pc) => polygonToCellsExperimental(pc, RES, POLYGON_TO_CELLS_FLAGS.containmentOverlapping, true)));
+    for (const h of hs) {
+      const hex = polygon([cellToBoundary(h, true)]);
+      const full = turfArea(hex);
+      const g = turfIntersect(featureCollection([hex, t.f])); // always clip: a concave border can cut between vertices
+      if (!g) continue;
+      const a = turfArea(g);
+      const id = `${h}_${t.id}`;
+      if (a < 0.05 * full) slivers[id] = { h, r: t.id };
+      else pieces[id] = { h, r: t.id, a, g: g.geometry };
+    }
+  }
+  // sliver → largest neighbouring piece of the same region (its POIs/roads are merged there)
+  const merge = {};
+  for (const [id, sv] of Object.entries(slivers)) {
+    const nb = gridDisk(sv.h, 1).map((n) => pieces[`${n}_${sv.r}`] && `${n}_${sv.r}`).filter(Boolean).sort((x, y) => pieces[y].a - pieces[x].a);
+    if (nb.length) merge[id] = nb[0];
+  }
+  cache = { pieces, merge };
+  fs.mkdirSync("data/raw/hexes", { recursive: true });
+  fs.writeFileSync(CACHE, JSON.stringify(cache));
+}
+const PIECES = cache.pieces, MERGE = cache.merge;
+const stats = new Map();
+/** stats bucket of the piece containing a point that lies in region `rid` (slivers redirect to their neighbour) */
+const cell = (h, rid) => {
+  let id = `${h}_${rid}`;
+  if (!PIECES[id]) id = MERGE[id];
+  if (!id) return null;
+  if (!stats.has(id)) stats.set(id, { p: new Array(CATS.length).fill(0), road: 0, paved: 0, unpaved: 0, stops: 0 });
+  return stats.get(id);
 };
 const metro = [], stops = [], schools = [], kgs = [], parks = [];
 for await (const f of seq(`${O}/pois.geojsonseq`)) {
   const [lon, lat] = rep(f.geometry);
-  if (!inBox(lon, lat) || !locate(lon, lat)) continue;
+  const reg0 = inBox(lon, lat) ? locate(lon, lat) : null;
+  if (!reg0) continue;
   const t = f.properties;
   const h = latLngToCell(lat, lon, RES);
-  const c = cell(h);
-  for (const k of cats(t)) c.p[CATS.indexOf(k)]++;
+  const c = cell(h, reg0.id) ?? { p: [], stops: 0 };
+  for (const k of cats(t)) if (c.p.length) c.p[CATS.indexOf(k)]++;
   if (t.station === "subway") {
     const name = officialMetro(t["name:az"] || t.name);
     if (name) metro.push({ ll: [lon, lat], name });
@@ -85,8 +126,10 @@ const UNPAVED = new Set(["unpaved", "dirt", "ground", "gravel", "compacted", "sa
 for await (const f of seq(`${O}/roads.geojsonseq`)) {
   const co = f.geometry.coordinates;
   const [lon, lat] = co[Math.floor(co.length / 2)];
-  if (!inBox(lon, lat) || !locate(lon, lat)) continue;
-  const c = cell(latLngToCell(lat, lon, RES));
+  const reg1 = inBox(lon, lat) ? locate(lon, lat) : null;
+  if (!reg1) continue;
+  const c = cell(latLngToCell(lat, lon, RES), reg1.id);
+  if (!c) continue;
   const km = turfLength(f);
   const s = f.properties.surface;
   c.road += km;
@@ -111,12 +154,18 @@ const nearest = (pts, p, get = (x) => x) => {
 };
 
 const hexes = [], features = [];
-for (const [h, c] of cells) {
-  const nPoi = c.p.reduce((a, b) => a + b, 0);
-  if (nPoi < 1 && c.road < 0.3) continue;
-  const [lat, lon] = cellToLatLng(h);
-  const reg = locate(lon, lat) ?? locate(...rep({ type: "Point", coordinates: [lon, lat] }));
-  if (!reg) continue;
+const EMPTY = { p: new Array(CATS.length).fill(0), road: 0, paved: 0, unpaved: 0, stops: 0 };
+const listingHex = fs.existsSync("data/processed/listings-agg.json") ? JSON.parse(fs.readFileSync("data/processed/listings-agg.json", "utf8")).hexes : {};
+const biggest = {};
+for (const [id, pc] of Object.entries(PIECES)) if (!biggest[pc.h] || PIECES[biggest[pc.h]].a < pc.a) biggest[pc.h] = id;
+const round = (co) => (typeof co[0] === "number" ? [+co[0].toFixed(5), +co[1].toFixed(5)] : co.map(round));
+for (const [id, pc] of Object.entries(PIECES)) {
+  const c = stats.get(id) ?? EMPTY;
+  const reg = targets.find((t) => t.id === pc.r);
+  // representative point of the clipped piece (centroid, or a vertex-free fallback if it falls outside)
+  let [lon, lat] = turfCentroid({ type: "Feature", properties: {}, geometry: pc.g }).geometry.coordinates;
+  if (!pip(point([lon, lat]), { type: "Feature", properties: {}, geometry: pc.g })) [lon, lat] = (pc.g.type === "Polygon" ? pc.g.coordinates[0] : pc.g.coordinates[0][0])[0];
+  const h = id;
   const ll = [lon, lat];
   const mt = nearest(metro, ll, (x) => x.ll);
   const pl = nearest(places, ll, (x) => x.ll);
@@ -138,14 +187,13 @@ for (const [h, c] of cells) {
     pk: parks.length ? nearest(parks, ll).d : null,
     rk: +c.road.toFixed(2),
     pv: known >= 0.2 ? Math.round((c.paved / known) * 100) : null,
+    a: Math.round(pc.a / 1000) / 1000, // km²
+    ...(listingHex[pc.h] && biggest[pc.h] === id ? { pm: listingHex[pc.h].median, pn: listingHex[pc.h].n } : {}),
   });
-  const ring = cellToBoundary(h, true).map(([x, y]) => [+x.toFixed(5), +y.toFixed(5)]);
-  features.push({ type: "Feature", properties: { id: h, r: reg.id }, geometry: { type: "Polygon", coordinates: [ring] } });
+  features.push({ type: "Feature", properties: { id: h, r: reg.id }, geometry: { type: pc.g.type, coordinates: round(pc.g.coordinates) } });
 }
 fs.writeFileSync("public/data/hexes.json", JSON.stringify({ res: RES, cats: CATS, hexes }));
 fs.writeFileSync("public/data/hexes-geo.json", JSON.stringify({ type: "FeatureCollection", features }));
 const kb = (f) => (fs.statSync(f).size / 1024).toFixed(0);
 const byReg = hexes.reduce((o, x) => ((o[x.r] = (o[x.r] || 0) + 1), o), {});
-console.log(`hexes: ${hexes.length} (${kb("public/data/hexes.json")} KB + geo ${kb("public/data/hexes-geo.json")} KB); metro pts ${metro.length}; places ${places.length}`);
-console.log(JSON.stringify(byReg));
-console.log(JSON.stringify(hexes.find((x) => x.r === "bk-nerimanov" && x.m < 500)));
+console.log(`pieces: ${hexes.length} in ${Object.keys(byReg).length} regions, slivers merged ${Object.keys(MERGE).length}; ${kb("public/data/hexes.json")} KB + geo ${kb("public/data/hexes-geo.json")} KB; area min/max ${Math.min(...hexes.map((x) => x.a))}/${Math.max(...hexes.map((x) => x.a))} km²`);
