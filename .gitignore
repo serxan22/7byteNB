@@ -45,3 +45,13 @@ data/raw/
 *.jpg.tmp
 .playwright-mcp/
 data/manual/prices.before-listings.csv
+.env
+.env*.local
+node_modules
+data/raw
+.vercel
+.env
+.env*.local
+node_modules
+data/raw
+.vercel
