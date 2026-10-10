@@ -64,7 +64,7 @@ export default function Compare() {
   const az = all.filter((r) => r.level === "rayon").sort((a, b) => a.name.localeCompare(b.name, "az"));
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 md:py-12">
+    <div className="mx-auto w-full max-w-6xl px-4 py-8 md:py-12">
       <Link href="/xerite" className="text-sm font-bold text-caspian">{t("back")}</Link>
       <h1 className="mt-4 text-4xl font-extrabold tracking-[-0.035em] md:text-5xl">{t("h1")}</h1>
       <div className="mt-6 flex flex-wrap gap-3">

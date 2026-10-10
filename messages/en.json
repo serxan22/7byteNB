@@ -257,7 +257,7 @@
   "trustSsc": "State Statistics Committee",
   "trustListings": "bina.az listing medians (2024)",
   "trustSources": "Sources and methodology",
-  "trustQuality": "Testing and quality",
+  "trustQuality": "Quality and tests",
   "searchPh": "What are you looking for? E.g. family with children, home near a school in Yasamal",
   "searchBtn": "Search",
   "orExplore": "or <link>explore the map yourself</link>"
@@ -457,7 +457,7 @@
    "now": "Now",
    "prod": "Needed for production",
    "r1": "Boundaries, POI, metro, stops, roads|real (OSM)|monthly automatic refresh + data-sanity tests",
-   "r2": "Population, density|official (DSK, 01.01.2026)|annual refresh",
+   "r2": "Population, density|official (SSC, 01.01.2026)|annual refresh",
    "r3": "Prices|54 listing medians + 7 published figures; 40 demo|partnership (API) with a listing portal, bank or the Chamber of Appraisers",
    "r4": "Metro list|checked against 27 operating stations|official GTFS / Metro API",
    "r5": "Legal texts|none, so the AI does not cite article numbers|a corpus reviewed by a lawyer",
@@ -468,7 +468,7 @@
   "m": {
    "mahalle": "<b>Neighbourhoods.</b> 905 neighbourhoods (məhəllə) across Baku, Sumqayıt and Gəncə: the 67 with a boundary in OSM (microdistricts, settlements) are used as they are; the rest of the area is filled with Voronoi cells built from OSM settlement points and metro stations and clipped to district boundaries, so boundaries are approximate (not aligned to streets). Indicators are aggregated from an internal H3 grid (3,700 cells): counts are summed, distances are area-weighted averages and prices are medians; distances to the nearest metro (checked against the 27 operating stations), stop, school, kindergarten and park; names come from OSM settlements. The price is the median if a neighbourhood has ≥5 listings, otherwise the district average.",
    "engine": "<b>Decision engine.</b> The AI structures the query and explains the result; code filters and ranks matching areas and computes the confidence score (coverage 40%, query completeness 25%, gap between 1st and 2nd 20%, match with constraints 15%).",
-   "areas": "<b>Areas.</b> OSM administrative boundaries: 75 districts/cities and Baku's 12 districts. Sea areas are clipped by the Caspian coastline (islands kept). Population and density: DSK, 01.01.2026.",
+   "areas": "<b>Areas.</b> OSM administrative boundaries: 75 districts/cities and Baku's 12 districts. Sea areas are clipped by the Caspian coastline (islands kept). Population and density: SSC, 01.01.2026.",
    "services": "<b>Services.</b> OSM features (pharmacies, groceries, schools, kindergartens, hospitals, clinics, banks, cafés, sport, parks etc.) are counted if they fall inside the polygon and divided per 10,000 residents.",
    "transport": "<b>Transport.</b> Metro and railway stations (unique by name), bus stops, bus/minibus routes mapped in OSM; for Baku districts, the straight-line distance from the centre to the nearest metro.",
    "roads": "<b>Roads.</b> Main roads, streets and rural tracks; surface from the OSM “surface” tag: asphalt/concrete, dirt/gravel or unknown. On the map, “paved %” is calculated among roads with a known surface.",

@@ -97,7 +97,7 @@ for (const level of ["rayon", "baku_district"]) {
       for (const k of Object.keys(r.per10k)) r.per10k[k] = null;
       r.coverage.per_capita = "unreliable";
       r.coverage.note = `OSM-də ${tot(r)} obyekt var, amma DSK-ya görə əhali cəmi ${r.population.v} nəfərdir (ölkə medianından ${Math.round(ratio)} dəfə çox obyekt/sakin). Obyektlərin çoxu əvvəlki dövrün xəritələməsidir; 10 min sakinə düşən göstəricilər etibarsızdır və hesablanmır.`;
-      r.coverage.note_en = `OSM has ${tot(r)} features here, but according to the State Statistics Committee (DSK) the population is only ${r.population.v} (${Math.round(ratio)} times more features per resident than the national median). Most features date from earlier mapping; per-10k-resident figures are unreliable and are not calculated.`;
+      r.coverage.note_en = `OSM has ${tot(r)} features here, but according to the State Statistics Committee (SSC) the population is only ${r.population.v} (${Math.round(ratio)} times more features per resident than the national median). Most features date from earlier mapping; per-10k-resident figures are unreliable and are not calculated.`;
     } else r.coverage.per_capita = "ok";
   }
 }
@@ -159,7 +159,7 @@ const cov = (l) => ({ "yüksək": "high", orta: "medium", "aşağı": "low" })[l
 const nReg = (f) => `${regions.filter(f).length}/${regions.length} areas`;
 const DS_EN = {
   osm: { name: "OpenStreetMap (Geofabrik Azerbaijan extract)", coverage: `Districts: ${covCount("rayon", "yüksək")} ${cov("yüksək")} / ${covCount("rayon", "orta")} ${cov("orta")} / ${covCount("rayon", "aşağı")} ${cov("aşağı")}; Baku districts: ${covCount("baku_district", "yüksək")} high / ${covCount("baku_district", "orta")} medium`, used_for: "Boundaries, services (POI), stops, metro, routes, roads and surface, land cover, coastline" },
-  dsk: { name: "State Statistics Committee (DSK) — table 1.15 (area, population, density)", coverage: nReg((r) => r.population.v), used_for: "Population (01.01.2026), density, per-10,000-resident indicators" },
+  dsk: { name: "State Statistics Committee (SSC) — table 1.15 (area, population, density)", coverage: nReg((r) => r.population.v), used_for: "Population (01.01.2026), density, per-10,000-resident indicators" },
   elevation: { name: "Open-Meteo Elevation API (Copernicus DEM 90 m)", coverage: `${nReg((r) => r.nature.elev_mean != null)}, 5×5 grid in each area`, used_for: "Elevation, terrain type (plain/foothills/mountain)" },
   climate: { name: "Open-Meteo Historical Weather (ERA5)", coverage: `${nReg((r) => r.climate.july_max_c != null)} (centre point)`, used_for: "July average maximum, January average minimum, annual precipitation" },
   air: { name: "Open-Meteo Air Quality (CAMS model)", date: "last 30 days", coverage: nReg((r) => r.air.pm25 != null), used_for: "PM2.5 (a model, not a measurement)" },

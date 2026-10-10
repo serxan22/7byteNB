@@ -57,7 +57,7 @@ export default async function Quality({ params }: { params: Promise<{ locale: Ap
   const e = JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/evals.json"), "utf8")) as Evals;
   const usd = (v: number | null) => (v == null ? "—" : v < 0.01 ? `$${v.toFixed(4)}` : `$${v.toFixed(2)}`);
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
+    <div className="mx-auto w-full max-w-5xl px-4 py-8 md:py-12">
       <Link href="/xerite" className="text-sm font-bold text-caspian">{t("back")}</Link>
       <h1 className="mt-4 text-4xl font-extrabold tracking-[-0.035em] md:text-5xl">{t("h1")}</h1>
       <p className="mt-3 max-w-[70ch] text-[15px] leading-relaxed text-ink-2">

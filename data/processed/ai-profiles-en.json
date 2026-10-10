@@ -1473,5 +1473,1536 @@
   ],
   "confidence_note": "OSM coverage is low, which means a portion of the objects is not mapped. Price data is none, so no pricing conclusions can be drawn.",
   "_h": "29b112532379"
+ },
+ "az-saatli": {
+  "headline": "Saatlı: rural district with low amenity density and sparse infrastructure",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "This plain terrain neighbourhood features a mean elevation of -13 metres and a PM2.5 model of 13.1 micrograms per cubic metre."
+   }
+  ],
+  "summary": "Saatlı is a district with a population of 111,800 and a density of 95 residents per square kilometre. The area records a low comfort index of 17 and a health index of 22 compared to national medians. Road surface data shows an unknown share of 91.8%, while the infrastructure index stands at 94. OSM coverage is low, indicating that some map objects are missing.",
+  "strengths": [
+   "The infrastructure index is recorded at 94 against a national median of 45.",
+   "The total road network spans 849 kilometres.",
+   "There is 1 rail station serving the district population of 111,800."
+  ],
+  "weaknesses": [
+   "Grocery density is 0.45 per 10,000 residents, below the national median of 2.29.",
+   "School count is 6, resulting in 0.54 per 10,000 residents against a national median of 4.14.",
+   "Hospital count is 1, yielding 0.09 per 10,000 residents compared to a national median of 0.75."
+  ],
+  "best_for": [
+   "Residents seeking a plain terrain setting with 1 park per 111,800 residents.",
+   "Buyers looking for locations with 1 rail station."
+  ],
+  "watch_out": [
+   "Surface unknown share reaches 91.8% for roads.",
+   "OSM coverage is low, meaning a portion of objects is unmapped.",
+   "No price data or listings are available for this neighbourhood."
+  ],
+  "confidence_note": "OSM coverage is low, meaning a portion of objects is unmapped. Price data is none, so no property price estimates can be derived.",
+  "_h": "32fb6cf60fcb"
+ },
+ "az-sabirabad": {
+  "headline": "Sabirabad district features 0.44 groceries per 10,000 residents and low road paving.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The neighbourhood records a nature index of 34 and a PM2.5 model value of 12.9 µg/m³."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "The infrastructure index is 67 and the population density is 125 people per km²."
+   }
+  ],
+  "summary": "Sabirabad has 183,100 residents spread across 1,547.3 km² with a population density of 125 per km². The district records 0.82 schools and 0.33 hospitals per 10,000 residents. The road network spans 1,893 km with a known paved share of 4.7%. The local comfort index is 19 and the education index is 29 compared to national medians of 49.5 and 53 respectively.",
+  "strengths": [
+   "The infrastructure index reaches 67 compared to the national median of 45 (67).",
+   "The known paved road share is 4.7% compared to the national median of 4.35% (4.7%).",
+   "The nature index is recorded at 34 compared to the national median of 51 (34)."
+  ],
+  "weaknesses": [
+   "The grocery store count is 0.44 per 10,000 residents compared to the national median of 2.29 (0.44 per 10,000 residents).",
+   "The school count is 0.82 per 10,000 residents compared to the national median of 4.14 (0.82 per 10,000 residents).",
+   "The comfort index is 19 compared to the national median of 49.5 (19)."
+  ],
+  "best_for": [
+   "Residents seeking plain terrain and an elevation of -19 metres.",
+   "Buyers looking at a district with 8 groceries and 15 schools in total."
+  ],
+  "watch_out": [
+   "The surface unknown road percentage is 80.9%.",
+   "There are 0 pharmacies and 0 bus stops per 10,000 residents in the district.",
+   "Price data is currently unavailable for this area."
+  ],
+  "confidence_note": "The OSM coverage is medium, meaning some objects are not mapped. Price data is none, and per-capita indicators are reliable.",
+  "_h": "43eaaf9aab3a"
+ },
+ "az-agsu": {
+  "headline": "Ağsu district profile with low paved road coverage and high school availability",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The neighbourhood features 11.29 parks per 10,000 residents, compared to the national median of 3.89."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Education index stands at 59, with 9.94 schools per 10,000 residents against the national median of 4.14."
+   }
+  ],
+  "summary": "Ağsu has a population of 81,500 and a density of 80 people per square kilometre. The area features 9.94 schools per 10,000 residents, which exceeds the national median of 4.14. However, paved road coverage of known surfaces is 0%, significantly below the national median of 4.35%. The neighbourhood records 0.12 pharmacies per 10,000 residents, while the national median is 0.18. OSM coverage is high, but price data is missing.",
+  "strengths": [
+   "School density is high with 9.94 schools per 10,000 residents, compared to the national median of 4.14 (school index 59).",
+   "Park presence is prominent with 11.29 parks per 10,000 residents, exceeding the national median of 3.89 (tebiet index 45).",
+   "Bazaar provision stands at 0.25 per 10,000 residents, higher than the national median of 0.08 (bazaar count 2)."
+  ],
+  "weaknesses": [
+   "Paved road share of known surfaces is 0%, falling below the national median of 4.35% (infrastruktur index 31).",
+   "Grocery store density is 0.86 per 10,000 residents, lower than the national median of 2.29 (grocery count 7).",
+   "Transport index is low at 37, with 0 bus stops per 10,000 residents compared to the national median of 0.27."
+  ],
+  "best_for": [
+   "Families seeking a neighbourhood with high school availability.",
+   "Residents looking for areas with a high concentration of parks."
+  ],
+  "watch_out": [
+   "Paved road coverage of known surfaces is 0%, and surface unknown percentage is 70.8%.",
+   "Price data is unavailable, as there are no listings or price estimates in the dataset.",
+   "Pharmacy count is 0.12 per 10,000 residents, which is below the national median of 0.18."
+  ],
+  "confidence_note": "OSM coverage is high and per capita metrics are reliable. Price data is absent, meaning no price estimates or listings are available for this neighbourhood.",
+  "_h": "f76f23f56549"
+ },
+ "az-susa": {
+  "headline": "Şuşa mountainous district profile with sparse urban infrastructure and moderate park density.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area offers 9.88 parks per 10,000 residents, national median 3.89, alongside 38.2% forest cover."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Paved roads share stands at 24.4% of known surfaces, compared to the national median of 4.35%."
+   }
+  ],
+  "summary": "Şuşa is a mountain district with a population of 25,300 and a low density of 87 residents per square kilometre. Urban amenities are limited, featuring 2.37 groceries per 10,000 residents (national median 2.29) and 0 schools per 10,000 residents (national median 4.14). Transport indices reach 54 against a national median of 47, supported by 0.79 bus stops per 10,000 residents. The OSM coverage is medium, meaning some objects are not mapped, and price data is entirely absent.",
+  "strengths": [
+   "Park density reaches 9.88 per 10,000 residents, exceeding the national median of 3.89 (9.88 parks per 10,000 residents; median 3.89).",
+   "Paved road share is higher at 24.4% of known surfaces compared to the national median of 4.35% (paved share 24.4%; median 4.35%).",
+   "Transport index is 54, which is above the national median of 47 (neqliyyat index 54; median 47)."
+  ],
+  "weaknesses": [
+   "School provision is zero per 10,000 residents, trailing the national median of 4.14 (0 schools per 10,000 residents; median 4.14).",
+   "Pharmacy count is zero per 10,000 residents, below the national median of 0.18 (0 pharmacies per 10,000 residents; median 0.18).",
+   "Road infrastructure score remains low at 48 against a national median of 45, compounded by 26.1% surface unknown percentages (infrastruktur index 48; median 45)."
+  ],
+  "best_for": [
+   "Nature-focused residents seeking mountainous terrain.",
+   "Individuals requiring high park and green space availability."
+  ],
+  "watch_out": [
+   "OSM coverage is medium, meaning a portion of local objects is not mapped.",
+   "Price data is unavailable with zero listings recorded.",
+   "Education infrastructure is currently absent."
+  ],
+  "confidence_note": "OSM coverage is medium, indicating that a portion of objects is not mapped. Price data is absent as listings are null.",
+  "_h": "d46498810f31"
+ },
+ "az-oguz": {
+  "headline": "Oğuz: Mountain district with extensive forest cover and moderate local infrastructure",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Forest share stands at 35%, and PM2.5 air pollution is 9.4 µg/m³ against national median of 12.5."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Schools reach 9.8 per 10,000 residents compared to the national median of 4.14."
+   }
+  ],
+  "summary": "Oğuz is a mountainous district covering 1,081.6 km² with a population of 44,900 residents. The area provides robust educational coverage with 9.8 schools per 10,000 residents, alongside 7.13 parks per 10,000 residents. Road infrastructure remains limited with unknown surface share at 74.1% and paved road coverage at 0%. Natural conditions feature significant greenery with 35% forest cover and a mean elevation of 1,460 metres.",
+  "strengths": [
+   "High availability of educational facilities with 9.8 schools per 10,000 residents versus national median of 4.14 (schools 9.8 per 10,000 residents; median 4.14)",
+   "Extensive natural environment featuring 35% forest cover and a favourable PM2.5 reading of 9.4 (PM2.5 9.4 µg/m³; national median 12.5)",
+   "Above-median park count with 7.13 parks per 10,000 residents against national median of 3.89 (parks 7.13 per 10,000 residents; median 3.89)"
+  ],
+  "weaknesses": [
+   "Severe deficit in paved road surfaces with 0% recorded for known roads compared to national median of 4.35% (paved roads 0%; median 4.35%)",
+   "Low public transport stop density with 0.45 bus stops per 10,000 residents (bus stops 0.45 per 10,000 residents; median 0.27)",
+   "High share of road surface types remaining unmapped at 74.1% (surface unknown share 74.1%)"
+  ],
+  "best_for": [
+   "Residents seeking mountainous nature and rural tranquility",
+   "Families requiring local access to multiple schools"
+  ],
+  "watch_out": [
+   "Road infrastructure lacks paved surfaces entirely according to known data",
+   "OSM mapping coverage is medium, meaning some local objects may be omitted",
+   "No price data is available for housing listings in this district"
+  ],
+  "confidence_note": "OSM coverage is medium, indicating some physical objects may be unmapped. Price data is entirely absent, and per capita metrics are reliable based on population data.",
+  "_h": "c329c1b9ad77"
+ },
+ "az-agdas": {
+  "headline": "Ağdaş district offers strong educational density with limited paved road coverage.",
+  "tags": [
+   {
+    "tag": "telebe",
+    "reason": "Educational index reaches 84 compared to the national median of 53, with 10.64 schools per 10,000 residents."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Price data is unavailable with confidence set to none, but the area features 19 hospitals and 115 schools."
+   }
+  ],
+  "summary": "Ağdaş spans 1,015 km² with a population of 108,100 and a density of 106 people per km². The education index is 84 compared to the national median of 53, while the health index stands at 73 against a national median of 49. Infrastructure index is 29 with a paved road share of 0% out of known surfaces and 68.6% unknown surface share. The natural environment index is 14 against a national median of 51, with PM2.5 at 14 µg/m³ compared to the national median of 12.5.",
+  "strengths": [
+   "Educational index is 84, higher than the national median of 53 (index 84; national median 53).",
+   "Healthcare index is 73, exceeding the national median of 49 (index 73; national median 49).",
+   "Schools count is 10.64 per 10,000 residents, compared to the national median of 4.14 (10.64 per 10,000 residents; national median 4.14)."
+  ],
+  "weaknesses": [
+   "Paved road share of known surfaces is 0%, whereas the national median is 4.35% (paved share 0%; national median 4.35%).",
+   "Infrastructure index is 29, lower than the national median of 45 (index 29; national median 45).",
+   "Nature index is 14, below the national median of 51 (index 14; national median 51)."
+  ],
+  "best_for": [
+   "Families seeking education facilities, given the school density of 10.64 per 10,000 residents.",
+   "Residents requiring local healthcare services with 1.76 hospitals per 10,000 residents."
+  ],
+  "watch_out": [
+   "Paved road percentage of known surfaces is 0% with 68.6% surface unknown.",
+   "No price data is available for listings or property values."
+  ],
+  "confidence_note": "OSM coverage is high and per capita data is ok, but price data is absent and property price confidence is none.",
+  "_h": "fe861a280f09"
+ },
+ "az-qebele": {
+  "headline": "Qəbələ district profile with mountainous landscape and low road asphalt coverage",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Forest share is 25 percent and park index is 11.99 per 10,000 residents, compared to the national median of 3.89."
+   },
+   {
+    "tag": "turizm",
+    "reason": "Malls are 0.82 per 10,000 residents against the national median of 0."
+   }
+  ],
+  "summary": "Qəbələ has a population of 110,100 with a population density of 71 residents per square kilometre. The neighbourhood features a mountain terrain at an elevation of 1,152 metres with PM2.5 air quality at 13.4 microgrammes per cubic metre. Infrastructural coverage shows paved road share at 2.8 percent while the national median is 4.35 percent, and surface unknown percentage stands at 82. Price data is currently not available from listings for this district.",
+  "strengths": [
+   "School density is 7.99 per 10,000 residents; national median 4.14",
+   "Park density is 11.99 per 10,000 residents; national median 3.89",
+   "Food service count is 9.26 per 10,000 residents; national median 3.28"
+  ],
+  "weaknesses": [
+   "Kindergarten count is 0.54 per 10,000 residents; national median 0.47",
+   "Paved roads percentage is 2.8 percent; national median 4.35 percent",
+   "Bus stop count is 0.82 per 10,000 residents; national median 0.27"
+  ],
+  "best_for": [
+   "Nature and park enthusiasts valuing high green space ratios",
+   "Visitors looking for mountain terrain and leisure amenities"
+  ],
+  "watch_out": [
+   "Surface unknown percentage is high at 82 percent",
+   "No price listings are available in the dataset for cost estimation",
+   "Rail station count is 1 with no local bus routes registered"
+  ],
+  "confidence_note": "OSM data coverage is high and per capita metrics are reliable, but price data is marked as none and price indicators are absent.",
+  "_h": "22649258bb31"
+ },
+ "az-qax": {
+  "headline": "Qax mountainous district with high school density and forest cover",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Forest cover is 26.5% and mean elevation is 789 metres with a mountain terrain."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "School density is 16.07 per 10,000 residents compared to the national median of 4.14."
+   }
+  ],
+  "summary": "Qax is a mountain district with a population of 58,500 and a density of 39 residents per square kilometre. The area features 94 schools and 82 parks, resulting in a school index of 92 and a comfort index of 81. Road infrastructure shows a paved road share of 0% among known surfaces with 66.4% unknown, leading to an infrastructure index of 25. The PM2.5 model value is 12.7 micrograms per cubic metre against the national median of 12.5.",
+  "strengths": [
+   "School density is high at 16.07 per 10,000 residents, whereas the national median is 4.14 (16.07 schools per 10,000 residents; national median 4.14).",
+   "Park density reaches 14.02 per 10,000 residents, while the national median stands at 3.89 (14.02 parks per 10,000 residents; national median 3.89).",
+   "Grocery store provision is 6.67 per 10,000 residents, exceeding the national median of 2.29 (6.67 groceries per 10,000 residents; national median 2.29)."
+  ],
+  "weaknesses": [
+   "The paved road share of known surfaces is 0%, compared to the national median of 4.35% (paved share 0%; national median 4.35%).",
+   "Surface type is unknown for 66.4% of the road network (unknown surface share 66.4%).",
+   "Bus stop count is restricted to 1.54 per 10,000 residents, though higher than the national median of 0.27 (1.54 bus stops per 10,000 residents; national median 0.27)."
+  ],
+  "best_for": [
+   "Residents seeking mountain surroundings with extensive forest cover of 26.5%.",
+   "Families requiring high school availability with an education index of 92."
+  ],
+  "watch_out": [
+   "Paved road coverage of known surfaces is 0% with 66.4% unknown surface data.",
+   "Property price data and listings are absent from the dataset."
+  ],
+  "confidence_note": "OSM mapping coverage is high and per capita metrics are reliable. Price data is not available, meaning real estate values cannot be assessed from this dataset.",
+  "_h": "f9b07e3e8a9f"
+ },
+ "az-zaqatala": {
+  "headline": "Zaqatala district with high forest cover and strong educational infrastructure.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area features 37.2 percent forest cover and 7.18 parks per 10,000 residents compared to the national median of 3.89."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Educational facilities include 8.71 schools per 10,000 residents, which exceeds the national median of 4.14."
+   }
+  ],
+  "summary": "Zaqatala has a population of 130,900 and a density of 97 residents per square kilometre. The district offers robust educational and healthcare infrastructure with 8.71 schools and 1.15 hospitals per 10,000 residents. Nature indices are high at 78 out of 100, supported by 37.2 percent forest cover and a PM2.5 level of 11.5. Transport infrastructure shows lower coverage with 0.23 bus stops per 10,000 residents and an infrastructure index of 43 out of 100. Price data for real estate listings are currently unavailable in this dataset.",
+  "strengths": [
+   "High school density with 8.71 schools per 10,000 residents, compared to the national median of 4.14 (8.71 per 10,000 residents; median 4.14)",
+   "Extensive park and green areas with 7.18 parks per 10,000 residents, compared to the national median of 3.89 (7.18 per 10,000 residents; median 3.89)",
+   "Significant forest cover across the district reaching 37.2 percent of the land area (37.2 percent; median 51 national nature index)"
+  ],
+  "weaknesses": [
+   "Limited paved road share information with 79.2 percent surface unknown and 0 percent known paved share (0 percent paved share; median 4.35 percent)",
+   "Lower transport connectivity reflected in a transport index score of 46 out of 100, compared to the national median of 47 (46 index; median 47)",
+   "Low bus stop density with 0.23 stops per 10,000 residents, compared to the national median of 0.27 (0.23 per 10,000 residents; median 0.27)"
+  ],
+  "best_for": [
+   "Residents seeking mountainous landscapes and high forest coverage.",
+   "Families looking for high school and kindergarten density."
+  ],
+  "watch_out": [
+   "Absence of published real estate prices and title listings in the dataset.",
+   "High share of roads with unknown surface cover at 79.2 percent."
+  ],
+  "confidence_note": "OSM coverage is high and per capita calculations are reliable. Price data is marked as none, meaning no listing figures are available.",
+  "_h": "0261a42e8466"
+ },
+ "az-beyleqan": {
+  "headline": "Beyləqan district with low urban density and limited infrastructure amenities.",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "The area has a low population density of 91 residents per km² with sparse commercial coverage."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Agricultural landcover accounts for 80% with a mean elevation of 33 metres."
+   }
+  ],
+  "summary": "Beyləqan is a regional district with 102,600 residents spread across 1,135 km². The neighbourhood has a comfort index of 27 and an education index of 23, significantly below national medians. Transport infrastructure includes 3 rail stations and 1.07 bus stops per 10,000 residents. The paved road share of known surfaces stands at 0.9%, while surface unknown is 88.6%.",
+  "strengths": [
+   "Transport index is higher than the national median at 57 (transport index 57; median 47).",
+   "Infrastructure index is above the median at 62 (infrastructure index 62; median 45).",
+   "Rail stations count is 3 across the entire district (3 rail stations; national median data not applicable)."
+  ],
+  "weaknesses": [
+   "Grocery density is low at 0.78 per 10,000 residents compared to the national median of 2.29 (0.78 grocery per 10,000 residents; median 2.29).",
+   "School density is limited at 0.29 per 10,000 residents versus the median of 4.14 (0.29 schools per 10,000 residents; median 4.14).",
+   "Nature index is low at 18 against the national median of 51 (nature index 18; median 51)."
+  ],
+  "best_for": [
+   "Residents seeking a plain terrain environment with agricultural surroundings.",
+   "Buyers looking for regions with established rail station connections."
+  ],
+  "watch_out": [
+   "OSM coverage is medium, meaning some objects are not mapped.",
+   "Price data is entirely missing for this district.",
+   "Paved road share of known surfaces is only 0.9% with 88.6% unknown surface data."
+  ],
+  "confidence_note": "OSM coverage is medium, indicating that a portion of local objects is unmapped. Price data is currently unavailable with no listings provided.",
+  "_h": "aa8db8de9b6c"
+ },
+ "az-ucar": {
+  "headline": "Ucar district profile with 85,900 residents and 4 rail stations",
+  "tags": [
+   {
+    "tag": "inkisafda",
+    "reason": "paved road share is 4.5% compared to national median of 4.35%."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "rail stations count is 4 for 85,900 residents."
+   }
+  ],
+  "summary": "Ucar district houses 85,900 residents across 872 km2 with a population density of 103 people per km2. The area features 5.01 schools per 10,000 residents against a national median of 4.14. Paved roads cover 4.5% of known surfaces, while the rest remains unpaved or has unknown surface data at 77.6%. OSM coverage is medium, meaning some map objects are missing.",
+  "strengths": [
+   "School density reaches 5.01 per 10,000 residents (national median 4.14). (5.01 per 10,000 residents)",
+   "Bazaar density is 0.47 per 10,000 residents (national median 0.08). (0.47 per 10,000 residents)",
+   "Park count stands at 36 parks across the district (4.19 per 10,000 residents, national median 3.89). (4.19 per 10,000 residents)"
+  ],
+  "weaknesses": [
+   "Paved road share is strictly 4.5% of known road types (national median 4.35%). (4.5%)",
+   "Kindergarten count is 0.23 per 10,000 residents (national median 0.47). (0.23 per 10,000 residents)",
+   "Nature index is 2 out of 100 (national median 51). (2)"
+  ],
+  "best_for": [
+   "Families seeking school access with 5.01 schools per 10,000 residents.",
+   "Residents utilizing 4 rail stations within the district."
+  ],
+  "watch_out": [
+   "Surface unknown percentage is 77.6% of roads.",
+   "OSM coverage is medium, indicating incomplete map data."
+  ],
+  "confidence_note": "OSM coverage is medium, meaning parts of the objects are not mapped. Price data has no listings available for Ucar district.",
+  "_h": "5101deb2dee2"
+ },
+ "az-kurdemir": {
+  "headline": "Kürdəmir district overview with transport, education, and infrastructure metrics",
+  "tags": [
+   {
+    "tag": "biznes_furseti",
+    "reason": "The area has 1.17 fuel stations per 10,000 residents, compared to the national median of 0.69."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "There are 4.84 schools per 10,000 residents, slightly exceeding the national median of 4.14."
+   }
+  ],
+  "summary": "Kürdəmir district has a population of 119,900 across 1,602.5 km² with a density of 74 people per km². The infrastructure index is 56, while the paved road share is 2.7% against a national median of 4.35%. Educational facilities stand at 4.84 schools per 10,000 residents compared to the national median of 4.14. Healthcare is marked by a healthcare index of 34 and 0.75 hospitals per 10,000 residents, matching the national median of 0.75.",
+  "strengths": [
+   "School density is 4.84 schools per 10,000 residents, exceeding the national median of 4.14 (4.84 schools per 10,000 residents; median 4.14).",
+   "Fuel station density reaches 1.17 per 10,000 residents, higher than the national median of 0.69 (1.17 fuel stations per 10,000 residents; median 0.69).",
+   "Infrastructure index is recorded at 56, compared to the national median of 45 (56 index; median 45)."
+  ],
+  "weaknesses": [
+   "Paved road share is low at 2.7%, while the national median is 4.35% (2.7% paved share; median 4.35%).",
+   "Healthcare index is 34, falling below the national median of 49 (34 index; median 49).",
+   "Nature index is 21, lower than the national median of 51 (21 index; median 51)."
+  ],
+  "best_for": [
+   "Residents seeking regional educational access with 4.84 schools per 10,000 residents.",
+   "Travelers utilizing the 2 rail stations present in the district."
+  ],
+  "watch_out": [
+   "Surface unknown road percentage is 78%, indicating incomplete mapping for road types.",
+   "Price data is entirely absent, with no listings or price metrics available."
+  ],
+  "confidence_note": "OSM coverage is high and per capita calculations are reliable, but price data is entirely absent and 78% of road surfaces are unknown.",
+  "_h": "efdb6432b8db"
+ },
+ "az-imisli": {
+  "headline": "İmişli: Regional district with limited urban infrastructure indicators",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Price confidence is mock, meaning property values lack verified transaction data with elcatanliq index at null."
+   }
+  ],
+  "summary": "İmişli is a regional district with a population of 133000 and a density of 70 residents per km². The area features 0.08 pharmacies per 10,000 residents compared to the national median of 0.18, and 1.95 groceries per 10,000 residents against the national median of 2.29. Road infrastructure shows a paved share of known roads at 10.9% with an infrastructure index of 79. The OSM coverage is medium, meaning some objects are not mapped.",
+  "strengths": [
+   "Transport index stands at 58 compared to the national median of 47 (neqliyyat index 58)",
+   "Infrastructure index is recorded at 79 against the national median of 45 (infrastruktur index 79)",
+   "Rail stations count is 1 for the entire district (rail stations 1)"
+  ],
+  "weaknesses": [
+   "School count is 1.35 per 10,000 residents compared to the national median of 4.14 (school per10k 1.35)",
+   "Hospital count is 0.15 per 10,000 residents versus the national median of 0.75 (hospital per10k 0.15)",
+   "Park count is 0.75 per 10,000 residents against the national median of 3.89 (park per10k 0.75)"
+  ],
+  "best_for": [
+   "Residents seeking a plain terrain at -3 m mean elevation",
+   "Buyers evaluating locations with surface unknown road share at 80.8%"
+  ],
+  "watch_out": [
+   "OSM coverage is medium, indicating that a portion of objects is not mapped",
+   "Price data is absent with prices set to none",
+   "Kindergarten count is 0 per 10,000 residents compared to the national median of 0.47"
+  ],
+  "confidence_note": "OSM coverage is medium, meaning a portion of objects is unmapped. Price data is none, so no pricing conclusions can be drawn.",
+  "_h": "129b6b422bf3"
+ },
+ "az-zerdab": {
+  "headline": "Zərdab: Regional district with low population density and limited infrastructure",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "This area features a flat terrain and a mean elevation of -5 meters, with a nature index of 8 compared to the national median of 51."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "The area has a population density of 70 residents per km² across 843.8 km² with no available property price data in listings."
+   }
+  ],
+  "summary": "Zərdab is a regional district with a population of 60,100 residents and a density of 70 residents per km² across 843.8 km². The district provides 0.33 pharmacies and 2.66 groceries per 10,000 residents, compared to the national median of 0.18 and 2.29 respectively. The infrastructure index is 83 with a known paved roads share of 17.4%, while the education index stands at 30 against the national median of 53. OSM coverage is medium, and price data is currently unavailable.",
+  "strengths": [
+   "The infrastructure index is higher than average at 83, compared to the national median of 45.",
+   "Grocery store density is 2.66 per 10,000 residents, exceeding the national median of 2.29.",
+   "Pharmacy provision is 0.33 per 10,000 residents, surpassing the national median of 0.18."
+  ],
+  "weaknesses": [
+   "The education index is low at 30 compared to the national median of 53.",
+   "School provision is 0.5 per 10,000 residents, lower than the national median of 4.14.",
+   "Park density is 0.67 per 10,000 residents, well below the national median of 3.89."
+  ],
+  "best_for": [
+   "Buyers seeking a regional district with low population density.",
+   "Residents looking for basic grocery accessibility."
+  ],
+  "watch_out": [
+   "No property price listings or title extract information available.",
+   "Low school and park density compared to national medians.",
+   "Surface unknown percentage for roads is 78.7%."
+  ],
+  "confidence_note": "OSM coverage for this neighbourhood is medium, meaning some objects may not be mapped. Price data has no sample available, and price confidence is none.",
+  "_h": "eab2383fba01"
+ },
+ "az-naxcivan": {
+  "headline": "Naxçıvan district with high transport index and 48 bus stops",
+  "tags": [
+   {
+    "tag": "telebe",
+    "reason": "The area offers 0.61 universities per 10,000 residents, compared to the national median of 0.03."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The neighbourhood features 3.16 parks per 10,000 residents and a PM2.5 model value of 10.9 µg/m³."
+   }
+  ],
+  "summary": "Naxçıvan features a transport index of 81, surpassing the national median of 47, supported by 4.89 bus stops per 10,000 residents. The infrastructure index reaches 99 with a paved road share of 83.1% among known surfaces. Educational provision includes 1.22 schools and 0.61 universities per 10,000 residents. Grocery density is 1.43 per 10,000 residents, which sits below the national median of 2.29.",
+  "strengths": [
+   "Transport index is high at 81 against the national median of 47 (neqliyyat index 81)",
+   "Infrastructure index is exceptionally strong at 99 compared to the national median of 45 (infrastruktur index 99)",
+   "University density is robust at 0.61 per 10,000 residents versus the national median of 0.03 (0.61 university per 10,000 residents)"
+  ],
+  "weaknesses": [
+   "Grocery store density is limited to 1.43 per 10,000 residents, trailing the national median of 2.29 (1.43 grocery per 10,000 residents)",
+   "School density is restricted to 1.22 per 10,000 residents, falling short of the national median of 4.14 (1.22 school per 10,000 residents)",
+   "Surface unknown percentage for roads is high at 78.7% (surface unknown share 78.7%)"
+  ],
+  "best_for": [
+   "Students looking for higher education facilities",
+   "Residents valuing public transport access"
+  ],
+  "watch_out": [
+   "Limited grocery store availability",
+   "High unknown surface percentage in road data"
+  ],
+  "confidence_note": "OSM coverage is medium, meaning some objects may not be mapped. Price data is currently absent from the listings.",
+  "_h": "2dbdb30684c4"
+ },
+ "az-babek": {
+  "headline": "Babək: mountain district with 78,400 residents and low urban density",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area features 1.53 parks per 10,000 residents and a mean elevation of 1,140 metres."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Road infrastructure shows a paved share of 78.7 percent against a national median of 4.35 percent."
+   }
+  ],
+  "summary": "Babək is a mountain district with a population of 78,400 and an area of 703.9 square kilometres. The neighbourhood has an infrastructure index of 98 and a transport index of 71, though comfort and education indices remain lower at 20 and 18 respectively. There are 3 rail stations and 7 bus stops serving the territory. OSM coverage is low, meaning a portion of objects is not mapped.",
+  "strengths": [
+   "Road infrastructure has a paved share of 78.7 percent compared to the national median of 4.35 percent (infrastruktur index 98).",
+   "Transport connectivity is supported by 3 rail stations and 0.89 bus stops per 10,000 residents (neqliyyat index 71).",
+   "Natural environment includes 1.53 parks per 10,000 residents and a PM2.5 model value of 10.4 (tebiet index 53)."
+  ],
+  "weaknesses": [
+   "Grocery density is low at 0.13 stores per 10,000 residents versus the national median of 2.29 (rahatliq index 20).",
+   "School density is 0.38 per 10,000 residents compared to the national median of 4.14 (tehsil index 18).",
+   "Hospital density is 0.13 per 10,000 residents against the national median of 0.75 (sehiyye index 23)."
+  ],
+  "best_for": [
+   "Residents seeking mountain terrain with a mean elevation of 1,140 metres.",
+   "Buyers prioritizing road infrastructure and rail access."
+  ],
+  "watch_out": [
+   "OSM coverage is low, indicating that some objects are unmapped.",
+   "Property price data is missing and listing sample is limited to 2 units.",
+   "Zero pharmacies and zero kindergartens per 10,000 residents."
+  ],
+  "confidence_note": "OSM coverage is low, meaning some objects are unmapped. Price data is none, and listings sample size is 2.",
+  "_h": "51ecf968c1c1"
+ },
+ "az-sahbuz": {
+  "headline": "Şahbuz: mountain district with low OSM mapping and sparse amenities",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index is 58 compared to the national median of 51, with an elevation mean of 1,859 m."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "The area shows low density at 30 residents per km² and sparse commercial POIs."
+   }
+  ],
+  "summary": "Şahbuz is a mountain district with a population of 25,300 across 865.1 km². The area has 0.4 food outlets per 10,000 residents against the national median of 3.28, and 0.4 bank ATMs per 10,000 residents against the national median of 0.69. Road infrastructure has a paved share of known roads at 19.9% while surface unknown is 57.8%. The OSM coverage is low, meaning some objects are not mapped.",
+  "strengths": [
+   "The infrastructure index stands at 61 compared to the national median of 45 (infrastruktur index 61)",
+   "The nature index is 58 compared to the national median of 51 (tebiet index 58)",
+   "The PM2.5 air quality model shows 8.4 µg/m³ against the national median of 12.5 µg/m³ (pm2.5 model 8.4)"
+  ],
+  "weaknesses": [
+   "The education index is 15 compared to the national median of 53, with 0 schools and 0 kindergartens per 10,000 residents (tehsil index 15)",
+   "The healthcare index is 19 compared to the national median of 49, with 0 hospitals and 0 pharmacies per 10,000 residents (sehiyye index 19)",
+   "The convenience index is 23 compared to the national median of 49.5 (rahatliq index 23)"
+  ],
+  "best_for": [
+   "Buyers seeking mountain terrain with low population density of 30 residents per km²",
+   "Residents prioritizing clean air with a PM2.5 model of 8.4"
+  ],
+  "watch_out": [
+   "OSM coverage is low, indicating that objects are under-mapped",
+   "Surface unknown roads account for 57.8% of the total 329 km of roads",
+   "There are no price listings available in the dataset"
+  ],
+  "confidence_note": "OSM coverage is low, meaning parts of the objects are not mapped. Price data is none, so no real estate price conclusions can be drawn.",
+  "_h": "c788dab43e83"
+ },
+ "az-serur": {
+  "headline": "Şərur rural district with 114,000 residents and low infrastructure density.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area features mountain terrain with a mean elevation of 1,181 metres and a nature index score of 49 compared to the national median of 51."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "The population density is 141 residents per square kilometre across an area of 802.8 square kilometres with sparse urban amenities."
+   }
+  ],
+  "summary": "Şərur is a district with 114,000 residents located across 802.8 square kilometres of mountain terrain at a mean elevation of 1,181 metres. The neighbourhood records low basic amenity density, with 0.09 grocery stores per 10,000 residents against a national median of 2.29, and 0.09 schools per 10,000 residents compared to the national median of 4.14. Transport indicators show 3 rail stations and 0 bus stops, resulting in a transport index of 37 versus the national median of 47. The infrastructure index is 28 with a paved road share of 0 percent of known surfaces and 68.4 percent unknown surface share, compared to the national median paved share of 4.35 percent.",
+  "strengths": [
+   "Nature index is 49, close to the national median of 51 (tebiet index 49; national median 51).",
+   "Air quality is supported by a PM2.5 model value of 9.1 micrograms per cubic metre against the national median of 12.5 (PM2.5 9.1; national median 12.5).",
+   "Transport network includes 3 rail stations despite having 0 bus stops (rail stations 3; national median 0.27 bus stops per 10k)."
+  ],
+  "weaknesses": [
+   "Grocery store density is extremely low at 0.09 per 10,000 residents compared to the national median of 2.29 (grocery 0.09 per 10k; national median 2.29).",
+   "Paved road share of known surfaces is 0 percent with 68.4 percent surface unknown, whereas the national median paved share is 4.35 percent (paved share 0%; national median 4.35%).",
+   "School density is 0.09 per 10,000 residents versus the national median of 4.14 (school 0.09 per 10k; national median 4.14)."
+  ],
+  "best_for": [
+   "Buyers seeking mountain terrain living at an elevation of 1,181 metres.",
+   "Residents prioritising rural locations with a population density of 141 people per square kilometre."
+  ],
+  "watch_out": [
+   "OSM mapping coverage is low, meaning a portion of local objects is unmapped.",
+   "Price data is absent as no listings or price metrics are recorded in the dataset.",
+   "Road surface data has 68.4 percent unknown share and 0 percent paved share."
+  ],
+  "confidence_note": "OSM coverage is low, indicating that some objects are not mapped in this area. Price information is unavailable as no listing data exists.",
+  "_h": "0efef3955957"
+ },
+ "az-xocavend": {
+  "headline": "Xocavənd district profile with mountainous terrain and sparse population density",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The neighbourhood features a forest landcover of 20.4% and an elevation mean of 951 metres."
+   }
+  ],
+  "summary": "Xocavənd has a population of 12,500 and a density of 8 residents per km². The area has 8.8 schools per 10,000 residents, compared to the national median of 4.14. Paved roads account for 9% of known surfaces, while surface unknown percentage is 35.5%. The OSM coverage is medium, indicating that some objects are not mapped.",
+  "strengths": [
+   "Hospital count stands at 4 per 10,000 residents, against the national median of 0.75.",
+   "Grocery store availability is 9.6 per 10,000 residents, compared to the national median of 2.29.",
+   "School provision is 8.8 per 10,000 residents, exceeding the national median of 4.14."
+  ],
+  "weaknesses": [
+   "Paved road share is limited to 9%, while the national median of paved roads is 4.35%.",
+   "Kindergarten provision is 0 per 10,000 residents, whereas the national median is 0.47.",
+   "Bank and ATM density is 1.6 per 10,000 residents, compared to the national median of 0.69."
+  ],
+  "best_for": [
+   "Residents seeking a mountainous terrain with a mean elevation of 951 metres.",
+   "People looking for areas with a local forest landcover share of 20.4%."
+  ],
+  "watch_out": [
+   "OSM coverage is medium, meaning some objects are not mapped.",
+   "Surface unknown percentage reaches 35.5% across the total road length of 1,630 km.",
+   "Price data has no listings available for analysis."
+  ],
+  "confidence_note": "OSM coverage is medium, showing that certain objects are unmapped. Price data is none, so no pricing conclusions can be drawn.",
+  "_h": "8eaf96581a48"
+ },
+ "az-fuzuli": {
+  "headline": "Füzuli district profile with sparse commercial density and low paved road share.",
+  "tags": [
+   {
+    "tag": "inkisafda",
+    "reason": "The district has a low paved roads share of 1.9%, national median 4.35%, reflecting developing infrastructure."
+   },
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area features 10 parks and a low population density of 96 people per square kilometre."
+   }
+  ],
+  "summary": "Füzuli is a foothills district with a population of 132,200 and an area of 1,366.7 square kilometres. The neighbourhood features a low comfort index of 15 compared to the national median of 49.5, with 0.08 grocery and food amenities per 10,000 residents. Infrastructure indicators show a paved road share of 1.9% out of known surfaces, while surface status is unknown for 62.3% of roads. Public transport access includes 1.13 bus stops per 10,000 residents and 3 rail stations.",
+  "strengths": [
+   "Transport index stands at 58, higher than the national median of 47 (neqliyyat index 58, national median 47).",
+   "Bus stops density is 1.13 per 10,000 residents, exceeding the national median of 0.27 (1.13 bus stops per 10,000 residents, national median 0.27).",
+   "There are 10 parks recorded in the district (10 parks, 0.76 per 10,000 residents).ියා"
+  ],
+  "weaknesses": [
+   "Comfort index is low at 15 compared to the national median of 49.5 (rahatliq index 15, national median 49.5).",
+   "Paved road share is restricted to 1.9% of known surfaces, while the national median is 4.35% (paved share 1.9%, national median 4.35%).",
+   "Education index is low at 18 against the national median of 53 (tehsil index 18, national median 53)."
+  ],
+  "best_for": [
+   "Those seeking a foothills environment with low population density of 96 per square kilometre.",
+   "Residents requiring proximity to 3 rail stations."
+  ],
+  "watch_out": [
+   "OSM coverage is low, meaning a portion of objects is not mapped.",
+   "Price data is unavailable as no listing data exists for the area.",
+   "Road surface is unknown for 62.3% of the network."
+  ],
+  "confidence_note": "OSM coverage is low, indicating that some objects are not mapped. Price data is currently unavailable as there are no listings.",
+  "_h": "bc6fb8a6eb88"
+ },
+ "az-daskesen": {
+  "headline": "Daşkəsən mountain district with 12.28 schools per 10,000 residents and 84 nature index",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index is 84 with a mean elevation of 1,820 metres and forest cover at 27%."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "There are 12.28 schools per 10,000 residents compared to the national median of 4.14."
+   }
+  ],
+  "summary": "Daşkəsən is a mountain district with a population of 33,400 and a density of 32 residents per square kilometre. The neighbourhood features an infrastructure index of 12 and a paved road share of unknown surfaces at 49.6% with 0% paved roads known. Public transport relies on 3 rail stations and 0 bus stops or routes. The comfort index is 77 and the health index is 51 with 0.6 hospitals per 10,000 residents.",
+  "strengths": [
+   "High school density with 12.28 schools per 10,000 residents compared to the national median of 4.14 (12.28 per 10,000 inhabitants)",
+   "Strong natural environment score with a nature index of 84 compared to the national median of 51 (84 index score)",
+   "Abundant park areas with 11.98 parks per 10,000 residents compared to the national median of 3.89 (11.98 per 10,000 inhabitants)"
+  ],
+  "weaknesses": [
+   "Very low infrastructure index at 12 compared to the national median of 45 (12 index score)",
+   "No recorded paved roads with 0% paved share of known surfaces compared to the national median of 4.35% (0.0% paved share)",
+   "Absence of public bus transport with 0 bus stops and 0 bus routes compared to the national median of 0.27 bus stops per 10,000 residents (0 stops)"
+  ],
+  "best_for": [
+   "Residents seeking mountain climate and low particulate matter with PM2.5 model at 8.6",
+   "Households prioritising school availability with 12.28 schools per 10,000 residents"
+  ],
+  "watch_out": [
+   "OSM coverage is medium, meaning some objects are not mapped",
+   "No price data or listings are available for this neighbourhood",
+   "Zero bus stops and 0 bus routes across the entire district"
+  ],
+  "confidence_note": "OSM coverage is medium, indicating that a portion of objects is not mapped. Price data is completely missing and there are no active listings available.",
+  "_h": "c678fd769f76"
+ },
+ "az-bilesuvar": {
+  "headline": "Biləsuvar district with low OSM coverage and rural infrastructure indicators",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Price data is unavailable for Biləsuvar, meaning active market values cannot be reliably stated (elcatanliq index is null)."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Road infrastructure shows paved share at 20.5 percent, compared to the national median of 4.35 percent."
+   }
+  ],
+  "summary": "Biləsuvar has a population of 108,200 and a density of 80 residents per square kilometre across an area of 1,296.9 square kilometres. The neighbourhood features 0.28 pharmacies per 10,000 residents, alongside 0.18 schools per 10,000 residents and 0.37 hospitals per 10,000 residents. The road network spans 747 kilometres, with a known paved share of 20.5 percent and surface unknown share of 59.1 percent. The OSM coverage is classified as low, indicating that objects are partially mapped.",
+  "strengths": [
+   "Paved road share reaches 20.5 percent, compared to the national median of 4.35 percent (paved share 20.5 percent, national median 4.35 percent).",
+   "Infrastructure index stands at 64, compared to the national median of 45 (infrastructure index 64, national median 45).",
+   "Hospital count is 0.37 per 10,000 residents, with national median at 0.75 (hospitals 0.37 per 10,000 residents, national median 0.75)."
+  ],
+  "weaknesses": [
+   "Grocery density is 0 per 10,000 residents, compared to the national median of 2.29 (groceries 0 per 10,000 residents, national median 2.29).",
+   "Education index is low at 16, compared to the national median of 53 (tehsil index 16, national median 53).",
+   "Park count is 0 per 10,000 residents, compared to the national median of 3.89 (parks 0 per 10,000 residents, national median 3.89)."
+  ],
+  "best_for": [
+   "Residents requiring baseline rural healthcare access with 0.37 hospitals per 10,000 residents.",
+   "Individuals navigating areas with low mapping density and surface unknown road shares of 59.1 percent."
+  ],
+  "watch_out": [
+   "OSM data coverage is low, meaning map objects are underreported.",
+   "Price data is completely absent with no listings available.",
+   "Grocery stores per 10,000 residents register at zero."
+  ],
+  "confidence_note": "The OSM coverage is low, which means some physical objects are not mapped in this area. Price data is none, so no property value estimates or confidence scores are available.",
+  "_h": "2bf993d693b0"
+ },
+ "az-goranboy": {
+  "headline": "Goranboy district with rural density and high school coverage",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "The area offers 13.13 schools per 10,000 residents, compared to the national median of 4.14."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "The paved road share is low at 0.2 percent, compared to the national median of 4.35 percent."
+   }
+  ],
+  "summary": "Goranboy district has a population of 102,800 and a density of 60 people per square kilometre. The education index is 84 and the healthcare index is 82, both above national medians. However, the infrastructure index stands at 21 due to a paved road share of 0.2 percent. Price data is currently unavailable in the dataset.",
+  "strengths": [
+   "Education index reaches 84, higher than the national median of 53 (tehsil index 84).",
+   "Healthcare index is recorded at 82, while the national median is 49 (sehiyye index 82).",
+   "School count is 13.13 per 10,000 residents, compared to the national median of 4.14 (13.13 schools per 10,000 residents; median 4.14)."
+  ],
+  "weaknesses": [
+   "Infrastructure index is low at 21 against the national median of 45 (infrastruktur index 21).",
+   "Paved road share is restricted to 0.2 percent, whereas the national median is 4.35 percent (paved share 0.2 percent; median 4.35 percent).",
+   "Surface unknown percentage for roads is high at 54.1 percent (surface unknown 54.1 percent)."
+  ],
+  "best_for": [
+   "Buyers looking for established school density",
+   "Households prioritising healthcare facility availability"
+  ],
+  "watch_out": [
+   "Very low paved road share of 0.2 percent",
+   "No price listings are available in the dataset"
+  ],
+  "confidence_note": "OSM coverage is high and per capita data is ok, but price data is entirely absent from the dataset.",
+  "_h": "40b33e247e92"
+ },
+ "az-culfa": {
+  "headline": "Culfa: Mountain district with low amenity density and limited educational facilities",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area features a mountain terrain at an elevation mean of 1,446 metres and a park count of 2.07 per 10,000 residents compared to the national median of 3.89."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Listings data is not available, meaning no active listing count or average price per square metre is provided."
+   }
+  ],
+  "summary": "Culfa has a population of 48,300 across 942.9 km² with a density of 52 people per km². The area features 0.41 grocery stores per 10,000 residents against a national median of 2.29, and 0 schools per 10,000 residents compared to the national median of 4.14. The infrastructure indicator is 80 out of 100 with a paved road share of 48.1% among known surfaces, while the OSM coverage is low. Property prices have no available data, and the confidence score for prices is none.",
+  "strengths": [
+   "The infrastructure index reaches 80 out of 100, which is higher than the national median of 45 (infrastructure index 80)",
+   "The paved road share is 48.1% of known road surfaces, compared to the national median paved percentage of 4.35% (paved share 48.1%)",
+   "Fuel stations are present at a rate of 1.04 per 10,000 residents, exceeding the national median of 0.69 (1.04 fuel stations per 10,000 residents)"
+  ],
+  "weaknesses": [
+   "Educational density is low with 0 schools per 10,000 residents, whereas the national median is 4.14 (0 schools per 10,000 residents)",
+   "Grocery store availability stands at 0.41 per 10,000 residents, well below the national median of 2.29 (0.41 groceries per 10,000 residents)",
+   "Healthcare facilities such as hospitals show 0 per 10,000 residents against a national median of 0.75 (0 hospitals per 10,000 residents)"
+  ],
+  "best_for": [
+   "Residents seeking mountain terrain locations at an elevation mean of 1,446 metres",
+   "Individuals requiring rail connectivity with 2 rail stations present in the district"
+  ],
+  "watch_out": [
+   "OSM coverage is low, meaning some objects are unmapped in the region",
+   "No price listings or market valuation data are available for analysis",
+   "Surface unknown percentage for roads is 53.4% of the total 393 km road network"
+  ],
+  "confidence_note": "OSM coverage is low, so not all physical objects are mapped in this district. Price data is none, meaning no active listings or demo valuations exist to calculate per square metre costs.",
+  "_h": "eccd1a65ea1c"
+ },
+ "az-goygol": {
+  "headline": "Göygöl district profile with high nature share and low paved roads.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index is 71 points and forest cover is 22.9%."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "There are no published residential listing prices available in the dataset."
+   }
+  ],
+  "summary": "Göygöl has a population of 65,400 across 908.9 km². The area features 19.57 parks per 10,000 residents compared to the national median of 3.89. Infrastructure indicators show paved roads make up 6.2% of known surfaces, while the infrastructure index is 38 points. OSM coverage is high for this district.",
+  "strengths": [
+   "Park density is high at 19.57 per 10,000 residents, whereas the national median is 3.89 (19.57 per 10,000 residents; median 3.89).",
+   "Food establishment density reaches 20.64 per 10,000 residents, compared to the national median of 3.28 (20.64 per 10,000 residents; median 3.28).",
+   "School provision stands at 9.33 per 10,000 residents, against the national median of 4.14 (9.33 per 10,000 residents; median 4.14)."
+  ],
+  "weaknesses": [
+   "Paved road share is low at 6.2% of known surfaces, while the national median is 4.35% (paved share 6.2%; median 4.35%).",
+   "Infrastructure index is 38 points, which is below the national median of 45 points (infrastruktur index 38 points; median 45).",
+   "Surface type is unknown for 50.2% of the road network (surface unknown share 50.2%; median 0)."
+  ],
+  "best_for": [
+   "Residents seeking mountain terrain with 1,280 metres mean elevation.",
+   "People looking for areas with 22.9% forest cover."
+  ],
+  "watch_out": [
+   "Property prices have no data available in the dataset.",
+   "There are 0 bus routes operating in the district."
+  ],
+  "confidence_note": "OSM map coverage is high and per capita metrics are reliable. Price data is entirely missing from the current records.",
+  "_h": "20b6a2bd1497"
+ },
+ "az-xankendi": {
+  "headline": "Xankəndi: foots_hill settlement with 4,400 residents and unpriced property market",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Forest cover is 9.6% and elevation mean is 807 metres with PM2.5 model at 12.9 µg/m³."
+   }
+  ],
+  "summary": "Xankəndi has a population of 4,400 and covers 21.8 km² with a population density of 440 per km². The area features 70 bus stops, 3 bus routes, and 4 rail stations with a transport index of 72 compared to the national median of 47. Paved roads account for 63% of known surfaces, yielding an infrastructure index of 79 versus the national median of 45. Property listings data is entirely absent, and price metrics are not available.",
+  "strengths": [
+   "Transport index is 72 compared to the national median of 47 (neqliyyat 72; median 47)",
+   "Infrastructure index is 79 compared to the national median of 45 (infrastruktur 79; median 45)",
+   "Paved share of known roads is 63% compared to the national median of 4.35% (paved_pct_of_known 63%; median 4.35)"
+  ],
+  "weaknesses": [
+   "Per capita indicators are unreliable due to high OSM feature count relative to the 4,400 population (coverage.per_capita unreliable)",
+   "Property prices are missing entirely from the dataset (prices none)",
+   "Listings data such as title extracts or average prices are not available (listings null)"
+  ],
+  "best_for": [
+   "Residents seeking foothill terrain at an elevation mean of 807 metres",
+   "Households requiring 4 rail stations and 70 bus stops"
+  ],
+  "watch_out": [
+   "No price estimates or active listings exist to evaluate housing affordability",
+   "Surface unknown percentage for roads is 31.3%"
+  ],
+  "confidence_note": "OSM coverage is high with 409 features, but per-capita indicators are unreliable because the population of 4,400 creates an anomaly where features per resident far exceed national medians. Property price data is completely absent.",
+  "_h": "e39e8fee1e04"
+ },
+ "az-xizi": {
+  "headline": "Mountain district Xızı with low infrastructure and natural surroundings",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index is 76, higher than the national median of 51, with forest cover at 8.6% and 11.9 parks per 10,000 residents."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Education index stands at 91 compared to the national median of 53, featuring 13.1 schools per 10,000 residents."
+   }
+  ],
+  "summary": "Xızı is a mountain district with a population of 16,800 and an area of 1,826.2 km². The infrastructure index is 17, which is lower than the national median of 45, and the paved road share is 0% of known surfaces. Nature index is 76, supported by 11.9 parks per 10,000 residents and a PM2.5 model value of 11.5. Education index reaches 91, with 13.1 schools per 10,000 residents, while healthcare index is 50 against a national median of 49.",
+  "strengths": [
+   "High education index of 91 compared to the national median of 53 (tehsil index 91; national median 53)",
+   "Strong nature metrics with 11.9 parks per 10,000 residents versus the national median of 3.89 (park per10k 11.9; national median 3.89)",
+   "Hospital count of 4.17 per 10,000 residents exceeds the national median of 0.75 (hospital per10k 4.17; national median 0.75)"
+  ],
+  "weaknesses": [
+   "Paved road share of known surfaces is 0% against the national median of 4.35% (paved share 0%; national median 4.35%)",
+   "Infrastructure index is 17 compared to the national median of 45 (infrastruktur index 17; national median 45)",
+   "Transport index is 37, which is below the national median of 47 (neqliyyat index 37; national median 47)"
+  ],
+  "best_for": [
+   "Residents seeking mountain terrain and natural surroundings.",
+   "Families requiring local school availability."
+  ],
+  "watch_out": [
+   "Surface unknown percentage is 55.1% for roads.",
+   "OSM coverage is medium, meaning some objects are not mapped.",
+   "No price data is available in the dataset."
+  ],
+  "confidence_note": "OSM coverage is medium, indicating that a portion of objects are not mapped. Price data is none, so no pricing conclusions can be drawn.",
+  "_h": "2d0eecdac901"
+ },
+ "az-salyan": {
+  "headline": "Salyan: district with 7.38 schools and 10.01 groceries per 10,000 residents",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The neighbourhood features 6.67 parks per 10,000 residents, compared to the national median of 3.89."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "There are 7.38 schools per 10,000 residents, exceeding the national median of 4.14."
+   }
+  ],
+  "summary": "Salyan is a regional district with a population of 140,900 and a density of 88 people per km². The area features 10.01 grocery stores per 10,000 residents, which is above the national median of 2.29. Infrastructure indicators show a paved road share of 3.3%, while the national median is 4.35%. The neighbourhood has 1.77 hospitals per 10,000 residents against the national median of 0.75.",
+  "strengths": [
+   "Grocery store density is 10.01 per 10,000 residents, compared to the national median of 2.29 (10.01 groceries per 10,000 residents; national median 2.29).",
+   "School density stands at 7.38 per 10,000 residents, higher than the national median of 4.14 (7.38 schools per 10,000 residents; national median 4.14).",
+   "Park density is 6.67 per 10,000 residents, exceeding the national median of 3.89 (6.67 parks per 10,000 residents; national median 3.89)."
+  ],
+  "weaknesses": [
+   "Paved road share is 3.3%, which is below the national median of 4.35% (3.3% paved share; national median 4.35%).",
+   "Transport index is 37, trailing the national median of 47 (neqliyyat index 37; national median 47).",
+   "Infrastructure index stands at 36, compared to the national median of 45 (infrastruktur index 36; national median 45)."
+  ],
+  "best_for": [
+   "Buyers looking for higher grocery and school density than national medians.",
+   "Residents prioritising park availability with 6.67 parks per 10,000 residents."
+  ],
+  "watch_out": [
+   "Low paved road share of 3.3% with 58.1% surface unknown.",
+   "No price listings or price confidence data available for the district."
+  ],
+  "confidence_note": "OSM coverage is high, and per capita calculations are marked as ok. However, price data is completely absent from the dataset.",
+  "_h": "e0d74b9c7b1b"
+ },
+ "az-siyezen": {
+  "headline": "Siyəzən foothills district with coastal geography and lower paved road share",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The neighbourhood features a nature index of 73 out of 100, which exceeds the national median of 51, alongside 11.8% forest cover and 6.16 parks per 10,000 residents compared to the national median of 3.89."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "The area has a population density of 60 residents per square kilometre and a lower price confidence profile with no active listings recorded in the dataset."
+   }
+  ],
+  "summary": "Siyəzən is a foothills district with a population of 42,200 and a coastal location. The neighbourhood records 4 rail stations and 0 bus stops, reflecting its transport index of 37 against a national median of 47. Education infrastructure includes 4.74 schools per 10,000 residents, which is above the national median of 4.14. Meanwhile, the infrastructure index stands at 33 with a paved road share of 0% for known surfaces, compared to the national median of 4.35%.",
+  "strengths": [
+   "Park density is higher at 6.16 parks per 10,000 residents compared to the national median of 3.89 (6.16 per 10,000 residents; median 3.89).",
+   "Nature index is stronger at 73 out of 100 against the national median of 51 (73 out of 100; median 51).",
+   "School provision is recorded at 4.74 per 10,000 residents compared to the national median of 4.14 (4.74 per 10,000 residents; median 4.14)."
+  ],
+  "weaknesses": [
+   "Paved road share for known surfaces is 0% compared to the national median of 4.35% (0%; median 4.35%).",
+   "Grocery store availability is lower at 1.66 per 10,000 residents against the national median of 2.29 (1.66 per 10,000 residents; median 2.29).",
+   "Pharmacy availability is 0 per 10,000 residents compared to the national median of 0.18 (0 per 10,000 residents; median 0.18)."
+  ],
+  "best_for": [
+   "Buyers seeking a foothills environment with high nature index and park density.",
+   "Residents looking for rail transport options with 4 rail stations available."
+  ],
+  "watch_out": [
+   "OSM coverage is medium, meaning some objects are not mapped.",
+   "Paved road share of known surfaces is 0% with 71.4% surface unknown.",
+   "Price data is none, so market values cannot be reliably determined."
+  ],
+  "confidence_note": "OSM coverage is medium, indicating that a portion of local objects may not be mapped. Price data is none, and per capita calculations rely on ok coverage status.",
+  "_h": "9fa46bba2e37"
+ },
+ "az-sabran": {
+  "headline": "Şabran district analysis based on available geographical and infrastructure indicators",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index is 92 compared to the national median of 51, with forest cover at 28.1%."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "The infrastructure paved share is 6.4%, and prices data is unavailable for reliable market assessment."
+   }
+  ],
+  "summary": "Şabran district has a population of 59,100 residents and a density of 54 people per square kilometre. The neighbourhood records 5.41 parks per 10,000 residents against a national median of 3.89. The OSM coverage is medium, meaning some objects are not mapped. The overall comfort index is 46, while the natural environment index reaches 92.",
+  "strengths": [
+   "Park density is 5.41 per 10,000 residents, compared to the national median of 3.89 (5.41 per 10,000 residents; median 3.89).",
+   "Nature index is high at 92 against the national median of 51 (nature index 92; national median 51).",
+   "Forest cover accounts for 28.1% of the land area (forest cover 28.1%; national data missing)."
+  ],
+  "weaknesses": [
+   "Pharmacy density is 0 per 10,000 residents, while the national median is 0.18 (0 pharmacies per 10,000 residents; median 0.18).",
+   "Paved road share is 6.4% among known surfaces with an unknown surface percentage of 76.5% (paved share 6.4%; median 4.35%).",
+   "Healthcare index is low at 27 compared to the national median of 49 (healthcare index 27; national median 49)."
+  ],
+  "best_for": [
+   "Buyers seeking high natural environment scores and lower residential density.",
+   "Households prioritising park availability at 5.41 per 10,000 residents."
+  ],
+  "watch_out": [
+   "OSM data coverage is medium, meaning objects are partially mapped.",
+   "Price data is completely absent with no listings available.",
+   "Road surface is unknown for 76.5% of the total 1,247 km network."
+  ],
+  "confidence_note": "OSM coverage is medium, indicating that some objects are not mapped. Price data is none, and listings are unavailable.",
+  "_h": "8099ad247954"
+ },
+ "az-zengilan": {
+  "headline": "Zəngilan: Foothill district with very limited public infrastructure and services",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area features 23.5% forest cover and 3.1% water resources with a mean elevation of 577 metres."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Road infrastructure remains at a low 26 index with only 2% paved roads among known surfaces."
+   }
+  ],
+  "summary": "Zəngilan is a foothill district spanning 706 km² with a population of 43,000 residents and a low density of 61 people per km². The area has low OSM mapping coverage, meaning that a portion of objects is unmapped. Public services and commercial facilities are currently minimal, with 0.7 schools per 10,000 residents and 0.47 bank ATMs per 10,000 residents. The transport network shows 0 bus stops and a neqliyyat index of 37 compared to the national median of 47.",
+  "strengths": [
+   "Forest coverage reaches 23.5% alongside a water share of 3.1% (forest share 23.5%; national median 0%).",
+   "Water bodies constitute 3.1% of the local landcover (water share 3.1%; national median 0%).",
+   "Mean elevation is recorded at 577 metres in a foothills terrain (mean elevation 577 m; national median 185 m)."
+  ],
+  "weaknesses": [
+   "Paved roads account for only 2% of the known road network surfaces (paved road share 2%; national median 4.35%).",
+   "Educational facility density stands at 0.7 schools per 10,000 residents (0.7 schools per 10,000 residents; national median 4.14).",
+   "Comfort and amenity index sits at 19 against the national median of 49.5 (rahatliq index 19; national median 49.5)."
+  ],
+  "best_for": [
+   "Nature and quiet seekers interested in foothill environments.",
+   "Reconstruction and development planning projects."
+  ],
+  "watch_out": [
+   "OSM coverage is low, indicating that some objects are missing from the map data.",
+   "Surface unknown percentage is 50.2% for the road network.",
+   "There are 0 pharmacies, 0 grocery stores, and 0 hospitals recorded per 10,000 residents."
+  ],
+  "confidence_note": "OSM mapping coverage for Zəngilan is low, indicating that objects are partially unmapped. Price data is entirely absent, and per-capita indicators reflect the recorded baseline data.",
+  "_h": "7412624a10cc"
+ },
+ "az-xacmaz": {
+  "headline": "Xaçmaz district: foothills settlement with 176,100 residents",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index is 80 out of 100, compared to the national median of 51, supported by 20.2% forest cover."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "There are 8.29 schools per 10,000 residents, which is higher than the national median of 4.14."
+   }
+  ],
+  "summary": "Xaçmaz has a population of 176,100 across 1,034.8 km². The district records 8.29 schools and 4.26 parks per 10,000 residents. The paved road share is 17.2%, while the national median is 4.35%. House prices stand at AZN 539/m², based on a sample confidence level.",
+  "strengths": [
+   "High school density with 8.29 schools per 10,000 residents, compared to the national median of 4.14 (8.29 per 10,000 residents; national median 4.14)",
+   "Strong natural environment index of 80, exceeding the national median of 51 (80 index; national median 51)",
+   "Paved road share of 17.2%, which is above the national median of 4.35% (17.2%; national median 4.35%)"
+  ],
+  "weaknesses": [
+   "Low grocery store availability with 0.91 shops per 10,000 residents, lower than the national median of 2.29 (0.91 per 10,000 residents; national median 2.29)",
+   "Limited pharmacy coverage with 0.06 per 10,000 residents, compared to the national median of 0.18 (0.06 per 10,000 residents; national median 0.18)",
+   "Zero shopping malls, matching the national median of 0 (0 malls per 10,000 residents; national median 0)"
+  ],
+  "best_for": [
+   "Buyers looking for a district with high forest cover of 20.2%",
+   "Households seeking an education index of 70, above the national median of 53"
+  ],
+  "watch_out": [
+   "Price data is based on a sample of 49 listings with a sample confidence level",
+   "Surface unknown percentage for roads is high at 77.9%",
+   "Zero bus stops per 10,000 residents are recorded"
+  ],
+  "confidence_note": "OSM coverage is high, but the price confidence is sample based on 49 listings. Per capita data is usable.",
+  "_h": "c22bb1b4d947"
+ },
+ "az-samux": {
+  "headline": "Samux: Foothill district with low road infrastructure and moderate education access.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Nature index is 53, national median 51, with 26 parks (4.4 per 10,000 residents, median 3.89)."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "Education index is 69, national median 53, featuring 57 schools (9.64 per 10,000 residents, median 4.14)."
+   }
+  ],
+  "summary": "Samux has a population of 59,100 across 1,394.9 km². The district records a healthcare index of 71 against a national median of 49, with 5 hospitals (0.85 per 10,000 residents, median 0.75). Transport index stands at 69, national median 47, supported by 1 rail stations and 4 bus stops. Note that OSM coverage is medium, meaning some objects are not mapped.",
+  "strengths": [
+   "Education index reaches 69, compared to the national median of 53 (tehsil index 69)",
+   "Healthcare index is 71, higher than the national median of 49 (sehiyye index 71)",
+   "Transport index is 69, compared to the national median of 47 (neqliyyat index 69)"
+  ],
+  "weaknesses": [
+   "Infrastructure index is low at 16, while the national median is 45 (infrastruktur index 16)",
+   "Paved roads percentage is 0%, compared to the national median of 4.35% (paved_pct_of_known 0%)",
+   "Surface unknown percentage is 55% for known road data (surface_unknown_pct 55%)"
+  ],
+  "best_for": [
+   "Families seeking education and healthcare facilities above national median levels.",
+   "Residents looking for foothill nature and park density of 4.4 per 10,000 residents."
+  ],
+  "watch_out": [
+   "Road infrastructure score is only 16 with 0% paved roads.",
+   "OSM map coverage is medium, indicating unmapped objects.",
+   "Price data is completely missing from the listings."
+  ],
+  "confidence_note": "OSM coverage is medium, meaning a portion of objects are not mapped. Price data has no listings available.",
+  "_h": "ff771ca2b4a3"
+ },
+ "az-agstafa": {
+  "headline": "Ağstafa district features foothills terrain and high educational facility density",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "The neighbourhood features 9.08 schools per 10,000 residents, compared to the national median of 4.14."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "The area records a rail station count of 7 across the district."
+   }
+  ],
+  "summary": "Ağstafa has a population of 87,000 with a density of 58 residents per square kilometre. The district has a comfort index of 79 and an education index of 84. The paved road share of known surfaces stands at 6.7%, compared to the national median of 4.35%. OSM data coverage for this neighbourhood is high.",
+  "strengths": [
+   "School density is higher with 9.08 per 10,000 residents, compared to the national median of 4.14 (9.08 schools per 10,000 residents; national median 4.14).",
+   "Park count reaches 10.57 per 10,000 residents, against the national median of 3.89 (10.57 parks per 10,000 residents; national median 3.89).",
+   "Grocery store availability registers 7.13 per 10,000 residents, versus the national median of 2.29 (7.13 groceries per 10,000 residents; national median 2.29)."
+  ],
+  "weaknesses": [
+   "Paved road share of known surfaces remains low at 6.7%, while the national median is 4.35% (paved share 6.7%; national median 4.35%).",
+   "Bus stop count is restricted to 0.11 per 10,000 residents, compared to the national median of 0.27 (0.11 bus stops per 10,000 residents; national median 0.27).",
+   "Surface unknown percentage for roads is high at 51% (surface unknown 51%; national median information not available)."
+  ],
+  "best_for": [
+   "Families requiring educational facilities due to the high school index score of 84.",
+   "Residents seeking grocery accessibility with 7.13 stores per 10,000 residents."
+  ],
+  "watch_out": [
+   "Road infrastructure has a low paved share of 6.7% and 51% unknown surface data.",
+   "Property price data and listings are not available for this neighbourhood."
+  ],
+  "confidence_note": "OSM coverage is high and per capita data is reliable. Price information is none, so no real estate pricing conclusions can be drawn from mock or estimate sources.",
+  "_h": "1366b9a24964"
+ },
+ "az-agdam": {
+  "headline": "Ağdam district profile with low road surface paving and sparse services",
+  "tags": [
+   {
+    "tag": "inkisafda",
+    "reason": "The neighbourhood has an infrastructure index of 30, with a paved road share of 4.2 percent compared to the national median of 4.35 percent."
+   }
+  ],
+  "summary": "Ağdam has a population of 176,400 across an area of 1,071.6 square kilometres. The neighbourhood features 1.08 schools per 10,000 residents and a education index of 32. Transport infrastructure includes 9 bus stops, yielding 0.51 bus stops per 10,000 residents against a national median of 0.27. OSM coverage is medium, indicating that some objects are not mapped.",
+  "strengths": [
+   "Rail stations count is 3 within the neighbourhood (3 rail stations).",
+   "Bus stops per 10,000 residents stand at 0.51, exceeding the national median of 0.27 (0.51 bus stops per 10,000 residents; median 0.27).",
+   "Transport index is recorded at 51, compared to the national median of 47 (51 index points; median 47)."
+  ],
+  "weaknesses": [
+   "Grocery stores per 10,000 residents total 0.28, which is below the national median of 2.29 (0.28 groceries per 10,000 residents; median 2.29).",
+   "Paved road share of known surfaces is 4.2 percent, sitting slightly under the national median of 4.35 percent (4.2 percent paved share; median 4.35 percent).",
+   "Healthcare index is 33, trailing the national median of 49 (33 index points; median 49)."
+  ],
+  "best_for": [
+   "Residents seeking locations with multiple rail transport links.",
+   "Buyers focusing on areas with medium OSM data coverage."
+  ],
+  "watch_out": [
+   "Surface unknown share reaches 45.9 percent.",
+   "Price data has no active listings or mock values, showing zero listings with title extracts.",
+   "Pharmacy count is 0 per 10,000 residents."
+  ],
+  "confidence_note": "OSM coverage is medium, meaning a portion of objects is unmapped. Price data is none, so no pricing metrics or sample listings are available for analysis.",
+  "_h": "6394edf7fabc"
+ },
+ "az-balaken": {
+  "headline": "Balakən district offers mountain nature and solid educational access.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Forest cover stands at 48.3% and natural indices reach 81 against the national median of 51."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "School coverage reaches 8.39 per 10,000 residents compared to the national median of 4.14."
+   }
+  ],
+  "summary": "Balakən is a mountainous district with a population of 101,300 and an average elevation of 913 metres. The area provides robust healthcare and education facilities with healthcare indices at 82 and education indices at 76. Transport relies on 1 rail station and 17 bus stops, yielding a transport index of 61. Road infrastructure shows a paved road share of 50.0% amongst known surfaces with an infrastructure index of 48.",
+  "strengths": [
+   "High hospital availability with 1.38 units per 10,000 residents, while the national median is 0.75 (1.38 per 10,000 residents; national median 0.75).",
+   "Strong educational facilities featuring 8.39 schools per 10,000 residents against a national median of 4.14 (8.39 schools per 10,000 residents; national median 4.14).",
+   "Extensive park and recreation spaces with 7.5 parks per 10,000 residents compared to the national median of 3.89 (7.5 parks per 10,000 residents; national median 3.89)."
+  ],
+  "weaknesses": [
+   "Limited public transport route data with 0 bus routes and 17 bus stops in total (17 bus stops; national median 0.27 per 10,000 residents).",
+   "Surface type data is missing for 77.9% of the road network (surface unknown share 77.9%; total roads 1151 km).",
+   "Fuel station density matches the national median exactly at 0.69 per 10,000 residents, offering no above-average abundance (0.69 per 10,000 residents; national median 0.69)."
+  ],
+  "best_for": [
+   "Residents seeking mountain terrain and natural forest environments.",
+   "Families requiring local school and hospital availability."
+  ],
+  "watch_out": [
+   "High share of unknown road surfaces at 77.9%.",
+   "Absence of real estate pricing data in the current dataset."
+  ],
+  "confidence_note": "OSM coverage is high and per capita metrics are reliable, but price data is entirely absent from this dataset.",
+  "_h": "e72315a0dc00"
+ },
+ "az-xocali": {
+  "headline": "Xocalı mountain district features sparse transport links and extensive forest cover.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Forest cover reaches 51.2% with a nature index of 67, compared to the national median of 51."
+   }
+  ],
+  "summary": "Xocalı is a mountain district with a population of 15,700 and a low population density of 17 people per square kilometre. The transport index stands at 46 against a national median of 47, supported by 5 bus stops and 0 metro stations. The infrastructure index is 42 with a paved road share of 16.2%, while the national median paved share is 4.35%. Nature and environment conditions include a PM2.5 model value of 12.9 and forest cover of 51.2%.",
+  "strengths": [
+   "High forest cover across the mountain terrain (51.2% forest landcover; national median 51).",
+   "Paved road share exceeds the national median (16.2% paved roads; national median 4.35%).",
+   "Nature index is above the national benchmark (nature index 67; national median 51)."
+  ],
+  "weaknesses": [
+   "Transport index is slightly below the national median (transport index 46; national median 47).",
+   "Low population density limits local public transit services (population density 17 persons/km²; national median 81).",
+   "Infrastruktur index remains below the national benchmark (infrastruktur index 42; national median 45)."
+  ],
+  "best_for": [
+   "Residents seeking mountainous nature settings with forest cover.",
+   "Buyers prioritizing lower density and rural settings."
+  ],
+  "watch_out": [
+   "Per capita indicators are unreliable due to mapping discrepancies noted in official statistics.",
+   "Property price data and listings are completely absent from current records.",
+   "Surface unknown percentage for roads reaches 18.9%."
+  ],
+  "confidence_note": "Per capita figures are unreliable because OSM has 759 features for a population of 15,700. Price data is entirely missing from the records.",
+  "_h": "3225453a51c6"
+ },
+ "az-neftcala": {
+  "headline": "Neftçala district: coastal plain settlement with 87,900 residents.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index stands at 62 against the national median of 51, supported by 2.5 parks per 10,000 residents."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Price data is unavailable with no active listings, providing no demo or estimate value."
+   }
+  ],
+  "summary": "Neftçala district spans 1,470.4 square kilometres with a population density of 61 people per square kilometre and 87,900 residents. The infrastructure index is 50, matching the national median of 45, with a paved road share of 7.7% among known surfaces and 60.9% unknown surface percentage. The comfort index is 36 compared to the national median of 49.5, while the healthcare index registers at 44 against the national median of 49. OSM coverage is medium, meaning a portion of objects is not mapped.",
+  "strengths": [
+   "Nature index is above national median at 62, compared to the national median of 51 (62 vs 51).",
+   "School provision reaches 4.66 per 10,000 residents, exceeding the national median of 4.14 (4.66 per 10,000 residents; median 4.14).",
+   "Hospital count stands at 0.91 per 10,000 residents, above the national median of 0.75 (0.91 per 10,000 residents; median 0.75)."
+  ],
+  "weaknesses": [
+   "Grocery store density is 1.93 per 10,000 residents, below the national median of 2.29 (1.93 per 10,000 residents; median 2.29).",
+   "Bank and ATM count is 0.23 per 10,000 residents, under the national median of 0.69 (0.23 per 10,000 residents; median 0.69).",
+   "Transport index is 37, trailing the national median of 47 (37 vs 47)."
+  ],
+  "best_for": [
+   "Buyers seeking a coastal plain environment with 8.2% water cover.",
+   "Residents looking for an area with 0 rail stations and a mean elevation of -25 metres."
+  ],
+  "watch_out": [
+   "OSM coverage is medium, indicating that some objects are missing from the map.",
+   "Price data is completely absent, as listings show no records.",
+   "Bus stops count is 0 per 10,000 residents, below the national median of 0.27."
+  ],
+  "confidence_note": "OSM coverage is medium, meaning objects are partially mapped. Price confidence is none with zero listings, so no price metrics or estimates are available.",
+  "_h": "f4c4f4c40815"
+ },
+ "az-qubadli": {
+  "headline": "Qubadlı: mountain district with sparse infrastructure and low population density",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The neighbourhood features a forest landcover share of 7.3% and a mean elevation of 728 metres."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "The asphalt road coverage is 6.1% compared to the national median of 4.35%."
+   }
+  ],
+  "summary": "Qubadlı has a population of 37,400 residents living across a land area of 783.8 square kilometres with a density of 47 residents per square kilometre. The area records 0.8 fuel stations per 10,000 residents, while grocery, pharmacy, and school counts per 10,000 residents are all zero. The transport index is 37 and the infrastructure index is 30, both trailing national medians. Note that OSM coverage is low, meaning a portion of objects are not mapped.",
+  "strengths": [
+   "Fuel stations availability stands at 0.8 per 10,000 residents, against the national median of 0.69.",
+   "The forest landcover accounts for 7.3% of the total territory.",
+   "Paved road share reaches 6.1%, which is above the national median of 4.35%."
+  ],
+  "weaknesses": [
+   "Grocery store availability is 0 per 10,000 residents, whereas the national median is 2.29.",
+   "School availability is 0 per 10,000 residents, compared to the national median of 4.14.",
+   "The comfort index is 12, which is significantly lower than the national median of 49.5."
+  ],
+  "best_for": [
+   "Those seeking mountain terrain settings with an elevation mean of 728 metres.",
+   "Locals requiring lower population densities of 47 residents per square kilometre."
+  ],
+  "watch_out": [
+   "OSM coverage is low, indicating that several objects are unmapped in this neighbourhood.",
+   "No price data or active listings are available for this district.",
+   "Educational, medical, and retail facilities show zero counts per 10,000 residents in the current dataset."
+  ],
+  "confidence_note": "OSM coverage is low, meaning some objects are missing from the map data. Price data is not available, and confidence is none.",
+  "_h": "7d144d900c23"
+ },
+ "az-abseron": {
+  "headline": "Abşeron: extensive district with low road paving and sample prices",
+  "tags": [
+   {
+    "tag": "budce_dostu",
+    "reason": "Affordability index is 19, compared to the national median of 50."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "New apartment average price is AZN 1,250/m² with 4,159 listings in the sample period."
+   }
+  ],
+  "summary": "Abşeron has a population of 435,200 across an area of 2,010.9 km². The district records 17.33 groceries and 2.41 pharmacies per 10,000 residents, against national medians of 2.29 and 0.18 respectively. Paved roads cover 13.4% of known surfaces, compared to the national median of 4.35%. Listings show a deed share (\"çıxarış\") of 78% and a mortgage share of 30%.",
+  "strengths": [
+   "Grocery density stands at 17.33 per 10,000 residents, while the national median is 2.29 (17.33 per 10,000 residents; median 2.29)",
+   "Infrastructure index reaches 83 against the national median of 45 (83 index; median 45)",
+   "New apartment price is sampled at AZN 1,250/m² while the national median is AZN 960/m² (AZN 1,250/m²; median AZN 960/m²)"
+  ],
+  "weaknesses": [
+   "Nature index is 16, lower than the national median of 51 (16 index; median 51)",
+   "Paved road share is 13.4% with surface unknown at 83.7% (13.4%; median 4.35%)",
+   "Affordability index is 19, contrasting with the national median of 50 (19 index; median 50)"
+  ],
+  "best_for": [
+   "Buyers seeking new apartments priced at sample values of AZN 1,250/m².",
+   "Residents looking for grocery density of 17.33 per 10,000 residents."
+  ],
+  "watch_out": [
+   "Surface unknown percentage is high at 83.7% for roads.",
+   "Price confidence is based on sample data."
+  ],
+  "confidence_note": "OSM coverage is high and per capita data status is ok, but price indicators rely on sample confidence.",
+  "_h": "77b7efdda779"
+ },
+ "az-tovuz": {
+  "headline": "Tovuz: Mountain district with high park density and limited paved roads",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area offers 8.84 parks per 10,000 residents, compared to the national median of 3.89."
+   },
+   {
+    "tag": "aile_dostu",
+    "reason": "School provision stands at 6.88 per 10,000 residents, exceeding the national median of 4.14."
+   }
+  ],
+  "summary": "Tovuz is a mountain district with a population of 178,800 and a density of 92 residents per square kilometre. The neighbourhood features a high OSM mapping coverage and provides 8.84 parks per 10,000 residents, surpassing the national median of 3.89. Transport infrastructure is limited, with paved roads covering 0.3 percent of known surfaces compared to the national median of 4.35 percent. Price data is currently unavailable for this area.",
+  "strengths": [
+   "High park density with 8.84 parks per 10,000 residents, against the national median of 3.89 (8.84 parks per 10,000 residents; median 3.89)",
+   "Above average school provision with 6.88 schools per 10,000 residents, exceeding the national median of 4.14 (6.88 schools per 10,000 residents; median 4.14)",
+   "Clean air quality with a PM2.5 model value of 9.9, lower than the national median of 12.5 (PM2.5 model 9.9; median 12.5)"
+  ],
+  "weaknesses": [
+   "Low paved road share at 0.3 percent of known surfaces, compared to the national median of 4.35 percent (paved road share 0.3 percent; median 4.35 percent)",
+   "Low transport index score of 37, trailing the national median of 47 (neqliyyat index 37; median 47)",
+   "Surface type remains unknown for 65.3 percent of roads in the district (surface unknown share 65.3 percent; median data unavailable)"
+  ],
+  "best_for": [
+   "Residents seeking mountain terrain living",
+   "Households prioritising park access and natural surroundings"
+  ],
+  "watch_out": [
+   "Paved road share is low at 0.3 percent",
+   "No property price listings or title extract data available"
+  ],
+  "confidence_note": "OSM mapping coverage is high and per capita metrics are reliable. Price data is not available as listings are absent.",
+  "_h": "93d1aadfbb5f"
+ },
+ "az-gedebey": {
+  "headline": "Gədəbəy: Mountain district with high nature index and low paved road share.",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The nature index is 80 out of 100, national median 51, with 16.2% forest cover."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "Listings sample size is 2, with no price data available in the dataset."
+   }
+  ],
+  "summary": "Gədəbəy is a mountain district with a population of 101,400 and a density of 82 people per km². The area features 7.99 schools per 10,000 residents, compared to the national median of 4.14. The infrastructure index is 27 out of 100, while the national median is 45. OSM coverage is high, but price data is completely absent from the dataset.",
+  "strengths": [
+   "Nature index is high at 80, compared to the national median of 51 (tebiet index 80; median 51).",
+   "School density is higher than the national median with 7.99 per 10,000 residents, compared to 4.14 (7.99 schools per 10,000 residents; median 4.14).",
+   "Healthcare index is 76, which exceeds the national median of 49 (sehiyye index 76; median 49)."
+  ],
+  "weaknesses": [
+   "Paved roads make up only 50% of roads with known surface, though the surface is unknown for 59% of roads (paved share 50%; unknown 59%).",
+   "Transport index is low at 53, with 0 bus routes and 0.69 bus stops per 10,000 residents (neqliyyat index 53; median 47).",
+   "Kindergarten density is low at 0.59 per 10,000 residents, compared to the national median of 0.47 (0.59 kindergartens per 10,000 residents; median 0.47)."
+  ],
+  "best_for": [
+   "Buyers looking for a mountainous environment with an elevation mean of 1,936 m.",
+   "Residents seeking higher than median healthcare and school provision per capita."
+  ],
+  "watch_out": [
+   "Price data is completely missing, and listings sample size is only 2.",
+   "Infrastructure index is low at 27 out of 100, and 59% of road surfaces are unknown."
+  ],
+  "confidence_note": "OSM coverage is high and per capita data is reliable, but price data has no information and the listings sample size is only 2.",
+  "_h": "538480960cbe"
+ },
+ "az-kelbecer": {
+  "headline": "Kəlbəcər mountain district with sparse infrastructure and high nature index",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "The area features a nature index of 75 compared to the national median of 51, with 14.3% forest cover and a mean elevation of 2,230 metres."
+   }
+  ],
+  "summary": "Kəlbəcər is a mountain district with a population of 72,800 and a low density of 37 residents per square kilometre. The region records a comfort index of 18, an education index of 22, and a health index of 19, all below national medians. Road infrastructure shows a paved share of 2.2%, where the national median of districts is 4.35%. OSM coverage is low, indicating that some objects are not mapped.",
+  "strengths": [
+   "Nature index is high at 75 compared to the national median of 51 (tebiet index 75; national median 51)",
+   "Forest cover accounts for 14.3% of the land area (forest cover 14.3%)",
+   "PM2.5 air quality model shows a clean air value of 8.1 compared to the national median of 12.5 (PM2.5 8.1; national median 12.5)"
+  ],
+  "weaknesses": [
+   "Grocery count is 1.1 per 10,000 residents compared to the national median of 2.29 (grocery 1.1 per 10k; national median 2.29)",
+   "School count stands at 0.82 per 10,000 residents compared to the national median of 4.14 (school 0.82 per 10k; national median 4.14)",
+   "Paved road share is low at 2.2% compared to the national median of 4.35% (paved roads 2.2%; national median 4.35%)"
+  ],
+  "best_for": [
+   "Nature and mountain environment seekers",
+   "Visitors looking for low population density areas"
+  ],
+  "watch_out": [
+   "Very low grocery and school availability per 10,000 residents",
+   "Lack of hospital, clinic, pharmacy, bank, and fuel POI data in the district",
+   "OSM mapping coverage is low, meaning a portion of objects are not mapped"
+  ],
+  "confidence_note": "OSM coverage is low, meaning a portion of objects are not mapped. Price data is currently none.",
+  "_h": "fc21bdc22c8a"
+ },
+ "az-qazax": {
+  "headline": "Qazax: Regional centre with extensive healthcare and education coverage",
+  "tags": [
+   {
+    "tag": "aile_dostu",
+    "reason": "Family friendly due to 7.65 schools per 10,000 residents compared to the national median of 4.14."
+   },
+   {
+    "tag": "inkisafda",
+    "reason": "Infrastructure shows a paved road share of 2.7% against the national median of 4.35%."
+   }
+  ],
+  "summary": "Qazax has a population of 96,700 and a density of 138 inhabitants per square kilometre. The healthcare index is 89 with 2.79 hospitals per 10,000 residents, exceeding the national median of 0.75. The comfort index is 86 supported by 10.75 groceries per 10,000 residents, while the infrastructure index is 28. The area features 7.65 schools per 10,000 residents and a PM2.5 air quality level of 11.9.",
+  "strengths": [
+   "Healthcare index is high at 89, supported by 2.79 hospitals per 10,000 residents (national median 0.75).",
+   "Education index stands at 75, with 7.65 schools per 10,000 residents (national median 4.14).",
+   "Comfort index reaches 86, featuring 10.75 groceries per 10,000 residents (national median 2.29)."
+  ],
+  "weaknesses": [
+   "Infrastructure index is low at 28, with a paved road share of 2.7% (national median 4.35%).",
+   "Transport index is 55, with 0.83 bus stops per 10,000 residents (national median 0.27) and 1 rail station.",
+   "Nature index is 49, with a forest cover of 3.6% and a water cover of 1.5%."
+  ],
+  "best_for": [
+   "Residents seeking established healthcare facilities with 2.79 hospitals per 10,000 residents.",
+   "Families requiring local schools, providing 7.65 schools per 10,000 residents."
+  ],
+  "watch_out": [
+   "Low paved road share of 2.7% among known surfaces.",
+   "Surface unknown percentage reaches 48.3% across the 1,750 total km of roads."
+  ],
+  "confidence_note": "OSM coverage is high and per capita data is reliable, but price data is missing and price confidence is none.",
+  "_h": "91d6441c6444"
+ },
+ "az-astara": {
+  "headline": "Astara district features coastal and mountain terrain with high forest cover",
+  "tags": [
+   {
+    "tag": "tebiet_sakitlik",
+    "reason": "Forest cover is 60.1% and the nature index is 79, compared to the national median of 51."
+   },
+   {
+    "tag": "budce_dostu",
+    "reason": "House with a yard price is AZN 634/m² based on sample data, where confidence is sample."
+   }
+  ],
+  "summary": "Astara district has a population of 113,600 and a density of 183 residents per km². The area features 2 rail stations and 17 parks, yielding 1.5 parks per 10,000 residents against the national median of 3.89. The infrastructure index is 77, and paved road share of known surfaces is 17%. OSM coverage is medium, meaning some objects are not mapped.",
+  "strengths": [
+   "High forest cover and strong nature index at 79 (national median 51; forest cover 60.1%)",
+   "Paved road share of known surfaces stands at 17% (national median 4.35%; infrastructure index 77)",
+   "Bazaar density is 0.18 per 10,000 residents (national median 0.08; 2 bazaars total)"
+  ],
+  "weaknesses": [
+   "School density is 1.5 per 10,000 residents (national median 4.14; 17 schools total)",
+   "Hospital density is 0.18 per 10,000 residents (national median 0.75; 2 hospitals total)",
+   "Bank and ATM density is 0.18 per 10,000 residents (national median 0.69; 2 units total)"
+  ],
+  "best_for": [
+   "Buyers seeking mountain and coastal landscapes with high forest cover",
+   "Those looking for detached houses with a yard priced at AZN 634/m² based on sample data"
+  ],
+  "watch_out": [
+   "Surface unknown percentage is 75.4% for roads, which indicates incomplete road data",
+   "OSM coverage is medium, meaning a portion of objects are not mapped",
+   "Zero kindergartens and zero bus stops are recorded in the dataset"
+  ],
+  "confidence_note": "OSM coverage is medium, indicating that a portion of objects are not mapped. Price confidence is sample, reflecting the median of real listings rather than a demo value.",
+  "_h": "0323de99edb5"
  }
 }

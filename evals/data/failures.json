@@ -24,7 +24,7 @@
    "input": "“Nərimanovda metroya yaxın ev lazımdır” (I need a home near the metro in Nərimanov)",
    "wrong": "The third recommendation was “Nərimanov · 20 Sentyabr metro area”, a station that is not open yet.",
    "cause": "In OSM the station=subway tag is also used for a depot (Dərnəgül depot), an exit (28 May exit 2) and planned stations (Y14–Y16, 20 Sentyabr, Məhəmməd Hadi): OSM showed 33 'stations', the real number is 27.",
-   "mitigation": "OSM stations are checked against the list of 27 operating stations, name variants are normalised (Metro elmlər → Elmlər Akademiyası) and the rest are dropped. data-sanity: OSM 26 / official 27 (Memar Əcəmi-2 is at the same location)."
+   "mitigation": "OSM stations are checked against the list of 27 operating stations, name variants are normalised (“Metro elmlər” → “Elmlər Akademiyası”) and the rest are dropped. data-sanity: OSM 26 / official 27 (Memar Əcəmi-2 is at the same location)."
   }
  },
  {
@@ -64,7 +64,7 @@
   "en": {
    "title": "Azerbaijani letters were lost when falling back to a weaker model",
    "input": "Lerik profile (switch to the flash-lite model when the free limit ran out)",
-   "wrong": "“zengin tebieti ve mehdud infrastrukturu olan dagliq erazi”: the letters ə, ğ and ı are missing.",
+   "wrong": "“zengin tebieti ve mehdud infrastrukturu olan dagliq erazi”: the letters “ə”, “ğ” and “ı” are missing.",
    "cause": "On a 429 limit, the fallback model chain reached the weaker flash-lite model.",
    "mitigation": "A profile quality check (length, ≥6 numbers, banned phrases, Azerbaijani letters); failing profiles are rewritten."
   }

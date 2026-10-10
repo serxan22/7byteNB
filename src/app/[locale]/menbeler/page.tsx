@@ -41,7 +41,7 @@ export default async function Sources({ params }: { params: Promise<{ locale: Ap
   const tx = (d: Dataset) => (en && d.en ? { ...d, ...d.en, date: d.en.date ?? d.date } : d);
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
+    <div className="mx-auto w-full max-w-5xl px-4 py-8 md:py-12">
       <Link href="/xerite" className="text-sm font-bold text-caspian">{t("back")}</Link>
       <h1 className="mt-4 text-4xl font-extrabold tracking-[-0.035em] md:text-5xl">{t("h1")}</h1>
       <p className="mt-3 max-w-[68ch] text-[15px] leading-relaxed text-ink-2">{t("intro", { date: new Date(src.generated_at).toLocaleDateString(en ? "en-GB" : "az-AZ", { day: "numeric", month: "long", year: "numeric" }) })}</p>

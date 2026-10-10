@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T12:58:44.216Z",
+ "generated_at": "2026-10-10T13:15:54.336Z",
  "datasets": [
   {
    "key": "osm",
@@ -27,7 +27,7 @@
    "coverage": "87/87 ərazi",
    "used_for": "Əhali (01.01.2026), sıxlıq, 10 min nəfərə düşən göstəricilər",
    "en": {
-    "name": "State Statistics Committee (DSK) — table 1.15 (area, population, density)",
+    "name": "State Statistics Committee (SSC) — table 1.15 (area, population, density)",
     "coverage": "87/87 areas",
     "used_for": "Population (01.01.2026), density, per-10,000-resident indicators"
    }

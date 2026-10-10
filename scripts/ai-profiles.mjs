@@ -15,6 +15,8 @@ const SYSTEM = forLocale(PROFILE_SYSTEM, LANG);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const force = process.argv.includes("--force");
 const only = process.argv.find((a) => a.startsWith("--only="))?.slice(7).split(",");
+// --note="..." appends a one-off correction to the prompt (new cache key) when re-running a single bad profile with --only
+const NOTE = process.argv.find((a) => a.startsWith("--note="))?.slice(7);
 
 const az = JSON.parse(fs.readFileSync("public/data/regions-az.json", "utf8"));
 const baku = JSON.parse(fs.readFileSync("public/data/regions-baku.json", "utf8"));
@@ -56,7 +58,7 @@ console.log(`model ${process.env.AI_MODEL || AI_MODEL}; ${Object.keys(done).leng
 
 let failures = 0;
 for (const r of queue) {
-  const prompt = `${LANG === "en" ? "Area indicators (JSON)" : "Ərazinin göstəriciləri (JSON)"}:\n${JSON.stringify(regionForAI(r, national[r.level], LANG))}${LANG === "en" ? "\n\nWrite every sentence in British English. Only place names stay in Azerbaijani." : ""}`;
+  const prompt = `${LANG === "en" ? "Area indicators (JSON)" : "Ərazinin göstəriciləri (JSON)"}:\n${JSON.stringify(regionForAI(r, national[r.level], LANG))}${LANG === "en" ? "\n\nWrite every sentence in British English. Only place names stay in Azerbaijani." : ""}${NOTE ? `\n\n${NOTE}` : ""}`;
   let res;
   for (let attempt = 0; attempt < 4; attempt++) {
     res = await generateJSON(prompt, AIProfileSchema, { system: SYSTEM, maxTokens: 3000 });

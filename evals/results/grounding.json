@@ -1,8 +1,8 @@
 {
  "n_texts": 29,
- "numbers": 639,
- "ungrounded": 1,
- "grounded_pct": 99.8,
+ "numbers": 672,
+ "ungrounded": 3,
+ "grounded_pct": 99.6,
  "rows": [
   {
    "id": "az-abseron",
@@ -35,148 +35,151 @@
    "examples": []
   },
   {
-   "id": "az-culfa",
+   "id": "az-celilabad",
    "numbers": 19,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "az-gedebey",
+   "id": "az-fuzuli",
+   "numbers": 19,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-goranboy",
    "numbers": 22,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "az-goycay",
-   "numbers": 33,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-imisli",
-   "numbers": 15,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-kengerli",
-   "numbers": 17,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-lenkeran",
-   "numbers": 17,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-mingecevir",
-   "numbers": 22,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-neftcala",
-   "numbers": 30,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-qax",
-   "numbers": 18,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-qobustan",
-   "numbers": 17,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-qusar",
+   "id": "az-haciqabul",
    "numbers": 24,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "az-sabran",
-   "numbers": 22,
+   "id": "az-kelbecer",
+   "numbers": 24,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "az-samaxi",
+   "id": "az-lacin",
    "numbers": 21,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "az-seki",
-   "numbers": 27,
+   "id": "az-masalli",
+   "numbers": 11,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "az-sirvan",
-   "numbers": 26,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-susa",
-   "numbers": 16,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-ucar",
-   "numbers": 22,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-xizi",
-   "numbers": 23,
-   "ungrounded": 0,
-   "examples": []
-  },
-  {
-   "id": "az-yardimli",
+   "id": "az-naxcivan",
    "numbers": 18,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "az-zengilan",
-   "numbers": 20,
-   "ungrounded": 1,
-   "examples": [
-    43
-   ]
-  },
-  {
-   "id": "bk-nerimanov",
-   "numbers": 24,
+   "id": "az-ordubad",
+   "numbers": 16,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "bk-pirallahi",
+   "id": "az-qebele",
    "numbers": 27,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "bk-sebail",
-   "numbers": 22,
+   "id": "az-qubadli",
+   "numbers": 20,
    "ungrounded": 0,
    "examples": []
   },
   {
-   "id": "bk-xezer",
-   "numbers": 36,
+   "id": "az-sabirabad",
+   "numbers": 19,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-salyan",
+   "numbers": 21,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-sederek",
+   "numbers": 21,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-serur",
+   "numbers": 21,
+   "ungrounded": 2,
+   "examples": [
+    114,
+    114
+   ]
+  },
+  {
+   "id": "az-sumqayit",
+   "numbers": 29,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-tovuz",
+   "numbers": 24,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-xankendi",
+   "numbers": 32,
+   "ungrounded": 1,
+   "examples": [
+    409
+   ]
+  },
+  {
+   "id": "az-xocavend",
+   "numbers": 33,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "az-zaqatala",
+   "numbers": 30,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "bk-bineqedi",
+   "numbers": 28,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "bk-nizami",
+   "numbers": 35,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "bk-sabuncu",
+   "numbers": 29,
+   "ungrounded": 0,
+   "examples": []
+  },
+  {
+   "id": "bk-xetai",
+   "numbers": 28,
    "ungrounded": 0,
    "examples": []
   }
