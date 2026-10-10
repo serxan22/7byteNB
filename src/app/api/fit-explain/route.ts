@@ -1,20 +1,24 @@
 import { NextResponse } from "next/server";
 import { generateJSON } from "@/lib/ai";
 import { FitExplainSchema, PersonaSchema } from "@/lib/schemas";
-import { FIT_SYSTEM, regionForAI } from "@/lib/prompts";
+import { FIT_SYSTEM, forLocale, regionForAI } from "@/lib/prompts";
 import { loadData } from "@/lib/serverData";
 import { INDEX_KEYS } from "@/lib/score";
 
 const LABEL: Record<string, string> = { rahatliq: "gündəlik rahatlıq", neqliyyat: "nəqliyyat", tehsil: "təhsil", sehiyye: "səhiyyə", tebiet: "təbiət", infrastruktur: "yol infrastrukturu", elcatanliq: "əlçatan qiymət" };
+const LABEL_EN: Record<string, string> = { rahatliq: "everyday convenience", neqliyyat: "transport", tehsil: "education", sehiyye: "healthcare", tebiet: "nature", infrastruktur: "road infrastructure", elcatanliq: "affordability" };
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
+  const locale = body?.locale === "en" ? "en" : "az";
+  const en = locale === "en";
+  const L = en ? LABEL_EN : LABEL;
   const persona = PersonaSchema.safeParse(body?.persona);
   const { regions, national } = loadData();
   const r = regions.find((x) => x.id === body?.regionId);
-  if (!persona.success || !r) return NextResponse.json({ error: "Yanlış sorğu" }, { status: 400 });
-  const user = JSON.stringify({ persona: persona.data, fit_score: body.fit, over_budget: !!body.overBudget, region: regionForAI(r, national[r.level]) });
-  const res = await generateJSON(user, FitExplainSchema, { system: FIT_SYSTEM, maxTokens: 2000 });
+  if (!persona.success || !r) return NextResponse.json({ error: en ? "Invalid request" : "Yanlış sorğu" }, { status: 400 });
+  const user = JSON.stringify({ persona: persona.data, fit_score: body.fit, over_budget: !!body.overBudget, region: regionForAI(r, national[r.level], locale) });
+  const res = await generateJSON(user, FitExplainSchema, { system: forLocale(FIT_SYSTEM, locale), maxTokens: 2000 });
   if (res.ok) return NextResponse.json({ result: res.data, source: "ai" });
   // rule-based fallback: strongest / weakest weighted indices
   const w = persona.data.weights;
@@ -22,9 +26,11 @@ export async function POST(req: Request) {
   return NextResponse.json({
     source: "fallback",
     result: {
-      fit_comment: `Uyğunluq balı ${body.fit}/100 — sənin üçün vacib indekslərin çəkili ortası${body.overBudget ? "; büdcədən baha olduğu üçün bal 70% azaldılıb" : ""}. (Qayda əsaslı izah — AI hazırda əlçatan deyil.)`,
-      why: ranked.slice(0, 2).map((k) => `${LABEL[k]} indeksi ${r.indices[k]}/100`),
-      trade_offs: ranked.slice(-2).reverse().filter((k) => (r.indices[k] ?? 100) < 50).map((k) => `${LABEL[k]} indeksi cəmi ${r.indices[k]}/100`),
+      fit_comment: en
+        ? `Fit score ${body.fit}/100: the weighted average of the indices that matter to you${body.overBudget ? "; reduced by 70% because it is over budget" : ""}. (Rule-based explanation; the AI is unavailable right now.)`
+        : `Uyğunluq balı ${body.fit}/100 — sənin üçün vacib indekslərin çəkili ortası${body.overBudget ? "; büdcədən baha olduğu üçün bal 70% azaldılıb" : ""}. (Qayda əsaslı izah — AI hazırda əlçatan deyil.)`,
+      why: ranked.slice(0, 2).map((k) => (en ? `${L[k]} index ${r.indices[k]}/100` : `${L[k]} indeksi ${r.indices[k]}/100`)),
+      trade_offs: ranked.slice(-2).reverse().filter((k) => (r.indices[k] ?? 100) < 50).map((k) => (en ? `${L[k]} index only ${r.indices[k]}/100` : `${L[k]} indeksi cəmi ${r.indices[k]}/100`)),
     },
   });
 }

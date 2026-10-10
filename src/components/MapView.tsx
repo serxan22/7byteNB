@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import type { Map as MLMap, GeoJSONSource, Marker } from "maplibre-gl";
 import type { Level, Region } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 export type Highlight = { rank: number; centroid: [number, number]; area_id: string; kind: "hex" | "region" | "settlement"; region_id?: string };
 type Props = {
@@ -31,6 +32,9 @@ const lerpHex = (a: string, b: string, t: number) => {
 const css = (v: string) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 
 export default function MapView({ level, regions, colors, hexColors, selectedId, highlights, onSelect, onSelectHex, onHover }: Props) {
+  const t = useTranslations("map");
+  const tRef = useRef(t);
+  tRef.current = t;
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<MLMap | null>(null);
   const ready = useRef(false);
@@ -59,7 +63,7 @@ export default function MapView({ level, regions, colors, hexColors, selectedId,
         style: { version: 8, sources: {}, layers: [{ id: "bg", type: "background", paint: { "background-color": css("--map-bg") || "#e3dccb" } }] },
         bounds: BOUNDS[level],
         fitBoundsOptions: { padding: 24 },
-        attributionControl: { compact: true, customAttribution: "© OpenStreetMap iştirakçıları · DSK · Open-Meteo" },
+        attributionControl: { compact: true, customAttribution: tRef.current("attribution") },
         dragRotate: false,
         pitchWithRotate: false,
         minZoom: 5.5,
@@ -270,7 +274,7 @@ export default function MapView({ level, regions, colors, hexColors, selectedId,
       const el = document.createElement("button");
       el.className = "map-pin";
       el.textContent = String(h.rank);
-      el.setAttribute("aria-label", `Tövsiyə ${h.rank}`);
+      el.setAttribute("aria-label", tRef.current("pin", { n: h.rank }));
       el.onclick = (ev) => {
         ev.stopPropagation();
         if (h.kind === "hex") cb.current.onSelectHex(h.area_id);
@@ -314,7 +318,7 @@ export default function MapView({ level, regions, colors, hexColors, selectedId,
 
   return (
     <div className="absolute inset-0">
-      <div ref={el} className="h-full w-full" aria-label="Azərbaycan xəritəsi" role="region" />
+      <div ref={el} className="h-full w-full" aria-label={t("ariaMap")} role="region" />
     </div>
   );
 }

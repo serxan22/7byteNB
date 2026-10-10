@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T13:50:26.855Z",
+ "generated_at": "2026-10-10T12:58:44.216Z",
  "datasets": [
   {
    "key": "osm",
@@ -10,7 +10,12 @@
    "date": "2026-10-09",
    "coverage": "Rayonlar: 35 yüksək / 24 orta / 16 aşağı; Bakı rayonları: 11 yüksək / 1 orta",
    "used_for": "Sərhədlər, xidmət obyektləri (POI), dayanacaqlar, metro, marşrutlar, yollar və örtük, torpaq örtüyü, sahil xətti",
-   "license": "ODbL © OpenStreetMap contributors"
+   "license": "ODbL © OpenStreetMap contributors",
+   "en": {
+    "name": "OpenStreetMap (Geofabrik Azerbaijan extract)",
+    "coverage": "Districts: 35 high / 24 medium / 16 low; Baku districts: 11 high / 1 medium",
+    "used_for": "Boundaries, services (POI), stops, metro, routes, roads and surface, land cover, coastline"
+   }
   },
   {
    "key": "dsk",
@@ -20,7 +25,12 @@
    "status": "ok",
    "date": "2026-01-01",
    "coverage": "87/87 ərazi",
-   "used_for": "Əhali (01.01.2026), sıxlıq, 10 min nəfərə düşən göstəricilər"
+   "used_for": "Əhali (01.01.2026), sıxlıq, 10 min nəfərə düşən göstəricilər",
+   "en": {
+    "name": "State Statistics Committee (DSK) — table 1.15 (area, population, density)",
+    "coverage": "87/87 areas",
+    "used_for": "Population (01.01.2026), density, per-10,000-resident indicators"
+   }
   },
   {
    "key": "elevation",
@@ -30,7 +40,12 @@
    "status": "ok",
    "date": "2026-10-09",
    "coverage": "87/87 ərazi, hər ərazidə 5×5 şəbəkə",
-   "used_for": "Hündürlük, relyef tipi (düzənlik/dağətəyi/dağlıq)"
+   "used_for": "Hündürlük, relyef tipi (düzənlik/dağətəyi/dağlıq)",
+   "en": {
+    "name": "Open-Meteo Elevation API (Copernicus DEM 90 m)",
+    "coverage": "87/87 areas, 5×5 grid in each area",
+    "used_for": "Elevation, terrain type (plain/foothills/mountain)"
+   }
   },
   {
    "key": "climate",
@@ -40,7 +55,12 @@
    "status": "ok",
    "date": "2025",
    "coverage": "87/87 ərazi (mərkəz nöqtəsi)",
-   "used_for": "İyul orta maksimum, yanvar orta minimum, illik yağıntı"
+   "used_for": "İyul orta maksimum, yanvar orta minimum, illik yağıntı",
+   "en": {
+    "name": "Open-Meteo Historical Weather (ERA5)",
+    "coverage": "87/87 areas (centre point)",
+    "used_for": "July average maximum, January average minimum, annual precipitation"
+   }
   },
   {
    "key": "air",
@@ -50,7 +70,13 @@
    "status": "ok",
    "date": "son 30 gün",
    "coverage": "87/87 ərazi",
-   "used_for": "PM2.5 (ölçmə deyil, model)"
+   "used_for": "PM2.5 (ölçmə deyil, model)",
+   "en": {
+    "name": "Open-Meteo Air Quality (CAMS model)",
+    "date": "last 30 days",
+    "coverage": "87/87 areas",
+    "used_for": "PM2.5 (a model, not a measurement)"
+   }
   },
   {
    "key": "listings",
@@ -60,7 +86,12 @@
    "status": "ok",
    "date": "2024-10–2024-11",
    "coverage": "95632 unikal, koordinatlı elan; 17 ərazidə median (n≥8), 277 məhəllədə (n≥5)",
-   "used_for": "Nümunə qiymətlər (median ₼/m²), çıxarışı olan elanların payı, ipoteka payı. Fərdi elan saxlanmır."
+   "used_for": "Nümunə qiymətlər (median ₼/m²), çıxarışı olan elanların payı, ipoteka payı. Fərdi elan saxlanmır.",
+   "en": {
+    "name": "bina.az listings — user-supplied dataset (collected by a third party; we do not scrape)",
+    "coverage": "95632 unique geocoded listings; medians in 17 areas (n≥8), 277 neighbourhoods (n≥5)",
+    "used_for": "Sample prices (median AZN/m²), share of listings with a title extract, mortgage share. No individual listing is stored."
+   }
   },
   {
    "key": "prices",
@@ -70,7 +101,12 @@
    "status": "partial",
    "date": "2026-10-09",
    "coverage": "61 dərc olunmuş dəyər, 40 demo dəyər; 22 ərazi",
-   "used_for": "Qiymətlər, əlçatanlıq indeksi, büdcə filtri, həqiqi xərc"
+   "used_for": "Qiymətlər, əlçatanlıq indeksi, büdcə filtri, həqiqi xərc",
+   "en": {
+    "name": "Property prices (data/manual/prices.csv)",
+    "coverage": "61 published values, 40 demo values; 22 areas",
+    "used_for": "Prices, affordability index, budget filter, true cost"
+   }
   },
   {
    "key": "metro",
@@ -80,7 +116,12 @@
    "status": "ok",
    "date": "2026-10-09",
    "coverage": "OSM-dəki 33 'stansiya'dan depo, çıxış və planlaşdırılan 7-si atıldı; 26/27 uyğun gəlir",
-   "used_for": "Metroya piyada məsafə, nəqliyyat indeksi. metro.gov.az əlçatan olmadı."
+   "used_for": "Metroya piyada məsafə, nəqliyyat indeksi. metro.gov.az əlçatan olmadı.",
+   "en": {
+    "name": "Baku Metro — 27 operating stations (for checking OSM)",
+    "coverage": "Of 33 'stations' in OSM, 7 depots, exits and planned stations were removed; 26/27 match",
+    "used_for": "Walking distance to the metro, transport index. metro.gov.az was not reachable."
+   }
   },
   {
    "key": "mida",
@@ -90,7 +131,12 @@
    "status": "unavailable",
    "date": null,
    "coverage": "2026 üçün m² qiyməti dərc olunmayıb; tapılan 2021 elanları mənzil başınadır",
-   "used_for": "Planlaşdırılırdı: rəsmi qiymət nöqtələri"
+   "used_for": "Planlaşdırılırdı: rəsmi qiymət nöqtələri",
+   "en": {
+    "name": "MİDA subsidised housing prices",
+    "coverage": "No price per m² published for 2026; the 2021 notices found are per flat",
+    "used_for": "Planned: official price points"
+   }
   },
   {
    "key": "bna",
@@ -100,7 +146,12 @@
    "status": "unavailable",
    "date": null,
    "coverage": "Maşınla oxunan açıq marşrut məlumatı tapılmadı; OSM marşrutları istifadə olunur",
-   "used_for": "Planlaşdırılırdı: marşrut yoxlaması"
+   "used_for": "Planlaşdırılırdı: marşrut yoxlaması",
+   "en": {
+    "name": "Baku Transport Agency — bus routes",
+    "coverage": "No open machine-readable route data found; OSM routes are used instead",
+    "used_for": "Planned: route check"
+   }
   },
   {
    "key": "legal",
@@ -110,7 +161,12 @@
    "status": "unavailable",
    "date": null,
    "coverage": "Maddə mətni yoxdursa, AI maddə nömrəsi göstərmir",
-   "used_for": "Hüquqi yoxlama"
+   "used_for": "Hüquqi yoxlama",
+   "en": {
+    "name": "Legal texts (e-qanun.az)",
+    "coverage": "If an article's text is missing, the AI does not cite the article number",
+    "used_for": "Legal check"
+   }
   },
   {
    "key": "google",
@@ -120,7 +176,12 @@
    "status": "unavailable",
    "date": null,
    "coverage": "Açar yoxdur — istifadə olunmur",
-   "used_for": "Gələcək: seçilmiş ərazi üçün canlı zənginləşdirmə"
+   "used_for": "Gələcək: seçilmiş ərazi üçün canlı zənginləşdirmə",
+   "en": {
+    "name": "Google Places API",
+    "coverage": "No key, so not used",
+    "used_for": "Future: live enrichment for the selected area"
+   }
   },
   {
    "key": "yandex_waze",
@@ -130,7 +191,12 @@
    "status": "future",
    "date": null,
    "coverage": "Gələcəkdə tərəfdaşlıqla (scraping edilmir)",
-   "used_for": "Tıxac və real səyahət vaxtı"
+   "used_for": "Tıxac və real səyahət vaxtı",
+   "en": {
+    "name": "Yandex / Waze",
+    "coverage": "In future via partnership (no scraping)",
+    "used_for": "Congestion and real travel time"
+   }
   }
  ],
  "prices": [

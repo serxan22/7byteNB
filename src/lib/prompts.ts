@@ -13,14 +13,19 @@ const RULES = `Qaydalar:
 - İndekslərin mənası: rahatliq = ərzaq, aptek, kafe, ticarət mərkəzi, bank sıxlığı; neqliyyat = dayanacaq, marşrut, metro; tehsil = məktəb, bağça, universitet; sehiyye = xəstəxana, poliklinika, aptek; tebiet = meşə/su/park payı və təmiz hava (PM2.5 modeli); infrastruktur = YALNIZ yolların asfalt payı (örtüyü məlum yollar arasında); elcatanliq = mənzil qiymətinin ucuzluğu (yüksək = ucuz).`;
 
 /** Compact, number-only view of a region for prompts (no geometry, no long lists). */
-export function regionForAI(r: Region, national?: National) {
+const TERRAIN_EN: Record<string, string> = { "düzənlik": "plain", "dağətəyi": "foothills", "dağlıq": "mountain" };
+const COV_EN: Record<string, string> = { "yüksək": "high", orta: "medium", "aşağı": "low" };
+/** Compact view; with locale "en" every descriptive string is English so the model has nothing Azerbaijani to copy
+ *  (place names excepted). The az output is unchanged, so existing az cache keys stay valid. */
+export function regionForAI(r: Region, national?: National, locale: string = "az") {
+  const en = locale === "en";
   const prices = Object.fromEntries(
     Object.entries(r.prices).map(([k, p]) => [k, p ? { value: p.value, unit: p.unit, confidence: p.confidence } : null])
   );
   return {
     id: r.id,
     name: r.name,
-    level: r.level === "rayon" ? "rayon/şəhər" : "Bakı şəhərinin rayonu",
+    level: en ? (r.level === "rayon" ? "district/city" : "district of Baku city") : r.level === "rayon" ? "rayon/şəhər" : "Bakı şəhərinin rayonu",
     population: r.population.v,
     density_per_km2: r.density.v,
     area_km2: r.area_km2,
@@ -28,15 +33,15 @@ export function regionForAI(r: Region, national?: National) {
     per10k: r.per10k,
     transport: { metro_stations: r.transport.metro, rail_stations: r.transport.rail, bus_stops: r.transport.bus_stops, bus_routes: r.transport.bus_routes, nearest_metro_km: r.transport.nearest_metro_km ?? null },
     roads: { total_km: r.roads.total_km, paved_pct_of_known: r.roads.paved_known_pct ?? null, surface_unknown_pct: r.roads.unknown_pct },
-    nature: { terrain: r.nature.terrain, elevation_mean_m: r.nature.elev_mean, coastal: r.nature.coastal, landcover_pct: r.nature.landcover },
+    nature: { terrain: en && r.nature.terrain ? TERRAIN_EN[r.nature.terrain] ?? r.nature.terrain : r.nature.terrain, elevation_mean_m: r.nature.elev_mean, coastal: r.nature.coastal, landcover_pct: r.nature.landcover },
     climate: r.climate,
     pm25_model: r.air.pm25,
     prices,
     indices: r.indices,
-    coverage: r.coverage,
+    coverage: en ? { osm: COV_EN[r.coverage.osm], prices: r.coverage.prices, per_capita: r.coverage.per_capita, note: r.coverage.note_en } : r.coverage,
     listings: r.listings ?? null,
     national: national
-      ? { label: national.label, per10k: national.per10k, indices: national.indices, prices: national.prices, density: national.density, paved_pct: national.paved_pct, pm25: national.pm25 }
+      ? { label: en ? (r.level === "rayon" ? "national median of districts" : "median of Baku districts") : national.label, per10k: national.per10k, indices: national.indices, prices: national.prices, density: national.density, paved_pct: national.paved_pct, pm25: national.pm25 }
       : undefined,
   };
 }
@@ -118,3 +123,29 @@ ${RULES}
 - clarifying_question: niyyətdə missing_critical_fields varsa, BİR qısa sual (məs. büdcə). Yoxdursa null.
 - Qiymət price_confidence="mock"-dursa "demo qiymət, real deyil" de. Qiymət rayon ortasıdır — məhəllə qiyməti deyil.
 - Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar".`;
+
+export type Locale = "az" | "en";
+/** Same prompt, English output. Place names stay in their official Azerbaijani form; listing phrases are quoted
+ *  in Azerbaijani with an English gloss. The system text differs per locale, so AI cache keys differ too. */
+export function forLocale(system: string, locale: Locale | string | undefined): string {
+  if (locale !== "en") return system;
+  return (
+    system
+      .replace("- Yalnız Azərbaycan dilində (latın əlifbası) yaz, qısa və konkret.", "- Write ONLY in British English, short and concrete.")
+      .replace("- Azərbaycan dilində, sadə dillə yaz. Bu hüquqi məsləhət deyil.", "- Write in plain British English. This is not legal advice.")
+      .replace('məs. "... (10 min sakinə 14 kafe; median 11)"', 'e.g. "... (14 cafés per 10,000 residents; median 11)"')
+      .replace('(məs. "10 min sakinə 2.2 aptek — Bakı medianı 2.2", "asfalt payı 65%, median 49%")', '(e.g. "2.2 pharmacies per 10,000 residents, Baku median 2.2", "paved share 65%, median 49%")')
+      .replace('- Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar", "əlverişli mövqe", "hər kəs üçün". Ümumi, hər əraziyə aid ola biləcək cümlə yazma.', "- Do not write generic sentences that could apply to any area.")
+      .replace('- Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar".', "") +
+    `
+
+OUTPUT LANGUAGE — ENGLISH:
+- Every text field must be in clear British English (neighbourhood, analyse), plain professional tone, short sentences, no marketing language.
+- Keep place names, district names, metro station names and street names exactly in their official Azerbaijani spelling (Nərimanov, Gənclik, Xətai, Ziya Bünyadov prospekti). Never anglicise or transliterate them.
+- When you quote a phrase from a listing, keep it in Azerbaijani and add a short English gloss in brackets, e.g. “çıxarış yoxdur” (no title extract), “etibarnamə ilə” (sold under power of attorney).
+- Glossary: məhəllə = neighbourhood, rayon = district, çıxarış/kupça = title extract, etibarlılıq balı = confidence score, nümunə = sample.
+- Forbidden: "great choice", "a variety of opportunities", "something for everyone".
+- The numbers rules above still apply: use only numbers from the JSON. "per10k" means "per 10,000 residents"; write prices as "AZN 1,850/m²".
+- Tag codes (aile_dostu, telebe, …) stay exactly as listed; only the reason text is English.`
+  );
+}

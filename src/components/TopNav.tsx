@@ -1,8 +1,9 @@
 "use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useLayoutEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import ThemeToggle from "./ThemeToggle";
+import LangSwitch from "./LangSwitch";
 
 const I = {
   map: <path d="M3 6.5 8.5 4l7 2.5L21 4v13.5L15.5 20l-7-2.5L3 20V6.5Zm5.5-2.5v13.5m7-11v13.5" />,
@@ -11,15 +12,16 @@ const I = {
   book: <path d="M5 4.5h9.5A3.5 3.5 0 0 1 18 8v11.5H8.5A3.5 3.5 0 0 1 5 16V4.5Zm0 11.5A3.5 3.5 0 0 1 8.5 12.5H18" />,
 };
 const ITEMS = [
-  { href: "/xerite", label: "Xəritə", icon: I.map },
-  { href: "/muqayise", label: "Müqayisə", icon: I.compare },
-  { href: "/keyfiyyet", label: "Keyfiyyət", icon: I.check },
-  { href: "/menbeler", label: "Mənbələr", icon: I.book },
-];
+  { href: "/xerite", key: "map", icon: I.map },
+  { href: "/muqayise", key: "compare", icon: I.compare },
+  { href: "/keyfiyyet", key: "quality", icon: I.check },
+  { href: "/menbeler", key: "sources", icon: I.book },
+] as const;
 
 /** Top navigation with a pill that slides to the active (or hovered) item. */
 export default function TopNav({ hideMap = false }: { hideMap?: boolean }) {
   const path = usePathname();
+  const t = useTranslations("nav");
   const items = hideMap ? ITEMS.filter((i) => i.href !== "/xerite") : ITEMS;
   const refs = useRef<(HTMLAnchorElement | null)[]>([]);
   const active = items.findIndex((i) => path?.startsWith(i.href));
@@ -31,7 +33,7 @@ export default function TopNav({ hideMap = false }: { hideMap?: boolean }) {
     setPill(el ? { x: el.offsetLeft, w: el.offsetWidth } : null);
   }, [target, path]);
   return (
-    <nav className="flex min-w-0 max-w-full items-center gap-1" aria-label="Əsas menyu" onMouseLeave={() => setHover(null)}>
+    <nav className="flex min-w-0 max-w-full items-center gap-1" aria-label={t("menu")} onMouseLeave={() => setHover(null)}>
       <div className="relative flex min-w-0 items-center gap-0.5 overflow-x-auto rounded-full p-0.5 [scrollbar-width:none]">
         {pill && (
           <span
@@ -52,10 +54,11 @@ export default function TopNav({ hideMap = false }: { hideMap?: boolean }) {
             className={`nav-item relative z-10 flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold max-sm:px-2 ${i === active ? "text-caspian" : "text-ink-2 hover:text-ink"}`}
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4 max-sm:hidden" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{it.icon}</svg>
-            {it.label}
+            {t(it.key)}
           </Link>
         ))}
       </div>
+      <LangSwitch />
       <ThemeToggle />
     </nav>
   );

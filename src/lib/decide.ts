@@ -1,3 +1,4 @@
+import { localizeLabel } from "./labels.ts";
 // Decision engine core (pure, deterministic): location catalog, keyword-baseline intent, retrieval + ranking, confidence.
 // The LLM only does INTENT (text → structure) and EXPLAIN (candidates → prose); everything here is reproducible code.
 import type { z } from "zod";
@@ -42,11 +43,11 @@ export function normalizeLocations(ids: string[], catalog: LocationRef[]): strin
 export function keywordIntent(text: string, catalog: LocationRef[]): Intent {
   const t = norm(text);
   const has = (...w: string[]) => w.some((x) => t.includes(norm(x)));
-  const goal: Intent["goal"] = has("kafe aç", "aptek aç", "biznes", "aciram", "açmaq", "mağaza aç", "restoran aç", "obyekt aç") ? "open_business" : has("kiray") ? "rent" : has("investis", "sərmayə", "gəlir gətir") ? "invest" : "buy";
+  const goal: Intent["goal"] = has("kafe aç", "aptek aç", "biznes", "aciram", "açmaq", "mağaza aç", "restoran aç", "obyekt aç", "open a", "start a", "business") ? "open_business" : has("kiray", "rent", "to let", "lease") ? "rent" : has("investis", "sərmayə", "gəlir gətir", "invest") ? "invest" : "buy";
   let budget: number | null = null;
-  const bm = t.match(/(\d+[.,]?\d*)\s*(min|k|mln|milyon)?\s*(manat|azn|₼|\$|dollar)?/);
+  const bm = t.match(/(\d+[.,]?\d*)\s*(min|k|mln|milyon|million|m\b)?\s*(manat|azn|₼|\$|dollar)?/);
   if (bm && (bm[2] || bm[3])) {
-    budget = parseFloat(bm[1].replace(",", ".")) * (bm[2] === "min" || bm[2] === "k" ? 1000 : bm[2] === "mln" || bm[2] === "milyon" ? 1e6 : 1);
+    budget = parseFloat(bm[1].replace(",", ".")) * (bm[2] === "min" || bm[2] === "k" ? 1000 : bm[2] === "mln" || bm[2] === "milyon" || bm[2] === "million" || bm[2] === "m" ? 1e6 : 1);
     if (bm[3] === "$" || bm[3] === "dollar") budget *= 1.7;
     if (budget < 1000) budget = null;
   }
@@ -57,26 +58,26 @@ export function keywordIntent(text: string, catalog: LocationRef[]): Intent {
     const stem = base.length > 6 ? base.slice(0, base.length - 2) : base;
     if (stem.length >= 4 && t.includes(stem)) locs.push(l.id);
   }
-  const business_type: Intent["business_type"] = goal !== "open_business" ? null : has("kafe", "restoran", "qəhvə") ? "cafe" : has("aptek") ? "pharmacy" : has("market", "ərzaq", "mağaza") ? "grocery" : has("klinika", "stomatoloq") ? "clinic" : has("bağça") ? "kindergarten" : has("idman", "fitnes", "zal") ? "sport" : "other";
-  const kids = has("uşaq", "ailə", "övlad");
+  const business_type: Intent["business_type"] = goal !== "open_business" ? null : has("kafe", "restoran", "qəhvə", "cafe", "coffee", "restaurant") ? "cafe" : has("aptek", "pharmacy", "chemist") ? "pharmacy" : has("market", "ərzaq", "mağaza", "grocery", "shop") ? "grocery" : has("klinika", "stomatoloq", "clinic", "dentist") ? "clinic" : has("bağça") ? "kindergarten" : has("idman", "fitnes", "zal") ? "sport" : "other";
+  const kids = has("uşaq", "ailə", "övlad", "kids", "children", "family");
   const missing: string[] = [];
   if (budget == null && goal !== "open_business") missing.push("budget_azn");
-  if (!locs.length && !has("metro", "dağ", "dəniz", "kənar")) missing.push("locations");
+  if (!locs.length && !has("metro", "dağ", "dəniz", "kənar", "mountain", "sea", "coast", "outside baku")) missing.push("locations");
   return {
     goal,
-    property_type: goal === "open_business" ? "obyekt" : has("torpaq", "sot") ? "torpaq" : has("həyət", "bağ evi", "villa") ? "heyet_evi" : has("yeni tikili", "yeni bina") ? "menzil_yeni" : "menzil_kohne",
+    property_type: goal === "open_business" ? "obyekt" : has("torpaq", "sot", "land", "plot") ? "torpaq" : has("həyət", "bağ evi", "villa", "house with", "garden", "detached") ? "heyet_evi" : has("yeni tikili", "yeni bina", "new build", "new-build") ? "menzil_yeni" : "menzil_kohne",
     budget_azn: budget,
     desired_m2: m2m ? Number(m2m[1]) : null,
     locations_mentioned: [...new Set(locs)],
     hard_constraints: {
       metro_within_m: has("metro") ? 800 : null,
-      school_within_m: has("məktəb") ? 800 : null,
-      kindergarten_within_m: has("bağça") && goal !== "open_business" ? 800 : null,
+      school_within_m: has("məktəb", "school") ? 800 : null,
+      kindergarten_within_m: has("bağça", "kindergarten", "nursery") && goal !== "open_business" ? 800 : null,
       park_within_m: has("park") ? 800 : null,
       max_price_m2: null,
-      outside_baku: has("bakıdan kənar", "bakidan kenar", "rayonda", "kənddə"),
-      mountain: has("dağ"),
-      coastal: has("dəniz", "sahil"),
+      outside_baku: has("bakıdan kənar", "bakidan kenar", "rayonda", "kənddə", "outside baku", "countryside", "village"),
+      mountain: has("dağ", "mountain"),
+      coastal: has("dəniz", "sahil", "sea", "coast", "beach"),
     },
     business_type,
     soft_preferences: {
@@ -84,11 +85,11 @@ export function keywordIntent(text: string, catalog: LocationRef[]): Intent {
       neqliyyat: has("metro", "nəqliyyat", "iş") ? 0.9 : 0.4,
       tehsil: kids || has("tələbə", "universitet") ? 1 : 0.1,
       sehiyye: has("təqaüd", "xəstəxana", "yaşlı") ? 1 : 0.3,
-      tebiet: has("sakit", "təbiət", "hava", "dəniz", "yaşıl", "dağ") ? 1 : 0.3,
+      tebiet: has("sakit", "təbiət", "hava", "dəniz", "yaşıl", "dağ", "quiet", "nature", "green", "sea", "mountain") ? 1 : 0.3,
       infrastruktur: 0.4,
-      elcatanliq: has("ucuz", "büdcə", "qənaət") || budget ? 0.9 : 0.5,
+      elcatanliq: has("ucuz", "büdcə", "qənaət", "cheap", "affordable", "budget") || budget ? 0.9 : 0.5,
     },
-    household: kids ? "uşaqlı ailə" : has("tələbə") ? "tələbə" : has("təqaüd") ? "təqaüdçü" : null,
+    household: kids ? "uşaqlı ailə" : has("tələbə", "student") ? "tələbə" : has("təqaüd", "retired", "pensioner") ? "təqaüdçü" : null,
     missing_critical_fields: missing,
   };
 }
@@ -113,7 +114,8 @@ const clamp = (x: number) => Math.max(0, Math.min(1, x));
 const distM = (a: [number, number], b: [number, number]) => Math.hypot((a[0] - b[0]) * 111320 * Math.cos((a[1] * Math.PI) / 180), (a[1] - b[1]) * 110570);
 const BIZ_CAT: Record<string, string[]> = { cafe: ["food"], pharmacy: ["pharmacy"], grocery: ["grocery"], clinic: ["clinic", "hospital"], kindergarten: ["kindergarten"], sport: ["sport"], other: ["grocery", "food"] };
 
-export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog: LocationRef[], st?: SettlementData): Retrieval {
+export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog: LocationRef[], st?: SettlementData, locale: string = "az"): Retrieval {
+  const en = locale === "en";
   const byId = new Map(regions.map((r) => [r.id, r]));
   const ci = (c: string) => hx.cats.indexOf(c);
   const locs = intent.locations_mentioned
@@ -150,24 +152,24 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
   } else if (hc.outside_baku || hc.mountain || (intent.property_type === "heyet_evi" && intent.soft_preferences.tebiet >= 0.8)) {
     mode = "region";
     regPool = regions.filter((r) => r.level === "rayon" && r.id !== "az-baki" && r.coverage.per_capita !== "unreliable");
-    scope = "Bakıdan kənar rayonlar";
+    scope = en ? "Districts outside Baku" : "Bakıdan kənar rayonlar";
   } else {
     hexPool = hx.hexes.filter((h) => h.r.startsWith("bk-"));
-    scope = "Bakı";
+    scope = en ? "Baku" : "Bakı";
   }
 
   // hard constraints, relaxed in reverse priority if nothing survives
   type Rule = { key: string; label: string; test: (x: Hex | Region) => boolean };
   const isHex = (x: Hex | Region): x is Hex => (x as Hex).h !== undefined;
   const rules: Rule[] = [];
-  if (hc.metro_within_m) rules.push({ key: "metro", label: `metroya ≤${hc.metro_within_m} m`, test: (x) => (isHex(x) ? (x.m ?? 9e9) <= hc.metro_within_m! : x.transport.metro > 0) });
-  if (hc.school_within_m) rules.push({ key: "school", label: `məktəbə ≤${hc.school_within_m} m`, test: (x) => (isHex(x) ? (x.sc ?? 9e9) <= hc.school_within_m! : (x.pois.school ?? 0) > 0) });
-  if (hc.kindergarten_within_m) rules.push({ key: "kg", label: `bağçaya ≤${hc.kindergarten_within_m} m`, test: (x) => (isHex(x) ? (x.k ?? 9e9) <= hc.kindergarten_within_m! : (x.pois.kindergarten ?? 0) > 0) });
-  if (hc.park_within_m) rules.push({ key: "park", label: `parka ≤${hc.park_within_m} m`, test: (x) => (isHex(x) ? (x.pk ?? 9e9) <= hc.park_within_m! : (x.pois.park ?? 0) > 0) });
-  if (hc.mountain && mode === "region") rules.push({ key: "mountain", label: "dağlıq/dağətəyi", test: (x) => !isHex(x) && (x.nature.terrain === "dağlıq" || x.nature.terrain === "dağətəyi") });
-  if (hc.coastal) rules.push({ key: "coastal", label: "sahilə yaxın", test: (x) => (isHex(x) ? byId.get(x.r)?.nature.coastal ?? false : x.nature.coastal) });
-  if (hc.max_price_m2) rules.push({ key: "maxprice", label: `≤${hc.max_price_m2} ₼/m²`, test: (x) => { const p = price(isHex(x) ? x.r : x.id); return p == null || p <= hc.max_price_m2!; } });
-  if (intent.budget_azn && intent.goal !== "open_business" && intent.goal !== "rent") rules.push({ key: "budget", label: `büdcə ${Math.round(intent.budget_azn / 1000)} min ₼`, test: (x) => { const p = price(isHex(x) ? x.r : x.id); return p == null || p * size <= intent.budget_azn!; } });
+  if (hc.metro_within_m) rules.push({ key: "metro", label: en ? `metro ≤${hc.metro_within_m} m` : `metroya ≤${hc.metro_within_m} m`, test: (x) => (isHex(x) ? (x.m ?? 9e9) <= hc.metro_within_m! : x.transport.metro > 0) });
+  if (hc.school_within_m) rules.push({ key: "school", label: en ? `school ≤${hc.school_within_m} m` : `məktəbə ≤${hc.school_within_m} m`, test: (x) => (isHex(x) ? (x.sc ?? 9e9) <= hc.school_within_m! : (x.pois.school ?? 0) > 0) });
+  if (hc.kindergarten_within_m) rules.push({ key: "kg", label: en ? `kindergarten ≤${hc.kindergarten_within_m} m` : `bağçaya ≤${hc.kindergarten_within_m} m`, test: (x) => (isHex(x) ? (x.k ?? 9e9) <= hc.kindergarten_within_m! : (x.pois.kindergarten ?? 0) > 0) });
+  if (hc.park_within_m) rules.push({ key: "park", label: en ? `park ≤${hc.park_within_m} m` : `parka ≤${hc.park_within_m} m`, test: (x) => (isHex(x) ? (x.pk ?? 9e9) <= hc.park_within_m! : (x.pois.park ?? 0) > 0) });
+  if (hc.mountain && mode === "region") rules.push({ key: "mountain", label: en ? "mountain/foothills" : "dağlıq/dağətəyi", test: (x) => !isHex(x) && (x.nature.terrain === "dağlıq" || x.nature.terrain === "dağətəyi") });
+  if (hc.coastal) rules.push({ key: "coastal", label: en ? "near the coast" : "sahilə yaxın", test: (x) => (isHex(x) ? byId.get(x.r)?.nature.coastal ?? false : x.nature.coastal) });
+  if (hc.max_price_m2) rules.push({ key: "maxprice", label: en ? `≤ AZN ${hc.max_price_m2}/m²` : `≤${hc.max_price_m2} ₼/m²`, test: (x) => { const p = price(isHex(x) ? x.r : x.id); return p == null || p <= hc.max_price_m2!; } });
+  if (intent.budget_azn && intent.goal !== "open_business" && intent.goal !== "rent") rules.push({ key: "budget", label: en ? `budget AZN ${Math.round(intent.budget_azn / 1000)}k` : `büdcə ${Math.round(intent.budget_azn / 1000)} min ₼`, test: (x) => { const p = price(isHex(x) ? x.r : x.id); return p == null || p * size <= intent.budget_azn!; } });
 
   const pool: (Hex | Region)[] = mode === "hex" ? hexPool : regPool;
   const relaxOrder = ["budget", "maxprice", "coastal", "park", "kg", "school", "mountain", "metro"];
@@ -274,7 +276,7 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
           },
         };
       });
-      return { mode, pool: filtered.length, candidates: cands, relaxed, scope: `${scope} · kənd və qəsəbələr` };
+      return { mode, pool: filtered.length, candidates: cands, relaxed, scope: `${scope} · ${en ? "villages and settlements" : "kənd və qəsəbələr"}` };
     }
   }
 
@@ -285,7 +287,7 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
       const pp = reg.prices[intent.property_type] ?? reg.prices.menzil_kohne;
       const n = (c: string) => x.p[ci(c)] ?? 0;
       return {
-        rank: i + 1, kind: "hex", area_id: x.h, label: x.l, region_id: reg.id, region_name: reg.name, centroid: x.c, score: Math.round(s), fits_constraints: !violations.length, violations,
+        rank: i + 1, kind: "hex", area_id: x.h, label: en ? localizeLabel(x.l, "en") : x.l, region_id: reg.id, region_name: reg.name, centroid: x.c, score: Math.round(s), fits_constraints: !violations.length, violations,
         metrics: {
           nearest_metro: x.mn, metro_walk_m: x.m, bus_stop_m: x.s, school_m: x.sc, kindergarten_m: x.k, park_m: x.pk,
           grocery: n("grocery"), pharmacy: n("pharmacy"), food: n("food"), clinic: n("clinic") + n("hospital"), bus_stops_in_hex: x.st,
@@ -310,7 +312,8 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
 
 // ---------- confidence (never produced by the LLM) ----------
 export type Confidence = { score: number; label: "yüksək" | "orta" | "aşağı"; parts: { key: string; label: string; weight: number; value: number; note: string }[] };
-export function confidence(intent: Intent, r: Retrieval): Confidence {
+export function confidence(intent: Intent, r: Retrieval, locale: string = "az"): Confidence {
+  const en = locale === "en";
   const c = r.candidates;
   const cov = c.length ? c.reduce((s, x) => s + (({ yüksək: 1, orta: 0.6, aşağı: 0.3 } as Record<string, number | undefined>)[String(x.metrics.osm_coverage)] ?? 0.3), 0) / c.length : 0;
   const pr = c.length ? c.reduce((s, x) => s + (({ official: 1, estimate: 0.8, sample: 0.7, mock: 0.2 } as Record<string, number | undefined>)[String(x.metrics.price_confidence)] ?? 0), 0) / c.length : 0;
@@ -322,10 +325,10 @@ export function confidence(intent: Intent, r: Retrieval): Confidence {
   const fits = c.length ? c.filter((x) => x.fits_constraints).length / c.length : 0;
   const cons = fits * (r.relaxed.length ? 0.5 : 1);
   const parts = [
-    { key: "coverage", label: "Məlumatın əhatəsi", weight: 40, value: coverage, note: `OSM əhatəsi ${Math.round(cov * 100)}%, qiymətlərin etibarlılığı ${Math.round(pr * 100)}% (demo qiymət aşağı sayılır)` },
-    { key: "intent", label: "Sorğunun tamlığı", weight: 25, value: completeness, note: `${known.filter(Boolean).length}/${known.length} əsas sahə məlumdur (yer, büdcə, növ)` },
-    { key: "margin", label: "Birinci ilə ikinci arasında fərq", weight: 20, value: margin, note: c.length >= 2 ? `${c[0].score} vs ${c[1].score} bal` : "müqayisə üçün namizəd azdır" },
-    { key: "constraints", label: "Şərtlərə uyğunluq", weight: 15, value: cons, note: r.relaxed.length ? `yumşaldılan şərt: ${r.relaxed.join(", ")}` : `${Math.round(fits * 100)}% namizəd bütün şərtlərə uyğundur` },
+    { key: "coverage", label: en ? "Data coverage" : "Məlumatın əhatəsi", weight: 40, value: coverage, note: en ? `OSM coverage ${Math.round(cov * 100)}%, price reliability ${Math.round(pr * 100)}% (demo prices count as low)` : `OSM əhatəsi ${Math.round(cov * 100)}%, qiymətlərin etibarlılığı ${Math.round(pr * 100)}% (demo qiymət aşağı sayılır)` },
+    { key: "intent", label: en ? "Query completeness" : "Sorğunun tamlığı", weight: 25, value: completeness, note: en ? `${known.filter(Boolean).length}/${known.length} key fields known (location, budget, type)` : `${known.filter(Boolean).length}/${known.length} əsas sahə məlumdur (yer, büdcə, növ)` },
+    { key: "margin", label: en ? "Gap between 1st and 2nd" : "Birinci ilə ikinci arasında fərq", weight: 20, value: margin, note: c.length >= 2 ? `${c[0].score} vs ${c[1].score} ${en ? "points" : "bal"}` : en ? "too few candidates to compare" : "müqayisə üçün namizəd azdır" },
+    { key: "constraints", label: en ? "Match with constraints" : "Şərtlərə uyğunluq", weight: 15, value: cons, note: r.relaxed.length ? `${en ? "relaxed constraint" : "yumşaldılan şərt"}: ${r.relaxed.join(", ")}` : en ? `${Math.round(fits * 100)}% of candidates meet every constraint` : `${Math.round(fits * 100)}% namizəd bütün şərtlərə uyğundur` },
   ];
   const score = Math.round(parts.reduce((s, p) => s + p.weight * p.value, 0));
   return { score, label: score >= 70 ? "yüksək" : score >= 45 ? "orta" : "aşağı", parts };

@@ -1,0 +1,393 @@
+{
+ "n": 8,
+ "ai_answered": 8,
+ "accuracy": {
+  "ai": {
+   "goal": 100,
+   "property_type": 100,
+   "locations": 100,
+   "constraints": 100,
+   "budget": 100
+  },
+  "baseline": {
+   "goal": 100,
+   "property_type": 100,
+   "locations": 88,
+   "constraints": 100,
+   "budget": 75
+  }
+ },
+ "rows": [
+  {
+   "q": "flat near the metro in Nərimanov, budget 150k",
+   "expected": {
+    "q": "flat near the metro in Nərimanov, budget 150k",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov"
+    ],
+    "cons": [
+     "metro"
+    ],
+    "budget": 150000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov",
+     "mt-neriman-nerimanov"
+    ],
+    "raw_locs": [
+     "bk-nerimanov",
+     "mt-neriman-nerimanov"
+    ],
+    "budget": 150000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nerimanov"
+    ],
+    "budget": 150000
+   }
+  },
+  {
+   "q": "new build in Yasamal close to a school, 200,000 manat",
+   "expected": {
+    "q": "new build in Yasamal close to a school, 200,000 manat",
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [
+     "bk-yasamal"
+    ],
+    "cons": [
+     "school"
+    ],
+    "budget": 200000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": false
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [
+     "bk-yasamal",
+     "pl-yasamal"
+    ],
+    "raw_locs": [
+     "bk-yasamal",
+     "pl-yasamal"
+    ],
+    "budget": 200000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [
+     "bk-yasamal",
+     "pl-yasamal"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "I want to rent a flat in Nəsimi",
+   "expected": {
+    "q": "I want to rent a flat in Nəsimi",
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nesimi"
+    ],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nesimi"
+    ],
+    "raw_locs": [
+     "bk-nesimi"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-nesimi",
+     "mt-nesimi"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "house with a garden outside Baku, in the mountains",
+   "expected": {
+    "q": "house with a garden outside Baku, in the mountains",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [],
+    "cons": [
+     "mountain",
+     "outside_baku"
+    ]
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [],
+    "raw_locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [],
+    "budget": null
+   }
+  },
+  {
+   "q": "I want to open a pharmacy in Xətai",
+   "expected": {
+    "q": "I want to open a pharmacy in Xətai",
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [
+     "bk-xetai"
+    ],
+    "cons": []
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [
+     "bk-xetai"
+    ],
+    "raw_locs": [
+     "bk-xetai"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "open_business",
+    "type": "obyekt",
+    "locs": [
+     "bk-xetai"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "family with two kids, flat in Gəncə near a kindergarten, up to 90k AZN",
+   "expected": {
+    "q": "family with two kids, flat in Gəncə near a kindergarten, up to 90k AZN",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-gence"
+    ],
+    "cons": [
+     "kindergarten"
+    ],
+    "budget": 90000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-gence"
+    ],
+    "raw_locs": [
+     "az-gence"
+    ],
+    "budget": 90000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-gence"
+    ],
+    "budget": 90000
+   }
+  },
+  {
+   "q": "cheap flat by the sea in Sumqayit",
+   "expected": {
+    "q": "cheap flat by the sea in Sumqayit",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-sumqayit"
+    ],
+    "cons": [
+     "coastal"
+    ]
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-sumqayit"
+    ],
+    "raw_locs": [
+     "az-sumqayit"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-sumqayit"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "flat in Sabail as an investment, $100,000",
+   "expected": {
+    "q": "flat in Sabail as an investment, $100,000",
+    "goal": "invest",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-sebail"
+    ],
+    "cons": [],
+    "budget": 170000
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": false,
+    "constraints": true,
+    "budget": false
+   },
+   "ai_pred": {
+    "goal": "invest",
+    "type": "menzil_kohne",
+    "locs": [
+     "bk-sebail"
+    ],
+    "raw_locs": [
+     "bk-sebail"
+    ],
+    "budget": 170000
+   },
+   "base_pred": {
+    "goal": "invest",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   }
+  }
+ ]
+}

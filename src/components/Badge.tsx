@@ -1,5 +1,5 @@
 import type { Badge as B } from "@/lib/types";
-import { BADGE_HINT, BADGE_LABEL } from "@/lib/metrics";
+import { useTranslations } from "next-intl";
 
 const STYLE: Record<B, string> = {
   osm: "text-caspian border-caspian/40",
@@ -12,12 +12,13 @@ const STYLE: Record<B, string> = {
 };
 
 export function Badge({ kind, className = "" }: { kind: B; className?: string }) {
+  const t = useTranslations("badges");
   return (
     <span
-      title={BADGE_HINT[kind]}
+      title={t(`hint.${kind}`)}
       className={`inline-flex items-center whitespace-nowrap rounded-full border px-1.5 py-px text-[10px] font-semibold leading-4 ${STYLE[kind]} ${className}`}
     >
-      {BADGE_LABEL[kind]}
+      {t(kind)}
     </span>
   );
 }
