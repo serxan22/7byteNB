@@ -284,8 +284,48 @@
    "in": 3549,
    "out": 282,
    "kind": "intent"
+  },
+  {
+   "in": 33587,
+   "out": 692,
+   "kind": "intent-en"
+  },
+  {
+   "in": 33591,
+   "out": 296,
+   "kind": "intent-en"
+  },
+  {
+   "in": 33582,
+   "out": 277,
+   "kind": "intent-en"
+  },
+  {
+   "in": 33581,
+   "out": 281,
+   "kind": "intent-en"
+  },
+  {
+   "in": 33581,
+   "out": 279,
+   "kind": "intent-en"
+  },
+  {
+   "in": 33594,
+   "out": 290,
+   "kind": "intent-en"
+  },
+  {
+   "in": 33580,
+   "out": 289,
+   "kind": "intent-en"
+  },
+  {
+   "in": 33587,
+   "out": 285,
+   "kind": "intent-en"
   }
  ],
- "avg_in": 2560,
- "avg_out": 351
+ "avg_in": 6378,
+ "avg_out": 350
 }

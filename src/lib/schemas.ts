@@ -89,9 +89,10 @@ export const RegionSchema = z.object({
   air: z.object({ pm25: z.number().nullable() }),
   prices: z.record(z.string(), Price),
   indices: z.record(z.string(), z.number().nullable()),
-  coverage: z.object({ osm: z.enum(["yüksək", "orta", "aşağı"]), prices: z.enum(["official", "sample", "estimate", "mock", "none"]), per_capita: z.enum(["ok", "unreliable"]).optional(), note: z.string().optional() }),
+  coverage: z.object({ osm: z.enum(["yüksək", "orta", "aşağı"]), prices: z.enum(["official", "sample", "estimate", "mock", "none"]), per_capita: z.enum(["ok", "unreliable"]).optional(), note: z.string().optional(), note_en: z.string().optional() }),
   listings: z.object({ n: z.number(), deed_share: z.number(), mortgage_share: z.number(), period: z.string() }).optional(),
   ai: AIProfileSchema.optional(),
+  ai_en: AIProfileSchema.optional(),
 });
 
 // ---- decision engine ----

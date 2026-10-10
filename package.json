@@ -11,7 +11,8 @@
     "data:meteo": "node --dns-result-order=ipv4first scripts/fetch-meteo.mjs",
     "data:build": "node scripts/build-data.mjs",
     "data:ai": "node scripts/ai-profiles.mjs",
-    "check": "node evals/data-sanity.mjs && node scripts/check-data.mjs && next build",
+    "check": "node evals/data-sanity.mjs && node scripts/check-data.mjs && node scripts/i18n-check.mjs && next build",
+    "i18n:check": "node scripts/i18n-check.mjs",
     "prebuild": "cp node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs public/"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "h3-js": "^4.5.0",
     "maplibre-gl": "^6.13.0",
     "next": "16.4.0",
+    "next-intl": "^4.14.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "recharts": "^3.10.1",

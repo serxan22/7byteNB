@@ -7,6 +7,7 @@ const read = (f, d = null) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 
 const osm = read("data/processed/osm-regions.json");
 const meteo = read("data/processed/meteo.json", { regions: {} });
 const aiProfiles = read("data/processed/ai-profiles.json", {});
+const aiProfilesEn = read("data/processed/ai-profiles-en.json", {});
 const aliases = read("data/manual/name-aliases.json", {});
 const popMeta = read("data/processed/population.json");
 const listings = read("data/processed/listings-agg.json", null);
@@ -77,6 +78,7 @@ const regions = osm.map((o) => {
     coverage: { osm: totalPois > 200 ? "yüksək" : totalPois > 40 ? "orta" : "aşağı", prices: best ?? "none" },
     ...(listings?.regions[o.id] ? { listings: { n: listings.regions[o.id].n, deed_share: listings.regions[o.id].deed_share, mortgage_share: listings.regions[o.id].mortgage_share, period: listings.period } } : {}),
     ...(aiProfiles[o.id] ? { ai: Object.fromEntries(Object.entries(aiProfiles[o.id]).filter(([k]) => k !== "_h")) } : {}),
+    ...(aiProfilesEn[o.id] ? { ai_en: Object.fromEntries(Object.entries(aiProfilesEn[o.id]).filter(([k]) => k !== "_h")) } : {}),
   };
 });
 
@@ -95,6 +97,7 @@ for (const level of ["rayon", "baku_district"]) {
       for (const k of Object.keys(r.per10k)) r.per10k[k] = null;
       r.coverage.per_capita = "unreliable";
       r.coverage.note = `OSM-də ${tot(r)} obyekt var, amma DSK-ya görə əhali cəmi ${r.population.v} nəfərdir (ölkə medianından ${Math.round(ratio)} dəfə çox obyekt/sakin). Obyektlərin çoxu əvvəlki dövrün xəritələməsidir; 10 min sakinə düşən göstəricilər etibarsızdır və hesablanmır.`;
+      r.coverage.note_en = `OSM has ${tot(r)} features here, but according to the State Statistics Committee (SSC) the population is only ${r.population.v} (${Math.round(ratio)} times more features per resident than the national median). Most features date from earlier mapping; per-10k-resident figures are unreliable and are not calculated.`;
     } else r.coverage.per_capita = "ok";
   }
 }
@@ -151,6 +154,25 @@ const sources = {
   ],
   prices: priceLog,
 };
+// English versions of dataset descriptions (shown on /en/menbeler); counts recomputed, never invented.
+const cov = (l) => ({ "yüksək": "high", orta: "medium", "aşağı": "low" })[l];
+const nReg = (f) => `${regions.filter(f).length}/${regions.length} areas`;
+const DS_EN = {
+  osm: { name: "OpenStreetMap (Geofabrik Azerbaijan extract)", coverage: `Districts: ${covCount("rayon", "yüksək")} ${cov("yüksək")} / ${covCount("rayon", "orta")} ${cov("orta")} / ${covCount("rayon", "aşağı")} ${cov("aşağı")}; Baku districts: ${covCount("baku_district", "yüksək")} high / ${covCount("baku_district", "orta")} medium`, used_for: "Boundaries, services (POI), stops, metro, routes, roads and surface, land cover, coastline" },
+  dsk: { name: "State Statistics Committee (SSC) — table 1.15 (area, population, density)", coverage: nReg((r) => r.population.v), used_for: "Population (01.01.2026), density, per-10,000-resident indicators" },
+  elevation: { name: "Open-Meteo Elevation API (Copernicus DEM 90 m)", coverage: `${nReg((r) => r.nature.elev_mean != null)}, 5×5 grid in each area`, used_for: "Elevation, terrain type (plain/foothills/mountain)" },
+  climate: { name: "Open-Meteo Historical Weather (ERA5)", coverage: `${nReg((r) => r.climate.july_max_c != null)} (centre point)`, used_for: "July average maximum, January average minimum, annual precipitation" },
+  air: { name: "Open-Meteo Air Quality (CAMS model)", date: "last 30 days", coverage: nReg((r) => r.air.pm25 != null), used_for: "PM2.5 (a model, not a measurement)" },
+  listings: listings ? { name: "bina.az listings — user-supplied dataset (collected by a third party; we do not scrape)", coverage: `${listings.kept} unique geocoded listings; medians in ${Object.values(listings.regions).filter((r) => Object.keys(r.types).length).length} areas (n≥8), ${Object.keys(listings.hexes).length} neighbourhoods (n≥5)`, used_for: "Sample prices (median AZN/m²), share of listings with a title extract, mortgage share. No individual listing is stored." } : undefined,
+  prices: { name: "Property prices (data/manual/prices.csv)", coverage: `${realPrices.length} published values, ${priceLog.length - realPrices.length} demo values; ${Object.keys(prices).length} areas`, used_for: "Prices, affordability index, budget filter, true cost" },
+  metro: { name: "Baku Metro — 27 operating stations (for checking OSM)", coverage: "Of 33 'stations' in OSM, 7 depots, exits and planned stations were removed; 26/27 match", used_for: "Walking distance to the metro, transport index. metro.gov.az was not reachable." },
+  mida: { name: "MİDA subsidised housing prices", coverage: "No price per m² published for 2026; the 2021 notices found are per flat", used_for: "Planned: official price points" },
+  bna: { name: "Baku Transport Agency — bus routes", coverage: "No open machine-readable route data found; OSM routes are used instead", used_for: "Planned: route check" },
+  legal: { name: "Legal texts (e-qanun.az)", coverage: "If an article's text is missing, the AI does not cite the article number", used_for: "Legal check" },
+  google: { name: "Google Places API", coverage: "No key, so not used", used_for: "Future: live enrichment for the selected area" },
+  yandex_waze: { name: "Yandex / Waze", coverage: "In future via partnership (no scraping)", used_for: "Congestion and real travel time" },
+};
+for (const d of sources.datasets) if (DS_EN[d.key]) d.en = DS_EN[d.key];
 fs.mkdirSync("data/processed", { recursive: true });
 fs.writeFileSync("data/processed/sources.json", JSON.stringify(sources, null, 1));
 fs.writeFileSync("public/data/sources.json", JSON.stringify(sources));

@@ -13,6 +13,8 @@ export const hasAI = () => !!process.env.GEMINI_API_KEY;
 export type AIUsage = { in: number; out: number };
 export type AIResult<T> = { ok: true; data: T; cached: boolean; model: string; usage?: AIUsage } | { ok: false; reason: "no_key" | "busy" | "failed" };
 export const BUSY_MSG = "AI hazırda məşğuldur — bir az sonra yenidən cəhd et.";
+export const BUSY_MSG_EN = "The AI is busy right now. Please try again in a moment.";
+export const busyMsg = (locale?: string) => (locale === "en" ? BUSY_MSG_EN : BUSY_MSG);
 
 const CACHE_DIRS = [path.join(process.cwd(), "data/ai-cache"), "/tmp/meskan-ai-cache"];
 let client: GoogleGenAI | null = null;

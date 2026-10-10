@@ -48,8 +48,8 @@ function scoreIntent(pred, exp) {
     budget: exp.budget ? pred.budget_azn != null && Math.abs(pred.budget_azn - exp.budget) / exp.budget < 0.05 : pred.budget_azn == null,
   };
 }
-async function evalIntent() {
-  const cases = read("evals/data/intent-cases.json");
+async function evalIntent(lang = "az") {
+  const cases = read(lang === "en" ? "evals/data/intent-cases-en.json" : "evals/data/intent-cases.json");
   const rows = [];
   for (const c of cases) {
     const base = keywordIntent(c.q, catalog);
@@ -62,8 +62,8 @@ async function evalIntent() {
   const fields = ["goal", "property_type", "locations", "constraints", "budget"];
   const acc = (who) => Object.fromEntries(fields.map((f) => [f, Math.round((rows.filter((r) => r[who]?.[f]).length / rows.filter((r) => r[who]).length) * 100)]));
   const out = { n: rows.length, ai_answered: rows.filter((r) => r.ai).length, accuracy: { ai: acc("ai"), baseline: acc("baseline") }, rows };
-  fs.writeFileSync("evals/results/intent.json", JSON.stringify(out, null, 1));
-  console.log("\nintent", JSON.stringify(out.accuracy));
+  fs.writeFileSync(lang === "en" ? "evals/results/intent-en.json" : "evals/results/intent.json", JSON.stringify(out, null, 1));
+  console.log(`\nintent${lang === "en" ? "-en" : ""}`, JSON.stringify(out.accuracy));
 }
 
 // ---------- F2 legal ----------
@@ -88,28 +88,30 @@ async function evalLegal() {
 }
 
 // ---------- F3 grounding (precomputed AI profiles; no new calls) ----------
-function evalGrounding() {
+function evalGrounding(lang = "az") {
+  const prof = (r) => (lang === "en" ? r.ai_en : r.ai);
   const allNums = (o, acc = []) => {
     if (typeof o === "number") acc.push(o);
     else if (o && typeof o === "object") for (const v of Object.values(o)) allNums(v, acc);
     return acc;
   };
   const rows = [];
-  const sample = regions.filter((r) => r.ai).sort((a, b) => a.id.localeCompare(b.id)).filter((_, i) => i % 3 === 0).slice(0, 30);
+  const sample = regions.filter((r) => prof(r)).sort((a, b) => a.id.localeCompare(b.id)).filter((_, i) => i % 3 === 0).slice(0, 30);
   for (const r of sample) {
-    const input = regionForAI(r, national[r.level]);
+    const input = regionForAI(r, national[r.level], lang);
+    const ai = prof(r);
     const pool = allNums(input).filter((x) => Number.isFinite(x));
-    const text = [r.ai.headline, r.ai.summary, ...r.ai.strengths, ...r.ai.weaknesses, ...r.ai.tags.map((t) => t.reason), ...r.ai.best_for, ...r.ai.watch_out, r.ai.confidence_note].join(" ");
+    const text = [ai.headline, ai.summary, ...ai.strengths, ...ai.weaknesses, ...ai.tags.map((t) => t.reason), ...ai.best_for, ...ai.watch_out, ai.confidence_note].join(" ");
     // numbers in text; "10 min sakin" (the per-10k unit), PM2.5, ÜST 5, years, and small ordinals are definitional, not data
-    const clean = text.replace(/10\s*min\s*(sakin|nəfər)/gi, " ").replace(/PM\s*2[.,]5/gi, " ").replace(/\b(19|20)\d{2}\b/g, " ").replace(/(\d)\s(\d{3})/g, "$1$2");
+    const clean = text.replace(/10\s*min\s*(sakin|nəfər)/gi, " ").replace(/10[,\s]?000\s*(residents|people|inhabitants)|per\s*10k/gi, " ").replace(lang === "en" ? /(\d),(\d{3})/g : /$^/, "$1$2").replace(/PM\s*2[.,]5/gi, " ").replace(/\b(19|20)\d{2}\b/g, " ").replace(/(\d)\s(\d{3})/g, "$1$2");
     const nums = (clean.match(/\d+(?:[.,]\d+)?/g) ?? []).map((s) => parseFloat(s.replace(",", "."))).filter((x) => x > 3);
     const bad = nums.filter((x) => !pool.some((p) => Math.abs(p - x) <= Math.max(0.011 * Math.abs(p), 0.051) || Math.abs(p * 100 - x) <= 1 || Math.abs(Math.round(p) - x) < 1));
     rows.push({ id: r.id, numbers: nums.length, ungrounded: bad.length, examples: bad.slice(0, 4) });
   }
   const tot = rows.reduce((s, r) => s + r.numbers, 0), un = rows.reduce((s, r) => s + r.ungrounded, 0);
   const out = { n_texts: rows.length, numbers: tot, ungrounded: un, grounded_pct: Math.round(((tot - un) / Math.max(1, tot)) * 1000) / 10, rows };
-  fs.writeFileSync("evals/results/grounding.json", JSON.stringify(out, null, 1));
-  console.log("grounding", out.grounded_pct, "% of", tot, "numbers;", un, "ungrounded");
+  fs.writeFileSync(lang === "en" ? "evals/results/grounding-en.json" : "evals/results/grounding.json", JSON.stringify(out, null, 1));
+  console.log(`grounding${lang === "en" ? "-en" : ""}`, out.grounded_pct, "% of", tot, "numbers;", un, "ungrounded");
 }
 
 // ---------- F4 retrieval (deterministic) ----------
@@ -132,6 +134,8 @@ function evalRetrieval() {
 if (which === "all" || which === "retrieval") evalRetrieval();
 if (which === "all" || which === "grounding") evalGrounding();
 if (which === "all" || which === "intent") await evalIntent();
+if (which === "all" || which === "grounding-en") evalGrounding("en");
+if (which === "all" || which === "intent-en") await evalIntent("en");
 if (which === "all" || which === "legal") await evalLegal();
 if (usage.length) {
   const prev = fs.existsSync("evals/results/usage.json") ? read("evals/results/usage.json").calls : [];

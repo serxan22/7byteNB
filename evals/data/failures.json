@@ -4,41 +4,83 @@
   "input": "İstənilən persona, Azərbaycan səviyyəsi (məs. 'uşaqlı ailə')",
   "wrong": "Xankəndi bütün per-capita indekslərdə 99 bal alırdı və TOP-1 seçilirdi; AI hər cavabı Xankəndi haqqında yazırdı.",
   "cause": "Məlumatın vaxt uyğunsuzluğu: OSM-də 2023-dən əvvəlki ~55 min sakinlik şəhərin 409 obyekti, DSK-da isə 2026-cı il əhalisi 4 400 nəfər → 10 min sakinə 929 obyekt (median 19.5, 47.7×).",
-  "mitigation": "Ümumi qayda: obyekt/sakin nisbəti medianın 10 qatından çoxdursa per-capita göstəricilər null olur, panel xəbərdarlıq göstərir, fit-də naməlum indeks 30 sayılır. data-sanity eval bunu hər build-də yoxlayır (Xankəndi, Xocalı, Ağdərə işarələnib)."
+  "mitigation": "Ümumi qayda: obyekt/sakin nisbəti medianın 10 qatından çoxdursa per-capita göstəricilər null olur, panel xəbərdarlıq göstərir, fit-də naməlum indeks 30 sayılır. data-sanity eval bunu hər build-də yoxlayır (Xankəndi, Xocalı, Ağdərə işarələnib).",
+  "en": {
+   "title": "Xankəndi came first for every query",
+   "input": "Any persona at country level (e.g. 'family with children')",
+   "wrong": "Xankəndi scored 99 on every per-capita index and was ranked first; the AI wrote every answer about Xankəndi.",
+   "cause": "A time mismatch in the data: OSM holds 409 features from the pre-2023 city of ~55,000 residents, while DSK gives a 2026 population of 4,400, i.e. 929 features per 10,000 residents (median 19.5, 47.7×).",
+   "mitigation": "General rule: if the feature/resident ratio exceeds 10× the median, per-capita indicators become null, the panel shows a warning and an unknown index counts as 30 in the fit score. The data-sanity eval checks this on every build (Xankəndi, Xocalı and Ağdərə are flagged)."
+  }
  },
  {
   "title": "Mövcud olmayan metro stansiyası tövsiyə olunurdu",
   "input": "“Nərimanovda metroya yaxın ev lazımdır”",
   "wrong": "3-cü tövsiyə “Nərimanov · 20 Sentyabr m. ətrafı” idi — bu stansiya hələ işləmir.",
   "cause": "OSM-də station=subway teqi depo (Dərnəgül deposu), çıxış (28 May 2-ci çıxış) və planlaşdırılan stansiyalara (Y14–Y16, 20 Sentyabr, Məhəmməd Hadi) da verilib: OSM 33 'stansiya' göstərirdi, real 27-dir.",
-  "mitigation": "OSM stansiyaları 27 işləyən stansiyanın siyahısı ilə yoxlanılır, ad variantları normallaşdırılır (Metro elmlər → Elmlər Akademiyası), qalanları atılır. data-sanity: OSM 26 / rəsmi 27 (Memar Əcəmi-2 eyni yerdədir)."
+  "mitigation": "OSM stansiyaları 27 işləyən stansiyanın siyahısı ilə yoxlanılır, ad variantları normallaşdırılır (Metro elmlər → Elmlər Akademiyası), qalanları atılır. data-sanity: OSM 26 / rəsmi 27 (Memar Əcəmi-2 eyni yerdədir).",
+  "en": {
+   "title": "A metro station that does not exist was recommended",
+   "input": "“Nərimanovda metroya yaxın ev lazımdır” (I need a home near the metro in Nərimanov)",
+   "wrong": "The third recommendation was “Nərimanov · 20 Sentyabr metro area”, a station that is not open yet.",
+   "cause": "In OSM the station=subway tag is also used for a depot (Dərnəgül depot), an exit (28 May exit 2) and planned stations (Y14–Y16, 20 Sentyabr, Məhəmməd Hadi): OSM showed 33 'stations', the real number is 27.",
+   "mitigation": "OSM stations are checked against the list of 27 operating stations, name variants are normalised (“Metro elmlər” → “Elmlər Akademiyası”) and the rest are dropped. data-sanity: OSM 26 / official 27 (Memar Əcəmi-2 is at the same location)."
+  }
  },
  {
   "title": "AI profillərindəki rəqəmlər köhnəlmişdi",
   "input": "Grounding eval: 29 AI profili, 402 rəqəm (ilk ölçmə)",
   "wrong": "25 rəqəm (6.2%) giriş JSON-da tapılmadı, məs. Füzuli üçün 'indeks 57'.",
   "cause": "Profillər Xankəndi düzəlişindən əvvəl yazılmışdı; düzəliş bütün rayonların faiz dərəcələrini dəyişdi, mətn isə köhnə qaldı.",
-  "mitigation": "Hər profil giriş məlumatının hash-ini saxlayır; məlumat dəyişəndə profil avtomatik köhnəlmiş sayılır və yenidən yazılır (--refresh-stale). Nəticə: grounding 93.8% → 99.8% (639 rəqəmdən 1-i tapılmadı)."
+  "mitigation": "Hər profil giriş məlumatının hash-ini saxlayır; məlumat dəyişəndə profil avtomatik köhnəlmiş sayılır və yenidən yazılır (--refresh-stale). Nəticə: grounding 93.8% → 99.8% (639 rəqəmdən 1-i tapılmadı).",
+  "en": {
+   "title": "Numbers in the AI profiles were out of date",
+   "input": "Grounding eval: 29 AI profiles, 402 numbers (first measurement)",
+   "wrong": "25 numbers (6.2%) were not found in the input JSON, e.g. 'index 57' for Füzuli.",
+   "cause": "The profiles were written before the Xankəndi fix; the fix changed every district's percentiles but the text stayed the same.",
+   "mitigation": "Each profile stores a hash of its input data; when the data changes the profile is marked stale and rewritten (--refresh-stale). Result: grounding 93.8% → 99.8% (1 of 639 numbers not found)."
+  }
  },
  {
   "title": "Etibarlılıq balı NaN olurdu",
   "input": "“Bakıdan kənarda dağ havası, həyət evi” (qiyməti olmayan rayonlar)",
   "wrong": "Tövsiyə etibarlılığı: NaN",
   "cause": "Operator prioriteti: s + X ?? 0 ifadəsi (s + X) ?? 0 kimi hesablanırdı; qiymət yoxdursa undefined + ədəd = NaN.",
-  "mitigation": "Mötərizə əlavə edildi; retrieval eval 10 sorğuda balın 0–100 aralığında olduğunu yoxlayır."
+  "mitigation": "Mötərizə əlavə edildi; retrieval eval 10 sorğuda balın 0–100 aralığında olduğunu yoxlayır.",
+  "en": {
+   "title": "The confidence score came out as NaN",
+   "input": "“Bakıdan kənarda dağ havası, həyət evi” (mountain air outside Baku, a house with a yard) — districts without prices",
+   "wrong": "Recommendation confidence: NaN",
+   "cause": "Operator precedence: s + X ?? 0 was evaluated as (s + X) ?? 0; with no price, undefined + number = NaN.",
+   "mitigation": "Parentheses added; the retrieval eval checks that the score is between 0 and 100 on 10 queries."
+  }
  },
  {
   "title": "Zəif modelə keçəndə Azərbaycan hərfləri itirdi",
   "input": "Lerik profili (pulsuz limit dolanda flash-lite modelinə keçid)",
   "wrong": "“zengin tebieti ve mehdud infrastrukturu olan dagliq erazi” — ə, ğ, ı hərfləri yoxdur.",
   "cause": "429 limitində fallback modelləri sırası daha zəif flash-lite modelinə çatdı.",
-  "mitigation": "Profil keyfiyyət yoxlaması (uzunluq, ≥6 rəqəm, qadağan ifadələr, Azərbaycan hərfləri); uğursuz profillər yenidən yazılır."
+  "mitigation": "Profil keyfiyyət yoxlaması (uzunluq, ≥6 rəqəm, qadağan ifadələr, Azərbaycan hərfləri); uğursuz profillər yenidən yazılır.",
+  "en": {
+   "title": "Azerbaijani letters were lost when falling back to a weaker model",
+   "input": "Lerik profile (switch to the flash-lite model when the free limit ran out)",
+   "wrong": "“zengin tebieti ve mehdud infrastrukturu olan dagliq erazi”: the letters “ə”, “ğ” and “ı” are missing.",
+   "cause": "On a 429 limit, the fallback model chain reached the weaker flash-lite model.",
+   "mitigation": "A profile quality check (length, ≥6 numbers, banned phrases, Azerbaijani letters); failing profiles are rewritten."
+  }
  },
  {
   "title": "Model mövcud olmayan yer id-si uydururdu",
   "input": "“nerimanovda kiraye ev axtariram”, “Səbaildə investisiya üçün mənzil”",
   "wrong": "AI “az-nerimanov”, “az-sebail” kimi mövcud olmayan id-lər, bəzən də rayonla yanaşı “az-baki” qaytarırdı — axtarış bütün Bakıya genişlənirdi.",
   "cause": "Model rayonu ölkə səviyyəli id formatında yazırdı və valideyn şəhəri də əlavə edirdi.",
-  "mitigation": "Deterministik normallaşdırma: kataloqda olmayan id atılır, az-X → bk-X (yalnız Bakı rayonu varsa), rayon adı çəkiləndə “az-baki” silinir. Yer dəqiqliyi 75% → 95%."
+  "mitigation": "Deterministik normallaşdırma: kataloqda olmayan id atılır, az-X → bk-X (yalnız Bakı rayonu varsa), rayon adı çəkiləndə “az-baki” silinir. Yer dəqiqliyi 75% → 95%.",
+  "en": {
+   "title": "The model invented place IDs that do not exist",
+   "input": "“nerimanovda kiraye ev axtariram” (looking for a rental in Nərimanov), “Səbaildə investisiya üçün mənzil” (a flat in Səbail as an investment)",
+   "wrong": "The AI returned non-existent IDs such as “az-nerimanov” and “az-sebail”, sometimes adding “az-baki” next to the district, so the search widened to all of Baku.",
+   "cause": "The model wrote the district in the country-level ID format and also added the parent city.",
+   "mitigation": "Deterministic normalisation: IDs not in the catalogue are dropped, az-X → bk-X (only if a Baku district exists) and “az-baki” is removed when a district is named. Location accuracy 75% → 95%."
+  }
  }
 ]

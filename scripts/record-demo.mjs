@@ -11,8 +11,9 @@ const EXE = `${os.homedir()}/Library/Caches/ms-playwright/chromium-1243/chrome-m
 fs.mkdirSync("demo/raw", { recursive: true });
 for (const f of fs.readdirSync("demo/raw")) fs.unlinkSync(`demo/raw/${f}`);
 
-const browser = await chromium.launch({ headless: true, executablePath: fs.existsSync(EXE) ? EXE : undefined, args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] });
-const ctx = await browser.newContext({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1, recordVideo: { dir: "demo/raw", size: { width: 1920, height: 1080 } }, colorScheme: "light", locale: "az-AZ" });
+// headed + GPU (Metal): headless WebGL renders in software and makes the map stutter
+const browser = await chromium.launch({ headless: false, executablePath: fs.existsSync(EXE) ? EXE : undefined, args: ["--ignore-gpu-blocklist", "--enable-gpu-rasterization", "--use-angle=metal", "--window-size=1600,1000"] });
+const ctx = await browser.newContext({ viewport: { width: 1600, height: 900 }, deviceScaleFactor: 1, recordVideo: { dir: "demo/raw", size: { width: 1600, height: 900 } }, colorScheme: "light", locale: "az-AZ" });
 const t0 = Date.now();
 const marks = []; // dead-time ranges to cut, seconds from start
 await ctx.addInitScript(() => {
@@ -38,7 +39,7 @@ await ctx.addInitScript(() => {
     const c = document.getElementById("demo-cap"); if (!c) return;
     const set = () => { c.innerHTML = `<b>${t}</b><span>${s}</span>`; c.classList.add("on"); };
     if (instant) set(); else { c.classList.remove("on"); setTimeout(set, 350); }
-    document.getElementById("demo-step").textContent = `${n}/10`;
+    document.getElementById("demo-step").textContent = `${n}/9`;
   };
   window.__demoCur = (x, y) => {
     window.__demoState = { ...(window.__demoState || {}), x, y };
@@ -52,9 +53,12 @@ const page = await ctx.newPage();
 const sleep = (ms) => page.waitForTimeout(ms);
 const now = () => (Date.now() - t0) / 1000;
 let state = { t: "", s: "", n: 1, x: 960, y: 540 };
-const cap = async (t, s, n) => { state = { ...state, t, s, n }; await page.evaluate(([t, s, n]) => window.__demoCap?.(t, s, n), [t, s, n]); await sleep(900); };
+// caption appears while the action happens (no pause before it)
+const cap = async (t, s, n) => { state = { ...state, t, s, n }; await page.evaluate(([t, s, n]) => window.__demoCap?.(t, s, n), [t, s, n]); await sleep(250); };
+const mapIdle = async (max = 15000) => { await page.waitForFunction(() => window.__map && window.__map.loaded() && !window.__map.isMoving(), null, { timeout: max, polling: 150 }).catch(() => {}); };
+const flyTo = async (opts) => { await page.evaluate((o) => window.__map?.flyTo(o), opts); await sleep(300); await mapIdle(); };
 const cursorTo = async (x, y) => { state = { ...state, x, y }; await page.evaluate(([x, y]) => window.__demoCur?.(x, y), [x, y]); await page.mouse.move(x, y, { steps: 12 }); await sleep(750); };
-const clickEl = async (loc, after = 2000) => {
+const clickEl = async (loc, after = 1200) => {
   await loc.scrollIntoViewIfNeeded().catch(() => {});
   const b = await loc.boundingBox();
   if (!b) throw new Error("no box");
@@ -76,21 +80,28 @@ const waitFor = async (fn, max = 25000, label = "") => {
   if (d > 6) marks.push([s + 2.5, now() - 1, label]); // cut long waits (keep 2.5 s of loader + 1 s before result)
 };
 
-// 1. Landing
+// 0. pre-warm (cut from the video): load the map, zoom Baku so data/geometry/tiles are cached
+await page.goto(`${URL}/xerite`, { waitUntil: "networkidle" });
+await mapIdle(30000);
+await flyTo({ center: [49.86, 40.405], zoom: 11.4, duration: 800 });
+await flyTo({ center: [49.88, 40.42], zoom: 9.7, duration: 800 });
+const prewarm = now();
+
+// 1. Landing (~8 s)
 await page.goto(URL, { waitUntil: "networkidle" });
-await sleep(1500);
+await sleep(400);
 await cap("Məskən: harada yaşamalı?", "Ev və ya obyekt alan insana uyğun ərazini rəqəmlərlə tapır.", 1);
-await sleep(3500);
-await smoothScroll(900, 2600);
-await smoothScroll(1500, 2800);
-await smoothScroll(0, 2200);
+await sleep(1600);
+await smoothScroll(800, 2000);
+await smoothScroll(1450, 2000);
+await smoothScroll(0, 1500);
 
 // 2. Hero search
 await cap("AI qərar mühərriki", "Sualı anlayır, əraziləri kodla süzür, nəticəni izah edir.", 2);
 const input = page.locator('input[aria-label="Nə axtarırsan?"]');
 await clickEl(input, 600);
-await input.pressSequentially("Nərimanovda metroya yaxın ev lazımdır", { delay: 85 });
-await sleep(900);
+await input.pressSequentially("Nərimanovda metroya yaxın ev lazımdır", { delay: 60 });
+await sleep(500);
 await clickEl(page.getByRole("button", { name: "Axtar", exact: true }), 500);
 await page.waitForURL(/xerite/, { timeout: 20000 });
 await sleep(1200);
@@ -99,77 +110,75 @@ await restore();
 // 3. Results
 await cap("5 konkret məhəllə", "Metroya piyada məsafə, xidmətlər, qiymət — hər biri mənbə ilə.", 3);
 await waitFor(() => document.querySelectorAll(".map-pin").length >= 5 && document.querySelector("aside")?.innerText.includes("etibarlılıq"), 40000, "decide");
-await sleep(3500);
-await smoothScroll(420, 2500, "aside .overflow-y-auto");
-await smoothScroll(0, 1500, "aside .overflow-y-auto");
+await mapIdle();
+await sleep(1500);
+await smoothScroll(420, 1800, "aside .overflow-y-auto");
+await smoothScroll(0, 1200, "aside .overflow-y-auto");
 
 // 4. Confidence
 await cap("Tövsiyə etibarlılığı", "Məlumatın keyfiyyətinə görə kod hesablayır, AI yox.", 4);
-await clickEl(page.getByRole("button", { name: /^Niyə \d+\?$/ }).first(), 4500);
+await clickEl(page.getByRole("button", { name: /^Niyə \d+\?$/ }).first(), 3000);
 
-// 5. Map metrics
-await cap("Ərazi xəritəsi", "Rayon və məhəllə səviyyəsində göstəricilər.", 5);
-for (const chip of ["Mənzil qiyməti", "Xidmətlər", "Asfalt yollar"]) await clickEl(page.getByRole("tab", { name: chip, exact: true }), 2300);
-await page.evaluate(() => window.__map?.flyTo({ center: [49.86, 40.405], zoom: 11.4, duration: 3000 }));
-await sleep(4800);
-
-// 6. Region panel
-await cap("Ərazi profili", "Qrafiklər və hər rəqəmin mənbə nişanı.", 6);
-await page.evaluate(() => window.__map?.flyTo({ center: [49.88, 40.42], zoom: 9.7, duration: 2000 }));
-await sleep(2600);
+// 5. Map metrics + region profile (merged)
+await cap("Ərazi xəritəsi və profili", "Rayon və məhəllə göstəriciləri, qrafiklər və hər rəqəmin mənbə nişanı.", 5);
+for (const chip of ["Mənzil qiyməti", "Xidmətlər"]) { await clickEl(page.getByRole("tab", { name: chip, exact: true }), 600); await mapIdle(); await sleep(600); }
+await flyTo({ center: [49.86, 40.405], zoom: 11.4, duration: 2200 });
+await sleep(1200);
+await flyTo({ center: [49.88, 40.42], zoom: 9.7, duration: 1600 });
 const pt = await page.evaluate(() => { const p = window.__map.project([49.842, 40.388]); const r = window.__map.getCanvas().getBoundingClientRect(); return [r.left + p.x, r.top + p.y]; });
 await cursorTo(pt[0], pt[1]);
 await page.evaluate(() => window.__demoClick?.());
 await page.mouse.click(pt[0], pt[1]);
 await sleep(2500);
-for (const t of ["Qiymətlər", "Xidmətlər", "Nəqliyyat", "Təbiət", "DNT"]) await clickEl(page.locator("aside").getByRole("tab", { name: t, exact: true }), 2300);
+await mapIdle();
+for (const t of ["Qiymətlər", "Nəqliyyat", "DNT"]) await clickEl(page.locator("aside").getByRole("tab", { name: t, exact: true }), 1400);
 
-// 7. AI Analitik + follow-up question
-await cap("AI Analitik", "Güclü və zəif tərəflər, kimə uyğundur — yalnız real göstəricilərə əsaslanır.", 7);
+// 6. AI Analitik + follow-up question
+await cap("AI Analitik", "Güclü və zəif tərəflər, kimə uyğundur — yalnız real göstəricilərə əsaslanır.", 6);
 const ai = page.locator("section", { hasText: "AI Analitik" }).first();
 const aiTop = await ai.evaluate((el) => el.getBoundingClientRect().top + window.scrollY - 90);
-await smoothScroll(aiTop, 3500);
-await sleep(2500);
-await smoothScroll(0, 2200);
+await smoothScroll(aiTop, 2200);
+await sleep(1800);
+await smoothScroll(0, 1600);
 await clickEl(page.getByRole("tab", { name: "AI məsləhətçi", exact: true }), 1200);
 await clickEl(page.getByRole("button", { name: "Uşaqlı ailə üçün sakit ərazi, büdcə 150 min" }), 800);
 await waitFor(() => (document.querySelector("aside")?.innerText.match(/etibarlılıq/g) || []).length >= 2, 40000, "followup");
-await sleep(4500);
+await mapIdle();
+await sleep(2500);
 
-// 8. Legal check (pre-cached listing → instant)
-await cap("Hüquqi yoxlama", "Elandakı riskli ifadələri tapır: çıxarışsız, etibarnamə ilə…", 8);
+// 7. Legal check (pre-cached listing → instant)
+await cap("Hüquqi yoxlama", "Elandakı riskli ifadələri tapır: çıxarışsız, etibarnamə ilə…", 7);
 const tools = page.getByRole("tab", { name: "Hüquqi yoxlama", exact: true });
 const toolsTop = await tools.evaluate((el) => el.getBoundingClientRect().top + window.scrollY - 140);
-await smoothScroll(toolsTop, 2800);
+await smoothScroll(toolsTop, 2000);
 await clickEl(tools, 1200);
 const ta = page.locator('textarea[aria-label="Elanın mətni"]');
 await clickEl(ta, 400);
-await ta.pressSequentially("Yeni binada mənzil, kupça hazırlanır, ilkin ödəniş 30%.", { delay: 45 });
+await ta.pressSequentially("Yeni binada mənzil, kupça hazırlanır, ilkin ödəniş 30%.", { delay: 30 });
 await sleep(700);
 await clickEl(page.getByRole("button", { name: "Elanı yoxla", exact: true }), 500);
 await waitFor(() => document.body.innerText.includes("Alışdan əvvəl yoxla"), 30000, "legal");
-await sleep(5000);
+await sleep(3000);
 
-// 9. /keyfiyyet
+// 8. /keyfiyyet (~10 s)
 await page.goto(`${URL}/keyfiyyet`, { waitUntil: "networkidle" });
 await sleep(800);
 await restore();
-await cap("Keyfiyyət və testlər", "AI qayda-əsaslı yanaşma ilə müqayisə olunur, səhvlər açıq göstərilir.", 9);
-await sleep(3000);
-for (const y of [700, 1350, 2000, 2700]) await smoothScroll(y, 3000);
-await sleep(1200);
+await cap("Keyfiyyət və testlər", "AI qayda-əsaslı yanaşma ilə müqayisə olunur, səhvlər açıq göstərilir.", 8);
+await sleep(1800);
+for (const y of [650, 1300, 2000]) await smoothScroll(y, 2500);
 
-// 10. End card
+// 9. End card (3 s)
 await page.evaluate(() => {
-  window.__demoCap?.("Məskən — meskan-seven.vercel.app", "Kod: github.com/serxan22/7byteNB", 10);
+  window.__demoCap?.("Məskən — meskan-seven.vercel.app", "Kod: github.com/serxan22/7byteNB", 9);
   const e = document.createElement("div"); e.id = "demo-end";
   e.innerHTML = `<div style="font-size:84px;font-weight:800;letter-spacing:-.04em">Məskən</div><div style="font-size:34px;margin-top:10px;opacity:.95">meskan-seven.vercel.app</div><div style="font-size:24px;margin-top:22px;opacity:.8">Kod: github.com/serxan22/7byteNB</div>`;
   document.body.appendChild(e); requestAnimationFrame(() => e.classList.add("on"));
   document.getElementById("demo-cap").style.display = "none"; document.getElementById("demo-cur").style.display = "none";
 });
-await sleep(4500);
+await sleep(3200);
 const total = now();
 await ctx.close();
 await browser.close();
-fs.writeFileSync("demo/raw/marks.json", JSON.stringify({ total, cuts: marks }, null, 1));
+fs.writeFileSync("demo/raw/marks.json", JSON.stringify({ total, prewarm, cuts: marks }, null, 1));
 console.log(`recorded ${total.toFixed(1)} s; cuts: ${JSON.stringify(marks)}`);
