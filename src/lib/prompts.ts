@@ -136,10 +136,14 @@ export function forLocale(system: string, locale: Locale | string | undefined): 
       .replace('məs. "... (10 min sakinə 14 kafe; median 11)"', 'e.g. "... (14 cafés per 10,000 residents; median 11)"')
       .replace('(məs. "10 min sakinə 2.2 aptek — Bakı medianı 2.2", "asfalt payı 65%, median 49%")', '(e.g. "2.2 pharmacies per 10,000 residents, Baku median 2.2", "paved share 65%, median 49%")')
       .replace('- Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar", "əlverişli mövqe", "hər kəs üçün". Ümumi, hər əraziyə aid ola biləcək cümlə yazma.', "- Do not write generic sentences that could apply to any area.")
-      .replace('- Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar".', "") +
+      .replace('- Qadağan ifadələr: "yaxşı seçimdir", "müxtəlif imkanlar", "geniş imkanlar".', "")
+      .replace('(məs. "Nərimanovda metroya ən yaxın 5 məhəllə: ...")', '(e.g. "The 5 neighbourhoods in Nərimanov closest to the metro: ...")')
+      .replace('(məs. "binanın çıxarışını yoxla", "axşam tıxacını yerində yoxla")', '(e.g. "check the building\'s title extract (çıxarış)", "check evening traffic on site")')
+      .replace('"demo qiymət, real deyil"', '"demo price, not real"') +
     `
 
 OUTPUT LANGUAGE — ENGLISH:
+- Answer in English even when the user's question, a listing or the data is written in Azerbaijani.
 - Every text field must be in clear British English (neighbourhood, analyse), plain professional tone, short sentences, no marketing language.
 - Keep place names, district names, metro station names and street names exactly in their official Azerbaijani spelling (Nərimanov, Gənclik, Xətai, Ziya Bünyadov prospekti). Never anglicise or transliterate them.
 - When you quote a phrase from a listing, keep it in Azerbaijani and add a short English gloss in brackets, e.g. “çıxarış yoxdur” (no title extract), “etibarnamə ilə” (sold under power of attorney).
