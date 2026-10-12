@@ -43,7 +43,6 @@ const splitAt = (id) => (dens[id] > 8000 ? 1.5 : dens[id] > 2000 ? 3 : 6);
 const inDistrict = (ll) => districts.find((d) => ll[0] >= d.b[0] && ll[0] <= d.b[2] && ll[1] >= d.b[1] && ll[1] <= d.b[3] && pip(point(ll), d.g));
 
 // seeds: place nodes + validated metro stations
-const METRO = JSON.parse(fs.readFileSync("data/manual/metro-stations.json", "utf8"));
 const seeds = [];
 for await (const f of seq("data/raw/osm/places.geojsonseq")) {
   const p = f.properties;
@@ -54,13 +53,7 @@ for await (const f of seq("data/raw/osm/places.geojsonseq")) {
 const hexData = JSON.parse(fs.readFileSync("public/data/hexes.json", "utf8"));
 const metroPts = new Map();
 for (const h of hexData.hexes) if (h.mn && h.m != null && h.m < 120) metroPts.set(h.mn, h.c); // hex next to the station
-for await (const f of seq("data/raw/osm/pois.geojsonseq")) {
-  const t = f.properties;
-  if (t.station !== "subway" || f.geometry.type !== "Point") continue;
-  const n = (t["name:az"] || t.name || "").replace(/ metro stansiyası| m\/s/i, "").trim();
-  const name = METRO.aliases[n] ?? n;
-  if (METRO.stations.includes(name)) metroPts.set(name, f.geometry.coordinates);
-}
+for (const st of JSON.parse(fs.readFileSync("data/processed/metro-official.json", "utf8")).stations) metroPts.set(st.name, st.c); // official (opendata.az)
 for (const [name, ll] of metroPts) seeds.push({ ll, name: `${name} m. ətrafı`, kind: "metro" });
 
 let cells;

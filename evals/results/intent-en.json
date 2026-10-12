@@ -1,25 +1,35 @@
 {
- "n": 8,
- "ai_answered": 8,
+ "n": 11,
+ "ai_answered": 11,
  "accuracy": {
   "ai": {
    "goal": 100,
    "property_type": 100,
    "locations": 100,
-   "constraints": 100,
+   "constraints": 91,
    "budget": 100
   },
   "baseline": {
    "goal": 100,
    "property_type": 100,
-   "locations": 88,
+   "locations": 91,
    "constraints": 100,
-   "budget": 75
+   "budget": 82
   }
+ },
+ "gazetteer": {
+  "positives": 3,
+  "resolved": 3,
+  "negatives": 0,
+  "false_hits": 0,
+  "n": 3,
+  "ai_locations": 100,
+  "baseline_locations": 100
  },
  "rows": [
   {
    "q": "flat near the metro in Nərimanov, budget 150k",
+   "gaz_locs": [],
    "expected": {
     "q": "flat near the metro in Nərimanov, budget 150k",
     "goal": "buy",
@@ -70,6 +80,7 @@
   },
   {
    "q": "new build in Yasamal close to a school, 200,000 manat",
+   "gaz_locs": [],
    "expected": {
     "q": "new build in Yasamal close to a school, 200,000 manat",
     "goal": "buy",
@@ -100,12 +111,10 @@
     "goal": "buy",
     "type": "menzil_yeni",
     "locs": [
-     "bk-yasamal",
-     "pl-yasamal"
+     "bk-yasamal"
     ],
     "raw_locs": [
-     "bk-yasamal",
-     "pl-yasamal"
+     "bk-yasamal"
     ],
     "budget": 200000
    },
@@ -121,6 +130,7 @@
   },
   {
    "q": "I want to rent a flat in Nəsimi",
+   "gaz_locs": [],
    "expected": {
     "q": "I want to rent a flat in Nəsimi",
     "goal": "rent",
@@ -167,6 +177,7 @@
   },
   {
    "q": "house with a garden outside Baku, in the mountains",
+   "gaz_locs": [],
    "expected": {
     "q": "house with a garden outside Baku, in the mountains",
     "goal": "buy",
@@ -207,6 +218,7 @@
   },
   {
    "q": "I want to open a pharmacy in Xətai",
+   "gaz_locs": [],
    "expected": {
     "q": "I want to open a pharmacy in Xətai",
     "goal": "open_business",
@@ -252,6 +264,7 @@
   },
   {
    "q": "family with two kids, flat in Gəncə near a kindergarten, up to 90k AZN",
+   "gaz_locs": [],
    "expected": {
     "q": "family with two kids, flat in Gəncə near a kindergarten, up to 90k AZN",
     "goal": "buy",
@@ -300,6 +313,7 @@
   },
   {
    "q": "cheap flat by the sea in Sumqayit",
+   "gaz_locs": [],
    "expected": {
     "q": "cheap flat by the sea in Sumqayit",
     "goal": "buy",
@@ -347,6 +361,7 @@
   },
   {
    "q": "flat in Sabail as an investment, $100,000",
+   "gaz_locs": [],
    "expected": {
     "q": "flat in Sabail as an investment, $100,000",
     "goal": "invest",
@@ -387,6 +402,155 @@
     "type": "menzil_kohne",
     "locs": [],
     "budget": null
+   }
+  },
+  {
+   "q": "house with a yard in Lahij",
+   "gaz_locs": [
+    "az-ismayilli"
+   ],
+   "expected": {
+    "q": "house with a yard in Lahij",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "cons": [],
+    "gaz": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "raw_locs": [
+     "az-ismayilli"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "I want to rent a flat in Khinalig",
+   "gaz_locs": [
+    "az-quba"
+   ],
+   "expected": {
+    "q": "I want to rent a flat in Khinalig",
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-quba"
+    ],
+    "cons": [],
+    "gaz": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-quba"
+    ],
+    "raw_locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-quba"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "house with a yard near the sea in Novkhani, budget 120k",
+   "gaz_locs": [
+    "az-abseron"
+   ],
+   "expected": {
+    "q": "house with a yard near the sea in Novkhani, budget 120k",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-abseron"
+    ],
+    "cons": [
+     "coastal"
+    ],
+    "budget": 120000,
+    "gaz": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "pl-novxani-baglari",
+     "az-abseron"
+    ],
+    "raw_locs": [
+     "pl-novxani-baglari"
+    ],
+    "budget": 120000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-abseron"
+    ],
+    "budget": 120000
    }
   }
  ]

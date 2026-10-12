@@ -33,7 +33,7 @@
    "pass": true,
    "sample": [
     "Xətai · Şah İsmail Xətai m. ətrafı, Mehdi Mehdizadə küçəsi",
-    "Nəsimi · Cəfər Cabbarlı m. ətrafı, Süleyman Rəhimov küçəsi"
+    "Nərimanov · Nəriman Nərimanov m. ətrafı, Əhməd Rəcəbli küçəsi"
    ]
   },
   {
@@ -43,8 +43,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Binəqədi · 6-cı mikrorayon",
-    "Binəqədi · Dərnəgül"
+    "Binəqədi · Dərnəgül",
+    "Binəqədi · 6-cı mikrorayon"
    ]
   },
   {
@@ -54,8 +54,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmail Xətai m. ətrafı, Mehdi Mehdizadə küçəsi",
-    "Xətai · Əhmədli m. ətrafı"
+    "Xətai · Əhmədli m. ətrafı",
+    "Xətai · Şah İsmail Xətai m. ətrafı, Mehdi Mehdizadə küçəsi"
    ]
   },
   {
@@ -87,8 +87,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Xətai · Şah İsmail Xətai m. ətrafı, Mehdi Mehdizadə küçəsi",
-    "Xətai · Əhmədli m. ətrafı"
+    "Xətai · Əhmədli m. ətrafı",
+    "Xətai · Şah İsmail Xətai m. ətrafı, Mehdi Mehdizadə küçəsi"
    ]
   },
   {
@@ -109,8 +109,8 @@
    "relaxed": [],
    "pass": true,
    "sample": [
-    "Nəsimi · Cəfər Cabbarlı m. ətrafı, Süleyman Rəhimov küçəsi",
-    "Nəsimi · 3-cü mikrorayon"
+    "Nəsimi · 3-cü mikrorayon",
+    "Nəsimi · 4-cü mikrorayon"
    ]
   }
  ]

@@ -27,6 +27,7 @@ type Evals = {
   retrieval: { n: number; passed: number; pass_rate: number; rows: { name: string; name_en?: string; returned: number; satisfying: number; pass: boolean; sample: string[] }[] } | null;
   sanity: { passed: number; total: number; checks: { name: string; name_en?: string | null; pass: boolean; detail: string; detail_en?: string; hard: boolean }[] } | null;
   failures: (Failure & { en?: Failure })[];
+  poi_check?: { areas: number; status_checking: number; customizable_ignored: number; totals: { cat: string; osm: number; official: number }[]; gaps: { id: string; name: string; cat: string; osm: number; official: number }[] } | null;
   cost: { models?: { primary: string | null; fallbacks: string[] }; avg_tokens_in: number | null; avg_tokens_out: number | null; measured_calls: number; calls_per_session: number; per_session_usd: { assumed: number | null; conservative: number | null }; per_1000_users_usd: { assumed: number | null; conservative: number | null }; prices: Record<string, { model: string; model_en?: string; in: number; out: number; source: string; source_en?: string }>; notes: string; notes_en?: string };
 };
 
@@ -51,6 +52,7 @@ export default async function Quality({ params }: { params: Promise<{ locale: Ap
   setRequestLocale(locale);
   setNumberLocale(locale);
   const t = await getTranslations("quality");
+  const tp = await getTranslations("poi");
   const en = locale === "en";
   const pct = (v: number) => `${fmt(v, 1)}%`;
   const ai = t("aiLabel"), rule = t("ruleLabel");
@@ -228,6 +230,35 @@ export default async function Quality({ params }: { params: Promise<{ locale: Ap
           </ul>
         </div>
       </section>
+
+      {e.poi_check && (
+        <section className="mt-10">
+          <h2 className="text-xl font-extrabold">{t("poiH")}</h2>
+          <p className="mt-1 max-w-[75ch] text-sm text-ink-2">{t("poiBody", { areas: e.poi_check.areas, checking: fmt(e.poi_check.status_checking), custom: fmt(e.poi_check.customizable_ignored) })}</p>
+          <div className="mt-3 grid gap-6 md:grid-cols-2">
+            <table className="w-full text-sm">
+              <thead className="text-xs text-ink-3"><tr className="border-b border-sand-3"><th className="py-1.5 text-left">{t("poiCat")}</th><th className="text-right">OSM</th><th className="text-right">opendata.az</th></tr></thead>
+              <tbody>
+                {e.poi_check.totals.map((x) => (
+                  <tr key={x.cat} className="border-b border-sand-3/60 last:border-0"><td className="py-1.5">{tp(x.cat as "school")}</td><td className="num text-right">{fmt(x.osm)}</td><td className="num text-right">{fmt(x.official)}</td></tr>
+                ))}
+              </tbody>
+            </table>
+            <div>
+              <div className="text-sm font-extrabold">{t("poiGaps")}</div>
+              <table className="mt-1 w-full text-xs">
+                <thead className="text-ink-3"><tr className="border-b border-sand-3"><th className="py-1 text-left">{t("poiArea")}</th><th className="text-left">{t("poiCat")}</th><th className="text-right">OSM / opendata.az</th></tr></thead>
+                <tbody>
+                  {e.poi_check.gaps.map((g) => (
+                    <tr key={`${g.id}-${g.cat}`} className="border-b border-sand-3/60 last:border-0"><td className="py-1">{g.name}</td><td>{tp(g.cat as "school")}</td><td className="num text-right">{fmt(g.osm)} / {fmt(g.official)}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p className="mt-2 text-xs text-ink-3">{t("poiNote")}</p>
+        </section>
+      )}
     </div>
   );
 }

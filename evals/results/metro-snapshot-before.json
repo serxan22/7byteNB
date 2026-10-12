@@ -1,0 +1,37 @@
+{
+ "tag": "before",
+ "metro_stations_baku": 26,
+ "candidates": [
+  {
+   "label": "Nərimanov · Nəriman Nərimanov m. ətrafı, Əhməd Rəcəbli küçəsi",
+   "metro_walk_m": 540,
+   "nearest_metro": "Nəriman Nərimanov",
+   "score": 79
+  },
+  {
+   "label": "Nərimanov · Gənclik m. ətrafı, Fətəli Xan Xoyski prospekti",
+   "metro_walk_m": 489,
+   "nearest_metro": "Gənclik",
+   "score": 78
+  },
+  {
+   "label": "Nərimanov · Bakmil m. ətrafı, Fətəli Xan Xoyski prospekti",
+   "metro_walk_m": 507,
+   "nearest_metro": "Bakmil",
+   "score": 67
+  },
+  {
+   "label": "Nərimanov · Gənclik m. ətrafı, Kazım Kazımzadə küçəsi",
+   "metro_walk_m": 676,
+   "nearest_metro": "28 May",
+   "score": 65
+  },
+  {
+   "label": "Nərimanov · Bakmil m. ətrafı, İslam Abışov küç.",
+   "metro_walk_m": 595,
+   "nearest_metro": "Dərnəgül",
+   "score": 48
+  }
+ ],
+ "confidence": 68
+}

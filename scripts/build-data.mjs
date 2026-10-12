@@ -11,6 +11,7 @@ const aiProfilesEn = read("data/processed/ai-profiles-en.json", {});
 const aliases = read("data/manual/name-aliases.json", {});
 const popMeta = read("data/processed/population.json");
 const listings = read("data/processed/listings-agg.json", null);
+const od = read("data/processed/opendata.json", null); // scripts/opendata.mjs
 
 // ---------- prices ----------
 const priceRows = parse(fs.readFileSync("data/manual/prices.csv", "utf8"), { columns: true, skip_empty_lines: true, trim: true });
@@ -77,6 +78,13 @@ const regions = osm.map((o) => {
     indices: {},
     coverage: { osm: totalPois > 200 ? "yüksək" : totalPois > 40 ? "orta" : "aşağı", prices: best ?? "none" },
     ...(listings?.regions[o.id] ? { listings: { n: listings.regions[o.id].n, deed_share: listings.regions[o.id].deed_share, mortgage_share: listings.regions[o.id].mortgage_share, period: listings.period } } : {}),
+    ...(od ? { official: {
+      ...(od.metro_by_region[o.id] ? { metro: od.metro_by_region[o.id] } : {}),
+      ...(od.poi_check.areas[o.id] ? { poi: od.poi_check.areas[o.id] } : {}),
+      ...(od.roads[o.id] ? { roads: od.roads[o.id] } : {}),
+      rail_m: od.rail.regions[o.id] ?? null,
+      ...(od.boundaries[o.id] ? { boundary: { iou: od.boundaries[o.id].iou, replaced: !!od.boundaries[o.id].replaced } } : {}),
+    } } : {}),
     ...(aiProfiles[o.id] ? { ai: Object.fromEntries(Object.entries(aiProfiles[o.id]).filter(([k]) => k !== "_h")) } : {}),
     ...(aiProfilesEn[o.id] ? { ai_en: Object.fromEntries(Object.entries(aiProfilesEn[o.id]).filter(([k]) => k !== "_h")) } : {}),
   };
@@ -135,6 +143,16 @@ fs.writeFileSync("public/data/national.json", JSON.stringify(national));
 // ---------- sources.json ----------
 const realPrices = priceLog.filter((p) => p.confidence !== "mock" && p.value != null);
 const covCount = (lvl, c) => regions.filter((r) => r.level === lvl && r.coverage.osm === c).length;
+const odN = (k) => (od ? k(od) : "—");
+const OD_TEXT = {
+  "metro-cixislari-uzre-koordinatlar": { az: ["27 stansiya, 98 çıxış", "Metro stansiyaları (OSM əvəzinə), metroya piyada məsafə — ən yaxın çıxışa"], en: ["27 stations, 98 exits", "Metro stations (replacing OSM), walking distance to the metro, to the nearest exit"] },
+  "stansiyalar-uzre-gundelik-sernisin-gedislerinin-sayi": { az: ["2025: 27 stansiya, hər gün; 2026 faylı istifadə olunmur (gündə bir neçə izahsız sətir)", "Stansiyanın yüklənməsi: həftəiçi orta gündəlik gediş"], en: ["2025: 27 stations, daily; the 2026 file is not used (several unexplained rows per day)", "Station busyness: average weekday trips per day"] },
+  "azerbaycanin-rayonlari": { az: [odN((o) => `86 poliqon; ${Object.values(o.boundaries).filter((b) => b.replaced).length} rayonda OSM əvəzinə (IoU < 0.9); Bakı rayonları, Sumqayıt, Gəncə, Abşeron saxlanılıb`), "Rayon sərhədləri (OSM ilə uyğunsuz olduqda)"], en: [odN((o) => `86 polygons; used instead of OSM in ${Object.values(o.boundaries).filter((b) => b.replaced).length} districts (IoU < 0.9); Baku districts, Sumqayıt, Gəncə and Abşeron kept`), "District boundaries (where they differ from OSM)"] },
+  "azerbaycanin-seherleri-ve-inzibati-erazi-vahidleri": { az: ["4 589 yaşayış məntəqəsi (79 şəhər, 263 qəsəbə, 4 247 kənd)", "Sorğuda kənd/qəsəbə adı → rayon; ingiliscə rəsmi adlar"], en: ["4,589 settlements (79 cities, 263 “qəsəbə” (urban-type settlements), 4,247 villages)", "A village or “qəsəbə” name in a query → its district; official English names"] },
+  "azerbaycanda-obyektler-ve-mekanlar": { az: [odN((o) => `11 807 obyekt (Bakı, Sumqayıt, Abşeron); ${o.poi_check.status_checking} “Checking” statuslu; CUSTOMIZABLE_POINT (${o.poi_check.customizable_ignored}) nəzərə alınmır`), "OSM sayları ilə müqayisə (toplanmır)"], en: [odN((o) => `11,807 places (Baku, Sumqayıt, Abşeron); ${o.poi_check.status_checking} with status “Checking”; CUSTOMIZABLE_POINT (${o.poi_check.customizable_ignored}) ignored`), "Comparison with OSM counts (not added together)"] },
+  "umumi-istifadede-olan-avtomobil-yollarinin-uzunlugu-seher-ve-rayonlar-uzre": { az: [odN((o) => `${Object.keys(o.roads).length} rayon, 2004–2024 ("..." və "-" = məlumat yoxdur)`), "Yol sıxlığı (km / 100 km²) və 2004→2024 dəyişməsi, Bakıdan kənar"], en: [odN((o) => `${Object.keys(o.roads).length} districts, 2004–2024 ("..." and "-" = no data)`), "Road density (km per 100 km²) and the 2004→2024 change, outside Baku"] },
+  "azerbaycanin-demir-yollarinin-kordinatlari": { az: ["1 872 xətt", "Ərazinin mərkəzindən ən yaxın dəmir yoluna məsafə; < 300 m — mümkün səs-küy"], en: ["1,872 lines", "Distance from an area's centre to the nearest railway; < 300 m flagged as possible noise"] },
+};
 const sources = {
   generated_at: new Date().toISOString(),
   datasets: [
@@ -151,12 +169,16 @@ const sources = {
     { key: "legal", name: "Hüquqi mətnlər (e-qanun.az)", url: "https://e-qanun.az", badge: "official", status: fs.existsSync("data/legal") && fs.readdirSync("data/legal").some((f) => f.endsWith(".md")) ? "ok" : "unavailable", date: null, coverage: "Maddə mətni yoxdursa, AI maddə nömrəsi göstərmir", used_for: "Hüquqi yoxlama" },
     { key: "google", name: "Google Places API", url: "https://developers.google.com/maps/documentation/places", badge: "osm", status: process.env.GOOGLE_MAPS_API_KEY ? "ok" : "unavailable", date: null, coverage: "Açar yoxdur — istifadə olunmur", used_for: "Gələcək: seçilmiş ərazi üçün canlı zənginləşdirmə" },
     { key: "yandex_waze", name: "Yandex / Waze", url: null, badge: "osm", status: "future", date: null, coverage: "Gələcəkdə tərəfdaşlıqla (scraping edilmir)", used_for: "Tıxac və real səyahət vaxtı" },
+    // opendata.az (official). Dates: "updated" = last change on opendata.az, "downloaded" = when we fetched it.
+    ...(od ? od.meta.map((m) => ({ key: `od-${m.name}`, name: `${m.title} — ${m.publisher}`, url: m.url, badge: "official", status: "ok", date: `yeniləndi ${m.modified}; endirildi ${m.downloaded}`, coverage: OD_TEXT[m.name]?.az[0] ?? "—", used_for: OD_TEXT[m.name]?.az[1] ?? "—", license: m.license ?? "lisenziya göstərilməyib" })) : []),
   ],
   prices: priceLog,
 };
 // English versions of dataset descriptions (shown on /en/menbeler); counts recomputed, never invented.
 const cov = (l) => ({ "yüksək": "high", orta: "medium", "aşağı": "low" })[l];
 const nReg = (f) => `${regions.filter(f).length}/${regions.length} areas`;
+const OD_TITLE_EN = { "metro-cixislari-uzre-koordinatlar": "Metro exit coordinates", "stansiyalar-uzre-gundelik-sernisin-gedislerinin-sayi": "Daily passenger trips by metro station", "azerbaycanin-rayonlari": "Districts of Azerbaijan", "azerbaycanin-seherleri-ve-inzibati-erazi-vahidleri": "Cities and administrative units of Azerbaijan", "azerbaycanda-obyektler-ve-mekanlar": "Places and facilities in Azerbaijan", "umumi-istifadede-olan-avtomobil-yollarinin-uzunlugu-seher-ve-rayonlar-uzre": "Length of public roads by city and district", "azerbaycanin-demir-yollarinin-kordinatlari": "Railway coordinates of Azerbaijan" };
+const OD_PUB_EN = { "“Bakı Metropoliteni” QSC": "Baku Metro CJSC", "Azərbaycan Respublikasının Ekologiya və Təbii Sərvətlər Nazirliyi": "Ministry of Ecology and Natural Resources", "Azərbaycan Respublikasının Dövlət Statistika Komitəsi": "State Statistics Committee" };
 const DS_EN = {
   osm: { name: "OpenStreetMap (Geofabrik Azerbaijan extract)", coverage: `Districts: ${covCount("rayon", "yüksək")} ${cov("yüksək")} / ${covCount("rayon", "orta")} ${cov("orta")} / ${covCount("rayon", "aşağı")} ${cov("aşağı")}; Baku districts: ${covCount("baku_district", "yüksək")} high / ${covCount("baku_district", "orta")} medium`, used_for: "Boundaries, services (POI), stops, metro, routes, roads and surface, land cover, coastline" },
   dsk: { name: "State Statistics Committee (SSC) — table 1.15 (area, population, density)", coverage: nReg((r) => r.population.v), used_for: "Population (01.01.2026), density, per-10,000-resident indicators" },
@@ -172,6 +194,7 @@ const DS_EN = {
   google: { name: "Google Places API", coverage: "No key, so not used", used_for: "Future: live enrichment for the selected area" },
   yandex_waze: { name: "Yandex / Waze", coverage: "In future via partnership (no scraping)", used_for: "Congestion and real travel time" },
 };
+for (const m of od?.meta ?? []) DS_EN[`od-${m.name}`] = { name: `${OD_TITLE_EN[m.name] ?? m.title} — ${OD_PUB_EN[m.publisher] ?? m.publisher}`, coverage: OD_TEXT[m.name]?.en[0] ?? "—", used_for: OD_TEXT[m.name]?.en[1] ?? "—", date: `updated ${m.modified}; downloaded ${m.downloaded}` };
 for (const d of sources.datasets) if (DS_EN[d.key]) d.en = DS_EN[d.key];
 fs.mkdirSync("data/processed", { recursive: true });
 fs.writeFileSync("data/processed/sources.json", JSON.stringify(sources, null, 1));

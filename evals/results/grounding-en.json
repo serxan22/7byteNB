@@ -1,12 +1,12 @@
 {
  "n_texts": 29,
- "numbers": 749,
- "ungrounded": 3,
- "grounded_pct": 99.6,
+ "numbers": 747,
+ "ungrounded": 9,
+ "grounded_pct": 98.8,
  "rows": [
   {
    "id": "az-abseron",
-   "numbers": 36,
+   "numbers": 22,
    "ungrounded": 0,
    "examples": []
   },
@@ -24,7 +24,7 @@
   },
   {
    "id": "az-baki",
-   "numbers": 28,
+   "numbers": 33,
    "ungrounded": 1,
    "examples": [
     2356.2
@@ -32,7 +32,7 @@
   },
   {
    "id": "az-beyleqan",
-   "numbers": 21,
+   "numbers": 27,
    "ungrounded": 0,
    "examples": []
   },
@@ -50,7 +50,7 @@
   },
   {
    "id": "az-goranboy",
-   "numbers": 25,
+   "numbers": 33,
    "ungrounded": 0,
    "examples": []
   },
@@ -68,9 +68,14 @@
   },
   {
    "id": "az-lacin",
-   "numbers": 22,
-   "ungrounded": 0,
-   "examples": []
+   "numbers": 17,
+   "ungrounded": 4,
+   "examples": [
+    100,
+    100,
+    100,
+    100
+   ]
   },
   {
    "id": "az-masalli",
@@ -80,7 +85,7 @@
   },
   {
    "id": "az-naxcivan",
-   "numbers": 17,
+   "numbers": 18,
    "ungrounded": 0,
    "examples": []
   },
@@ -104,25 +109,25 @@
   },
   {
    "id": "az-sabirabad",
-   "numbers": 30,
+   "numbers": 23,
    "ungrounded": 0,
    "examples": []
   },
   {
    "id": "az-salyan",
-   "numbers": 36,
+   "numbers": 32,
    "ungrounded": 0,
    "examples": []
   },
   {
    "id": "az-sederek",
-   "numbers": 20,
+   "numbers": 26,
    "ungrounded": 0,
    "examples": []
   },
   {
    "id": "az-serur",
-   "numbers": 31,
+   "numbers": 21,
    "ungrounded": 0,
    "examples": []
   },
@@ -140,10 +145,13 @@
   },
   {
    "id": "az-xankendi",
-   "numbers": 33,
-   "ungrounded": 1,
+   "numbers": 26,
+   "ungrounded": 4,
    "examples": [
-    409
+    355,
+    41,
+    355,
+    41
    ]
   },
   {
@@ -154,13 +162,13 @@
   },
   {
    "id": "az-zaqatala",
-   "numbers": 33,
+   "numbers": 36,
    "ungrounded": 0,
    "examples": []
   },
   {
    "id": "bk-bineqedi",
-   "numbers": 31,
+   "numbers": 36,
    "ungrounded": 0,
    "examples": []
   },
@@ -178,11 +186,9 @@
   },
   {
    "id": "bk-xetai",
-   "numbers": 24,
-   "ungrounded": 1,
-   "examples": [
-    27
-   ]
+   "numbers": 35,
+   "ungrounded": 0,
+   "examples": []
   }
  ]
 }

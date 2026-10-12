@@ -10,6 +10,7 @@ export default function HexCard({ hex, cats, parent }: { hex: Hex; cats: string[
   const t = useTranslations("hex");
   const tc = useTranslations("common");
   const tp = useTranslations("poi");
+  const to = useTranslations("official");
   const locale = useLocale();
   const n = (c: string) => hex.p[cats.indexOf(c)] ?? 0;
   const price = parent.prices.menzil_kohne;
@@ -51,6 +52,12 @@ export default function HexCard({ hex, cats, parent }: { hex: Hex; cats: string[
         <span>{t.rich("districtPrice", { price: price?.value != null ? fmtAZN(price.value, "m²") : tc("noData"), b: (c) => <b className="num">{c}</b>, i: (c) => <i>{c}</i> })}</span>
         {price && <Badge kind={priceBadge(price)} />}
       </div>
+      {hex.rl != null && hex.rl < 300 && (
+        <div className="mt-2 flex items-center justify-between rounded-lg bg-sand-2 px-3 py-2 text-xs">
+          <span>{to("railNoise", { m: fmt(hex.rl) })}</span>
+          <Badge kind="official" />
+        </div>
+      )}
       <div className="mt-2 flex items-center gap-1.5 text-[10px] text-ink-3"><Badge kind="osm" /> {t("distNote")}</div>
     </div>
   );

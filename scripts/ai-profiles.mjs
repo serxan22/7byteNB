@@ -50,7 +50,7 @@ const PRIORITY = ["az-baki", "az-gence", "az-sumqayit", "az-mingecevir", "az-len
 // staleness: a profile is regenerated when the data it was written from has changed (input hash)
 const inputHash = (r) => crypto.createHash("sha1").update(JSON.stringify(regionForAI({ ...r, ai: undefined }, national[r.level]))).digest("hex").slice(0, 12);
 const stale = [...az, ...baku].filter((r) => done[r.id] && done[r.id]._h !== inputHash(r)).map((r) => r.id);
-if (process.argv.includes("--refresh-stale")) for (const id of stale) delete done[id];
+if (process.argv.includes("--refresh-stale")) for (const id of stale) if (!only || only.includes(id)) delete done[id]; // never drop profiles outside --only
 else if (stale.length) console.log(`${stale.length} profiles are stale (data changed) — run with --refresh-stale`);
 const queue = [...baku, ...PRIORITY.map((id) => az.find((r) => r.id === id)).filter(Boolean), ...az.filter((r) => !PRIORITY.includes(r.id))]
   .filter((r) => !done[r.id] && (!only || only.includes(r.id)));

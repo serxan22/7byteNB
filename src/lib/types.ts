@@ -82,6 +82,14 @@ export interface Region {
   indices: Record<IndexKey, number | null>;
   coverage: { osm: "yüksək" | "orta" | "aşağı"; prices: "official" | "sample" | "estimate" | "mock" | "none"; per_capita?: "ok" | "unreliable"; note?: string; note_en?: string };
   listings?: { n: number; deed_share: number; mortgage_share: number; period: string };
+  /** opendata.az (official) — shown next to OSM, never merged into OSM counts */
+  official?: {
+    metro?: { name: string; pax_weekday: number | null }[];
+    poi?: Record<string, { osm: number; official: number }>;
+    roads?: { km: number; year: number; first_km: number; first_year: number; density: number | null };
+    rail_m?: number | null;
+    boundary?: { iou: number | null; replaced?: boolean };
+  };
   ai?: AIProfile;
   ai_en?: AIProfile;
 }

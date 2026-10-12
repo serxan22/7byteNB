@@ -1,10 +1,120 @@
 [
- {"q":"flat near the metro in Nərimanov, budget 150k","goal":"buy","type":"menzil_kohne","locs":["bk-nerimanov"],"cons":["metro"],"budget":150000},
- {"q":"new build in Yasamal close to a school, 200,000 manat","goal":"buy","type":"menzil_yeni","locs":["bk-yasamal"],"cons":["school"],"budget":200000},
- {"q":"I want to rent a flat in Nəsimi","goal":"rent","type":"menzil_kohne","locs":["bk-nesimi"],"cons":[]},
- {"q":"house with a garden outside Baku, in the mountains","goal":"buy","type":"heyet_evi","locs":[],"cons":["mountain","outside_baku"]},
- {"q":"I want to open a pharmacy in Xətai","goal":"open_business","type":"obyekt","locs":["bk-xetai"],"cons":[]},
- {"q":"family with two kids, flat in Gəncə near a kindergarten, up to 90k AZN","goal":"buy","type":"menzil_kohne","locs":["az-gence"],"cons":["kindergarten"],"budget":90000},
- {"q":"cheap flat by the sea in Sumqayit","goal":"buy","type":"menzil_kohne","locs":["az-sumqayit"],"cons":["coastal"]},
- {"q":"flat in Sabail as an investment, $100,000","goal":"invest","type":"menzil_kohne","locs":["bk-sebail"],"cons":[],"budget":170000}
+ {
+  "q": "flat near the metro in Nərimanov, budget 150k",
+  "goal": "buy",
+  "type": "menzil_kohne",
+  "locs": [
+   "bk-nerimanov"
+  ],
+  "cons": [
+   "metro"
+  ],
+  "budget": 150000
+ },
+ {
+  "q": "new build in Yasamal close to a school, 200,000 manat",
+  "goal": "buy",
+  "type": "menzil_yeni",
+  "locs": [
+   "bk-yasamal"
+  ],
+  "cons": [
+   "school"
+  ],
+  "budget": 200000
+ },
+ {
+  "q": "I want to rent a flat in Nəsimi",
+  "goal": "rent",
+  "type": "menzil_kohne",
+  "locs": [
+   "bk-nesimi"
+  ],
+  "cons": []
+ },
+ {
+  "q": "house with a garden outside Baku, in the mountains",
+  "goal": "buy",
+  "type": "heyet_evi",
+  "locs": [],
+  "cons": [
+   "mountain",
+   "outside_baku"
+  ]
+ },
+ {
+  "q": "I want to open a pharmacy in Xətai",
+  "goal": "open_business",
+  "type": "obyekt",
+  "locs": [
+   "bk-xetai"
+  ],
+  "cons": []
+ },
+ {
+  "q": "family with two kids, flat in Gəncə near a kindergarten, up to 90k AZN",
+  "goal": "buy",
+  "type": "menzil_kohne",
+  "locs": [
+   "az-gence"
+  ],
+  "cons": [
+   "kindergarten"
+  ],
+  "budget": 90000
+ },
+ {
+  "q": "cheap flat by the sea in Sumqayit",
+  "goal": "buy",
+  "type": "menzil_kohne",
+  "locs": [
+   "az-sumqayit"
+  ],
+  "cons": [
+   "coastal"
+  ]
+ },
+ {
+  "q": "flat in Sabail as an investment, $100,000",
+  "goal": "invest",
+  "type": "menzil_kohne",
+  "locs": [
+   "bk-sebail"
+  ],
+  "cons": [],
+  "budget": 170000
+ },
+ {
+  "q": "house with a yard in Lahij",
+  "goal": "buy",
+  "type": "heyet_evi",
+  "locs": [
+   "az-ismayilli"
+  ],
+  "cons": [],
+  "gaz": true
+ },
+ {
+  "q": "I want to rent a flat in Khinalig",
+  "goal": "rent",
+  "type": "menzil_kohne",
+  "locs": [
+   "az-quba"
+  ],
+  "cons": [],
+  "gaz": true
+ },
+ {
+  "q": "house with a yard near the sea in Novkhani, budget 120k",
+  "goal": "buy",
+  "type": "heyet_evi",
+  "locs": [
+   "az-abseron"
+  ],
+  "cons": [
+   "coastal"
+  ],
+  "budget": 120000,
+  "gaz": true
+ }
 ]

@@ -4,7 +4,8 @@ import fs from "node:fs";
 import { generateJSON } from "../src/lib/ai.ts";
 import { IntentSchema, LegalSchema } from "../src/lib/schemas.ts";
 import { INTENT_SYSTEM, LEGAL_SYSTEM, regionForAI } from "../src/lib/prompts.ts";
-import { keywordIntent, locationCatalog, normalizeLocations, retrieve } from "../src/lib/decide.ts";
+import { gazetteerLocations, keywordIntent, locationCatalog, normalizeLocations, retrieve } from "../src/lib/decide.ts";
+const GAZ = JSON.parse(fs.readFileSync("public/data/gazetteer.json", "utf8"));
 const ST = JSON.parse(fs.readFileSync("public/data/settlements.json", "utf8"));
 import { legalDetect } from "../src/lib/fallbacks.ts";
 
@@ -55,13 +56,20 @@ async function evalIntent(lang = "az") {
     const base = keywordIntent(c.q, catalog);
     const pred = await ai(c.q, IntentSchema, INTENT_SYSTEM(catalog), 1500);
     const rawLocs = pred ? [...pred.locations_mentioned] : null;
-    if (pred) pred.locations_mentioned = normalizeLocations(pred.locations_mentioned, catalog); // same post-processing as /api/decide
-    rows.push({ q: c.q, expected: c, ai: pred ? scoreIntent(pred, c) : null, baseline: scoreIntent(base, c), ai_pred: pred && { goal: pred.goal, type: pred.property_type, locs: pred.locations_mentioned, raw_locs: rawLocs, budget: pred.budget_azn }, base_pred: { goal: base.goal, type: base.property_type, locs: base.locations_mentioned, budget: base.budget_azn } });
+    // same post-processing as /api/decide: catalogue normalisation, then gazetteer (village/qəsəbə → rayon)
+    const post = (p) => { p.locations_mentioned = normalizeLocations(p.locations_mentioned, catalog); const gz = gazetteerLocations(c.q, GAZ, catalog, p.locations_mentioned); if (gz.length) p.locations_mentioned = normalizeLocations([...p.locations_mentioned, ...gz], catalog); };
+    if (pred) post(pred);
+    post(base);
+    const gaz_locs = gazetteerLocations(c.q, GAZ, catalog, []);
+    rows.push({ q: c.q, gaz_locs, expected: c, ai: pred ? scoreIntent(pred, c) : null, baseline: scoreIntent(base, c), ai_pred: pred && { goal: pred.goal, type: pred.property_type, locs: pred.locations_mentioned, raw_locs: rawLocs, budget: pred.budget_azn }, base_pred: { goal: base.goal, type: base.property_type, locs: base.locations_mentioned, budget: base.budget_azn } });
     process.stdout.write(pred ? "." : "x");
   }
   const fields = ["goal", "property_type", "locations", "constraints", "budget"];
   const acc = (who) => Object.fromEntries(fields.map((f) => [f, Math.round((rows.filter((r) => r[who]?.[f]).length / rows.filter((r) => r[who]).length) * 100)]));
-  const out = { n: rows.length, ai_answered: rows.filter((r) => r.ai).length, accuracy: { ai: acc("ai"), baseline: acc("baseline") }, rows };
+  const gz = rows.filter((r) => r.expected.gaz);
+  // gazetteer on its own (no AI): positives must resolve to the expected rayon, negatives ("3 otaqlı mənzil") to nothing
+  const gzOnly = { positives: gz.length, resolved: gz.filter((r) => r.expected.locs.every((l) => r.gaz_locs.includes(l))).length, negatives: rows.filter((r) => r.expected.gazNeg).length, false_hits: rows.filter((r) => r.expected.gazNeg && r.gaz_locs.length).length };
+  const out = { n: rows.length, ai_answered: rows.filter((r) => r.ai).length, accuracy: { ai: acc("ai"), baseline: acc("baseline") }, gazetteer: { ...gzOnly, n: gz.length, ai_locations: Math.round((gz.filter((r) => r.ai?.locations).length / Math.max(1, gz.filter((r) => r.ai).length)) * 100), baseline_locations: Math.round((gz.filter((r) => r.baseline.locations).length / Math.max(1, gz.length)) * 100) }, rows };
   fs.writeFileSync(lang === "en" ? "evals/results/intent-en.json" : "evals/results/intent.json", JSON.stringify(out, null, 1));
   console.log(`\nintent${lang === "en" ? "-en" : ""}`, JSON.stringify(out.accuracy));
 }

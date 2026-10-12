@@ -140,6 +140,7 @@ function Answer({ res, onPick, onAsk }: { res: DecideResult; onPick: (c: Candida
   const [open, setOpen] = useState(false);
   const ta = useTranslations("advisor");
   const tt = useTranslations("terrain");
+  const to = useTranslations("official");
   const locale = useLocale();
   const c = res.confidence;
   const lvl = ta(`level.${c.label}`);
@@ -188,6 +189,7 @@ function Answer({ res, onPick, onAsk }: { res: DecideResult; onPick: (c: Candida
                     {cand.kind === "hex" && cand.metrics.metro_walk_m != null && <span className="rounded bg-caspian/10 px-1.5 py-0.5 font-semibold text-caspian">{ta("chipMetro", { m: `${fmt(cand.metrics.metro_walk_m as number)} m` })}</span>}
                     {cand.kind === "hex" && cand.metrics.school_m != null && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">{ta("chipSchool", { m: `${fmt(cand.metrics.school_m as number)} m` })}</span>}
                     {cand.kind === "hex" && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">{ta("chipShops", { g: Number(cand.metrics.grocery), p: Number(cand.metrics.pharmacy) })}</span>}
+                    {cand.kind === "hex" && typeof cand.metrics.rail_m === "number" && cand.metrics.rail_m < 300 && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">{to("railNoise", { m: fmt(cand.metrics.rail_m) })}</span>}
                     {cand.metrics.price_m2_hex_median != null ? (
                       <span className="rounded bg-amber/15 px-1.5 py-0.5">{ta("chipHexPrice", { price: fmtAZN(cand.metrics.price_m2_hex_median as number, "m²"), n: Number(cand.metrics.price_hex_listings) })}</span>
                     ) : cand.metrics.price_m2_district_avg != null && <span className="rounded bg-sand-3/70 px-1.5 py-0.5">{ta("chipDistrictPrice", { price: fmtAZN(cand.metrics.price_m2_district_avg as number, "m²") })}</span>}

@@ -34,6 +34,11 @@ for (const d of src.datasets) if (!d.en) errors.push(`sources.json dataset witho
 const ev = JSON.parse(fs.readFileSync("public/data/evals.json", "utf8"));
 for (const c of ev.sanity?.checks ?? []) if (!c.name_en) errors.push(`sanity check without English name: ${c.name}`);
 for (const f of ev.failures ?? []) if (!f.en) errors.push(`failure case without en: ${f.title}`);
+// English data text (sanity details, dataset descriptions): no lowercase Azerbaijani words outside “quotes”
+// (capitalised words are place names). The "Checking" word is an English status value from the source.
+const azWords = (t) => (String(t ?? "").replace(/“[^”]*”/g, "").match(/(^|[\s(\/-])[a-zəğışçöü]*[əğışçöü][a-zəğışçöü]*/g) ?? []).map((w) => w.trim());
+for (const c of ev.sanity?.checks ?? []) for (const w of azWords(`${c.name_en} ${c.detail_en}`)) errors.push(`Azerbaijani word in English sanity text (${c.name}): ${w}`);
+for (const d of src.datasets) for (const w of azWords(JSON.stringify(d.en ?? {}))) errors.push(`Azerbaijani word in English dataset text (${d.key}): ${w}`);
 console.log(`i18n-check: ${Object.keys(A).length} az / ${Object.keys(E).length} en keys, ${errors.length} problems`);
 if (errors.length) {
   for (const e of errors.slice(0, 40)) console.log("  ✗", e);

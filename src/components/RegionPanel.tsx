@@ -239,6 +239,29 @@ function ServicesTab({ r, national, scope }: { r: Region; national: National; sc
         <span>{t("fewer")}</span>
         <span>{t("more")}</span>
       </div>
+      {r.official?.poi && <PoiCheck poi={r.official.poi} />}
+    </div>
+  );
+}
+
+function PoiCheck({ poi }: { poi: Record<string, { osm: number; official: number }> }) {
+  const t = useTranslations("official");
+  const tp = useTranslations("poi");
+  return (
+    <div className="mt-5">
+      <div className="flex items-center justify-between text-xs font-extrabold">
+        {t("poiTitle")} <Badge kind="official" />
+      </div>
+      <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-xs">
+        <span className="col-span-2 text-right text-[10px] text-ink-3">{t("poiCols")}</span>
+        {Object.entries(poi).map(([k, v]) => (
+          <div key={k} className="col-span-2 flex justify-between border-b border-sand-3/50 py-0.5">
+            <span className="text-ink-2">{tp(k as "school")}</span>
+            <span className={`num font-bold ${v.official > v.osm * 1.5 ? "text-amber" : ""}`}>{fmt(v.osm)} / {fmt(v.official)}</span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-2 text-[11px] leading-snug text-ink-3">{t("poiNote")}</p>
     </div>
   );
 }
@@ -256,6 +279,7 @@ function Tile({ label, value, sub }: { label: string; value: string; sub?: strin
 function TransportTab({ r, national }: { r: Region; national: National }) {
   const tr = r.transport;
   const t = useTranslations("panel");
+  const to = useTranslations("official");
   return (
     <div>
       <div className="mb-2 flex justify-end">
@@ -281,6 +305,38 @@ function TransportTab({ r, national }: { r: Region; national: National }) {
         </div>
       )}
       <p className="mt-3 text-[11px] leading-snug text-ink-3">{t("routesNote")}</p>
+      <MetroBusyness r={r} />
+      {r.official?.rail_m != null && (
+        <div className="mt-4 grid grid-cols-2 gap-3">
+          <Tile label={to("railTitle")} value={r.official.rail_m >= 1000 ? `${fmt(r.official.rail_m / 1000, 1)} km` : `${fmt(r.official.rail_m)} m`} sub={to("railFromCentre")} />
+        </div>
+      )}
+      {r.official?.rail_m != null && r.official.rail_m < 300 && <p className="mt-2 text-xs text-ink-2">{to("railNoise", { m: fmt(r.official.rail_m) })}</p>}
+    </div>
+  );
+}
+
+function MetroBusyness({ r }: { r: Region }) {
+  const t = useTranslations("official");
+  const st = (r.official?.metro ?? []).filter((s) => s.pax_weekday != null).sort((a, b) => b.pax_weekday! - a.pax_weekday!);
+  if (!st.length) return null;
+  const max = Math.max(...st.map((s) => s.pax_weekday!));
+  return (
+    <div className="mt-5">
+      <div className="flex items-center justify-between text-xs font-extrabold">
+        {t("metroTitle")} <Badge kind="official" />
+      </div>
+      <div className="text-[11px] text-ink-3">{t("metroSub")}</div>
+      <div className="mt-2 max-h-56 space-y-1 overflow-y-auto pr-1">
+        {st.map((s) => (
+          <div key={s.name} className="grid grid-cols-[110px_1fr_92px] items-center gap-2 text-xs">
+            <span className="truncate font-semibold text-ink-2">{s.name}</span>
+            <div className="h-2.5 rounded bg-sand"><div className="h-2.5 rounded bg-caspian" style={{ width: `${(s.pax_weekday! / max) * 100}%` }} /></div>
+            <span className="num text-right">{t("perDay", { n: fmt(s.pax_weekday) })}</span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-2 text-[11px] leading-snug text-ink-3">{t("metroNote")}</p>
     </div>
   );
 }
@@ -288,6 +344,8 @@ function TransportTab({ r, national }: { r: Region; national: National }) {
 function RoadsTab({ r }: { r: Region }) {
   const { total_km, paved_pct, unpaved_pct, unknown_pct, paved_known_pct } = r.roads;
   const t = useTranslations("panel");
+  const to = useTranslations("official");
+  const od = r.official?.roads;
   if (!total_km) return <p className="text-sm text-ink-2">{t("noRoads")}</p>;
   const parts = [
     { k: t("paved"), v: paved_pct ?? 0, c: "bg-caspian" },
@@ -320,6 +378,16 @@ function RoadsTab({ r }: { r: Region }) {
       <div className="mt-3 rounded-lg bg-sand px-3 py-2 text-xs text-ink-2">
         {t.rich("roadNote", { paved: fmt(paved_known_pct, 0), unknown: fmt(unknown_pct, 0), b: (c) => <b className="num">{c}</b> })}
       </div>
+      {od && (
+        <div className="mt-5">
+          <div className="flex items-center justify-between text-xs font-extrabold">
+            {to("roadsTitle")} <Badge kind="official" />
+          </div>
+          <div className="num mt-1 text-2xl font-extrabold">{od.density != null ? to("roadsDensity", { v: fmt(od.density, 1) }) : "—"}</div>
+          <div className="num text-xs text-ink-2">{to("roadsTrend", { fy: od.first_year, fkm: fmt(od.first_km), ly: od.year, lkm: fmt(od.km) })}</div>
+          <p className="mt-2 text-[11px] leading-snug text-ink-3">{to("roadsNote")}</p>
+        </div>
+      )}
     </div>
   );
 }

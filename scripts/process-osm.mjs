@@ -73,7 +73,12 @@ for await (const f of seq(`${O}/boundaries.geojsonseq`)) {
   if (e) e.polys.push(f); // e.g. "Şəki İnzibati Ərazisi" merges into Şəki rayonu (DSK counts them together)
   else azFeats.set(id, { id, name: base(d.name), dsk: d, polys: [f] });
 }
-log(`AZ regions: ${azFeats.size}/${dskAz.size + 1}, Baku districts: ${bkFeats.size}/12`);
+// official opendata.az rayon polygons replace OSM ones where IoU < 0.9 (scripts/opendata.mjs decides; Baku districts,
+// Sumqayıt and Gəncə are excluded because their mahalle polygons are clipped to the current outlines; Abşeron because it
+// borders Baku and Sumqayıt, and mixing sources there would create overlaps)
+const OVR = fs.existsSync("data/processed/boundary-overrides.json") ? JSON.parse(fs.readFileSync("data/processed/boundary-overrides.json", "utf8")).overrides : {};
+for (const [id, geometry] of Object.entries(OVR)) if (azFeats.has(id)) azFeats.get(id).polys = [{ type: "Feature", properties: {}, geometry }];
+log(`AZ regions: ${azFeats.size}/${dskAz.size + 1}, Baku districts: ${bkFeats.size}/12, official boundary overrides: ${Object.keys(OVR).length}`);
 const missingAz = [...dskAz.keys()].filter((k) => !azFeats.has(`az-${k}`));
 if (missingAz.length) log("missing AZ:", missingAz.join(", "));
 const missingBk = BAKU_DISTRICTS.filter((k) => !bkFeats.has(`bk-${k}`));
@@ -206,20 +211,24 @@ for await (const f of seq(`${O}/pois.geojsonseq`)) {
   const isMetro = t.station === "subway" && !!officialMetro(t["name:az"] || t.name);
   const isRail = !isMetro && t.railway === "station" && t.station !== "light_rail";
   const isStop = t.highway === "bus_stop";
-  if (isMetro) metroPts.push([lon, lat]);
   if (cs.includes("park") && /Polygon/.test(f.geometry.type)) parkPolys.push(f);
   for (const r of hit) {
     for (const c of cs) r.pois[c] = (r.pois[c] ?? 0) + 1;
-    if (isMetro) r.transport.metroNames.add(officialMetro(t["name:az"] || t.name));
     if (isRail) r.transport.railNames.add(t.name || `${lon.toFixed(2)},${lat.toFixed(2)}`);
     if (isStop) r.transport.bus_stops++;
   }
-  if (hit[0].id === "az-baki") {
-    const ci = isMetro ? CATS.length : isStop ? CATS.length + 1 : CATS.indexOf(cs[0]);
+  if (hit[0].id === "az-baki" && !isMetro) {
+    const ci = isStop ? CATS.length + 1 : CATS.indexOf(cs[0]);
     if (ci >= 0) bakuPois.push([+lon.toFixed(4), +lat.toFixed(4), ci]);
   }
 }
-log(`POIs done; baku dots ${bakuPois.length}, metro pts ${metroPts.length}`);
+// metro: official Bakı Metropoliteni stations (opendata.az exits), not OSM — station counted where its exits' centre lies
+for (const st of JSON.parse(fs.readFileSync("data/processed/metro-official.json", "utf8")).stations) {
+  metroPts.push(...st.exits);
+  for (const r of locate(st.c[0], st.c[1])) r.transport.metroNames.add(st.name);
+  bakuPois.push([+st.c[0].toFixed(4), +st.c[1].toFixed(4), CATS.length]);
+}
+log(`POIs done; baku dots ${bakuPois.length}, metro exits ${metroPts.length}`);
 
 // ---------- 3. Routes (OPL) ----------
 const dec = (s) => s.replace(/%([0-9a-f]+)%/g, (_, h) => String.fromCodePoint(parseInt(h, 16)));

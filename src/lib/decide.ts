@@ -9,10 +9,10 @@ export type Intent = z.infer<typeof IntentSchema>;
 export type Hex = {
   h: string; c: [number, number]; r: string; l: string; p: number[]; st: number;
   m: number | null; mn: string | null; s: number; sc: number | null; k: number | null; pk: number | null; rk: number; pv: number | null;
-  pm?: number; pn?: number; a?: number;
+  pm?: number; pn?: number; a?: number; rl?: number | null;
 };
 export type HexData = { res: number; cats: string[]; hexes: Hex[] };
-export type Settlement = { id: string; n: string; t: 0 | 1; c: [number, number]; r: string; p: number[]; s: number | null };
+export type Settlement = { id: string; n: string; ne?: string; t: 0 | 1; c: [number, number]; r: string; p: number[]; s: number | null };
 export type SettlementData = { cats: string[]; radius_m: number; settlements: Settlement[] };
 export type LocationRef = { id: string; name: string; kind: "region" | "metro" | "place" };
 
@@ -32,6 +32,48 @@ export function locationCatalog(regions: Region[], hx: HexData): LocationRef[] {
 
 /** Deterministic post-processing of model output: unknown ids dropped, az-X → bk-X when only the Baku district exists,
  *  parent "az-baki" dropped when a Baku district/metro/place is named (it would widen the search to all of Baku). */
+// ---------- official gazetteer (opendata.az): a village / qəsəbə name in the query → its rayon ----------
+/** [name, englishName|0, type 0=kənd 1=qəsəbə 2=şəhər, rayonId]; stop = common words that are also settlement names */
+export type GazEntry = [string, string | 0, 0 | 1 | 2, string];
+export type GazData = { stop: string[]; rows: GazEntry[] };
+// Azerbaijani case suffixes (normalised: ı→i, ə→e, ü→u), incl. the n/y buffer forms after a vowel: Lahıcda, Novxanıda, Qubaya
+const SUFFIXES = ["ndan", "nden", "dan", "den", "nda", "nde", "nin", "nun", "da", "de", "ya", "ye", "in", "un", "a", "e"];
+export const gazKey = (s: string) => norm(s).replace(/[^a-z0-9]+/g, " ").trim();
+/** a token and its suffix-stripped stems (stem keeps ≥4 letters) */
+export const gazStems = (tok: string) => [tok, ...SUFFIXES.filter((x) => tok.endsWith(x) && tok.length - x.length >= 4).map((x) => tok.slice(0, -x.length))];
+
+/** Deterministic, after the LLM (the intent prompt does not list 4.6k settlements). Case-insensitive; a name matches a token
+ *  (or 2–3 consecutive tokens) after suffix stripping, if it is ≥4 letters, not a common word (stoplist) and not a
+ *  district / metro / catalogue place name. Ambiguous names (several rayons) resolve only via a rayon also named in the query
+ *  or to the single şəhər/qəsəbə of that name; otherwise they are not guessed. */
+export function gazetteerLocations(text: string, gaz: GazData, catalog: LocationRef[], already: string[]): string[] {
+  const stop = new Set(gaz.stop);
+  const taken = new Set(catalog.flatMap((l) => [gazKey(l.name), gazKey(l.name.replace(/ metrosu$/, ""))]));
+  const index = new Map<string, GazEntry[]>();
+  for (const g of gaz.rows) {
+    if (taken.has(gazKey(g[0]))) continue; // e.g. the city record "Bakı"/"BAKU", or a village called "Nərimanov"
+    for (const name of new Set([gazKey(g[0]), g[1] ? gazKey(g[1]) : ""])) if (name.length >= 4 && !stop.has(name) && !taken.has(name)) (index.get(name) ?? index.set(name, []).get(name)!).push(g);
+  }
+  const toks = gazKey(text).split(" ").filter(Boolean);
+  const hits = new Map<string, GazEntry[]>();
+  for (let i = 0; i < toks.length; i++)
+    for (let k = 3; k >= 1; k--) {
+      if (i + k > toks.length) continue;
+      const head = toks.slice(i, i + k - 1).join(" ");
+      const key = gazStems(toks[i + k - 1]).map((st) => (head ? `${head} ${st}` : st)).find((c) => index.has(c));
+      if (key) { hits.set(key, index.get(key)!); break; } // longest match wins ("İkinci Aşıqlı" over "Aşıqlı")
+    }
+  const out: string[] = [];
+  for (const cands of hits.values()) {
+    const rayons = [...new Set(cands.map((c) => c[3]))];
+    const named = rayons.filter((r) => already.includes(r));
+    const towns = [...new Set(cands.filter((c) => c[2] > 0).map((c) => c[3]))];
+    const pick = rayons.length === 1 ? rayons[0] : named.length === 1 ? named[0] : towns.length === 1 ? towns[0] : null;
+    if (pick) out.push(pick);
+  }
+  return out;
+}
+
 export function normalizeLocations(ids: string[], catalog: LocationRef[]): string[] {
   const has = (id: string) => catalog.some((c) => c.id === id);
   let out = ids.map((id) => (has(id) ? id : id.startsWith("az-") && has(`bk-${id.slice(3)}`) ? `bk-${id.slice(3)}` : null)).filter((x): x is string => !!x);
@@ -268,7 +310,7 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
         const pp = reg.prices[intent.property_type] ?? reg.prices.menzil_kohne;
         const n = (c: string) => z.p[st.cats.indexOf(c)] ?? 0;
         return {
-          rank: i + 1, kind: "settlement", area_id: z.id, label: `${reg.name} · ${z.n}`, region_id: reg.id, region_name: reg.name, centroid: z.c, score: Math.round(sc2), fits_constraints: !violations.length, violations,
+          rank: i + 1, kind: "settlement", area_id: z.id, label: `${reg.name} · ${en && z.ne ? z.ne : z.n}`, region_id: reg.id, region_name: reg.name, centroid: z.c, score: Math.round(sc2), fits_constraints: !violations.length, violations,
           metrics: {
             settlement_type: z.t ? "şəhər/qəsəbə" : "kənd", radius_m: st.radius_m, grocery: n("grocery"), food: n("food"), pharmacy: n("pharmacy"), school: n("school"), kindergarten: n("kindergarten"), clinic: n("clinic") + n("hospital"), bus_stop_m: z.s,
             rayon_terrain: reg.nature.terrain, rayon_elevation_m: reg.nature.elev_mean, rayon_july_max_c: reg.climate.july_max_c, rayon_pm25: reg.air.pm25, rayon_coastal: reg.nature.coastal ? "bəli" : "xeyr",
@@ -289,7 +331,7 @@ export function retrieve(intent: Intent, regions: Region[], hx: HexData, catalog
       return {
         rank: i + 1, kind: "hex", area_id: x.h, label: en ? localizeLabel(x.l, "en") : x.l, region_id: reg.id, region_name: reg.name, centroid: x.c, score: Math.round(s), fits_constraints: !violations.length, violations,
         metrics: {
-          nearest_metro: x.mn, metro_walk_m: x.m, bus_stop_m: x.s, school_m: x.sc, kindergarten_m: x.k, park_m: x.pk,
+          nearest_metro: x.mn, metro_walk_m: x.m, bus_stop_m: x.s, school_m: x.sc, kindergarten_m: x.k, park_m: x.pk, rail_m: x.rl ?? null,
           grocery: n("grocery"), pharmacy: n("pharmacy"), food: n("food"), clinic: n("clinic") + n("hospital"), bus_stops_in_hex: x.st,
           paved_pct: x.pv, price_m2_district_avg: pp?.value ?? null, price_confidence: pp?.confidence ?? null, osm_coverage: reg.coverage.osm,
           price_m2_hex_median: x.pm ?? null, price_hex_listings: x.pn ?? null, deed_share_pct: reg.listings?.deed_share ?? null,

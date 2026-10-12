@@ -15,12 +15,6 @@ import { point, polygon, featureCollection } from "@turf/helpers";
 
 const O = "data/raw/osm";
 // Official station list validates OSM: depots, exits and planned stations tagged station=subway are dropped.
-const METRO = JSON.parse(fs.readFileSync("data/manual/metro-stations.json", "utf8"));
-const officialMetro = (raw) => {
-  const n = (raw || "").replace(/ metro stansiyası| m\/s/i, "").trim();
-  const name = METRO.aliases[n] ?? n;
-  return METRO.stations.includes(name) ? name : null;
-};
 
 const RES = 8;
 async function* seq(file) {
@@ -103,7 +97,9 @@ const cell = (h, rid) => {
   if (!stats.has(id)) stats.set(id, { p: new Array(CATS.length).fill(0), road: 0, paved: 0, unpaved: 0, stops: 0 });
   return stats.get(id);
 };
-const metro = [], stops = [], schools = [], kgs = [], parks = [];
+// metro: every official exit (opendata.az, Bakı Metropoliteni) → walking distance is to the NEAREST EXIT
+const metro = JSON.parse(fs.readFileSync("data/processed/metro-official.json", "utf8")).stations.flatMap((st) => st.exits.map((ll) => ({ ll, name: st.name })));
+const stops = [], schools = [], kgs = [], parks = [];
 for await (const f of seq(`${O}/pois.geojsonseq`)) {
   const [lon, lat] = rep(f.geometry);
   const reg0 = inBox(lon, lat) ? locate(lon, lat) : null;
@@ -112,10 +108,6 @@ for await (const f of seq(`${O}/pois.geojsonseq`)) {
   const h = latLngToCell(lat, lon, RES);
   const c = cell(h, reg0.id) ?? { p: [], stops: 0 };
   for (const k of cats(t)) if (c.p.length) c.p[CATS.indexOf(k)]++;
-  if (t.station === "subway") {
-    const name = officialMetro(t["name:az"] || t.name);
-    if (name) metro.push({ ll: [lon, lat], name });
-  }
   if (t.highway === "bus_stop") { stops.push([lon, lat]); c.stops++; }
   if (t.amenity === "school") schools.push([lon, lat]);
   if (t.amenity === "kindergarten") kgs.push([lon, lat]);
