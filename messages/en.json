@@ -568,6 +568,28 @@
    "primary": "primary model",
    "users": "1,000 users: <b>{a}</b> … <b>{c}</b>",
    "sources": "Price sources: {list}. {notes}"
-  }
+  },
+  "poiH": "9. Services: OSM vs the official list",
+  "poiBody": "OSM counts for Baku's districts, Sumqayıt and Abşeron ({areas} areas) are compared with the opendata.az list (Ministry of Ecology and Natural Resources). The sources are not added together. {checking} places have the status “Checking”; {custom} CUSTOMIZABLE_POINT entries are ignored.",
+  "poiCat": "Category",
+  "poiGaps": "Biggest gaps",
+  "poiArea": "Area",
+  "poiNote": "OSM categories are broader (e.g. grocery kiosks, small green spaces) and the official list may be incomplete. A gap does not show which source is right; it shows where checking is needed."
+ },
+ "official": {
+  "metroTitle": "Metro station busyness",
+  "metroSub": "Average weekday trips per day, 2025",
+  "perDay": "{n} trips/day",
+  "metroNote": "Source: Baku Metro (opendata.az). A trip is a turnstile entry; it shows how busy a station is, not how many people live nearby.",
+  "railTitle": "Nearest railway line",
+  "railFromCentre": "from the area's centre, straight line",
+  "railNoise": "Railway line {m} m away — possible noise",
+  "poiTitle": "Services: OSM vs official list",
+  "poiCols": "OSM / official",
+  "poiNote": "Official list: Ministry of Ecology and Natural Resources (opendata.az). The two sources are not added together; a gap shows where mapping is incomplete.",
+  "roadsTitle": "Public roads",
+  "roadsDensity": "{v} km per 100 km²",
+  "roadsTrend": "{fy}: {fkm} km → {ly}: {lkm} km",
+  "roadsNote": "Source: State Statistics Committee. Public roads of national and local importance only; streets are excluded, so the figure is lower than the OSM length."
  }
 }

@@ -93,6 +93,15 @@ export const RegionSchema = z.object({
   listings: z.object({ n: z.number(), deed_share: z.number(), mortgage_share: z.number(), period: z.string() }).optional(),
   ai: AIProfileSchema.optional(),
   ai_en: AIProfileSchema.optional(),
+  official: z
+    .object({
+      metro: z.array(z.object({ name: z.string(), pax_weekday: z.number().nullable() })).optional(),
+      poi: z.record(z.string(), z.object({ osm: z.number(), official: z.number() })).optional(),
+      roads: z.object({ km: z.number(), year: z.number(), first_km: z.number(), first_year: z.number(), density: z.number().nullable() }).optional(),
+      rail_m: z.number().nullable().optional(),
+      boundary: z.object({ iou: z.number().nullable(), replaced: z.boolean().optional() }).optional(),
+    })
+    .optional(),
 });
 
 // ---- decision engine ----

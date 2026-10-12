@@ -10,7 +10,6 @@
  "Heç bir ərazi 4+ indeksdə 99 almır": "No area scores 99 on 4+ indices",
  "PM2.5, temperatur, sıxlıq, asfalt % ağlabatan hədlərdə": "PM2.5, temperature, density and paved % within plausible limits",
  "Qiymətlər ağlabatan hədlərdə (₼/m² 200–20 000)": "Prices within plausible limits (200–20,000 AZN/m²)",
- "Metro stansiyaları: OSM ≈ rəsmi siyahı (±3)": "Metro stations: OSM ≈ official list (±3)",
  "H3 hesablama şəbəkəsi: hər parça öz rayonunun içindədir": "H3 compute grid: every cell lies inside its own district",
  "H3 hesablama şəbəkəsi: parçaların cəmi ≈ rayon sahəsi (±3%)": "H3 compute grid: sum of cells ≈ district area (±3%)",
  "Hər məhəllə öz rayonunun içindədir": "Every neighbourhood lies inside its own district",
@@ -21,5 +20,9 @@
  "Aşağı OSM əhatəli ərazilər payı": "Share of areas with low OSM coverage",
  "Aşağı OSM əhatəli ərazilərin payı": "Share of areas with low OSM coverage",
  "Real (dərc olunmuş) qiymətlərin payı": "Share of real (published) prices",
- "Metro stansiyaları: rəsmi siyahı ilə müqayisə": "Metro stations: comparison with the official list"
+ "Metro: 27 işləyən stansiya (rəsmi çıxışlardan)": "Metro: 27 operating stations (from official exits)",
+ "opendata.az: hər dəstdə qeyd var": "opendata.az: every dataset has records",
+ "Hər yaşayış məntəqəsi (PARENT_ID) bir rayona bağlıdır": "Every settlement (PARENT_ID) maps to a district",
+ "Yeni rəsmi göstəricilərdə NaN yoxdur": "No NaN in the new official metrics",
+ "Gazetteer: kiçik hərflə kənd adı tapılır, adi sözlər kənd sayılmır": "Gazetteer: lowercase village names resolve; common words are not treated as villages"
 }

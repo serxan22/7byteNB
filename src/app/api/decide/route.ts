@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { busyMsg, generateJSON } from "@/lib/ai";
 import { ExplainSchema, IntentSchema } from "@/lib/schemas";
 import { EXPLAIN_SYSTEM, forLocale, INTENT_SYSTEM } from "@/lib/prompts";
-import { loadData, loadHexes, loadSettlements } from "@/lib/serverData";
-import { confidence, keywordIntent, locationCatalog, normalizeLocations, retrieve, type Candidate, type Intent } from "@/lib/decide";
+import { loadData, loadGazetteer, loadHexes, loadSettlements } from "@/lib/serverData";
+import { confidence, gazetteerLocations, keywordIntent, locationCatalog, normalizeLocations, retrieve, type Candidate, type Intent } from "@/lib/decide";
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
@@ -19,6 +19,9 @@ export async function POST(req: Request) {
   const ir = await generateJSON(question, IntentSchema, { system: INTENT_SYSTEM(catalog), maxTokens: 1500 });
   const intent: Intent = ir.ok ? ir.data : keywordIntent(question, catalog);
   intent.locations_mentioned = normalizeLocations(intent.locations_mentioned, catalog);
+  // village / qəsəbə names → their rayon (official gazetteer, deterministic)
+  const gz = gazetteerLocations(question, loadGazetteer(), catalog, intent.locations_mentioned);
+  if (gz.length) intent.locations_mentioned = normalizeLocations([...intent.locations_mentioned, ...gz], catalog);
 
   // 3) RETRIEVE (deterministic) + 5) CONFIDENCE (deterministic)
   const retrieval = retrieve(intent, regions, hx, catalog, loadSettlements(), locale);

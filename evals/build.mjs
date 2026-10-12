@@ -21,6 +21,15 @@ const QUERY_EN = [[/^Bakıdan kənar \+ dağlıq$/, "Outside Baku + mountainous"
 const tr = (s, rules) => rules.reduce((x, [re, to]) => x.replace(re, to), s);
 const enSanity = (s) => s && { ...s, checks: s.checks.map((c) => ({ ...c, name_en: SANITY_EN[c.name] ?? null, detail_en: tr(c.detail, DETAIL_EN) })) };
 const enRetrieval = (x) => x && { ...x, rows: x.rows.map((row) => ({ ...row, name_en: tr(row.name, QUERY_EN) })) };
+// official (opendata.az) vs OSM service counts — side by side, never merged
+const odata = r("data/processed/opendata.json");
+const regionName = Object.fromEntries([...r("public/data/regions-az.json", []), ...r("public/data/regions-baku.json", [])].map((x) => [x.id, x.name]));
+const poiCheck = odata && (() => {
+  const A = odata.poi_check.areas, cats = odata.poi_check.categories;
+  const totals = cats.map((c) => ({ cat: c, osm: Object.values(A).reduce((s, a) => s + a[c].osm, 0), official: Object.values(A).reduce((s, a) => s + a[c].official, 0) }));
+  const gaps = Object.entries(A).flatMap(([id, a]) => cats.map((c) => ({ id, name: regionName[id] ?? id, cat: c, osm: a[c].osm, official: a[c].official, diff: a[c].official - a[c].osm }))).sort((x, y) => Math.abs(y.diff) - Math.abs(x.diff)).slice(0, 8);
+  return { areas: Object.keys(A).length, status_checking: odata.poi_check.status_checking, customizable_ignored: odata.poi_check.customizable_ignored, totals, gaps };
+})();
 const out = {
   generated_at: new Date().toISOString(),
   intent: r("evals/results/intent.json"),
@@ -32,6 +41,7 @@ const out = {
   sanity: enSanity(r("evals/results/data-sanity.json")),
   profile_quality: r("evals/results/profile-quality-before.json"),
   failures: r("evals/data/failures.json", []),
+  poi_check: poiCheck,
   cost: {
     avg_tokens_in: avgIn, avg_tokens_out: avgOut, measured_calls: usage?.calls.length ?? 0, calls_per_session: CALLS_PER_SESSION,
     per_session_usd: { assumed: cost(PRICES.assumed), conservative: cost(PRICES.conservative) },

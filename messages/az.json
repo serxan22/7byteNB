@@ -568,6 +568,28 @@
    "primary": "əsas model",
    "users": "1000 istifadəçi: <b>{a}</b> … <b>{c}</b>",
    "sources": "Qiymət mənbələri: {list}. {notes}"
-  }
+  },
+  "poiH": "9. Xidmətlər: OSM və rəsmi siyahı",
+  "poiBody": "Bakının {areas} rayonu, Sumqayıt və Abşeron üzrə OSM sayları opendata.az siyahısı (Ekologiya və Təbii Sərvətlər Nazirliyi) ilə müqayisə edilir. Mənbələr toplanmır. {checking} obyekt “Checking” statusundadır; {custom} CUSTOMIZABLE_POINT nəzərə alınmır.",
+  "poiCat": "Kateqoriya",
+  "poiGaps": "Ən böyük fərqlər",
+  "poiArea": "Ərazi",
+  "poiNote": "OSM kateqoriyaları daha genişdir (məs. ərzaq köşkləri, kiçik yaşıl sahələr), rəsmi siyahı isə tam olmaya bilər — fərq hansının doğru olduğunu göstərmir, harada yoxlama lazım olduğunu göstərir."
+ },
+ "official": {
+  "metroTitle": "Metro stansiyalarının yüklənməsi",
+  "metroSub": "Həftəiçi orta gündəlik gediş, 2025",
+  "perDay": "{n} gediş/gün",
+  "metroNote": "Mənbə: Bakı Metropoliteni (opendata.az). Gediş — turniketdən keçid; stansiyanın yüklənməsini göstərir, ərazinin əhalisini yox.",
+  "railTitle": "Ən yaxın dəmir yolu xətti",
+  "railFromCentre": "ərazinin mərkəzindən, düz xətt",
+  "railNoise": "Dəmir yolu {m} m məsafədədir — mümkün səs-küy",
+  "poiTitle": "Xidmətlər: OSM və rəsmi siyahı",
+  "poiCols": "OSM / rəsmi",
+  "poiNote": "Rəsmi siyahı: Ekologiya və Təbii Sərvətlər Nazirliyi (opendata.az). İki mənbə toplanmır; fərq xəritələmə boşluğunu göstərir.",
+  "roadsTitle": "Ümumi istifadədə olan avtomobil yolları",
+  "roadsDensity": "{v} km / 100 km²",
+  "roadsTrend": "{fy}: {fkm} km → {ly}: {lkm} km",
+  "roadsNote": "Mənbə: Dövlət Statistika Komitəsi. Yalnız ümumi istifadədə olan (respublika və yerli əhəmiyyətli) yollar; küçələr daxil deyil, ona görə OSM uzunluğundan azdır."
  }
 }

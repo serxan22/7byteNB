@@ -1,9 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Level, National, Region } from "./types.ts";
-import type { HexData, SettlementData } from "./decide.ts";
+import type { GazData, HexData, SettlementData } from "./decide.ts";
 
 let stCache: SettlementData | null = null;
+let gazCache: GazData | null = null;
+export function loadGazetteer(): GazData {
+  gazCache ??= JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/gazetteer.json"), "utf8"));
+  return gazCache!;
+}
 export function loadSettlements(): SettlementData {
   stCache ??= JSON.parse(fs.readFileSync(path.join(process.cwd(), "public/data/settlements.json"), "utf8"));
   return stCache!;

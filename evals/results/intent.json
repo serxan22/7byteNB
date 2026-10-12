@@ -1,25 +1,35 @@
 {
- "n": 20,
- "ai_answered": 20,
+ "n": 27,
+ "ai_answered": 27,
  "accuracy": {
   "ai": {
    "goal": 100,
-   "property_type": 95,
-   "locations": 95,
-   "constraints": 100,
+   "property_type": 96,
+   "locations": 100,
+   "constraints": 89,
    "budget": 100
   },
   "baseline": {
-   "goal": 95,
+   "goal": 96,
    "property_type": 100,
-   "locations": 80,
+   "locations": 85,
    "constraints": 100,
-   "budget": 90
+   "budget": 93
   }
+ },
+ "gazetteer": {
+  "positives": 5,
+  "resolved": 5,
+  "negatives": 2,
+  "false_hits": 0,
+  "n": 5,
+  "ai_locations": 100,
+  "baseline_locations": 100
  },
  "rows": [
   {
    "q": "Nərimanovda metroya yaxın ev lazımdır",
+   "gaz_locs": [],
    "expected": {
     "q": "Nərimanovda metroya yaxın ev lazımdır",
     "goal": "buy",
@@ -53,7 +63,6 @@
      "mt-neriman-nerimanov"
     ],
     "raw_locs": [
-     "az-baki",
      "bk-nerimanov",
      "mt-neriman-nerimanov"
     ],
@@ -70,6 +79,7 @@
   },
   {
    "q": "Yasamalda məktəbə yaxın 3 otaqlı mənzil almaq istəyirəm, büdcə 200 min",
+   "gaz_locs": [],
    "expected": {
     "q": "Yasamalda məktəbə yaxın 3 otaqlı mənzil almaq istəyirəm, büdcə 200 min",
     "goal": "buy",
@@ -100,13 +110,10 @@
     "goal": "buy",
     "type": "menzil_kohne",
     "locs": [
-     "bk-yasamal",
-     "pl-yasamal"
+     "bk-yasamal"
     ],
     "raw_locs": [
-     "az-baki",
-     "bk-yasamal",
-     "pl-yasamal"
+     "bk-yasamal"
     ],
     "budget": 200000
    },
@@ -122,6 +129,7 @@
   },
   {
    "q": "Uşaqlı ailə üçün sakit ərazi, büdcə 150 min",
+   "gaz_locs": [],
    "expected": {
     "q": "Uşaqlı ailə üçün sakit ərazi, büdcə 150 min",
     "goal": "buy",
@@ -160,6 +168,7 @@
   },
   {
    "q": "Kafe açmaq üçün yer axtarıram",
+   "gaz_locs": [],
    "expected": {
     "q": "Kafe açmaq üçün yer axtarıram",
     "goal": "open_business",
@@ -197,6 +206,7 @@
   },
   {
    "q": "Bakıdan kənarda dağ havası, həyət evi",
+   "gaz_locs": [],
    "expected": {
     "q": "Bakıdan kənarda dağ havası, həyət evi",
     "goal": "buy",
@@ -239,6 +249,7 @@
   },
   {
    "q": "Xətaidə yeni tikili, 2 otaq, 120 min manat",
+   "gaz_locs": [],
    "expected": {
     "q": "Xətaidə yeni tikili, 2 otaq, 120 min manat",
     "goal": "buy",
@@ -285,6 +296,7 @@
   },
   {
    "q": "Tələbəyəm, universitetə yaxın kirayə ev lazımdır",
+   "gaz_locs": [],
    "expected": {
     "q": "Tələbəyəm, universitetə yaxın kirayə ev lazımdır",
     "goal": "rent",
@@ -322,6 +334,7 @@
   },
   {
    "q": "Sumqayıtda dənizə yaxın mənzil",
+   "gaz_locs": [],
    "expected": {
     "q": "Sumqayıtda dənizə yaxın mənzil",
     "goal": "buy",
@@ -369,6 +382,7 @@
   },
   {
    "q": "Gəncədə aptek açmaq istəyirəm",
+   "gaz_locs": [],
    "expected": {
     "q": "Gəncədə aptek açmaq istəyirəm",
     "goal": "open_business",
@@ -414,6 +428,7 @@
   },
   {
    "q": "Qubada torpaq sahəsi almaq istəyirəm, bağ evi tikmək üçün",
+   "gaz_locs": [],
    "expected": {
     "q": "Qubada torpaq sahəsi almaq istəyirəm, bağ evi tikmək üçün",
     "goal": "buy",
@@ -460,6 +475,7 @@
   },
   {
    "q": "Səbaildə investisiya üçün mənzil, sonra kirayə verəcəm",
+   "gaz_locs": [],
    "expected": {
     "q": "Səbaildə investisiya üçün mənzil, sonra kirayə verəcəm",
     "goal": "invest",
@@ -490,7 +506,7 @@
      "bk-sebail"
     ],
     "raw_locs": [
-     "az-sebail"
+     "bk-sebail"
     ],
     "budget": null
    },
@@ -505,6 +521,7 @@
   },
   {
    "q": "Binəqədidə bağçaya və parka yaxın ev, 2 uşağımız var",
+   "gaz_locs": [],
    "expected": {
     "q": "Binəqədidə bağçaya və parka yaxın ev, 2 uşağımız var",
     "goal": "buy",
@@ -519,8 +536,8 @@
    },
    "ai": {
     "goal": true,
-    "property_type": false,
-    "locations": false,
+    "property_type": true,
+    "locations": true,
     "constraints": true,
     "budget": true
    },
@@ -533,12 +550,12 @@
    },
    "ai_pred": {
     "goal": "buy",
-    "type": "heyet_evi",
+    "type": "menzil_kohne",
     "locs": [
-     "az-abseron"
+     "bk-bineqedi"
     ],
     "raw_locs": [
-     "az-abseron"
+     "bk-bineqedi"
     ],
     "budget": null
    },
@@ -547,14 +564,15 @@
     "type": "menzil_kohne",
     "locs": [
      "bk-bineqedi",
-     "pl-bine",
-     "pl-bineqedi"
+     "pl-bineqedi",
+     "pl-bine"
     ],
     "budget": null
    }
   },
   {
    "q": "Şəkidə təqaüdə çıxanda yaşamaq üçün həyət evi",
+   "gaz_locs": [],
    "expected": {
     "q": "Şəkidə təqaüdə çıxanda yaşamaq üçün həyət evi",
     "goal": "buy",
@@ -602,6 +620,7 @@
   },
   {
    "q": "Nizamidə 100 min dollara mənzil",
+   "gaz_locs": [],
    "expected": {
     "q": "Nizamidə 100 min dollara mənzil",
     "goal": "buy",
@@ -648,6 +667,7 @@
   },
   {
    "q": "ev lazimdi metro yaninda ucuz",
+   "gaz_locs": [],
    "expected": {
     "q": "ev lazimdi metro yaninda ucuz",
     "goal": "buy",
@@ -687,6 +707,7 @@
   },
   {
    "q": "nerimanovda kiraye ev axtariram",
+   "gaz_locs": [],
    "expected": {
     "q": "nerimanovda kiraye ev axtariram",
     "goal": "rent",
@@ -717,7 +738,7 @@
      "bk-nerimanov"
     ],
     "raw_locs": [
-     "az-nerimanov"
+     "bk-nerimanov"
     ],
     "budget": null
    },
@@ -732,6 +753,7 @@
   },
   {
    "q": "Harada yaşamaq yaxşıdır?",
+   "gaz_locs": [],
    "expected": {
     "q": "Harada yaşamaq yaxşıdır?",
     "goal": "buy",
@@ -772,6 +794,7 @@
   },
   {
    "q": "Yaxşı yer tövsiyə et",
+   "gaz_locs": [],
    "expected": {
     "q": "Yaxşı yer tövsiyə et",
     "goal": "buy",
@@ -809,6 +832,7 @@
   },
   {
    "q": "Ev almaq istəyirəm",
+   "gaz_locs": [],
    "expected": {
     "q": "Ev almaq istəyirəm",
     "goal": "buy",
@@ -846,6 +870,7 @@
   },
   {
    "q": "Lənkəranda dənizə yaxın həyət evi, 80 min",
+   "gaz_locs": [],
    "expected": {
     "q": "Lənkəranda dənizə yaxın həyət evi, 80 min",
     "goal": "buy",
@@ -890,6 +915,333 @@
      "az-lenkeran"
     ],
     "budget": 80000
+   }
+  },
+  {
+   "q": "Lahıcda həyət evi almaq istəyirəm",
+   "gaz_locs": [
+    "az-ismayilli"
+   ],
+   "expected": {
+    "q": "Lahıcda həyət evi almaq istəyirəm",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "cons": [],
+    "gaz": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "raw_locs": [
+     "az-ismayilli"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "Novxanıda dənizə yaxın həyət evi, büdcə 120 min",
+   "gaz_locs": [
+    "az-abseron"
+   ],
+   "expected": {
+    "q": "Novxanıda dənizə yaxın həyət evi, büdcə 120 min",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-abseron"
+    ],
+    "cons": [
+     "coastal"
+    ],
+    "budget": 120000,
+    "gaz": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "pl-novxani-baglari",
+     "az-abseron"
+    ],
+    "raw_locs": [
+     "pl-novxani-baglari"
+    ],
+    "budget": 120000
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-abseron"
+    ],
+    "budget": 120000
+   }
+  },
+  {
+   "q": "Xınalıqda kirayə ev axtarıram",
+   "gaz_locs": [
+    "az-quba"
+   ],
+   "expected": {
+    "q": "Xınalıqda kirayə ev axtarıram",
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-quba"
+    ],
+    "cons": [],
+    "gaz": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": false,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "rent",
+    "type": "heyet_evi",
+    "locs": [
+     "az-quba"
+    ],
+    "raw_locs": [
+     "az-quba"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "rent",
+    "type": "menzil_kohne",
+    "locs": [
+     "az-quba"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "xınalıqda həyət evi almaq istəyirəm",
+   "gaz_locs": [
+    "az-quba"
+   ],
+   "expected": {
+    "q": "xınalıqda həyət evi almaq istəyirəm",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-quba"
+    ],
+    "cons": [],
+    "gaz": true,
+    "gazLower": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-quba"
+    ],
+    "raw_locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-quba"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "lahıcda bağ evi",
+   "gaz_locs": [
+    "az-ismayilli"
+   ],
+   "expected": {
+    "q": "lahıcda bağ evi",
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "cons": [],
+    "gaz": true,
+    "gazLower": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": false,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "raw_locs": [
+     "az-ismayilli"
+    ],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "heyet_evi",
+    "locs": [
+     "az-ismayilli"
+    ],
+    "budget": null
+   }
+  },
+  {
+   "q": "3 otaqlı mənzil",
+   "gaz_locs": [],
+   "expected": {
+    "q": "3 otaqlı mənzil",
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "cons": [],
+    "gazNeg": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "raw_locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_kohne",
+    "locs": [],
+    "budget": null
+   }
+  },
+  {
+   "q": "yeni tikili",
+   "gaz_locs": [],
+   "expected": {
+    "q": "yeni tikili",
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [],
+    "cons": [],
+    "gazNeg": true
+   },
+   "ai": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "baseline": {
+    "goal": true,
+    "property_type": true,
+    "locations": true,
+    "constraints": true,
+    "budget": true
+   },
+   "ai_pred": {
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [],
+    "raw_locs": [],
+    "budget": null
+   },
+   "base_pred": {
+    "goal": "buy",
+    "type": "menzil_yeni",
+    "locs": [],
+    "budget": null
    }
   }
  ]

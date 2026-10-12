@@ -1,7 +1,7 @@
 {
- "ran_at": "2026-10-10T13:16:47.431Z",
- "passed": 21,
- "total": 21,
+ "ran_at": "2026-10-12T12:15:28.727Z",
+ "passed": 25,
+ "total": 25,
  "checks": [
   {
    "name": "75 rayon/şəhər var",
@@ -70,10 +70,34 @@
    "hard": true
   },
   {
-   "name": "Metro stansiyaları: OSM ≈ rəsmi siyahı (±3)",
+   "name": "Metro: 27 işləyən stansiya (rəsmi çıxışlardan)",
    "pass": true,
-   "detail": "OSM 26 / rəsmi 27 (Wikipedia — List of Baku Metro stations (27 işləyən stansiya; metro.gov.az əlçatan olmadı))",
-   "hard": false
+   "detail": "Bakı 27, opendata 27 stansiya / 98 çıxış",
+   "hard": true
+  },
+  {
+   "name": "opendata.az: hər dəstdə qeyd var",
+   "pass": true,
+   "detail": "settlements 4589, gazetteer 4589, rail_regions 87, roads 60, poi_areas 14, metro_pax 27",
+   "hard": true
+  },
+  {
+   "name": "Hər yaşayış məntəqəsi (PARENT_ID) bir rayona bağlıdır",
+   "pass": true,
+   "detail": "4589 məntəqə",
+   "hard": true
+  },
+  {
+   "name": "Yeni rəsmi göstəricilərdə NaN yoxdur",
+   "pass": true,
+   "detail": "yoxdur",
+   "hard": true
+  },
+  {
+   "name": "Gazetteer: kiçik hərflə kənd adı tapılır, adi sözlər kənd sayılmır",
+   "pass": true,
+   "detail": "5 yoxlama",
+   "hard": true
   },
   {
    "name": "H3 hesablama şəbəkəsi: hər parça öz rayonunun içindədir",
@@ -120,7 +144,7 @@
   {
    "name": "Aşağı OSM əhatəli ərazilərin payı",
    "pass": true,
-   "detail": "16/87 (18%)",
+   "detail": "17/87 (20%)",
    "hard": false
   },
   {

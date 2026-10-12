@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-10T13:15:54.336Z",
+ "generated_at": "2026-10-12T12:14:41.727Z",
  "datasets": [
   {
    "key": "osm",
@@ -8,12 +8,12 @@
    "badge": "osm",
    "status": "ok",
    "date": "2026-10-09",
-   "coverage": "Rayonlar: 35 yüksək / 24 orta / 16 aşağı; Bakı rayonları: 11 yüksək / 1 orta",
+   "coverage": "Rayonlar: 35 yüksək / 23 orta / 17 aşağı; Bakı rayonları: 11 yüksək / 1 orta",
    "used_for": "Sərhədlər, xidmət obyektləri (POI), dayanacaqlar, metro, marşrutlar, yollar və örtük, torpaq örtüyü, sahil xətti",
    "license": "ODbL © OpenStreetMap contributors",
    "en": {
     "name": "OpenStreetMap (Geofabrik Azerbaijan extract)",
-    "coverage": "Districts: 35 high / 24 medium / 16 low; Baku districts: 11 high / 1 medium",
+    "coverage": "Districts: 35 high / 23 medium / 17 low; Baku districts: 11 high / 1 medium",
     "used_for": "Boundaries, services (POI), stops, metro, routes, roads and surface, land cover, coastline"
    }
   },
@@ -196,6 +196,125 @@
     "name": "Yandex / Waze",
     "coverage": "In future via partnership (no scraping)",
     "used_for": "Congestion and real travel time"
+   }
+  },
+  {
+   "key": "od-metro-cixislari-uzre-koordinatlar",
+   "name": "Metro çıxışları üzrə koordinatlar — “Bakı Metropoliteni” QSC",
+   "url": "https://opendata.az/@baki-metropoliteni/metro-cixislari-uzre-koordinatlar",
+   "badge": "official",
+   "status": "ok",
+   "date": "yeniləndi 2026-02-13; endirildi 2026-10-12",
+   "coverage": "27 stansiya, 98 çıxış",
+   "used_for": "Metro stansiyaları (OSM əvəzinə), metroya piyada məsafə — ən yaxın çıxışa",
+   "license": "Creative Commons Attribution",
+   "en": {
+    "name": "Metro exit coordinates — Baku Metro CJSC",
+    "coverage": "27 stations, 98 exits",
+    "used_for": "Metro stations (replacing OSM), walking distance to the metro, to the nearest exit",
+    "date": "updated 2026-02-13; downloaded 2026-10-12"
+   }
+  },
+  {
+   "key": "od-azerbaycanin-rayonlari",
+   "name": "Azərbaycanın rayonları — Azərbaycan Respublikasının Ekologiya və Təbii Sərvətlər Nazirliyi",
+   "url": "https://opendata.az/@azerbaycan-respublikasinin-ekologiya-ve-tebii-servetler-nazirliyi/azerbaycanin-rayonlari",
+   "badge": "official",
+   "status": "ok",
+   "date": "yeniləndi 2025-07-24; endirildi 2026-10-12",
+   "coverage": "86 poliqon; 22 rayonda OSM əvəzinə (IoU < 0.9); Bakı rayonları, Sumqayıt, Gəncə, Abşeron saxlanılıb",
+   "used_for": "Rayon sərhədləri (OSM ilə uyğunsuz olduqda)",
+   "license": "Creative Commons Attribution",
+   "en": {
+    "name": "Districts of Azerbaijan — Ministry of Ecology and Natural Resources",
+    "coverage": "86 polygons; used instead of OSM in 22 districts (IoU < 0.9); Baku districts, Sumqayıt, Gəncə and Abşeron kept",
+    "used_for": "District boundaries (where they differ from OSM)",
+    "date": "updated 2025-07-24; downloaded 2026-10-12"
+   }
+  },
+  {
+   "key": "od-stansiyalar-uzre-gundelik-sernisin-gedislerinin-sayi",
+   "name": "Metro stansiyaları üzrə gündəlik sərnişin gedişlərinin sayı - 2025, 2026 (Yanvar, Fevral)  — “Bakı Metropoliteni” QSC",
+   "url": "https://opendata.az/@baki-metropoliteni/stansiyalar-uzre-gundelik-sernisin-gedislerinin-sayi",
+   "badge": "official",
+   "status": "ok",
+   "date": "yeniləndi 2026-09-14; endirildi 2026-10-12",
+   "coverage": "2025: 27 stansiya, hər gün; 2026 faylı istifadə olunmur (gündə bir neçə izahsız sətir)",
+   "used_for": "Stansiyanın yüklənməsi: həftəiçi orta gündəlik gediş",
+   "license": "Creative Commons Attribution",
+   "en": {
+    "name": "Daily passenger trips by metro station — Baku Metro CJSC",
+    "coverage": "2025: 27 stations, daily; the 2026 file is not used (several unexplained rows per day)",
+    "used_for": "Station busyness: average weekday trips per day",
+    "date": "updated 2026-09-14; downloaded 2026-10-12"
+   }
+  },
+  {
+   "key": "od-azerbaycanda-obyektler-ve-mekanlar",
+   "name": "Azərbaycanda obyektlər və məkanlar — Azərbaycan Respublikasının Ekologiya və Təbii Sərvətlər Nazirliyi",
+   "url": "https://opendata.az/@azerbaycan-respublikasinin-ekologiya-ve-tebii-servetler-nazirliyi/azerbaycanda-obyektler-ve-mekanlar",
+   "badge": "official",
+   "status": "ok",
+   "date": "yeniləndi 2025-08-25; endirildi 2026-10-12",
+   "coverage": "11 807 obyekt (Bakı, Sumqayıt, Abşeron); 1593 “Checking” statuslu; CUSTOMIZABLE_POINT (924) nəzərə alınmır",
+   "used_for": "OSM sayları ilə müqayisə (toplanmır)",
+   "license": "Creative Commons Attribution",
+   "en": {
+    "name": "Places and facilities in Azerbaijan — Ministry of Ecology and Natural Resources",
+    "coverage": "11,807 places (Baku, Sumqayıt, Abşeron); 1593 with status “Checking”; CUSTOMIZABLE_POINT (924) ignored",
+    "used_for": "Comparison with OSM counts (not added together)",
+    "date": "updated 2025-08-25; downloaded 2026-10-12"
+   }
+  },
+  {
+   "key": "od-azerbaycanin-seherleri-ve-inzibati-erazi-vahidleri",
+   "name": "Azərbaycanın şəhərləri və inzibati ərazi vahidləri — Azərbaycan Respublikasının Ekologiya və Təbii Sərvətlər Nazirliyi",
+   "url": "https://opendata.az/@azerbaycan-respublikasinin-ekologiya-ve-tebii-servetler-nazirliyi/azerbaycanin-seherleri-ve-inzibati-erazi-vahidleri",
+   "badge": "official",
+   "status": "ok",
+   "date": "yeniləndi 2025-07-24; endirildi 2026-10-12",
+   "coverage": "4 589 yaşayış məntəqəsi (79 şəhər, 263 qəsəbə, 4 247 kənd)",
+   "used_for": "Sorğuda kənd/qəsəbə adı → rayon; ingiliscə rəsmi adlar",
+   "license": "Creative Commons Attribution",
+   "en": {
+    "name": "Cities and administrative units of Azerbaijan — Ministry of Ecology and Natural Resources",
+    "coverage": "4,589 settlements (79 cities, 263 qəsəbə, 4,247 villages)",
+    "used_for": "Village/qəsəbə name in a query → its district; official English names",
+    "date": "updated 2025-07-24; downloaded 2026-10-12"
+   }
+  },
+  {
+   "key": "od-azerbaycanin-demir-yollarinin-kordinatlari",
+   "name": "Azərbaycanın dəmir yollarının kordinatları — Azərbaycan Respublikasının Ekologiya və Təbii Sərvətlər Nazirliyi",
+   "url": "https://opendata.az/@azerbaycan-respublikasinin-ekologiya-ve-tebii-servetler-nazirliyi/azerbaycanin-demir-yollarinin-kordinatlari",
+   "badge": "official",
+   "status": "ok",
+   "date": "yeniləndi 2025-07-24; endirildi 2026-10-12",
+   "coverage": "1 872 xətt",
+   "used_for": "Ərazinin mərkəzindən ən yaxın dəmir yoluna məsafə; < 300 m — mümkün səs-küy",
+   "license": "Creative Commons Attribution",
+   "en": {
+    "name": "Railway coordinates of Azerbaijan — Ministry of Ecology and Natural Resources",
+    "coverage": "1,872 lines",
+    "used_for": "Distance from an area's centre to the nearest railway; < 300 m flagged as possible noise",
+    "date": "updated 2025-07-24; downloaded 2026-10-12"
+   }
+  },
+  {
+   "key": "od-umumi-istifadede-olan-avtomobil-yollarinin-uzunlugu-seher-ve-rayonlar-uzre",
+   "name": "Ümumi istifadədə olan avtomobil yollarının uzunluğu (Şəhər və rayonlar üzrə) — Azərbaycan Respublikasının Dövlət Statistika Komitəsi",
+   "url": "https://opendata.az/@dsk/umumi-istifadede-olan-avtomobil-yollarinin-uzunlugu-seher-ve-rayonlar-uzre",
+   "badge": "official",
+   "status": "ok",
+   "date": "yeniləndi 2026-10-09; endirildi 2026-10-12",
+   "coverage": "60 rayon, 2004–2024 (\"...\" və \"-\" = məlumat yoxdur)",
+   "used_for": "Yol sıxlığı (km / 100 km²) və 2004→2024 dəyişməsi, Bakıdan kənar",
+   "license": "Creative Commons CCZero",
+   "en": {
+    "name": "Length of public roads by city and district — State Statistics Committee",
+    "coverage": "60 districts, 2004–2024 (\"...\" and \"-\" = no data)",
+    "used_for": "Road density (km per 100 km²) and the 2004→2024 change, outside Baku",
+    "date": "updated 2026-10-09; downloaded 2026-10-12"
    }
   }
  ],

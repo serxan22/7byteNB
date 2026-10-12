@@ -59,8 +59,37 @@ add("Qiymətlər ağlabatan hədlərdə (₼/m² 200–20 000)", !badPrice.lengt
 // 7. Metro: OSM vs official list (data/manual/metro-stations.json, if present)
 const bakuMetro = az.find((r) => r.id === "az-baki").transport.metro;
 const official = fs.existsSync("data/manual/metro-stations.json") ? JSON.parse(fs.readFileSync("data/manual/metro-stations.json", "utf8")) : null;
-if (official) add("Metro stansiyaları: OSM ≈ rəsmi siyahı (±3)", Math.abs(bakuMetro - official.stations.length) <= 3, `OSM ${bakuMetro} / rəsmi ${official.stations.length} (${official.source})`, false);
-else add("Metro stansiyaları: rəsmi siyahı ilə müqayisə", false, `OSM ${bakuMetro}; rəsmi siyahı faylı yoxdur`, false);
+// stations now come from opendata.az exits (Bakı Metropoliteni); the Wikipedia list is the independent check
+const odMetro = fs.existsSync("data/processed/metro-official.json") ? JSON.parse(fs.readFileSync("data/processed/metro-official.json", "utf8")).stations : [];
+add("Metro: 27 işləyən stansiya (rəsmi çıxışlardan)", bakuMetro === 27 && odMetro.length === 27 && (!official || odMetro.every((st) => official.stations.includes(st.name))), `Bakı ${bakuMetro}, opendata ${odMetro.length} stansiya / ${odMetro.reduce((a, st) => a + st.exits.length, 0)} çıxış`);
+
+// 7a. opendata.az: counts > 0, every settlement maps to a rayon, no NaN in the new metrics
+{
+  const od = fs.existsSync("data/processed/opendata.json") ? JSON.parse(fs.readFileSync("data/processed/opendata.json", "utf8")) : null;
+  const gaz = fs.existsSync("public/data/gazetteer.json") ? JSON.parse(fs.readFileSync("public/data/gazetteer.json", "utf8")) : [];
+  const st = fs.existsSync("data/processed/settlements.json") ? JSON.parse(fs.readFileSync("data/processed/settlements.json", "utf8")) : [];
+  const ids = new Set(all.map((r) => r.id));
+  const counts = { settlements: st.length, gazetteer: (gaz.rows ?? gaz).length, rail_regions: Object.keys(od?.rail.regions ?? {}).length, roads: Object.keys(od?.roads ?? {}).length, poi_areas: Object.keys(od?.poi_check.areas ?? {}).length, metro_pax: odMetro.filter((x) => x.pax_weekday > 0).length };
+  add("opendata.az: hər dəstdə qeyd var", Object.values(counts).every((n) => n > 0), Object.entries(counts).map(([k, v]) => `${k} ${v}`).join(", "));
+  const orphans = st.filter((x) => !ids.has(x.rayon_id));
+  add("Hər yaşayış məntəqəsi (PARENT_ID) bir rayona bağlıdır", st.length > 0 && !orphans.length, orphans.slice(0, 5).map((x) => x.name).join(", ") || `${st.length} məntəqə`);
+  const bad = [];
+  for (const r of all) {
+    const o = r.official ?? {};
+    // NaN is written as null in JSON: required fields must be finite numbers, nullable ones null or finite
+    const required = [...(o.roads ? [o.roads.km, o.roads.first_km, o.roads.year] : []), ...Object.values(o.poi ?? {}).flatMap((p) => [p.osm, p.official])];
+    const nullable = [o.rail_m, o.roads?.density, o.boundary?.iou, ...(o.metro ?? []).map((m) => m.pax_weekday)];
+    if (required.some((v) => !Number.isFinite(v)) || nullable.some((v) => v != null && !Number.isFinite(v))) bad.push(r.id);
+  }
+  add("Yeni rəsmi göstəricilərdə NaN yoxdur", !bad.length, bad.join(", ") || "yoxdur");
+  // gazetteer: lowercase village names resolve; common words that are also village names ("3 otaqlı") do not
+  const { gazetteerLocations, locationCatalog } = await import("../src/lib/decide.ts");
+  const gz = JSON.parse(fs.readFileSync("public/data/gazetteer.json", "utf8"));
+  const cat = locationCatalog(all, JSON.parse(fs.readFileSync("public/data/mahalle.json", "utf8")));
+  const probes = [["xınalıqda ev", ["az-quba"]], ["lahıcda bağ evi", ["az-ismayilli"]], ["3 otaqlı mənzil", []], ["yeni tikili", []], ["kirayə ev", []]];
+  const wrong = probes.filter(([q, exp]) => JSON.stringify(gazetteerLocations(q, gz, cat, [])) !== JSON.stringify(exp)).map(([q]) => q);
+  add("Gazetteer: kiçik hərflə kənd adı tapılır, adi sözlər kənd sayılmır", !wrong.length, wrong.join(", ") || `${probes.length} yoxlama`);
+}
 
 // 7b. Honeycomb: every hex piece lies inside its parent region; summed piece area ≈ region area (±3%)
 {
