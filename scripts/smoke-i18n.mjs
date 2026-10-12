@@ -14,7 +14,7 @@ const ok = (name, pass, detail = "") => {
 };
 
 // Lowercase words with Azerbaijani letters, outside “quoted phrases”. Official street-name parts are allowed.
-const ALLOWED = new Set(["küçəsi", "prospekti", "şossesi", "qəsəbəsi", "bulvarı", "meydanı", "döngəsi", "yolu", "çıxarış", "kupça", "məhəllə", "rayon"]);
+const ALLOWED = new Set(["küçəsi", "küç", "prospekti", "şossesi", "qəsəbəsi", "bulvarı", "meydanı", "döngəsi", "yolu", "çıxarış", "kupça", "məhəllə", "rayon"]);
 const scan = () =>
   page.evaluate(() => {
     const out = new Set();
