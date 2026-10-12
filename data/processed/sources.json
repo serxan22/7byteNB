@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-12T12:14:41.727Z",
+ "generated_at": "2026-10-12T12:20:10.238Z",
  "datasets": [
   {
    "key": "osm",
@@ -278,8 +278,8 @@
    "license": "Creative Commons Attribution",
    "en": {
     "name": "Cities and administrative units of Azerbaijan — Ministry of Ecology and Natural Resources",
-    "coverage": "4,589 settlements (79 cities, 263 qəsəbə, 4,247 villages)",
-    "used_for": "Village/qəsəbə name in a query → its district; official English names",
+    "coverage": "4,589 settlements (79 cities, 263 “qəsəbə” (urban-type settlements), 4,247 villages)",
+    "used_for": "A village or “qəsəbə” name in a query → its district; official English names",
     "date": "updated 2025-07-24; downloaded 2026-10-12"
    }
   },
